@@ -1,0 +1,46 @@
+A ordem de comandos para enviar para o repositorio e:
+1)Adicionar arquivos a serem 'comitados'
+2)Commit
+3)Pull
+4)Push
+
+Caso nao seja feito assim os arquivos poderao ser sobrescritos!!!
+
+=================================================================
+===== Verificar situação desde de o ultimo PULL
+==
+=====
+
+	git status
+
+=================================================================
+===== Adicionando arquivos
+==
+=====
+
+	git add . //adiciona todos os arquivos.
+	git add <nome pasta>/   //adiciona a pasta para o comitt
+
+
+=================================================================
+===== Dando commit no repositório local
+==
+=====
+
+	git commit -m "task#x: <comentario>."
+
+=================================================================
+===== Dando push no repositório (ENVIAR para repositorio remoto)
+==
+=====
+
+	git push
+
+=================================================================
+===== Dando pull no repositório (PEGAR do repositorio remoto)
+==
+=====
+
+	git push
+
+=================================================================
