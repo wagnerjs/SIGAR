@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.prime.com.tr/ui">
+        
+<f:view contentType="text/html">
+<h:head>
+        <title>
+                <ui:insert name="title">#{bundle['aboutFreya']}</ui:insert>
+        </title>
+    <link rel="shortcut icon" href="Imagens/HP-Projector.ico"/>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+                <link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/#{guestPreferences.theme}/skin.css" />
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/roller/ui-darkness/theme.css" />
+        <style type="text/css">
+                .ui-widget {
+                        font-size: 75%;
+                        
+                }
+                
+                .themeMenu {
+                        overflow: auto;
+                        height:300px;
+                        width:200px;
+                }
+
+        .ui-layout-north {
+            z-index:20 !important;
+            overflow:visible;
+        }
+
+        .ui-layout-north .ui-layout-unit-content {
+            overflow:visible;
+        }
+        </style>
+</h:head>
+<h:body>
+         <p:layout fullPage="true">  
+      
+    <p:layoutUnit position="top" width="102" height="110"  resizable="false" closable="false" collapsible="false">  
+     <p:graphicImage width="1270" height="100" value="/Imagens/header2.jpg" /> 
+     
+    </p:layoutUnit>  
+             
+    
+      
+      
+    <p:layoutUnit position="left" width="284" height="200" header="Menu" resizable="false" closable="false" collapsible="false">  
+       <p:accordionPanel event="mouseover" autoHeight="false">  
+    <p:tab title="#{bundle['campoacesso']}">  
+        
+                 <h:form>  
+        <p:growl id="growl" showDetail="true"/>  
+    <p:menu position="left" style="width:200px;height:140px;">
+            
+            <p:menuitem value="#{bundle['campoprincipal']}" url="/" icon="ui-icon ui-icon-home"/>
+            <p:menuitem value="#{bundle['campocadastrar']}" url="/faces/NewUser.xhtml" icon="ui-icon ui-icon-plus"/>
+            <p:menuitem value="#{bundle['camposolicitar']}" url="/faces/SolicitarReserva.xhtml" icon="ui-icon ui-icon-pencil"/>
+            <p:menuitem value="#{bundle['campoconsultar']}" url="/faces/ConsultarReserva.xhtml" icon="ui-icon ui-icon-search"/>
+            <p:menuitem value="#{bundle['camposobre']}" url="sobre.xhtml" icon="ui-icon ui-icon-help"/>
+           
+    
+    </p:menu>
+
+    </h:form>  
+
+
+        
+    </p:tab>  
+    <p:tab title="#{bundle['CampoCalendario']}">  
+        <h:panelGrid columns="0" cellpadding="0">  
+                  <p:calendar value="#{calendarBean.date1}" mode="inline"/> 
+        </h:panelGrid>  
+    </p:tab>  
+    
+</p:accordionPanel>  
+    </p:layoutUnit>  
+      
+     <p:layoutUnit position="right" width="300" header="#{bundle['campoLink']}" resizable="false" closable="false" collapsible="false">  
+        <p:accordionPanel event="mouseover" autoHeight="false"> 
+       <p:tab title="#{bundle['campoUnb']}">  
+        
+                 <h:form>  
+        <p:growl id="growl" showDetail="true"/>  
+    <p:menu position="center" style="width:200px;height:165px;">
+            
+            <p:menuitem value="#{bundle['campoUnb']}" url="http://www.unb.br" icon="ui-icon ui-icon-home"/>
+            <p:menuitem value="#{bundle['campoGama']}" url="http://www.fga.unb.br" icon="ui-icon ui-icon-star"/>
+            <p:menuitem value="#{bundle['campoMoodle']}" url="http://www.aprender.unb.br/gama" icon="ui-icon ui-icon-star"/>
+            <p:menuitem value="#{bundle['campoMatriculaWeb']}" url="http://www.matriculaweb.unb.br/matriculaweb/" icon="ui-icon ui-icon-star"/>
+            <p:menuitem value="#{bundle['campobiblioteca']}" url="http://www.bce.unb.br/" icon="ui-icon ui-icon-star"/>
+            <p:menuitem value="#{bundle['campoacademicocalendário']}" url="http://www.unb.br/administracao/secretarias/saa/calendarios.php" icon="ui-icon ui-icon-star"/>
+            
+           
+    
+    </p:menu>
+
+    </h:form>  
+
+
+        
+    </p:tab>  
+    <p:tab title="#{bundle['campoCNPQ']}">  
+        <h:panelGrid columns="0" cellpadding="0">  
+          
+                 <h:form>  
+        <p:growl id="growl" showDetail="true"/>  
+    <p:menu position="left" style="width:200px;height:80px;">
+            
+            <p:menuitem value="#{bundle['campoCNPQ']}" url="http://www.cnpq.br/" icon="ui-icon ui-star"/>
+            <p:menuitem value="#{bundle['campolattes']}" url="http://lattes.cnpq.br/" icon="ui-icon ui-icon-star"/>
+            <p:menuitem value="#{bundle['campoeditais']}" url="http://www.cnpq.br/editais/index.htm" icon="ui-icon ui-icon-star"/>
+                
+            
+           
+    
+    </p:menu>
+
+    </h:form>  
+                
+        </h:panelGrid>  
+    </p:tab>  
+    <p:tab title="Google">  
+        <h:panelGrid columns="0" cellpadding="0">  
+          
+                 <h:form>  
+        <p:growl id="growl" showDetail="true"/>  
+    <p:menu position="left" style="width:200px;height:110px;">
+            
+            <p:menuitem value="#{bundle['campogoogle']}" url="http://www.google.com.br/" icon="ui-icon ui-icon-search"/>
+            <p:menuitem value="#{bundle['campogmail']}" url="http://www.google.com.br/mail" icon="ui-icon ui-icon-star"/>
+            <p:menuitem value="#{bundle['campogoogleacademico']}" url="http://scholar.google.com.br" icon="ui-icon ui-icon-star"/>
+            <p:menuitem value="#{bundle['campogoogledocs']}" url="https://docs.google.com" icon="ui-icon ui-icon-star"/>
+                
+     
+    
+    </p:menu>
+
+    </h:form>  
+                
+        </h:panelGrid>  
+    </p:tab>  
+          </p:accordionPanel>  
+    </p:layoutUnit>  
+      
+    <p:layoutUnit position="center">  
+        <p:breadCrumb >  
+    <p:menuitem value="Categories" url="/"  />
+    <p:menuitem value="#{bundle['camposobre']}" url="sobre.xhtml"/>
+   
+      
+</p:breadCrumb> 
+        <p:panel header="#{bundle['campoferramenta']}">
+	<h:outputText style="text-align: center"
+                      value="Freya Lab é uma ferramenta de 
+      Alocações de Salas que tem como objetivo melhor a distribuição de Salas e Laboratórios na Faculdade Unb Gama" />
+        
+        
+        
+        
+        
+        
+        </p:panel>
+        <h:form id="form">
+
+    <p:panel header="#{bundle['campodesenvolvedores']}">  
+    
+    <h:outputText value="Danilo Maia Rodrigues" />
+    <p:spacer width="400" height="0" />
+    <h:outputText value="Guilherme Baufaker Rêgo" />
+    <p:spacer width="350" height="0" />
+    <h:outputText value="Guilherme Carvalho Muniz" />
+    <p:spacer width="370" height="0" />
+     <h:outputText value="Yuri Moraes Motta" />
+</p:panel>  
+
+
+
+</h:form>
+                    
+    </p:layoutUnit>
+             
+            
+             <p:layoutUnit position="bottom" height="0"  resizable="false" closable="false" collapsible="false">  
+       <h:form>
+   
+
+    
+
+           </h:form>
+    </p:layoutUnit>  
+</p:layout>         
+       
+        
+</h:body>
+
+</f:view>
+</html>
