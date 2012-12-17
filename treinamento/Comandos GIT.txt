@@ -41,6 +41,6 @@ Caso nao seja feito assim os arquivos poderao ser sobrescritos!!!
 ==
 =====
 
-	git push
+	git pull
 
 =================================================================
