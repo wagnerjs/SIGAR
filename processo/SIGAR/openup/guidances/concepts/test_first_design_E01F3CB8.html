@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Concept: Design Teste-primeiro</title>
+<meta name="uma.type" content="Concept">
+<meta name="uma.name" content="test_first_design">
+<meta name="uma.presentationName" content="Design Teste-primeiro">
+<meta name="element_type" content="concept">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_s7YkUBD2EdyfbNOwzwtrjw"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Concept: Design Teste-primeiro</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/concept.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Este conceito descreve uma técnica para manter o design de teste cronologicamente alinhado com o design de software.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/development_B5D1D8A.html" guid="_0TeDoMlgEdmt3adZL5Dmdw">Desenvolvimento</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/test_first_design_21C77ADF.html" guid="_0Y6kUMlgEdmt3adZL5Dmdw">Design Teste-primeiro</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/run_developer_tests_73D7DBC4.html" guid="_0iYCUMlgEdmt3adZL5Dmdw">Executar os Testes de Desenvolvedor</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/implement_solution_5D5698C8.html" guid="_0hyzgMlgEdmt3adZL5Dmdw">Implementar a Solução</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/impl_developer_tests_F186F76F.html" guid="_0iL1EMlgEdmt3adZL5Dmdw">Implementar os Testes de Desenvolvedor</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>O design teste-primeiro é uma prática de criação concorrente de testes de desenvolvedor e de código de implementação, com alto nível de detalhamento.</p>
+<p>No design teste-primeiro, o desenvolvedor escreve primeiro uma pequena parte de um teste de desenvolvedor e, em seguida, escreve código suficiente apenas para fazer esse teste de desenvolvedor compilar e executar. Então ele escrever um pouco mais do teste e acrescenta código suficiente para fazer com que esse novo teste compile e execute com sucesso. Este ciclo pode durar de 30 segundos a cinco minutos. Raramente alcança dez minutos. Em cada ciclo, os testes vêm em primeiro lugar. Uma vez que um teste de unidade seja feito, o desenvolvedor vai para o próximo teste até que não haja mais testes a serem escritos para a implementação do item de trabalho que está atualmente em desenvolvimento.</p>
+<p>A prática do design teste-primeiro altera a forma como o desenvolvedor pensa. Os testes não são escritos como uma conseqüência. Ao invés, os testes de desenvolvedor são escritos como parte da forma de construção de software diária e instantânea.</p>
+<p>Quais são as vantagens do design teste-primeiro?</p>
+<ol>
+    <li>Os pressupostos no design são analisados antes da implementação de código. Para escrever os testes de desenvolvedor, um exame deve ser feito no comportamento de cada pedaço de código a ser escrito, comportamentos corretos e incorretos devem ser definidos. De certa forma, escrever os testes antes do código pode ser considerado como uma versão de design detalhado.</li>
+    <li>As unidades de código concebidas para serem testadas no início são mais limpas e menos acopladas.</li>
+    <li>Os erros são encontrados cedo. Os erros ou brechas nos requisitos e no design são identificados antes da codificação começar quando poderia ser mais tentador avançar baseado em suposições.</li>
+    <li>Uma clara estratégia de colaboração entre o desenvolvedor e as pessoas responsáveis pelos requisitos, pela arquitetura e pelo design é posta em prática. Durante a criação dos testes, deverá haver uma reunião a respeito do que foi especificado. Depois disso, a implementação pode continuar com a confiança de que existe uma visão compartilhada do que o código deve fazer.</li>
+    <li>Existem critérios inequívocos para a conclusão do código. Quando os testes executam com sucesso, o código está funcionando, conforme especificado. As dimensões de qualidade não-funcionais podem ser tratadas separadamente, mas existe um momento bem definido em que o código se comporta corretamente.</li>
+    <li>A técnica direciona o desenvolvedor para trabalhar em pequenos incrementos com retorno rápido e de qualidade. A qualquer momento, o desenvolvedor estará apenas a um teste de ter o código livre de erro.</li>
+    <li>Existe uma separação das preocupações e esforços entre obter código funcional e melhorar a qualidade do código que já está funcionando corretamente. A separação destas duas áreas de preocupação fornece foco e suporte de gestão de tempo para um desenvolvedor que em um passo faça a implementação passar no teste o mais simples possível e, em um passo posterior, busque por áreas para melhoria.</li>
+</ol></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

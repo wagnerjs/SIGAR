@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Programando Testes Automatizados</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="programming_automated_tests">
+<meta name="uma.presentationName" content="Programando Testes Automatizados">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_0j5sUMlgEdmt3adZL5Dmdw"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Programando Testes Automatizados</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz discute formas de estruturar, gravar, inserir dados, executar e tratar erros em testes automatizados.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/tasks/run_developer_tests_73D7DBC4.html" guid="_0iYCUMlgEdmt3adZL5Dmdw">Executar os Testes de Desenvolvedor</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/implement_test_scripts_26F00282.html" guid="_0jO98MlgEdmt3adZL5Dmdw">Implementar os Scripts de Teste</a>
+</li>
+<li>
+<a href="./../../../openup/workproducts/test_script_39A30BA2.html" guid="_0ZfMEMlgEdmt3adZL5Dmdw">Script de Teste</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/test_FB85069.html" guid="_0TkKQMlgEdmt3adZL5Dmdw">Teste</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><h3>Introdução</h3>
+<p>Embora a programação de testes automatizados deva contribuir com o esforço de teste como um todo, geralmente não realiza todo esforço de teste. De fato, ambientes de teste que são baseados em uma abordagem de total automação terminam gastando mais tempo em automação de teste do que testando. Antes de você começar a desenvolver scripts de teste automatizado, considere se é mais eficiente executar testes manuais. Alguns aspectos de uma aplicação são testados com mais eficiência manualmente (por exemplo, teste pela interface gráfica para o usuário versus teste pela manipulação de dados). Se você decidir programar scripts de teste automatizados, examine quais aspectos da criação de script de teste podem ser automatizados e comece a projetar seus scripts.</p>
+<h3>Projete seus testes automatizados</h3>
+<p>Sem algum nível de design de seus testes automatizados, introduzir automação em seu esforço de teste pode levar a mais problemas do que resolvê-los. Você deve considerar o desenvolvimento dos seus testes automatizados de acordo com um ciclo de vida com requisitos, design, implementação e teste da automação dos testes. Esta abordagem pode ser formal ou informal dependendo das necessidades de seu projeto. Efetuando o design da programação de seus testes automatizados, você pode evitar gastar tempo programando testes errados, re-trabalhando testes programados, decifrando diferentes estilos de codificação na programação dos testes, etc.</p>
+<h3>Scripts gravados versus programados</h3>
+<p>Ainda que existam benefícios claros em gravar scripts (por exemplo, a facilidade de criação ou a capacidade de testadores novatos aprenderem a linguagem de programação de script), os scripts gravados também apresentam seus próprios problemas. As desvantagens de executar scripts gravados são bem conhecidas. Eles são fáceis de criar, mas muito difíceis de atualizar. Problemas com a confiabilidade do script, dados embutidos no código ou mudanças na aplicação a ser testada gerando a necessidade de recriá-los estão bem documentadas. Por outro lado, programar scripts pode apresentar muitas dificuldades: eles são difíceis de criar para um testador novato, eles podem requerer tempo e esforço consideráveis para serem desenvolvidos, e podem ser difíceis de depurar. A maior parte das ferramentas de teste torna estas dificuldades menos problemáticas fornecendo ao testador funcionalidades de suporte a programação de script, tais como formas de estabelecer listas de alvos de teste, formas sistemáticas de definir pontos de verificação, selecionar datapools, construir comandos no script (por exemplo, comando de sleeper), comentar e documentar o script. Outra grande vantagem, que frequentemente passa despercebida, do uso das ferramentas de teste para atenuar estes riscos é a habilidade de adicionar um script existente na forma de fazer correções em um script existente, testar novas características de um alvo de teste ou na aplicação sob teste, ou continuar uma gravação depois de uma interrupção.</p>
+<h3>Scripts de testes funcionais e de desempenho</h3>
+<p>Quando discutimos automação de scripts de testes, é importante distinguir entre testes funcionais e de desempenho. A maior parte das discussões sobre programação de scripts de testes automatizados foca no teste da funcionalidade de uma aplicação. Isto não é incorreto, já que muitos testes automatizados focam testes funcionais. A programação de scripts de testes de desempenho, entretanto, possui características únicas. A automatização de testes de desempenho fornece a habilidade de programaticamente selecionar cargas de trabalho adicionando grupos de usuários para testar a carga sobre uso em grupo, definindo comportamento de tempo para pensar, executando testes aleatórios ou a uma taxa definida, ou definindo a duração de uma execução. A automação de testes de desempenho também permite que você crie e mantenha agendamentos para seus testes.</p>
+<h3>Testando scripts de teste</h3>
+<p>Quando estiver testando seus scripts de testes, verifique se você está testando scripts de teste gravados ou programados. Para scripts gravados, boa parte do trabalho de depuração do script consiste em erros que são introduzidos devido a mudanças no alvo de teste ou no ambiente de teste. Quando você executa um script de teste gravado, considere o alvo de teste do script. Algumas ferramentas de automação de teste capturam esta informação como parte do script de teste. Depurar um script de testes gravado consiste muito em determinar se mudanças feitas no alvo de teste criaram condições de erro no script. Em geral, há duas categorias principais a serem examinadas neste caso: mudanças na Interface de Usuário e nos dados sensíveis da sessão de testes (por exemplo, dado com data atual). Na maioria dos casos, discrepâncias entre a gravação e a execução causam erros em seus scripts de teste gravados.</p>
+<p>Testar scripts de testes programados envolve muitas das mesmas técnicas de depuração que você aplica para depurar uma aplicação. Considere tanto a lógica de controle de fluxo como os aspectos de dados do seu script. Ferramentas de testes automatizados fornecem IDEs para depuração de scripts assim como funcionalidades para tratamento de datapool que facilitam este tipo de testes. Duramente a execução de scripts de testes, um teste que usa um datapool pode substituir valores nos testes programados com dados de teste variados que estão armazenados no datapool.</p></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

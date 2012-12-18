@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Dividir em camadas</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="layering">
+<meta name="uma.presentationName" content="Dividir em camadas">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_0gpkAMlgEdmt3adZL5Dmdw"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Dividir em camadas</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Orientação das formas possíveis para dividir o sistema.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/architecture_1F9C65DA.html" guid="_0TX9AMlgEdmt3adZL5Dmdw">Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/workproducts/architecture_notebook_9BB92433.html" guid="_0XAf0MlgEdmt3adZL5Dmdw">Caderno de Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/outline_the_architecture_35F1530A.html" guid="_42UD4A3tEduibvKwrGxWxA">Descrever a Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/outline_the_architecture_FF123A81.html" guid="_0f-1oMlgEdmt3adZL5Dmdw">Descrever a Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/software_reuse_B6B04C26.html" guid="_vO2uoO0OEduUpsu85bVhiQ">Reutilização de Software</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>Dividir em camadas distribui logicamente o sistema em conjuntos de subsistemas, com determinadas regras a respeito de como os relacionamentos podem ser formados entre eles. Dividir em camadas fornece uma maneira de restringir as dependências inter-subsistema, resultando em um sistema com pouco acoplamento e, conseqüentemente, de mais fácil manutenção.</p>
+<p>Considere a quantidade e a finalidade das camadas com cuidado. Não complique demasiadamente a solução definindo mais camadas do que o necessário para atender as necessidades da solução. Mais camadas podem sempre ser adicionadas no futuro para atender novos requisitos. Remover as camadas não é sempre tão fácil e pode introduzir riscos no projeto.</p>
+<p>Os critérios para agrupar subsistemas seguem alguns padrões:</p>
+<ul>
+    <li>
+        <b>Visibilidade</b>: Os subsistemas devem depender somente dos subsistemas na mesma camada e na próxima camada inferior.</li>
+    <li>
+        <b>Volatilidade</b>: 
+        <ul>
+            <li>
+                <b>Nas camadas mais altas</b>, coloque os elementos que variam quando os requisitos de usuário mudam.</li>
+            <li>
+                <b>Nas camadas mais baixas</b>, coloque os elementos que variam quando a plataforma de implementação muda (hardware, linguagem, sistema operacional, base de dados, etc).</li>
+            <li>
+                <strong>Nas camadas intermediárias</strong>, coloque os elementos que são geralmente aplicáveis a uma grande quantidade de sistemas e ambientes de implementação.</li>
+            <li>
+                <strong>Adicione camadas</strong> quando divisões adicionais dentro destas categorias ajudarem a organizar o modelo.</li>
+        </ul>
+    </li>
+    <li>
+        <b>Generalidade</b>: Os elementos abstratos do modelo tendem a ser colocados na parte mais baixa do modelo. Se eles não forem especificamente de implementação, tenderão a ser movidos para as camadas intermediarias.</li>
+    <li>
+        <b>Quantidade de camadas.</b> Para um sistema pequeno, três camadas são normalmente suficientes. Uma arquitetura em três camadas com Apresentação, Negócio e Dados é muito comum em sistemas de informação. Para um sistema complexo, cinco a sete camadas devem ser apropriadas. Para qualquer grau de complexidade, mais de 10 camadas devem ser visualizadas com suspeita de incremento na quantidade de camadas.</li>
+</ul>
+<p>A falha em restringir dependências de acordo com os critérios de Visibilidade mencionados acima pode causar degradação arquitetural e tornar o sistema difícil de estender e manter.</p>
+<p>As exceções permitidas à regra de visibilidade incluem os casos onde os subsistemas necessitem ter acesso direto aos serviços das camadas inferiores que estão além da camada inferior mais próxima. Tome uma decisão sobre como tratar serviços primitivos que são necessários em todo o sistema, tal como impressão, emissão de mensagens, etc. É de pouco valor restringir as mensagens para as camadas inferiores se a solução tiver que implementar eficazmente chamadas pass-through nas camadas intermediárias. Este uso de regras menos rigorosas nas dependências entre as camadas é por vezes chamado de Arquitetura em Camadas Relaxada (<a class="elementlinkwithusertext" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#BUS96" guid="_9ToeIB83Edqsvps02rpOOg">[BUS96]</a>).</p>
+<h4>
+    <a id="PartitioningPatterns" name="PartitioningPatterns">Padrões de divisão</a>
+</h4>
+<p>Nas camadas superiores do sistema, uma divisão adicional pode ajudar a organizar o modelo. As diretrizes para divisão a seguir apresentam diferentes questões a serem consideradas:</p>
+<p>
+    <b>Organização do usuário</b>: Os subsistemas podem ser organizados ao longo de linhas que espelhem a organização da funcionalidade na estrutura do negócio (a divisão ocorre ao longo de linhas departamentais ou de papéis de usuários). Esta divisão ocorre frequentemente cedo no design por causa de um modelo de negócio existente que é fortemente dividido de acordo com a estrutura da organização. Este padrão normalmente só afeta algumas camadas superiores de serviços específicos da aplicação e normalmente desaparece à medida que o design evolui.</p>
+<ul>
+    <li>
+        <p>Dividir ao longo das linhas de organização do usuário pode ser um bom ponto de partida para o modelo.</p>
+    </li>
+    <li>
+        <p>A estrutura de organização do usuário não é estável em um longo período de tempo por causa das reorganizações no negócio; conseqüentemente, não é uma boa base de longo prazo para a divisão do sistema. A organização interna do sistema deve permitir que o sistema evolua e seja mantido independentemente da estrutura de negócio que ele suporta.</p>
+    </li>
+</ul>
+<p>
+    <b>Áreas de competência e habilidades</b>: Os subsistemas podem ser organizados para dividir as responsabilidades para partes do modelo entre grupos diferentes dentro da organização do desenvolvimento. Tipicamente, isto ocorre nas camadas intermediárias e inferiores do sistema, e reflete a necessidade para especialização nas habilidades durante o desenvolvimento e suporte de uma infra-estrutura baseada em tecnologia complexa. Exemplos de tais tecnologias incluem a gestão de rede e de distribuição, a gestão de base de dados, a gestão de comunicação, o controle de processo, entre outros. A divisão ao longo das linhas de competência pode também ocorrer nas camadas superiores, onde competência especial no domínio do problema é requerida para compreender e suportar a principal funcionalidade do negócio. Alguns exemplos são: a gestão de chamada de telecomunicação, negociação de seguros, processos de reivindicações de seguro e controle de tráfego aéreo.</p>
+<p>
+    <b>Distribuição do sistema</b>: Qualquer camada do sistema pode ser mais dividida horizontalmente para refletir a distribuição da funcionalidade.</p>
+<ul>
+    <li>
+        <p>A divisão para refletir a distribuição da funcionalidade pode lhe ajudar a visualizar a comunicação de rede que ocorrerá quando o sistema for executado.</p>
+    </li>
+    <li>
+        <p>A divisão para refletir a distribuição pode também tornar o sistema mais difícil de alterar se o modelo de implantação mudar significativamente.</p>
+    </li>
+</ul>
+<p>
+    <b>Áreas Secretas</b>: Algumas aplicações, especialmente aquelas que necessitam de segurança especial para desenvolvimento ou suporte de forma isolada, requerem a uma divisão adicional de acordo com os privilégios de acesso de segurança. O software que controla os acessos às áreas secretas deve ser desenvolvido e mantido por pessoal com isolamento apropriado. Se a quantidade de pessoas no projeto com este conhecimento for limitada, a funcionalidade que requer o isolamento especial deve ser dividida em subsistemas que serão desenvolvidos independentemente dos outros subsistemas, com as interfaces às áreas secretas sendo o único aspecto visível destes subsistemas.</p>
+<p>
+    <b>Áreas de Variabilidade</b>: A funcionalidade que provavelmente será opcional, e conseqüentemente entregue somente em algumas variantes do sistema, deve ser organizada em subsistemas independentes que serão desenvolvidos e entregues independentemente da principal funcionalidade do sistema.</p></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/pattern_10BE6D96.html" guid="_0YJvUMlgEdmt3adZL5Dmdw">Padrão</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

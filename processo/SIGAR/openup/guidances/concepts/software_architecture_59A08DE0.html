@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Concept: Arquitetura de Software</title>
+<meta name="uma.type" content="Concept">
+<meta name="uma.name" content="software_architecture">
+<meta name="uma.presentationName" content="Arquitetura de Software">
+<meta name="element_type" content="concept">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="__O7tAMVvEduLYZUGfgZrkQ"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Concept: Arquitetura de Software</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/concept.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">A arquitetura de software representa a estrutura ou as estruturas do sistema, o que consiste em componentes de software, propriedades externamente visíveis dos componentes e os relacionamentos entre eles.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/roles/architect_E7A12309.html" guid="_0X9iEMlgEdmt3adZL5Dmdw">Arquiteto</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/architecture_1F9C65DA.html" guid="_0TX9AMlgEdmt3adZL5Dmdw">Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/executable_architecture_D4E68CBD.html" guid="_O1kAANvfEduv2KOT-Teh6w">Arquitetura Executável</a>
+</li>
+<li>
+<a href="./../../../openup/workproducts/architecture_notebook_9BB92433.html" guid="_0XAf0MlgEdmt3adZL5Dmdw">Caderno de Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/outline_the_architecture_FF123A81.html" guid="_0f-1oMlgEdmt3adZL5Dmdw">Descrever a Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/design_E36137FA.html" guid="_bFjlAPTYEduDKIuqTXQ8SA">Design</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/core_principle_focus_346C6FAF.html" guid="_9gocwMvoEdqukPpotm3DYg">Focar na arquitetura, o mais cedo possível, para reduzir o risco e organizar o desenvolvimento.</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/refine_the_architecture_7723A69E.html" guid="_0gRJgMlgEdmt3adZL5Dmdw">Refinar a Arquitetura</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><h1>Introdução</h1>
+<p>A arquitetura de software é um conceito fácil de compreender e que a maioria dos engenheiros conhece intuitivamente, especialmente os que têm pouca experiência, mas é difícil de definir com precisão. Em particular, é difícil traçar uma linha reta entre o design e a arquitetura - a arquitetura é um aspecto do design que se concentra em algumas características específicas.</p>
+<p>Em <i>Uma Introdução à Arquitetura de Software</i>, David Garlan e Mary Shaw sugerem que a arquitetura de software é um nível de design preocupado com a seguinte questão: "Além dos algoritmos e das estruturas de dados de computação; o design e a especificação da estrutura total do sistema emergem como um novo tipo de problema". As questões estruturais incluem a organização básica e a estrutura global de controle; os protocolos para comunicação, a sincronização e o acesso aos dados; a atribuição das funcionalidades aos elementos de design; a distribuição física; a composição de elementos de design; a característica escalar e o desempenho; e a seleção entre as alternativas de design." <a class="elementlinkwithusertext" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#GAR93" guid="_9ToeIB83Edqsvps02rpOOg">[GAR93]</a>
+</p>
+<p>Mas existe mais na arquitetura do que apenas a estrutura; o "IEEE Working Group on Architecture" define-a como "o conceito de mais alto nível de um sistema em seu ambiente" <a class="elementlinkwithusertext" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#IEP1471" guid="_9ToeIB83Edqsvps02rpOOg">[IEP1471]</a>. Abrange também o "adaptar-se" à integridade do sistema, com restrições econômicas, com interesses estéticos, e com estilo. Não é limitada a um foco interno, mas leva em consideração o sistema como um todo em seu ambiente de usuário e em seu ambiente de desenvolvimento - como um foco externo.</p>
+<p>Neste processo, a arquitetura de um sistema de software (em um dado ponto) é a organização ou a estrutura dos componentes significativos do sistema que interagem através das interfaces, com os componentes compostos de componentes sucessivamente menores e de interfaces.</p>
+<h1>Descrição da Arquitetura</h1>
+<p>Para falar e raciocinar sobre a arquitetura de software, você deve primeiramente definir uma representação arquitetural, uma forma de descrever aspectos importantes de uma arquitetura. Esta descrição é capturada no <a class="elementLinkWithType" href="./../../../openup/workproducts/architecture_notebook_9BB92433.html" guid="_0XAf0MlgEdmt3adZL5Dmdw">Artifact: Caderno de Arquitetura</a>.</p>
+<h1>Visões Arquiteturais</h1>
+<p>A arquitetura de software pode ser representada em visões arquiteturais múltiplas. Cada visão arquitetural representa um determinado conjunto de interesses específico aos Stakeholders no processo de desenvolvimento: usuários, designers, gerentes, engenheiros de sistema, mantedores, etc.</p>
+<p>As visões capturam as principais decisões estruturais de design pela demonstração de como a arquitetura de software está estruturada em componentes, e como os componentes são conectados para produzir formas úteis <a class="elementlinkwithusertext" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#DEW92" guid="_9ToeIB83Edqsvps02rpOOg">[DEW92]</a>. Estas escolhas de design devem estar relacionadas aos Requisitos funcionais e suplementares e a outras restrições. Mas estas escolhas, por sua vez, adicionam mais restrições aos requisitos e as futuras decisões de design em um menor nível.</p>
+<h1>Foco Arquitetural</h1>
+<p>Embora as visões acima possam representar todo o design de um sistema, a arquitetura só se preocupa com alguns aspectos específicos:</p>
+<ul>
+    <li>
+        <b>A estrutura do modelo</b>: os padrões organizacionais, por exemplo, a Divisão em Camadas</li>
+    <li>
+        <b>Os elementos essenciais</b>: casos de uso críticos, principais classes, mecanismos comuns, etc, ao contrário de todos os elementos presentes no modelo.</li>
+    <li>
+        <b>Alguns cenários principais</b> que mostram os principais fluxos de controle de todo o sistema.</li>
+    <li>
+        <b>Os serviços</b> para capturar a capacidade de divisão em módulos, características opcionais e aspectos de produtos de linha.</li>
+</ul>
+<p>Essencialmente, as visões arquiteturais são abstrações (ou simplificações) de todo o design, nas quais as características importantes estão mais visíveis deixando os detalhes de lado. Estas características são importantes quando se raciocina sobre:</p>
+<ul>
+    <li>Evolução do sistema: indo para o ciclo de desenvolvimento seguinte.</li>
+    <li>Reuso da arquitetura, ou partes dela, no contexto de uma linha de produto.</li>
+    <li>Avaliação da qualidade suplementar tal como desempenho, disponibilidade, portabilidade e segurança.</li>
+    <li>Atribuição do trabalho de desenvolvimento às equipes ou aos sub-contratados.</li>
+    <li>Decisões a respeito da inclusão de componentes prontos.</li>
+    <li>Inserção em um sistema maior.</li>
+</ul>
+<h1>Padrões Arquiteturais</h1>
+<p>Os padrões Arquiteturais são formas pré-prontas para resolver problemas Arquiteturais conhecidos. Uma estrutura arquitetural ou uma infra-estrutura Arquitetural (middleware) é um conjunto de componentes com os quais você pode construir um determinado tipo de arquitetura. Muitas das principais dificuldades arquiteturais devem ser resolvidas na estrutura ou na infra-estrutura, geralmente direcionada a um domínio específico: comando e controle, MIS, sistema de controle, etc.</p>
+<h2>Exemplos de padrões Arquiteturais</h2>
+<p>
+    <a class="elementlinkwithusertext" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#BUS96" guid="_9ToeIB83Edqsvps02rpOOg">[BUS96]</a> agrupa os padrões arquiteturais de acordo com as características dos sistemas nos quais eles são mais aplicáveis, com uma categoria que trata das questões estruturais mais gerais. A tabela a seguir mostra as categorias apresentadas em <a class="elementlinkwithusertext" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#BUS96" guid="_9ToeIB83Edqsvps02rpOOg">[BUS96]</a> e os padrões que elas contêm.</p>
+<div align="center">
+    <table     style="BORDER-RIGHT: rgb(128,128,128) 1px solid; BORDER-TOP: rgb(128,128,128) 1px solid; BORDER-LEFT: rgb(128,128,128) 1px solid; BORDER-BOTTOM: rgb(128,128,128) 1px solid"      cellspacing="0" bordercolordark="#808080" cellpadding="4" width="85%" bordercolorlight="#808080" border="1">
+        <tbody>
+            <tr>
+                <th id="col1" width="50%">Categoria</th>
+                <th id="col2" width="50%">Padrão</th>
+            </tr>
+            <tr>
+                <th id="row2" align="left" headers="col1" width="50%" rowspan="3">Estrutura</th>
+                <td headers="row2 col2" width="50%">Camadas</td>
+            </tr>
+            <tr>
+                <td headers="row2 col2" width="50%">Pipes e Filtros</td>
+            </tr>
+            <tr>
+                <td headers="row2 col2" width="50%">Quadro-negro</td>
+            </tr>
+            <tr>
+                <th id="row3" align="left" headers="col1" width="50%">Sistemas Distribuídos</th>
+                <td headers="row3 col2" width="50%">Agente</td>
+            </tr>
+            <tr>
+                <th id="row4" align="left" headers="col1" width="50%" rowspan="2">Sistemas Interativos</th>
+                <td headers="row4 col2" width="50%">Modelo-Visão-Controle</td>
+            </tr>
+            <tr>
+                <td headers="row4 col2" width="50%">Apresentação-Abstração-Controle</td>
+            </tr>
+            <tr>
+                <th id="row5" align="left" headers="col1" width="50%" rowspan="2">Sistemas Adaptáveis</th>
+                <td headers="row5 col2" width="50%">Reflexão</td>
+            </tr>
+            <tr>
+                <td headers="row5 col2" width="50%">
+                    Microkernel
+                </td>
+            </tr>
+        </tbody>
+    </table><br />
+</div>
+<p>Consulte <a class="elementlinkwithusertext" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#BUS96" guid="_9ToeIB83Edqsvps02rpOOg">[BUS96]</a> para uma descrição completa destes padrões.</p>
+<h1>
+    <a id="Architectural Style" name="Architectural Style">Estilo Arquitetural</a>
+</h1>
+<p>Uma arquitetura de software, ou simplesmente uma visão arquitetural, pode ter um atributo chamado <b>Estilo Arquitetural</b>, que reduz o conjunto de possíveis formas de escolha, e impõem um determinado grau de uniformidade à arquitetura. O estilo pode ser definido por um conjunto de padrões, ou pela escolha de componentes específicos ou de conectores como os blocos de construção básicos.</p></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

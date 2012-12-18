@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Analisar o Design</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="analyze_the_design">
+<meta name="uma.presentationName" content="Analisar o Design">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="__MnggPTdEduDKIuqTXQ8SA"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Analisar o Design</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz descreve como abordar a criação de uma solução para os requisitos ou as solicitações de mudança. Uma melhor solução normalmente surge quando um período de tempo, mesmo que breve, seja gasto analisando o problema e considerando as abordagens.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/development_B5D1D8A.html" guid="_0TeDoMlgEdmt3adZL5Dmdw">Desenvolvimento</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/evolve_the_design_3C9D6965.html" guid="_C4U9QPTeEduDKIuqTXQ8SA">Evoluir o Design</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/design_solution_A97CE9EA.html" guid="_0fshwMlgEdmt3adZL5Dmdw">Projetar a Solução</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><h1>Identificação dos elementos</h1>
+<p>Identifique os elementos, com base nas necessidades dos requisitos. A identificação dos elementos pode resultar de uma perspectiva estática da revisão dos requisitos e da identificação dos elementos claramente evocados, que é uma forma de modelagem de domínio. Isso pode mostrar outros elementos identificados como estando no domínio da aplicação ou considerados necessários ao examinar os requisitos para a parte do sistema a ser projetada. Esta identificação também pode acontecer a partir da identificação das principais abstrações quando da definição da arquitetura.</p>
+<p>A identificação dos elementos deve também aplicar uma perspectiva dinâmica pela revisão dos cenários de uso do sistema (ou subsistema) e identificar os elementos necessários para suportar o comportamento. Esse comportamento pode ser um cenário de utilização na perspectiva de um usuário externo ou, durante o design de um subsistema, uma responsabilidade atribuída ao subsistema que tem um comportamento algorítmico complexo. Considere a aplicação do <a class="elementLink" href="./../../../openup/guidances/guidelines/entity_control_boundary_pattern_C4047897.html" guid="_uF-QYEAhEdq_UJTvM1DM2Q">Padrão Entidade-Controle-Fronteira</a> para identificar os elementos necessários para suportar o cenário, ou aplicar outros padrões identificados na arquitetura que especificam os elementos que serão utilizados para suportar determinados aspectos do cenário.</p>
+<p>Se você estiver projetando um sistema em tempo real, inclua elementos para representar eventos e sinais que lhe permitam descrever os excitadores assíncronos do comportamento que o sistema deve responder. <b>Eventos</b> são especificações de interessantes ocorrências no tempo e no espaço que normalmente (se forem satisfatórios), exigem alguma resposta do sistema. <b>Sinais</b> representam mecanismos assíncronos utilizados para comunicar certos tipos de eventos no sistema.</p>
+<p>Se existem elementos de revisões prévias no design ou de frameworks selecionados ou outros elementos reutilizáveis, reutilize-os sempre que possível. Veja <a class="elementLinkWithType" href="./../../../openup/guidances/guidelines/software_reuse_B6B04C26.html" guid="_vO2uoO0OEduUpsu85bVhiQ">Guideline: Reutilização de Software</a>.</p>
+<p>Depois de identificar os elementos, dê um nome significativo para cada. Cada elemento deve ter também uma descrição, a fim de que os membros da equipe, que trabalham em conjunto para aperfeiçoar e implementar o design, possam entender o papel que cada elemento desempenha.</p>
+<p>Baseando-se nestas informações, a identificação dos elementos pode ser aplicada várias vezes no design de apenas uma parte do sistema. Embora não exista uma estratégia correta para várias revisões, elas podem ser feitas em um nível mais genérico e, em seguida, em um mais específico, ou em um nível (abstrato) de análise e, em seguida, um nível de design.</p>
+<h1>Comportamento dos elementos</h1>
+<p>Para identificar o comportamento dos elementos, revise os cenários e atribua adequadamente o comportamento para os participantes colaboradores. Se um determinado uso do sistema ou subsistema puder ter vários resultados possíveis ou seqüências variantes, abranja cenários suficientes para garantir que o design esteja robusto para suportar as possibilidades.</p>
+<p>Ao atribuir comportamento aos elementos, considere a aplicação do <a class="elementLink" href="./../../../openup/guidances/guidelines/entity_control_boundary_pattern_C4047897.html" guid="_uF-QYEAhEdq_UJTvM1DM2Q">Padrão Entidade-Controle-Fronteira</a> ou outros padrões identificados na arquitetura.</p>
+<p>O comportamento pode ser representado como uma simples declaração de responsabilidade, ou pode ser uma detalhada especificação de operação. Use o nível adequado de detalhe para comunicar decisões importantes de design dando a liberdade para a tomada de decisões adequadas sobre a implementação assim que essas tarefas ocorrerem.</p>
+<p>Evite demasiada identificação de comportamento apenas da perspectiva da modelagem de domínio. Inclua apenas os comportamentos que são realmente necessários - comportamentos identificados pela revisão de cenários necessários do uso do sistema.</p>
+<p>O comportamento deve ser entendido como uma responsabilidade de um elemento, bem como uma interação entre dois elementos no contexto de algum comportamento mais amplo do sistema ou subsistema. A última parte disto levará o desenvolvedor a identificar os relacionamentos entre os elementos que são necessários.</p>
+<h1>Relacionamentos de elemento de design</h1>
+<p>Os relacionamentos entre os elementos necessários para o comportamento devem ser projetados. Isto pode ser simplesmente a identificação da capacidade de travessia de um elemento para outro, ou então a necessidade de gerenciar uma associação entre os elementos. Os relacionamentos podem ser projetados com mais detalhes, a medida do necessário. Isto pode incluir: característica facultativa, multiplicidade, se o relacionamento é uma dependência simples ou uma associação gerenciada, e assim por diante. Estas decisões que orientam a implementação de detalhes acontecem de melhor forma no nível de design, onde é mais fácil ver como todas as peças se integram.</p>
+<p>Evite definir muitos relacionamentos baseando-se nos relacionamentos do domínio da aplicação. Inclua apenas os relacionamentos que são necessários com base nos requisitos. Por outro lado, uma combinação de conhecimento sobre os requisitos e conhecimento sobre o domínio pode levar a algumas decisões específicas sobre os relacionamentos, tais como a característica facultativa e a multiplicidade.</p>
+<h1>Classes de Análise e YAGNI</h1>
+<p>As classes de análise são usadas para identificar os locais iniciais onde deva existir funcionalidade no sistema. Elas são os primeiros passos para compreender onde o comportamento será realizado no design e na implementação. Por exemplo, uma classe de entidade poderá inicialmente representar todos os comportamentos de um trabalhador, tais como o armazenamento de informações pessoais e o cálculo do valor de um salário. Poucas hipóteses são feitas sobre a forma como será o design final neste ponto. As classes de análise servem para garantir que o comportamento necessário esteja representado em algum lugar do sistema, e não para criar um design perfeito.</p>
+<p>As classes de análise permitem que você comece o design a partir de abstrações, de forma que os detalhes do sistema dependam dessas abstrações e não o contrário. Na classe Empregado, a noção de empregado deve começar com a idéia de alguém que trabalha para a empresa, que tem responsabilidades e recebe benefícios. É mais fácil de criar um design a partir desta idéia simples. A complexidade do design deverá emergir das idéias abstratas do que o design deve fazer. Isto também contribuirá para manter um baixo acoplamento e uma alta coesão.</p>
+<p>YAGNI - You Aren't Going to Need It - (Você Não Vai Precisar Disso) é uma abordagem para design onde o desenvolvedor cria apenas design e implementação suficientes para abordar a funcionalidade necessária. Nenhuma suposição é feita sobre reutilização ou possíveis usos futuros do software. O software evolui quando os requisitos do sistema demandam por mais funcionalidade e robustez.</p>
+<p>As primeiras classes criadas sob uma perspectiva YAGNI são muito semelhantes � s classes de análise. Você não sabe o quão complexo é o calculo do salário de seus empregados, então você assume que esta funcionalidade é bastante coesa com tudo o que a classe Empregado deve fazer. À medida que você compreende o desenvolvimento dos requisitos, as classes de análise evoluem para um grupo de padrões e classes de colaboração que melhor suportam o comportamento do sistema. Por exemplo, o cálculo dos salários pode ser transferido para um padrão que trate todos os diferentes tipos de cálculo de salário (horas extra, comissões, etc.), aumentando, assim, a coesão interna da classe.</p>
+<p>Use as classes de análise para definir um lugar inicial onde o comportamento do sistema deva ser colocado, e adicione apenas o comportamento suficiente para satisfazer a perspectiva YAGNI. As classes de análise evoluirão para classes de design concretas à medida que mais comportamento seja adicionado e o design seja re-fatorado. Veja <a class="elementLinkWithType" href="./../../../openup/guidances/guidelines/evolve_the_design_3C9D6965.html" guid="_C4U9QPTeEduDKIuqTXQ8SA">Guideline: Evoluir o Design</a>.</p></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Checklists</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/checklists/design_68980812.html" guid="_0XSzsMlgEdmt3adZL5Dmdw">Design</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/design_E36137FA.html" guid="_bFjlAPTYEduDKIuqTXQ8SA">Design</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Guidelines</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/evolve_the_design_3C9D6965.html" guid="_C4U9QPTeEduDKIuqTXQ8SA">Evoluir o Design</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/entity_control_boundary_pattern_C4047897.html" guid="_uF-QYEAhEdq_UJTvM1DM2Q">Padrão Entidade-Controle-Fronteira</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/designing_visually_BDE9A06A.html" guid="_1fM3AC9_EduW5uTjiIcspQ">Projetar Visualmente</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/software_reuse_B6B04C26.html" guid="_vO2uoO0OEduUpsu85bVhiQ">Reutilização de Software</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

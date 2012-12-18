@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Integra&ccedil;&atilde;o Cont&iacute;nua</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="continuous_integration">
+<meta name="uma.presentationName" content="Integra&ccedil;&atilde;o Cont&iacute;nua">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_i8bUEL6cEdqti4GwqTkbsQ"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Integra&ccedil;&atilde;o Cont&iacute;nua</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz descreve como aplicar a integração contínua para reduzir o risco e o esforço associados com as últimas integrações.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/workproducts/build_95D7D8FD.html" guid="_0YuXEMlgEdmt3adZL5Dmdw">Construção</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/development_B5D1D8A.html" guid="_0TeDoMlgEdmt3adZL5Dmdw">Desenvolvimento</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/config_and_change_management_417EC254.html" guid="_0TwXgMlgEdmt3adZL5Dmdw">Gestão de Configuração e Mudança</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/integrate_and_create_build_A94C616F.html" guid="_Dq0GQAIoEdyLh7vsrHZ4YA">Integrar e Criar a Construção</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/promoting_changes_9087B764.html" guid="_SM4YIL6dEdqti4GwqTkbsQ">Promovendo Mudanças</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>A integração contínua é uma prática de desenvolvimento de software que reconstrói e testa completamente a aplicação - idealmente, toda vez que uma alteração for feita. Esta abordagem oferece muitas vantagens, como indicado no <a class="elementLinkWithType" href="./../../../openup/guidances/concepts/continuous_integration_87682D06.html" guid="_B3xkEPD0EdqYgerqi84oCA">Concept: Integração Contínua</a> e em <a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#WIKP-CI" guid="_9ToeIB83Edqsvps02rpOOg">[WIKP-CI]</a>.</p>
+<h1>Passos básicos</h1>
+<p>A aplicação detalhada da integração contínua depende das ferramentas que você usa (sistema de gestão de configuração, ferramenta automatizada de construção, ferramenta automatizada de teste, etc.). Entretanto, estes são os passos básicos:</p>
+<ol>
+    <li>Uma desenvolvedora, vamos chamá-la de Joana, seleciona um item de trabalho para executar.</li>
+    <li>Joana atualiza seu <a class="elementLink" href="./../../../openup/guidances/concepts/workspace_722BBA90.html" guid="_0cEmAMlgEdmt3adZL5Dmdw">Espaço de Trabalho</a> para incluir as <a class="elementLink" href="./../../../openup/workproducts/implementation_917CA61E.html" guid="_0YoQcMlgEdmt3adZL5Dmdw">Implementação</a> mais recentes a partir do espaço de trabalho de integração.</li>
+    <li>Joana faz mudanças no seu espaço de trabalho tanto para seus testes de desenvolvedor quanto para a implementação e, então, ela testa as mudanças.</li>
+    <li>Antes de submeter as mudanças, Joana atualiza seu espaço de trabalho novamente (porque outros desenvolvedores podem ter submetido alterações conflitantes) e re-executa seus testes de desenvolvedor.</li>
+    <li>Se estes testes forem bem sucedidos, as mudanças são promovidas (veja <a class="elementLinkWithType" href="./../../../openup/guidances/guidelines/promoting_changes_9087B764.html" guid="_SM4YIL6dEdqti4GwqTkbsQ">Guideline: Promovendo Mudanças</a>) para o espaço de trabalho de integração.</li>
+    <li>Uma <a class="elementLink" href="./../../../openup/workproducts/build_95D7D8FD.html" guid="_0YuXEMlgEdmt3adZL5Dmdw">Construção</a> completa da aplicação é realizada usando a implementação que está no espaço de trabalho de integração de trabalho, e todo o conjunto de testes de desenvolvedor é executado nesta construção.</li>
+    <li>Se algum desses testes falhar, a equipe será notificada, e a falha deve ser corrigida o mais rápido possível.</li>
+    <li>Esse processo se repete enquanto a equipe desenvolve, integra e testa continuamente a funcionalidade em pequenos incrementos.</li>
+</ol>
+<h1>Restrições</h1>
+<p>Conceitualmente, a integração contínua pode ser feita manualmente (veja <a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#SHO06" guid="_9ToeIB83Edqsvps02rpOOg">[SHO06]</a>). Entretanto, na prática, existem várias restrições que devem ser respeitadas para que ela seja eficaz:</p>
+<ol>
+    <li>Todas as alterações devem ser feitas em uma configuração testada que você saiba que esteja boa.</li>
+    <li>O ciclo integrar-construir-testar deve ser concluído rapidamente e a equipe deve ser notificada sobre os resultados. Muitas diretrizes publicadas indicam um ciclo de 10 minutos.</li>
+    <li>Mantenha o <a class="elementLink" href="./../../../openup/guidances/concepts/change_set_430BF233.html" guid="_1QU9MAIoEdyLh7vsrHZ4YA">Conjunto de Mudanças</a> o menor possível de forma que o trabalho possa ser concluído e a integração realizada várias vezes por dia. Muitas diretrizes publicadas indicam um ciclo de 2 a 4 horas entre as integrações.</li>
+</ol>
+<p>Essas restrições implicam a necessidade de um repositório de gestão de configuração (CM) para manter as informações sobre configuração (passo 1 enumerado anteriormente), ferramentas automatizadas de construção e teste para atender as restrições de reconstrução (passo 2) e bom planejamento e disciplina dos desenvolvedores para garantir que os seus itens de trabalho e conjuntos de mudança sejam pequenos o suficiente para serem concluídos rapidamente (passo 3).</p>
+<p>Para uma descrição mais detalhada sobre integração contínua, veja <a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#FOW06" guid="_9ToeIB83Edqsvps02rpOOg">[FOW06]</a> ou <a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#WIKP-CI" guid="_9ToeIB83Edqsvps02rpOOg">[WIKP-CI]</a>.</p></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/change_set_430BF233.html" guid="_1QU9MAIoEdyLh7vsrHZ4YA">Conjunto de Mudanças</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/workspace_722BBA90.html" guid="_0cEmAMlgEdmt3adZL5Dmdw">Espaço de Trabalho</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/continuous_integration_87682D06.html" guid="_B3xkEPD0EdqYgerqi84oCA">Integração Contínua</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/developer_testing_7AC4823.html" guid="_aFeZgJquEdukqcRKZBQN9w">Testes de Desenvolvedor</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

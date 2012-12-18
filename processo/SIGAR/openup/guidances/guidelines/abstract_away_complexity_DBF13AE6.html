@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Abstrair da Complexidade</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="abstract_away_complexity">
+<meta name="uma.presentationName" content="Abstrair da Complexidade">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_we3F4ACpEdu8m4dIntu6jA"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Abstrair da Complexidade</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/architecture_1F9C65DA.html" guid="_0TX9AMlgEdmt3adZL5Dmdw">Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/workproducts/architecture_notebook_9BB92433.html" guid="_0XAf0MlgEdmt3adZL5Dmdw">Caderno de Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/core_principle_focus_346C6FAF.html" guid="_9gocwMvoEdqukPpotm3DYg">Focar na arquitetura, o mais cedo possível, para reduzir o risco e organizar o desenvolvimento.</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/visual_modeling_2C089766.html" guid="_0XY6UMlgEdmt3adZL5Dmdw">Modelagem Visual</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>O desenvolvimento de software é uma perseguição caracterizada pela complexidade. Pode ter várias formas, tais como a acomodação de requisitos complexos, tecnologia ou dinâmica de equipe. Elevar o nível da abstração ajuda a controlar esta complexidade com um progresso mensurável, apesar da dificuldade inerente da tarefa.</p>
+<p>Seguem abaixo sugestões de diversas estratégias que ajudam a abstrair da complexidade</p>
+<h4>Alavancar Padrões</h4>
+<p>Os padrões ajudam a obter vantagens de técnicas comprovadas para a solução de problemas comuns. Você pode se beneficiar do conhecimento de profissionais experientes e evitar a "reinvenção da roda", como se costuma dizer. O uso dos padrões é um aspecto crucial em uma abordagem de desenvolvimento centrada em arquitetura, porque ajuda a reduzir as incertezas e as diversidades de uma solução, melhorando assim a qualidade.</p>
+<p>Veja <a class="elementLinkWithType" href="./../../../openup/guidances/concepts/pattern_10BE6D96.html" guid="_0YJvUMlgEdmt3adZL5Dmdw">Concept: Padrão</a>, para mais informações.</p>
+<h4>Projete a arquitetura com componentes e serviços</h4>
+<p>Esta estratégia ajuda a controlar a complexidade do software pela divisão do sistema em um grupo de subsistemas fracamente acoplados e altamente coesivos. Esta abordagem tem como benefícios a habilidade de organizar a equipe em torno de um grupo de objetivos menores e mais controláveis, e a habilidade de substituir partes do sistema sem perturbar sua coesão geral. A exposição dos serviços incentiva a reutilização tornando a funcionalidade do sistema mais fácil de ser compreendida. Focar nos serviços torna possível compreender o que o sistema faz de uma perspectiva técnica sem necessariamente ter que compreender os detalhes de como o sistema funciona.</p>
+<p>Veja <a class="elementLinkWithType" href="./../../../openup/guidances/concepts/component_CB167D48.html" guid="_0YP18MlgEdmt3adZL5Dmdw">Concept: Componente</a> para mais informações.</p>
+<h4>Promova ativamente a reutilização</h4>
+<p>A incorporação de software existente em uma arquitetura global ajuda a reduzir o custo e melhorar a qualidade devido à reutilização de software que comprovadamente funciona, ao invés do desenvolvimento a partir do zero. Também ajuda a reduzir a sobrecarga de manutenção eliminando a duplicidade no software. Embora seja normalmente difícil de controlar, um projeto ou uma empresa podem obter benefícios significativos de uma estratégia de reutilização bem executada.</p><p/><h4>Principais perspectivas do modelo</h4>
+<p>A modelagem ajuda a aumentar o nível de abstração porque simplifica idéias complexas e representa-as visualmente, como ilustrações. Bons modelos podem transmitir informações que ajudem a equipe a visualizar, especificar, construir e documentar o software. A Linguagem Unificada de Modelagem (UML) fornece uma abordagem com padrão industrial para modelagem de software.</p>
+<p>Ao aplicar esta estratégia, você pode usar as seguintes técnicas:</p>
+<ul>
+    <li>
+        <strong>Identificar as principais perspectivas</strong>: Foco na modelagem daquilo que importa. Poucos (ou nenhum) projetos se beneficiam da modelagem de todo o design com um grande nível de detalhe. Certifique-se de que você compreende porque está modelando algo e quem se beneficiará com isso.</li>
+    <li>
+        <strong>Comunicar as principais perspectivas arquiteturais</strong>: Mesmo que você escolha modelar muito pouco do seu design, normalmente é vantajoso produzir os diagramas que comunicam os principais aspectos arquiteturais do sistema. Transmitir a panorâmica do design a toda a equipe ajuda-lhes a compreender a abordagem geral e a desenvolver um software coesivo.</li>
+    <li>
+        <strong>Esboçar o Design</strong>: Nem todos os modelos necessitam ser detalhados completamente e apresentados em uma ferramenta de modelagem de software. É perfeitamente aceitável (se não desejável) produzir esboços desenhados a mão em papel ou em um quadro branco quando você está explorando e comunicando a arquitetura e o design com sua equipe. Você pode usar uma câmera digital ou um quadro branco eletrônico para capturar estes diagramas e compartilha-los. Para muitos projetos pequenos, isto é normalmente tudo o que você precisa. Veja <a href="http://www.agilemodeling.com/">http://www.agilemodeling.com/</a>, Para mais informações.</li>
+    <li>
+        <strong>Usar uma ferramenta de modelagem se necessário</strong>: Se os membros da equipe estiverem alterando modelos durante todo o projeto, compartilhando padrões e estruturas, depurando o design, descrevendo o comportamento, etc., então será difícil trabalhar com fotos estáticas ou papel. A equipe pode querer capturar o design em uma ferramenta de modelagem de software. Além de comunicar o design à equipe, um outro benefício desta ferramenta é a geração do código estrutural dos modelos. Muitas ferramentas de desenvolvimento de software permitem que você veja o código na forma de modelos, tornando mais fácil o entendimento dos aspectos estáticos e dinâmicos de um código complexo.</li>
+    <li>
+        <strong>Acordar uma notação padrão</strong>: Em um ambiente de equipe, é importante que os outros possam compreender seus diagramas sem muita explicação. Escolher uma notação padrão permite que os outros compreendam rapidamente seus diagramas sem ambigüidade. A Linguagem Unificada de Modelagem é um exemplo de uma notação largamente conhecida.</li>
+</ul></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/component_CB167D48.html" guid="_0YP18MlgEdmt3adZL5Dmdw">Componente</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/visual_modeling_2C089766.html" guid="_0XY6UMlgEdmt3adZL5Dmdw">Modelagem Visual</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/pattern_10BE6D96.html" guid="_0YJvUMlgEdmt3adZL5Dmdw">Padrão</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

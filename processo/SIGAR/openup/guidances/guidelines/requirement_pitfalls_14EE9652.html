@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Armadilhas dos Requisitos</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="requirement_pitfalls">
+<meta name="uma.presentationName" content="Armadilhas dos Requisitos">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_1AOsMO0JEdqHTdbLTmC5IQ"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Armadilhas dos Requisitos</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz descreve as armadilhas comuns a serem evitadas na definição e escrita de requisitos.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/detail_ucs_and_scenarios_6BC56BB7.html" guid="_4BJ_YCxSEdqjsdw1QLH_6Q">Detalhar Casos de Uso e Cenários</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/detail_requirements_9747F71E.html" guid="_0e1mIMlgEdmt3adZL5Dmdw">Detalhar os Requisitos</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/find_and_outline_requirements_90D272B9.html" guid="_P9cMUPV_EdmdHa9MmVPgqQ">Encontrar e Descrever os Requisitos</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/requirements_4467C860.html" guid="_0TR2ZMlgEdmt3adZL5Dmdw">Requisitos</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>As pesquisas e a experiência mostram que os erros nos requisitos são muito comuns, representando algo como 56% de todos os erros cometidos durante o desenvolvimento <a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#TAV84" guid="_9ToeIB83Edqsvps02rpOOg">[TAV84]</a>. Compondo este problema está o fato de que o custo da correção dos erros nos requisitos aumenta exponencialmente durante todo o ciclo de desenvolvimento de software <a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#BOE88" guid="_9ToeIB83Edqsvps02rpOOg">[BOE88]</a>.</p>
+<p>Frederick Brooks resumiu bem esta situação:</p>
+<blockquote>A única parte mais difícil para construir um sistema de software é decidir o que construir. Nenhuma outra parte do trabalho conceitual é tão difícil como o estabelecimento dos requisitos técnicos detalhados…. Nenhuma outra parte do trabalho mutila o sistema resultante se for feita errada. Nenhuma outra parte é tão difícil de corrigir depois <a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#BRO87" guid="_9ToeIB83Edqsvps02rpOOg">[BRO87]</a>.
+</blockquote>
+<p>Portanto, é importante que você detecte os erros nos requisitos, o mais cedo possível, antes de se propagarem para os artefatos de concepção, implementação e teste.</p>
+<h1>O que deve ser evitado ao escrever requisitos</h1>
+<p>Embora exista uma forma certa de eliminar os erros nos requisitos em geral, existem armadilhas comuns na escrita de requisitos que são relativamente fáceis de evitar <a href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#TEL06" guid="_9ToeIB83Edqsvps02rpOOg">[TEL06]</a>.</p>
+<h2>Ambigüidade</h2>
+<p>Evitar a ambigüidade é um dos mais difíceis mandatos na escrita dos requisitos. Tente escrever o mais claro e explícito possível. Seja específico. Se você tiver que usar termos vagos ou ambíguos, tenha certeza de te-los definido no glossário.</p>
+<p>Solicite a vários colegas e Stakeholders que revisem os seus requisitos para garantir a coerência e a compreensão comum. Embora não exista nenhum teste definitivo para a ambigüidade, que não seja o consenso, algumas ambigüidades perigosas podem ser causadas pelo uso das palavras <b>para, ou</b> e <strong>a menos que</strong>.</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <b>Exemplo</b> 
+    <p>"O mesmo subsistema deve também ser capaz de gerar um sinal de cuidado/alerta visível ou audível para chamar a atenção do co-piloto ou navegador".</p>
+    <p>Qual subsistema? O sinal deve ser visível, audível ou ambos? Deve ser cuidado e alerta, somente cuidado ou somente alerta? Deve ser para o co-piloto e o navegador ou somente um deles? Se somente um deles, quem e em que condições?</p>
+</blockquote>
+<h2>Requisitos múltiplos</h2>
+<p>Requisitos que possuem conjunções (palavras que ligam cláusulas independentes) são perigosos. Problemas surgem quando os leitores tentam entender que parte se aplica, especialmente se as cláusulas diferentes parecem conflitar ou se as partes individuais se aplicam separadamente. Múltiplos requisitos também fazem a verificação ficar mais complexa.</p>
+<p>Conjunções perigosas incluem: <b>e, ou, mas</b></p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <b>Exemplo</b> 
+    <p>"A lâmpada de alerta de bateria fraca deve acender quando a voltagem cair abaixo de 3.6 Volts, e a área de trabalho corrente ou os dados de entrada devem ser salvos".</p>
+    <p>A lâmpada de alerta de bateria fraca deve acender quando a voltagem cair e a área de trabalho for salva? A lâmpada de alerta de bateria fraca deve acender e a área de trabalho deve ser salva quando a voltagem cair?</p>
+</blockquote>
+<h2>Cláusulas evasivas</h2>
+<p>Os requisitos que incluem opções ou exceções são perigosos. Eles parecem pedir algo definitivo, mas no último momento eles desistem e permitem outras opções. Os problemas surgem quando os requisitos são testados e alguém tem que decidir o que (se houver) provaria que o requisito foi satisfeito.</p>
+<p>Palavras perigosas que implicam exceções incluem: <b>se, quando, mas, exceto, a menos que, embora</b>.</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <b>Exemplos</b> 
+    <p>"A porta posterior de passageiros deve abrir automaticamente quando a aeronave parar, exceto quando a rampa traseira estiver aberta".</p>
+    <p>"O alarme de incêndio deve sempre ser tocado quando a fumaça for detectada, a menos que o alarme esteja sendo testado ou o engenheiro tenha suprimido o alarme".</p>
+    <p>A última sentença é realmente um requisito perigoso!</p>
+</blockquote>
+<h2>Incoerências</h2>
+<p>Longas sentenças Incoerentes, especialmente quando combinadas com linguagem rebuscada ou referências a documentos de difícil acesso, levam rapidamente à confusão e erros.</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <b>Exemplo</b> 
+    <p>"Dado que os sinais de entrada designados dos dispositivos especificados sejam recebidos na ordem correta onde o sistema seja capaz de diferenciar os designadores, o sinal de saída deve estar de acordo com o framework requerido da seção 3.1.5 para indicar o estado desejado de entrada.</p>
+</blockquote>
+<h2>Design prematuro</h2>
+<p>Os requisitos devem especificar as possibilidades de design sem restrições desnecessárias de um design específico. Se detalharmos demais, começaremos a projetar o sistema. Ir muito longe é tentador para os designers, especialmente quando eles chegam às suas partes favoritas.</p>
+<p>Sinais de perigo incluem <b>nomes de componentes, materiais, objetos de software</b> ou <b>procedures</b> e <b>campos de bancos de dados</b>.</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <b>Exemplo</b> 
+    <p>"A antena deve ser capaz de receber sinais FM usando um miolo de cobre protegido por nylon e uma capa de borracha endurecida à prova d'água".</p>
+    <p>Especificar design em vez das reais necessidades aumenta o custo dos sistemas por colocar restrições desnecessárias no desenvolvimento e na manufatura. Frequentemente, saber <i>por que</i> é muito melhor do que saber <i>o quê</i>.</p>
+</blockquote>
+<h2>Misturando diferentes tipos de requisitos</h2>
+<p>Os requisitos de usuário formam um modelo completo do que os usuários querem. Eles precisam ser organizados coerentemente para exibirem falhas e sobreposições. O mesmo se aplica aos requisitos de sistema, que formam um modelo funcional completo do sistema proposto. Uma forma rápida de conseguir confusão é misturar requisitos de usuários, sistemas e como o sistema deveria ser projetado, testado ou instalado.</p>
+<p>Sinais de perigo são qualquer referência à <b>sistema, design, teste</b> ou <b>instalação</b>.</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <b>Exemplo</b> 
+    <p>"O usuário deve ser capaz de ver o número do canal corrente que deve ser exibido com fonte Swiss tamanho 14 em um painel LCD em conformidade com o Padrão Regulamentar Federal 567-89 e montado com arruelas de borracha à prova de choque".</p>
+</blockquote>
+<h2>Especulação</h2>
+<p>Os requisitos são parte de um contrato entre o cliente e o desenvolvedor. Não há espaço para listas de desejos, termos de significado geral sobre coisas que alguém provavelmente quer.</p>
+<p>Sinais de perigo incluem idéias vagas sobre <b>que tipo de usuário está falando</b> e generalizações tais como: <b>usualmente, geralmente, frequentemente, normalmente e tipicamente</b>.</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <b>Exemplo</b> 
+    <p>"Os usuários normalmente necessitam de rápida indicação de intrusão no sistema".</p>
+</blockquote>
+<h2>Termos vagos e indefinidos</h2>
+<p>Muitas palavras usadas informalmente para indicar a qualidade do sistema são muito vagas para uso em requisitos. Termos vagos incluem, entre outros: <b>amigável, versátil, flexível, aproximadamente, possível</b>.</p>
+<p>Os requisitos que usam esses termos não são verificáveis porque não há teste definitivo para mostrar se o sistema tem a propriedade indicada.</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <b>Exemplos</b> 
+    <p>"A caixa de diálogo de impressão deve ser versátil e amigável".</p>
+    <p>"A lâmpada indicadora de status OK deve ser acessa o mais rápido possível depois do auto-teste do sistema ser completado".</p>
+</blockquote>
+<h2>Expressando meras possibilidades</h2>
+<p>Sugestões que não são explicitamente declaradas como requisitos são invariavelmente ignoradas pelos desenvolvedores.</p>
+<p>"Opções possíveis" são indicadas com termos tais como: <b>pode, deveria, desejável, poderia, talvez, provavelmente</b>.</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <b>Exemplo</b> 
+    <p>"O subsistema de recepção provavelmente deverá ser forte o suficiente para receber um sinal de dentro de uma construção de placas de aço".</p>
+</blockquote>
+<h2>Pensamentos desejosos</h2>
+<p>Os pensamentos desejosos significam pedir o impossível. A engenharia é uma atividade do mundo real e nenhum sistema ou componente é perfeito.</p>
+<p>Termos de pensamentos desejosos incluem: <b>confiável, seguro, trata todas as falhas inesperadas, agrada a todos os usuários, roda em todas as plataformas, nunca falha, atualizável a todas as situações futuras</b>.</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <b>Exemplos</b> 
+    <p>"A caixa de câmbio deve ser 100% segura em operação normal".</p>
+    <p>"A rede deve tratar todos os erros inesperados sem travar".</p>
+</blockquote></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>
