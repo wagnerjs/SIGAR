@@ -1,0 +1,11 @@
+Comandos do GIT dentro do Netbeans.
+
+--- Dar commit local---
+clica em commit e adicionar um comentário.
+
+--- Dar push no repositório remoto ---
+clica em expandir e selecionar a segunda opção
+
+--- Dar pull no repositório remoto ---
+clicar em extrair quando for apenas um arquivo
+clicar em extração quando for mais de um arquivo e selecionar a segunda opção
