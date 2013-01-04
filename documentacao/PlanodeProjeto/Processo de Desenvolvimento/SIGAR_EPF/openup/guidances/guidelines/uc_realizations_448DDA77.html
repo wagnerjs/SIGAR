@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Realiza&ccedil;&otilde;es de Casos de Uso</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="uc_realizations">
+<meta name="uma.presentationName" content="Realiza&ccedil;&otilde;es de Casos de Uso">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_2uan8NbyEdqu5o2S60g5LA"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Realiza&ccedil;&otilde;es de Casos de Uso</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Uma realização de caso de uso mostra como um caso de uso será implementado na forma de objetos de colaboração. Esta diretriz descreve sua finalidade e a notação UML.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/development_B5D1D8A.html" guid="_0TeDoMlgEdmt3adZL5Dmdw">Desenvolvimento</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/design_solution_A97CE9EA.html" guid="_0fshwMlgEdmt3adZL5Dmdw">Projetar a Solução</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>Uma realização de caso de uso mostra como um caso de uso será implementado na forma de objetos de colaboração. As realizações residem no design. Ao percorrer um design exercite mostrando como os elementos de design irão executar o caso de uso, a equipe recebe a confirmação de que o design está robusto o suficiente para executar o comportamento exigido.</p>
+<p>A realização pode assumir diversas formas. Pode conter, por exemplo, uma descrição textual (um documento), diagramas de classe com subsistemas e classes, e diagramas de interação (diagramas de comunicação e de seqüência) que ilustram o fluxo das interações entre as instancias de classes e subsistemas.</p>
+<p>A razão de separar a realização de caso de uso de seu caso do uso é que ao fazermos isto permitimos que os requisitos, na forma de casos de uso sejam controlados separadamente do design, na forma de realizações. Essa separação se torna inestimável se a arquitetura mudar muito de forma que a realização precise ser re-trabalhada enquanto os requisitos permaneçam inalterados. Mesmo sem tal circunstância, a clara separação entre as preocupações dos requisitos e do design é valiosa.</p>
+<p>Em um modelo, uma realização de caso de uso é representada como uma colaboração UML que agrupa os diagramas e outras informações (tais como descrições textuais) que formam a realização do caso de uso.</p>
+<p>Como outros aspectos do projeto, os diagramas UML que suportam realizações de casos de uso podem ser produzidos em vários níveis de abstração. O primeiro passo na criação da realização pode produzir um diagrama no nível de abstração de análise, onde os participantes serão elementos de alto nível que venham a ser revisados e detalhados no nível de design em um segundo passo. Se as expressões idiomáticas da arquitetura e do design forem bem entendidas, a realização poderá ser criada imediatamente em um baixo nível de abstração, que especifique mais detalhes dos elementos e como eles irão colaborar para realizar o comportamento do caso de uso. Neste último caso, é valioso modelar padrões e mecanismos arquiteturais para reduzir a quantidade de detalhes de baixo nível, em cada realização.</p>
+<p>Para cada caso de uso nos requisitos, pode haver uma realização de caso de uso no design com um relacionamento de realização ao caso do uso, como mostra a figura a seguir. Na UML isto é mostrado como uma seta tracejada, igual ao relacionamento de generalização, indicando que uma realização é um tipo de herança, bem como uma dependência (veja a figura a seguir).</p>
+<p align="center">
+    <strong><font face="Verdana, Arial, Helvetica, sans-serif" size="2">A notação UML para realização de caso de uso</font></strong>
+</p>
+<p align="center">
+    <img height="109" alt="Realizações de Caso de Uso" src="./../../../openup/guidances/guidelines/./resources/ucrea1.gif" width="277" />
+</p>
+<h1>Diagramas de Classe que pertencem a uma realização de caso de uso</h1>Para cada realização de caso de uso podem existir um ou mais diagramas de classe que descrevam suas classes participantes. Uma classe e seus objetos normalmente participam de diversas realizações de caso de uso. Ao projetar, é importante coordenar todos os requisitos relacionados a uma classe que diferentes realizações de caso de uso possam ter. A figura abaixo mostra um diagrama de classe de análise para a realização do caso de uso "Receber Depósito". Note o uso de estereótipos entidade-controle-fronteira para representar as classes de análise (veja <a class="elementLinkWithType" href="./../../../openup/guidances/guidelines/entity_control_boundary_pattern_C4047897.html" guid="_uF-QYEAhEdq_UJTvM1DM2Q">Guideline: Padrão Entidade-Controle-Fronteira</a>).<p align="center">
+    <strong><font face="Verdana, Arial, Helvetica, sans-serif" size="2">O caso de uso Receber Depósito e o seu diagrama de classe em nível de análise</font></strong>
+</p>
+<p align="center">
+    <img height="213" alt="Diagrama de classe para a realização de Receber Depósito." src="./../../../openup/guidances/guidelines/./resources/md_ucre3.gif"     width="328" />
+</p><br align="center" />
+<br />
+<h1>Diagramas de seqüência e de comunicação</h1>
+<p>Para cada realização de caso de uso podem existir um ou mais diagramas de interação que descrevem os objetos participantes e suas interações. Há dois tipos de diagramas de interação: diagramas de <i>seqüência</i> e diagramas de <i>comunicação</i>. Eles expressam informações similares, mas mostram-nas de formas diferentes.</p>
+<ul>
+    <li>
+        Os <b>diagramas de seqüência</b> mostram a seqüência explícita das mensagens e são mais indicados quando é importante visualizar a ordem temporal das mensagens.</li>
+    <li>
+        Os <b>diagramas de comunicação</b> mostram as ligações de comunicação entre os objetos e são mais indicados para a compreensão de todos os efeitos causados em um objeto e para o projeto de algoritmos.</li>
+</ul>
+<p>Realizar casos de uso com diagramas de interação ajuda a manter o design simples e coesivo. Atribuindo responsabilidades às classes atendendo ao que o cenário de caso de uso requer incentiva o design a conter os seguintes elementos:</p>
+<ul>
+    <li>Somente a funcionalidade usada realmente para suportar um cenário de caso de uso</li>
+    <li>A funcionalidade que pode ser testada através de um caso de teste associado</li>
+    <li>A funcionalidade que é mais facilmente rastreável aos requisitos e às mudanças</li>
+    <li>As dependências de classe explicitamente declaradas que são mais fáceis de controlar</li>
+</ul>
+<p>Estes fatores ajudam a melhorar a qualidade geral do sistema.</p></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Guidelines</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/entity_control_boundary_pattern_C4047897.html" guid="_uF-QYEAhEdq_UJTvM1DM2Q">Padrão Entidade-Controle-Fronteira</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Promovendo Mudan&ccedil;as</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="promoting_changes">
+<meta name="uma.presentationName" content="Promovendo Mudan&ccedil;as">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_SM4YIL6dEdqti4GwqTkbsQ"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Promovendo Mudan&ccedil;as</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz descreve como promover um conjunto de mudanças relacionadas através das camadas de uma área confidencial do desenvolvimento até uma área de liberação.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/workproducts/build_95D7D8FD.html" guid="_0YuXEMlgEdmt3adZL5Dmdw">Construção</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/development_B5D1D8A.html" guid="_0TeDoMlgEdmt3adZL5Dmdw">Desenvolvimento</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/config_and_change_management_417EC254.html" guid="_0TwXgMlgEdmt3adZL5Dmdw">Gestão de Configuração e Mudança</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/implement_solution_5D5698C8.html" guid="_0hyzgMlgEdmt3adZL5Dmdw">Implementar a Solução</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/continuous_integration_87682D06.html" guid="_B3xkEPD0EdqYgerqi84oCA">Integração Contínua</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/integrate_and_create_build_A94C616F.html" guid="_Dq0GQAIoEdyLh7vsrHZ4YA">Integrar e Criar a Construção</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>Durante o desenvolvimento iterativo de software a equipe cria vários <a class="elementLink" href="./../../../openup/guidances/concepts/change_set_430BF233.html" guid="_1QU9MAIoEdyLh7vsrHZ4YA">Conjunto de Mudanças</a> que são combinados em uma <a class="elementLink" href="./../../../openup/workproducts/build_95D7D8FD.html" guid="_0YuXEMlgEdmt3adZL5Dmdw">Construção</a>. Uma construção é iniciada quando o trabalho de um ou mais colaboradores for terminado e quando todos os conflitos entre as mudanças forem resolvidos. A construção está sujeita então a uma bateria de testes para determinar se está com qualidade suficiente para ser colocada em produção.</p>
+<p>À medida que as mudanças progridem do desenvolvimento para a produção é benéfico conhecer duas de suas características:</p>
+<p>
+    <strong>Contexto do Teste</strong> - identificando os elementos e suas versões que serão testadas juntamente</p>
+<ul>
+    <li>Quais mudanças estão nesta construção (itens de trabalho completos)</li>
+    <li>Quais mudanças estão parcialmente nesta construção (itens de trabalho que estão parcialmente completos)</li>
+    <li>Quais mudanças não estão nesta construção (itens de trabalho que não estão nesta construção)</li>
+</ul>
+<p>
+    <strong>Nível de Verificação</strong> - identificando a quantidade de teste que está completa. Por exemplo,</p>
+<ul>
+    <li>Unidade Testada</li>
+    <li>Integração Testada</li>
+    <li>Sistema Testado</li>
+</ul>
+<p>O ciclo de vida de promoção coordena e sincroniza os esforços da equipe de desenvolvimento. Este ciclo de vida consiste dos seguintes passos:</p>
+<ul>
+    <li>As mudanças são introduzidas no sistema na forma de <a class="elementLink" href="./../../../openup/guidances/concepts/change_set_430BF233.html" guid="_1QU9MAIoEdyLh7vsrHZ4YA">Conjunto de Mudanças</a> completos</li>
+    <li>Uma construção é gerada identificando claramente as mudanças incluídas nela</li>
+    <li>Os testes são executados</li>
+    <li>Quando os testes forem bem sucedidos, as mudanças serão marcadas com o nível apropriado de verificação através de rotulação, colocação em linha de base ou outra técnica relacionada.</li>
+</ul>
+<p>Finalmente todos os testes necessários são completados e um novo incremento do sistema está pronto.</p>
+<p><a class="elementLink" href="./../../../openup/guidances/concepts/workspace_722BBA90.html" guid="_0cEmAMlgEdmt3adZL5Dmdw">Espaço de Trabalho</a> separados são frequentemente usados como contexto para cada nível de teste. À medida que as mudanças são adicionadas ao <a class="elementLink" href="./../../../openup/guidances/concepts/workspace_722BBA90.html" guid="_0cEmAMlgEdmt3adZL5Dmdw">Espaço de Trabalho</a>, sua consistência é verificada e elas são testadas. Isto assegura que o esforço de testar uma construção seja aplicado ao conjunto de mudanças correto, torna o contexto para o teste estável, e também permite que os desenvolvedores continuem trabalhando na próxima construção enquanto os testes estiverem sendo executados.</p>
+<p>Um ciclo de vida de promoção de mudanças, tal como este, oferece três principais benefícios</p>
+<ol>
+    <li>Reduz o esforço porque não há nenhuma razão para executar testes em estágios posteriores até que as mudanças passem do estágio atual. Por exemplo, você não mobiliza recursos para executar Testes de Sistema em uma construção até que ela passe pelos Testes de Desenvolvedor.</li>
+    <li>Ajuda a assegurar que um conjunto de mudanças, que tenha sido movido para a produção, tenha sido primeiramente submetido ao nível apropriado de teste.</li>
+    <li>Simplifica a depuração de erros visto que os desenvolvedores podem basear seu trabalho, em um conjunto de mudanças aprovado, de forma isolada das mudanças executadas por outros desenvolvedores.</li>
+</ol>
+<p>Para um exemplo desta abordagem, veja <a href="http://www.agiledata.org/essays/sandboxes.html" target="_blank">Caixas-de-areia de Desenvolvimento: Uma "Melhor" Prática Ágil</a>.
+</p></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/change_set_430BF233.html" guid="_1QU9MAIoEdyLh7vsrHZ4YA">Conjunto de Mudanças</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/workspace_722BBA90.html" guid="_0cEmAMlgEdmt3adZL5Dmdw">Espaço de Trabalho</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Guidelines</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/continuous_integration_13C1A8CA.html" guid="_i8bUEL6cEdqti4GwqTkbsQ">Integração Contínua</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

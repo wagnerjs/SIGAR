@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Su&iacute;te de Teste</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="test_suite">
+<meta name="uma.presentationName" content="Su&iacute;te de Teste">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_0aDz0MlgEdmt3adZL5Dmdw"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Su&iacute;te de Teste</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Está diretriz discute como organizar scripts de teste em grupos para simplificar o planejamento e a comunicação.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/tasks/run_tests_49698054.html" guid="_0jVEkMlgEdmt3adZL5Dmdw">Executar os Testes</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/implement_test_scripts_26F00282.html" guid="_0jO98MlgEdmt3adZL5Dmdw">Implementar os Scripts de Teste</a>
+</li>
+<li>
+<a href="./../../../openup/workproducts/test_script_39A30BA2.html" guid="_0ZfMEMlgEdmt3adZL5Dmdw">Script de Teste</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/test_FB85069.html" guid="_0TkKQMlgEdmt3adZL5Dmdw">Teste</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>A suíte de teste ajuda a gerenciar a complexidade da implementação dos testes. Muitos esforços de teste de sistema falham porque os testadores se perdem na minúcia de todos os testes detalhados, e lutam para organizar o trabalho e comunicar os resultados em um nível adequado de detalhe. Similar aos pacotes UML, as suítes de testes fornecem uma hierarquia de contêineres de encapsulamento para ajudar a gerenciar a implementação do teste. Elas juntam os testes em grupos relacionados que podem ser planejados, gerenciados e avaliados de forma significante.</p>
+<p>Isto pode ser uma ou mais suítes de teste de regressão automatizados, mas a suíte de teste pode também funcionar como um plano para implementação de um grupo de scripts de teste manuais relacionados. As suítes de testes podem ser aninhadas hierarquicamente, de forma que uma suíte possa ser colocada dentro de outra.</p>
+<p>Considere a criação de suítes de teste que organizem os scripts de teste disponíveis, em acréscimo a outras suítes de teste, em muitas combinações diferentes: quanto mais variações você tiver, mais você vai aumentar a cobertura e o potencial para encontrar erros. Imagine uma variedade de suítes de teste que irá cobrir de forma completa e profunda, os itens do alvo de teste. Lembre-se que um único script de teste (ou suíte de testes) pode aparecer em muitas suítes de teste diferentes, então suas ferramentas devem prevenir execuções desnecessárias do mesmo teste.</p>
+<p>No mínimo, é uma boa prática começar organizando as suítes ao longo das linhas de grandes áreas funcionais na aplicação. Entretanto as suítes de teste podem também se relacionar diretamente a um subsistema ou outro elemento de design do sistema, ou a requisitos tais como dimensões de qualidade, conformidade com padrões, e outras preocupações sobre os requisitos que navegam através dos elementos internos do sistema.</p>
+<p>Algumas ferramentas de automação fornecem funcionalidades para gerar ou montar automaticamente suítes de testes.</p></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Escrevendo Bons Requisitos</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="writing_good_requirements">
+<meta name="uma.presentationName" content="Escrevendo Bons Requisitos">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_6jXzYNcKEdqz_d2XWoVt6Q"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Escrevendo Bons Requisitos</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz descreve formas de escrever bons requisitos.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/detail_ucs_and_scenarios_6BC56BB7.html" guid="_4BJ_YCxSEdqjsdw1QLH_6Q">Detalhar Casos de Uso e Cenários</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/detail_requirements_9747F71E.html" guid="_0e1mIMlgEdmt3adZL5Dmdw">Detalhar os Requisitos</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/find_and_outline_requirements_90D272B9.html" guid="_P9cMUPV_EdmdHa9MmVPgqQ">Encontrar e Descrever os Requisitos</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/requirements_4467C860.html" guid="_0TR2ZMlgEdmt3adZL5Dmdw">Requisitos</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>Para escrever um bom requisito, você deve escrevê-lo como uma sentença completa, com um sujeito e um predicado. O sujeito é um Ator, um Stakeholder, o sistema em desenvolvimento ou uma entidade de design que está relacionado ao requisito. O predicado especifica uma ação ou um resultado desejado que é feito para, por, com ou ao sujeito, muitas vezes incluindo as condições e os critérios de desempenho.</p>
+<p>Assim, você pode analisar o requisito de um ponto de vista gramatical. Por exemplo:</p>
+<blockquote>
+    <p>
+        <em>A secretaria de entrada de pedido deve ser capaz de completar 10 pedidos de cliente em menos de duas horas.</em>
+    </p>
+</blockquote>
+<p>Este requisito tem um sujeito (a secretaria de entrada de pedido, que é um Ator), um estado final específico e mensurável (10 pedidos de cliente concluídos) e um critério de desempenho (em menos de duas horas).</p>
+<p>Nos requisitos dos Stakeholders, o uso da forma verbal "deve ser capaz de" deixa claro que o requisito especifica algo que o Stakeholder deve ser <strong>capaz</strong> de fazer, mas não é (necessariamente) forçado a fazer. Nos requisitos de sistema, a forma verbal "é &lt;ação&gt;" deixa claro que o sistema deve executar esta ação sob as condições determinadas.</p>
+<p>Em alguns casos, as listas numeradas podem tornar a escrita mais clara, mas cada item da lista deve ser um requisito completo para maximizar o benefício de qualquer informação de rastreabilidade.</p>
+<p>Palavras como <strong>todos</strong>, <strong>cada</strong> e <strong>alguns</strong> podem levar a ambigüidade. Você terá certeza que levou em conta <strong>todos</strong> os casos? Qual proporção do todo o <strong>alguns</strong> representa?</p>
+<p>As seguintes diretrizes básicas irão ajudá-lo a escrever melhores requisitos. Por razões de coerência, estes exemplos estão todos no contexto de uma aeronave. <a class="elementlinkwithusertext" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#TEL06" guid="_9ToeIB83Edqsvps02rpOOg">[TEL06]</a>
+</p>
+<ul>
+    <li>Defina um requisito por vez. Por exemplo,</li>
+</ul>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p>
+            <em>O piloto deve ser capaz de controlar o ângulo de subida da aeronave, com uma mão.</em>
+        </p>
+        <p>
+            <em>O piloto deve ser capaz de sentir o ângulo de subida a partir do controle de subida.</em>
+        </p>
+    </blockquote>
+</blockquote>
+<ul>
+    <li>Evite as conjunções (<b>e</b>, <b>ou</b>) que criam múltiplos requisitos. Por exemplo, use:</li>
+</ul>
+<blockquote>
+    <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p>
+            <em>O navegador deve ser capaz de visualizar a posição da aeronave em relação às balizas da rota.</em>
+        </p>
+        <p>
+            <em>O navegador deve ser capaz de visualizar a posição da aeronave pela estimativa da orientação inercial.</em>
+        </p>
+    </blockquote>
+    <p>Em vez de:</p>
+    <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p>
+            <em>O navegador deve ser capaz de ver a posição da aeronave em relação às balizas da rota ou pela estimativa da orientação inercial.</em>
+        </p>
+    </blockquote>
+    <p>Esta última forma é potencialmente perigosa, pois não está claro se o "ou" indica que o navegador pode escolher o método que utilizará para a navegação ou que os desenvolvedores possam decidir qual implementar.</p>
+</blockquote>
+<ul>
+    <li>Evite cláusulas ou palavras que implicam opções ou exceções (<b>salvo, exceto, se necessário, mas</b>). Elas são perigosas uma vez que fica difícil determinar quando o requisito é aplicável. É melhor escrever requisitos separados, tratando cada condição específica, ou estado do sistema. Por exemplo, use:</li>
+</ul>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p>
+            <em>O sistema deve fornecer 100% de classificação em condições normais.</em>
+        </p>
+        <p>
+            <em>O sistema deve ser capaz de fornecer até 125% de classificação para os primeiros 15 minutos em uma condição de emergência.</em>
+        </p>
+        <p>
+            <em>O sistema deve fornecer um mínimo de 90% de classificação em não menos de 15 minutos após os primeiros 15 minutos em uma condição de emergência.</em>
+        </p>
+        <p>
+            <em>O sistema deve ativar uma exceção de classificação reduzida se o mínimo de 95% de classificação não for mantido em uma condição de emergência.</em>
+        </p>
+    </blockquote>
+    <p>Em vez de:</p>
+    <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p>
+            <em>O sistema deve executar a classificação máxima em todas as ocasiões <strong>exceto</strong>, que em situações de emergência deve ser capaz de fornecer até 125% da classificação <strong>salvo</strong> se a condição de emergência continuar por mais de 15 minutos, que neste caso a classificação deve ser reduzida para 105% <strong>mas</strong> no caso de apenas 95% poder ser alcançado, então o sistema deve ativar uma exceção de classificação reduzida e deve manter a classificação em 10% dos valores declarados por no mínimo 30 minutos.</em>
+        </p>
+    </blockquote>
+</blockquote>
+<ul>
+    <li>Use sentenças simples e diretas.</li>
+</ul>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p>
+            <em>O piloto deve ser capaz de ver o indicador de velocidade do ar.</em>
+        </p>
+    </blockquote>
+</blockquote>
+<ul>
+    <li>Use palavras simples, tanto quanto possível, especialmente se o seu público alvo for internacional, o que torna a tradução precisa uma preocupação.</li>
+</ul>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p>
+            <em>A companhia aérea deve ser capaz de converter as aeronaves de vôos empresariais para festivos em menos de 12 horas.</em>
+        </p>
+        <p>
+            <strong>Nota</strong>: Não há necessidade de usar palavras como <strong>re-configurado</strong>.
+        </p>
+    </blockquote>
+</blockquote>
+<ul>
+    <li>Identifique o tipo de usuário que precisa de cada requisito.</li>
+</ul>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p>
+            <em>O navegador deve ser capaz de...</em>
+        </p>
+    </blockquote>
+</blockquote>
+<ul>
+    <li>Foque na declaração de que resultado você fornecerá para esse tipo de usuário.</li>
+</ul>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p>
+            <em>...ver nuvens de tempestade através do radar...</em>
+        </p>
+    </blockquote>
+</blockquote>
+<ul>
+    <li>Defina critérios verificáveis</li>
+</ul>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <blockquote>
+        <p>
+            <em>...pelo menos 100 milhas à frente.</em>
+        </p>
+    </blockquote>
+</blockquote>
+<ul dir="ltr">
+    <li>
+        <div>Use <strong>A Ser Confirmado</strong> (confirmar) para sinalizar que um requisito poderá ser alterado ou que ainda não é definitivo. Isto ajuda a identificar trabalho excedente. Por exemplo:</div>
+    </li>
+</ul>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p dir="ltr">
+            <em>A aeronave deve ser capaz de aterrizar de forma segura em uma pista de aterrizagem com comprimento mínimo de 1000 metros (confirmar).</em>
+        </p>
+    </blockquote>
+</blockquote>
+<ul dir="ltr">
+    <li>
+        <div>Use <strong>A Ser Determinado</strong> (definir) onde se saiba que um requisito específico será necessário, mas os detalhes ainda não são conhecidos. Também ajuda a identificar trabalho excedente. Por exemplo,</div>
+    </li>
+</ul>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p dir="ltr">
+            <em>A aeronave deve ser capaz de aterrizar, de forma segura, em pistas de aterrizagem com comprimento mínimo de (definir) metros.</em>
+        </p>
+    </blockquote>
+</blockquote></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Re-fatora&ccedil;&atilde;o</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="refactoring">
+<meta name="uma.presentationName" content="Re-fatora&ccedil;&atilde;o">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_OlyWoOX7Edu8VZPtlaU33g"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Re-fatora&ccedil;&atilde;o</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz descreve como aplicar a técnica de re-fatoração para melhorar o design do código existente.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/development_B5D1D8A.html" guid="_0TeDoMlgEdmt3adZL5Dmdw">Desenvolvimento</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/test_first_design_21C77ADF.html" guid="_0Y6kUMlgEdmt3adZL5Dmdw">Design Teste-primeiro</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/evolve_the_design_3C9D6965.html" guid="_C4U9QPTeEduDKIuqTXQ8SA">Evoluir o Design</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/software_reuse_B6B04C26.html" guid="_vO2uoO0OEduUpsu85bVhiQ">Reutilização de Software</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>A re-fatoração envolve a melhoria do design do código existente sem alterar o comportamento do sistema. Não é explicitamente a adição ou alteração de comportamento, mas a melhoria do design do comportamento existente.</p>
+<p>Um conjunto completo de testes de desenvolvedor é necessário antes que a re-fatoração seja seguramente aplicada. É fundamental que o comportamento do sistema esteja em um estado conhecido e verificavelmente correto antes da modificação do design, de forma que você possa melhorar o design sem o receio de que a implementação da modificação cause erros. A re-fatoração é uma transformação segura para melhorar o código, mas só é segura se existirem testes que possam comprovar que o sistema funciona como esperado.</p>
+<p>A re-fatoração inicia quando uma área, que precisa de melhorias é identificada no sistema, quer através da análise do código, ou qualquer outra representação do design. Os problemas identificados são às vezes chamados de "cheiros".</p>
+<p>Seguem alguns cheiros para observar se poderão conduzir a re-fatoração:</p>
+<ul>
+    <li>
+        <b>Código duplicado</b>: O código duplicado torna o sistema mais difícil de entender e manter.</li>
+    <li>
+        <b>Grandes Elementos ou Métodos de Design</b>: Grandes elementos ou métodos de design diminuem a capacidade das pessoas de compreenderem o design, reduzem o potencial de reuso e tornam os testes de desenvolvedor mais difíceis.</li>
+    <li>
+        <b>Elementos mal nomeados</b>: independente de serem variáveis, funções, classes ou componentes, seus nomes devem denotar o que eles são, de forma que o código possa ser mantido.</li>
+    <li>
+        <b>Acoplamento justo</b>: Cada elemento de design deve funcionar com o mínimo de preocupação sobre os aspectos internos dos outros elementos de design. Caso contrário, as alterações em um elemento podem causar efeitos indesejáveis em outros elementos.</li>
+</ul>
+<p>Como você pode ver nesta lista, a re-fatoração pode melhorar a "parte interna" de um elemento de design, a interface do elemento ou os relacionamentos e a colaboração entre os elementos. Além disso, muitos dos cheiros são caracterizados como fatores que tornam o software mais difícil de entender; e que a re-fatoração torna o sistema mais simples.</p>
+<p>Apos um problema ter sido identificado, um método de re-fatoração poderá ser selecionado para melhorar a situação. Existem catálogos de métodos de re-fatoração disponíveis que são padrões de alteração que vão resolver os problemas comuns, mantendo o comportamento do sistema.</p>
+<p>Seguem exemplos de métodos de re-fatoração:</p>
+<ul>
+    <li>
+        <b>Extração de Método</b>: Colocar o código duplicado em um único método ou extrair uma parte de um método grande para um novo método.</li>
+    <li>
+        <b>Extração de Classe</b>: Colocar uma parte coesa de uma classe em uma nova classe, para reduzir o tamanho de um elemento de design que seja muito grande.</li>
+    <li>
+        <b>Re-nomeação de Método</b>, <b>Re-nomeação de Classe</b> ou <b>Re-nomeação de Variável</b>: Dê um nome mais significativo a um elemento para que se torne mais compreensível.</li>
+    <li>
+        <b>Extração de Interface</b>: Crie uma interface limpa para um elemento para reduzir o acoplamento.</li>
+</ul>
+<p>Quando a re-fatoração for aplicada, os testes de desenvolvedor devem ser re-executados para garantir que o sistema ainda se comporta corretamente. É importante que o sistema esteja funcionando corretamente após cada re-fatoração. Embora muitas re-fatorações possam ser feitas em conjunto para impulsionar grandes mudanças em todo o código base, os testes devem ser executados com sucesso em cada re-fatoração aplicada. A re-fatoração deve ser aplicada como pequenas transformações que preservam o comportamento.</p>
+<p>Conforme mencionado anteriormente, a re-fatoração exige a cobertura de teste de desenvolvedor plena da área sob consideração. Existem outras técnicas que permitem a re-fatoração. Os padrões de codificação definem um estilo comum e tornam mais fácil a re-fatoração consistente. Uma atitude de propriedade coletiva de código por parte da equipe é muito importante. Cada desenvolvedor deve entender que a re-fatoração pode ser aplicada em todo o código base para melhorar a implementação.</p>
+<p>Para uma maior cobertura sobre este assunto, incluindo uma lista de "cheiros" e de um catálogo de re-fatorações para responder a eles, veja [<a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#FOW99" guid="_9ToeIB83Edqsvps02rpOOg">FOW99</a>].</p></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Checklists</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/checklists/design_68980812.html" guid="_0XSzsMlgEdmt3adZL5Dmdw">Design</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/checklists/implementation_CEC9BFCD.html" guid="_OhJKUNWsEduaE6F4-SvXzg">Implementação</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/coding_standard_880DD5D.html" guid="_0lnRMMqOEduwrYVlQ9zp3w">Padrão de Codificação</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/collective_code_ownership_E71A897B.html" guid="_xYMPoCZnEdyUaK463Ozu5g">Propriedade Coletiva de Código</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/refactoring_1B63BA3B.html" guid="_Poc7IPDzEdqYgerqi84oCA">Re-fatoração</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Guidelines</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/test_first_design_21C77ADF.html" guid="_0Y6kUMlgEdmt3adZL5Dmdw">Design Teste-primeiro</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Transformando o design em implementa&ccedil;&atilde;o</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="transforming_design_into_implementation">
+<meta name="uma.presentationName" content="Transformando o design em implementa&ccedil;&atilde;o">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_0Y0dsMlgEdmt3adZL5Dmdw"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Transformando o design em implementa&ccedil;&atilde;o</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz descreve várias técnicas para transformar o design em implementação.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/development_B5D1D8A.html" guid="_0TeDoMlgEdmt3adZL5Dmdw">Desenvolvimento</a>
+</li>
+<li>
+<a href="./../../../openup/workproducts/implementation_917CA61E.html" guid="_0YoQcMlgEdmt3adZL5Dmdw">Implementação</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/implement_solution_5D5698C8.html" guid="_0hyzgMlgEdmt3adZL5Dmdw">Implementar a Solução</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>
+    A <b>transformação</b> do design em código, implementa a estrutura do sistema na linguagem fonte escolhida. Também implementa o comportamento do sistema definido nos requisitos funcionais. <b>Implementar</b> o comportamento do sistema significa escrever o código que permita que as diferentes partes da aplicação (classes ou componentes) colaborem para realizar o comportamento do sistema.</p>
+<p>Existem várias técnicas para transformar automaticamente o design em implementação. Aqui estão alguns exemplos:</p>
+<ul>
+    <li>Os padrões de projeto podem ser aplicados para gerar elementos de design e de código a partir de designs relacionados e implementações. Por exemplo, um padrão de projeto de transformação pode ser aplicado a uma tabela de dados para criar classes Java™ que irão acessar a tabela dos dados. Um outro exemplo é usar um <a href="http://www.eclipse.org/emf/" target="_blank">Framework de Modelagem do Eclipse</a> para gerar o código necessário para armazenar os dados que combine com o modelo e para gerar uma implementação de interface de usuário para povoar os dados. Um gerador de padrão ou de transformação pode ser usado para criar a implementação, ou esta ser feita à mão. Os geradores de padrões são mais fáceis e confiáveis, mas o código escrito à mão que implementa um padrão definido terá menos erros do que código escrito à mão que implementa um design único ou original.</li>
+    <li>Os modelos podem ser detalhados e usados para gerar uma implementação. A estrutura (diagramas de classe e pacote) e os diagramas de comportamento (tais como o diagrama de estado, de atividade e de colaboração) podem ser usados para gerar código executável. Estas versões iniciais podem ser refinadas posteriormente.</li>
+    <li>O design pode ser independente de plataforma em vários graus. Os modelos de design específicos de plataforma ou mesmo o código podem ser gerados através das transformações que aplicam várias regras para mapear abstrações de alto nível de elementos específicos de plataforma. Este é o foco da Arquitetura Orientada a Modelo (MDA) do Object Management Group (OMG) <a href="http://www.omg.org/" target="_blank">(http://www.omg.org</a>).</li>
+    <li>Os modelos visuais específicos de uma plataforma podem ser usados para gerar uma estrutura inicial de código. Esta estrutura pode mais tarde ser elaborada com código adicional não especificado no design.</li>
+</ul>
+<p>Em todos os casos, entretanto, algumas abstrações de design (classes, componentes, etc.) são detalhadas para transformar-se em implementação.</p></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

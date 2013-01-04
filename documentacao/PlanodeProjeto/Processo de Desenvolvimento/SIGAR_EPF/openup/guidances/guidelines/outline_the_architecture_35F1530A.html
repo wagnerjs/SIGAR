@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Descrever a Arquitetura</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="outline_the_architecture">
+<meta name="uma.presentationName" content="Descrever a Arquitetura">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_42UD4A3tEduibvKwrGxWxA"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Descrever a Arquitetura</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz fornece informações adicionais para suportar a análise dos requisitos arquiteturalmente significantes e a criação de uma descrição da arquitetura.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/architecture_1F9C65DA.html" guid="_0TX9AMlgEdmt3adZL5Dmdw">Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/outline_the_architecture_FF123A81.html" guid="_0f-1oMlgEdmt3adZL5Dmdw">Descrever a Arquitetura</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><h4>Identifique as metas arquiteturais</h4>
+<p>As metas arquiteturais fornecem a motivação e a justificava para a tomada de decisões. Essas metas são muitas vezes direcionadas pelos requisitos de software, particularmente na <a class="elementLink" href="./../../../openup/workproducts/supporting_requirements_spec_7D9DD47C.html" guid="_BVh9cL-CEdqb7N6KIeDL8Q">Especificação de Requisitos Suplementares</a>, porque nem sempre estão evidentes somente nos casos de uso [<a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html" guid="_9ToeIB83Edqsvps02rpOOg">ALL02</a>].</p>
+<p>As metas arquiteturais definem como o sistema precisa responder às mudanças ao longo do tempo. Considere estas questões ao escrever suas metas:</p>
+<ul>
+    <li>Qual é a vida útil esperada do sistema?</li>
+    <li>O sistema terá que responder às mudanças tecnológicas ao longo desse tempo, tais como novas versões de middleware ou outros produtos?</li>
+    <li>Qual a freqüência esperada para o sistema se adaptar às mudanças?</li>
+    <li>Quais alterações poderemos antecipar no futuro, e como podemos torná-las mais fáceis de tratar?</li>
+</ul>
+<p>Estas considerações terão um efeito significante sobre a estrutura do sistema.</p>
+<h4>Identifique os requisitos arquiteturalmente significantes</h4>
+<p>Alguns requisitos serão mais significantes do que outros quando considerados a partir de uma perspectiva arquitetural. Sua identificação irá definir o subconjunto de requisitos que geralmente necessitam ser satisfeitos antes que a arquitetura possa ser estabilizada. Além disso, o sistema normalmente será mais sensível às mudanças nos requisitos arquiteturalmente significantes do que nos outros, então, a identificação e a comunicação do subconjunto irá ajudar aos outros a compreender as implicações potenciais da mudança.</p>
+<p>Os requisitos podem ser arquiteturalmente significantes de forma explícita ou implícita. Os requisitos implicitamente significantes podem definir a essência do comportamento funcional do sistema (ex. a compra em uma loja on-line). Os requisitos explicitamente significantes são muitas vezes de natureza técnica, tais como metas de desempenho, necessidade de interface com outros sistemas, quantidade de usuários que deve ser suportada ou os requisitos de segurança.</p>
+<p>Veja <a class="elementLink" href="./../../../openup/guidances/guidelines/determine_architecturally_significant_requirements_817DFD9B.html" guid="_D3JXMNvKEduv2KOT-Teh6w">Determinar os Requisitos Arquiteturalmente Significantes</a> para mais informações.</p>
+<h4>Identifique as restrições na arquitetura</h4>
+<p>Recolha informações sobre o ambiente existente e identifique quaisquer limitações na solução. Isso irá facilitar a integração com o ambiente, e pode reduzir os riscos, custos e duplicação de elementos da solução.</p>
+<p>As restrições arquiteturais podem surgir de vários fatores:</p>
+<div style="MARGIN-LEFT: 2em">
+    <ul>
+        <li>Topologia de rede</li>
+        <li>Utilização de uma determinada base de dados existente</li>
+        <li>Ambiente WEB (configurações de servidor, firewall, dmzs, etc.)</li>
+        <li>Servidores (modelo de hardware, sistema operacional)</li>
+        <li>Uso de softwares de terceiros ou de uma determinada tecnologia</li>
+        <li>Conformidade com padrões existentes</li>
+    </ul>
+</div>
+<p>Por exemplo, se a empresa utiliza apenas um tipo de banco de dados, você provavelmente irá tentar usá-lo o máximo possível para aproveitar as competências de administração de base de dados existentes, ao invés de apresentar um banco de dados novo.</p>
+<p>Estas restrições arquiteturais, combinadas com os requisitos, irão ajudá-lo a definir uma candidata adequada para a arquitetura do sistema.</p>
+<h4>Pesquise, avalie e selecione dentre os recursos disponíveis</h4>
+<p>Para avaliar e selecionar recursos para reutilização em seu projeto, você precisa entender os requisitos do ambiente de sistema. Também é preciso entender o escopo e a funcionalidade geral do sistema que os Stakeholders desejam. Existem vários tipos de recursos a considerar, incluindo (mas não limitado a): arquiteturas de referência; frameworks; padrões; mecanismos de análise; classes e a experiência. Você pode pesquisar nos repositórios de recursos (internos ou externos à sua organização) e na literatura industrial para identificar os recursos ou os projetos similares.</p>
+<p>Você precisa avaliar se os recursos disponíveis contribuem para resolver os principais desafios do projeto atual e se são compatíveis com as restrições arquiteturais do projeto. Você também precisa analisar o grau de ajuste necessário entre os recursos e os requisitos, considerando se qualquer um dos requisitos é negociável (para permitir a utilização do recurso). Avalie também se o recurso pode ser alterado ou estendido para satisfazer os requisitos, bem como quais as negociações necessárias para a sua adoção, em termos de custos, riscos e funcionalidade.</p>
+<p>Decida finalmente, a princípio, se pretende utilizar um ou mais recursos, e registre a razão para esta decisão.</p>
+<h4>Defina a abordagem para estruturar o sistema</h4>
+<p>A estruturação do sistema lhe ajuda a gerenciar a complexidade, utilizando a conhecida estratégia de "dividir para conquistar". Pela divisão do processo em partes menores e mais manejáveis, você torna o desenvolvimento mais fácil.</p>
+<p>A divisão em camadas é uma das abordagens mais comumente usadas para estruturar e decompor sistemas. Cada camada agrupa classes ou componentes semelhantes, que comunicam na medida do possível apenas com camadas adjacentes. Veja <a class="elementLinkWithType" href="./../../../openup/guidances/guidelines/layering_F169CF07.html" guid="_0gpkAMlgEdmt3adZL5Dmdw">Guideline: Dividir em camadas</a> para mais informações.</p>
+<p>Você não define quais camadas contêm quais classes ou componentes. Ao invés, você define quantas camadas você precisará e que tipos de camadas você irá usar. Por exemplo, se você está desenvolvendo um novo sistema de middleware, você provavelmente não precisará de uma camada de negócio. Mais tarde, durante as atividades de design, você decidirá quais classes e componentes irão popular estas camadas.</p>
+<h4>Defina a abordagem para implantar o sistema</h4>
+<p>Desenvolva uma visão geral de alto nível de como o software será implantado. Por exemplo, determine se o sistema necessita ser acessado remotamente, ou tem requisitos que sugerem distribuição em vários nós. Algumas fontes de informação a considerar são:</p>
+<ul>
+    <li>usuários em locais geográficos</li>
+    <li>organização dos dados do negócio</li>
+    <li>Requisitos de nível de serviço</li>
+    <li>restrições (tais como requisitos de interface com sistemas legados)</li>
+</ul>
+<p>Valide se a visão geral da implantação suporta usuários (especialmente os usuários em locais remotos, se for necessário) executando cenários de uso típico e satisfazendo os requisitos não funcionais e as restrições. Valide se os nós e as ligações são suficientes para suportar as interações entre os componentes em diferentes nós, e entre os componentes e seus dados armazenados.</p>
+<h4>Identifique as principais abstrações</h4>
+<p>Os requisitos e as tarefas de análise normalmente mostram comportamentos e conceitos fundamentais que o sistema deve ser capaz de lidar.</p>
+<p>Os conceitos manifestam-se no design como abstrações importantes. Os principais comportamentos devem se correlacionar com os cenários identificados como parte dos requisitos arquiteturalmente significantes e representar as interações importantes entre as principais abstrações.</p>
+<p>Os produtos de trabalho <a class="elementLink" href="./../../../openup/workproducts/vision_2E71B03C.html" guid="_0WVxcMlgEdmt3adZL5Dmdw">Visão</a> e <a class="elementLink" href="./../../../openup/workproducts/glossary_5D300778.html" guid="_Wn7HcNcEEdqz_d2XWoVt6Q">Glossário</a> são boas fontes para as principais abstrações. Estas abstrações são frequentemente de fácil identificação porque representam coisas que são importantes para o negócio. Por exemplo, Cliente e Conta são principais abstrações típicas do negócio bancário.</p>
+<p>As abstrações que estejam identificadas até este ponto também irão provavelmente mudar e evoluir no decurso do projeto. O objetivo desta etapa não é identificar o grupo completo de classes e relacionamentos que irão sobreviver no design. Ao invés, ela serve para identificar os conceitos importantes que o sistema deve tratar. O benefício de elencá-las no início do projeto é que todos na equipe possam compreender a importância destes conceitos e desenvolver um software coerente para lidar com elas de forma consistente.</p>
+<p>Não gaste muito tempo descrevendo abstrações detalhadas neste estágio inicial, porque existe o risco disso resultar na identificação de classes e relacionamentos que a solução não necessitará realmente. Quando da identificação das principais abstrações, pode ser útil definir também qualquer relacionamento óbvio que exista entre elas. Elas podem ser capturadas em uma tabela ou em diagramas (em uma ferramenta ou quadro branco), com uma descrição resumida para cada uma. Em geral, não se deve investir na definição de um conjunto de relacionamentos altamente detalhados neste estágio inicial do design. Os relacionamentos irão se tornam mais concretos e detalhados posteriormente e provavelmente irão modificar estes pressupostos precoces.</p>
+<h4>Identifique mecanismos arquiteturais</h4>
+<p>Veja <a class="elementLinkWithType" href="./../../../openup/guidances/concepts/arch_mech_2932DFB6.html" guid="_mzxI0A4LEduibvKwrGxWxA">Concept: Mecanismo Arquitetural</a>.</p>
+<h4>Capture as decisões arquiteturais</h4>
+<p>Muitas vezes é útil registrar as principais decisões arquiteturais e trabalhar as suposições em um diagrama de visão geral da arquitetura para tornar mais fácil a comunicação da arquitetura para a equipe do projeto e os Stakeholders. Essa informação deve ser parte da descrição da arquitetura, mas pode variar no formato para satisfazer as necessidades do projeto. Por exemplo, em um projeto ágil e de baixa cerimônia o diagrama de visão geral pode ser uma foto informal do story board ou um gráfico com ícones em um quadro branco ou uma ferramenta de desenho. A ilustração tem que mostrar a natureza da solução proposta, convergir as idéias regentes e representar os principais blocos de construção.</p>
+<p>As decisões arquiteturais devem ser capturadas no <a class="elementLinkWithType" href="./../../../openup/workproducts/architecture_notebook_9BB92433.html" guid="_0XAf0MlgEdmt3adZL5Dmdw">Artifact: Caderno de Arquitetura</a>.</p>
+<p>Se um sistema mais complexo for necessário, então, a arquitetura pode ser representada como um conjunto mais compreensivo de visões que descrevam a arquitetura a parir de uma série de pontos de vista. Veja <a class="elementLink" href="./../../../openup/guidances/guidelines/architectural_view_FF6EDA37.html" guid="_T9nygClEEduLGM8dfVsrKg">Visão Arquitetural</a> para mais informações.<br />
+</p><p/><h4>Capturar decisões arquiteturais (Modelagem Visual)</h4>
+<p>Você vai achar útil desenvolver estes três diagramas da Linguagem Unificada de Modelagem (UML) nesta fase:</p>
+<ul>
+    <li>
+        <strong>Mapa de camadas</strong> (representado como um diagrama de classes usando pacotes), que descreve as camadas de nível superior da arquitetura</li>
+    <li>
+        <strong>Esboço do diagrama de implantação</strong>, que descreve a topologia de rede esperada</li>
+    <li>
+        <strong>Diagrama de classe simples</strong>, que mostra as principais abstrações e qualquer relacionamento evidente entre elas</li>
+</ul></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/visual_modeling_2C089766.html" guid="_0XY6UMlgEdmt3adZL5Dmdw">Modelagem Visual</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Guidelines</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/layering_F169CF07.html" guid="_0gpkAMlgEdmt3adZL5Dmdw">Dividir em camadas</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/architectural_view_FF6EDA37.html" guid="_T9nygClEEduLGM8dfVsrKg">Visão Arquitetural</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

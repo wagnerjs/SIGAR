@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Mantendo Su&iacute;tes de Teste Automatizado</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="maintaining_automated_test_suite">
+<meta name="uma.presentationName" content="Mantendo Su&iacute;tes de Teste Automatizado">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_0kF5kMlgEdmt3adZL5Dmdw"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Mantendo Su&iacute;tes de Teste Automatizado</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz explica formas de manter suítes de teste automatizado, que são coleções de testes executados juntos para a cobertura de amplitude e profundidade.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/tasks/run_developer_tests_73D7DBC4.html" guid="_0iYCUMlgEdmt3adZL5Dmdw">Executar os Testes de Desenvolvedor</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/implement_test_scripts_26F00282.html" guid="_0jO98MlgEdmt3adZL5Dmdw">Implementar os Scripts de Teste</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/test_FB85069.html" guid="_0TkKQMlgEdmt3adZL5Dmdw">Teste</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><h3>Introdução</h3>
+<p>Em algum momento, você pode achar necessário gerenciar o seu esforço de teste através da criação de suítes de teste para os seus recursos de teste. A manutenção de suítes de teste pode assumir várias formas diferentes. Para facilitar o seu processo de teste, você pode querer definir algum nível de automação na sua suíte de teste. Entretanto, o fato de você automatizar as suas suítes de teste não torna necessariamente os testes mais fáceis. Ele pode, de fato, aumentar o peso da manutenção de suas suítes.</p>
+<p>Esta diretriz lhe apresenta heurísticas úteis sobre a forma de facilitar a manutenção das suas suítes de teste automatizado.</p>
+<h4>Planeje as suas suítes de teste</h4>
+<p>Automatizar o teste sem planejamento aumenta as chances de eles serem ineficazes e ineficientes. Algum nível de planejamento deve ser executado de forma implícita ou explícita. Uma parte essencial de qualquer plano de teste é a definição de uma estratégia para automação de teste. Use o seu plano para articular com a equipe de desenvolvimento como você pretende manter os seus recursos de teste. Em muitos casos, isso nunca é feito. O resto da equipe de desenvolvimento pode não saber como você pretende manter os testes. Também é uma boa prática fazer com que o resto da equipe de desenvolvimento entenda que esta manutenção pode ser uma parte substancial de todo o esforço de desenvolvimento. Utilize as suas ferramentas de teste para capturar essas informações e trate este plano exatamente como você trataria qualquer outro recurso de teste do seu repositório de testes.</p>
+<h4>Organize seus recursos de teste de forma centralizada</h4>
+<p>Para facilitar a manutenção das suas suítes de teste automatizado, coloque seus recursos de teste em um repositório que possa ser acessado pela equipe de desenvolvimento. Muitos ambientes de automação de teste fornecem ferramentas de gerenciamento que facilitam a organização e o acesso aos recursos de teste (casos de teste, scripts de teste e suítes de teste), mantendo-os em um repositório comum.</p>
+<p>Além disso, alguma forma de controle de acesso é proporcionada pela ferramenta de automação de teste. Isto facilita a carga de manutenção, assegurando a integridade das suas suítes de teste. Você pode optar em conceder acesso somente de leitura para os Stakeholders e gerentes, e de leitura e gravação para os desenvolvedores e testadores.</p>
+<h4>Trate os seus recursos de teste como qualquer outro software</h4>
+<p>O software deve ser mantido. Isto também se aplica ao software em suas suítes de teste. Os casos de teste e seus scripts de teste associados, tanto gravados como programados, devem ser mantidos. Assim como o software tem diferentes tipos de manutenção (ex. corretiva, preventiva ou adaptativa), os recursos das suas suítes de teste automatizado também têm. Da mesma forma que você trata suas suítes de teste em um ciclo de vida, identifique para as suas suítes de teste, mesmo que informalmente, como você pretende tratar a manutenção corretiva (ex. erros sintáticos em seus scripts), a manutenção preventiva (ex. sempre que possível escrever scripts de teste genéricos) e a manutenção adaptativa (ex. como você pode usar as ferramentas de teste para atribuir recursos de teste de uma suíte para outras suítes). Isto pode ser capturado em seu plano de teste, conforme está descrito na seção <strong>Planeje as suas suítes de teste</strong> acima.</p>
+<h4>Melhore a facilidade de execução da sua suíte de testes através da colaboração com os desenvolvedores</h4>
+<p>Suas suítes de teste terão que ser modificadas devido às alterações na aplicação, nos alvo de teste, etc. Isto é outra coisa que realmente determina se uma suíte de teste precisa ser melhorada e, se isso acontecer, quais recursos de teste associados a ela, precisam ser tratados.</p>
+<p>Uma forma para facilitar isso é a utilização das suítes de teste como uma forma de comunicar as decisões de teste para os desenvolvedores. Uma forma de executar manutenção perfectiva contínua das suítes de teste é entender que as suas suítes de teste são recursos que pertencem também a equipe de desenvolvimento e não somente aos testadores. Você pode executar uma espécie de manutenção perfectiva nos testes das seguintes formas:</p>
+<ul>
+    <li>use suítes de teste para elevar o nível de abstração</li>
+    <li>use suítes de teste para fornecer foco ao desenvolvedor</li>
+    <li>use suítes de teste para articular áreas que os desenvolvedores gostariam que os testadores focassem</li>
+    <li>torne a construção e a manutenção das suítes de teste mais eficientes entendendo quais áreas os desenvolvedores desejam que sejam focadas</li>
+    <li>use suítes de teste para esclarecer aos desenvolvedores os alvos de teste</li>
+</ul>
+<h4>Não tenha medo de limpar suas suítes</h4>
+<p>Seus recursos de teste irão evoluir tal como a aplicação sob teste irá. À medida que os requisitos para o sistema alterem a aplicação também irá alterar. Para manter as suas suítes de teste atualizadas, você deve verificar continuamente se os recursos de teste são válidos. Se possível, devem ser realizadas verificações de validade após cada nova liberação do software, de preferência frequentemente. Manter as suas suítes de teste relevantes é um trabalho de tempo integral. Assuma que as mudanças no software acarretarão numa certa quantidade de testes inválidos na sua suíte de teste. Uma vez que estes recursos de teste tenham sido identificados como inválidos, concerte-os ou livre-se deles. Isto tornará a carga de manutenção muito mais tolerável. Algumas ferramentas de teste automatizado facilitam esta tarefa, fornecendo meios para empacotar testes desatualizados ou inválidos. Em alguns casos, você pode não ter certeza se quer se livrar completamente dos testes ou mesmo de toda a suíte de teste. Para aliviar esta carga, você pode criar pacotes para testes ou suítes de teste obsoletos e dispensa-los, colocando-os em pacotes etiquetados para esta finalidade.</p></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

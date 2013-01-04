@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Projetar Visualmente</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="designing_visually">
+<meta name="uma.presentationName" content="Projetar Visualmente">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_1fM3AC9_EduW5uTjiIcspQ"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Projetar Visualmente</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz fornece informações sobre como usar a modelagem visual para projetar um sistema.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/analyze_the_design_4C4750C0.html" guid="__MnggPTdEduDKIuqTXQ8SA">Analisar o Design</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/development_B5D1D8A.html" guid="_0TeDoMlgEdmt3adZL5Dmdw">Desenvolvimento</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/evolve_the_design_3C9D6965.html" guid="_C4U9QPTeEduDKIuqTXQ8SA">Evoluir o Design</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/design_solution_A97CE9EA.html" guid="_0fshwMlgEdmt3adZL5Dmdw">Projetar a Solução</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><h3>Introdução</h3>
+<p>O uso de técnicas visuais de modelagem para projetar o software pode ajudar a transformar problemas complexos em uma série de problemas menores, mais fáceis para as tarefas de gestão. Compartilhar imagens, em vez de documentos escritos ou código fonte também contribui para o entendimento e comunicação de conceitos difíceis. A adoção de notações padrão de modelagem como a UML aumenta essa capacidade, ajudando a construir diagramas precisos e inequívocos.</p>
+<p>O grau de formalidade usada quando da produção e divulgação de modelos devem variar de acordo com as suas necessidades. Equipes pequenas e colaborativas modelando em quadros brancos e capturando os resultados em folhas de papel ou com câmeras digitais podem produzir bons resultados. Isto também pode ajudar a equipe a focar na produção de software com a ajuda de modelos, em vez de se tornar despropositada com excesso de engenharia nos modelos e nas soluções. As ferramentas de modelagem fornecem valor adicional aos projetos, em especial para sistemas mais complexos. Entretanto, as suas especificações de uso estão fora do escopo desta diretriz.</p>
+<p>Esta diretriz não descreve uma progressão sequencial formal através de etapas prescritivas de design. Se alguma ou todas estas técnicas são necessárias, ou quanto tempo é gasto com elas é uma incógnita que depende de questões do mundo real tais como a complexidade dos requisitos, a experiência do designer, bem como a forma como a equipe trabalha.</p>
+<p>Esta diretriz usa um cenário simplificado (Login) para ajudar a manter o foco na compreensão das técnicas, e não nos requisitos específicos. No mundo real, é duvidoso que muito tempo seja gasto na modelagem de um simples problema. Segue abaixo o diagrama de caso de uso, para referência;</p>
+<p>
+    <img height="142" alt="Modelo de Caso de Uso User Login" src="./../../../openup/guidances/guidelines/./resources/user_login_ucm.JPG" width="472" />
+</p>
+<h3>Identifique os elementos</h3>
+<p>Desenhe os elementos de design identificados como classes em um diagrama UML. Aplique os estereótipos adequados e opcionalmente desenhe a classe usando um ícone específico de estereótipo para caracterizar a intenção da classe no design. Nomeie e descreva resumidamente as classes com poucas frases. Não gaste muito tempo trabalhando em associações, uma vez que estas serão desenvolvidas através do trabalho nas colaborações na próxima etapa.</p>
+<p>As classes podem ser desenhadas com um retângulo UML básico ou com um símbolo específico associado a um determinado estereótipo.</p>
+<p>O diagrama de classe resultante deverá ser conceitualmente semelhante a este:</p>
+<p>
+    <img height="228" alt="Identificar Elementos - Modelo de Classe Inicial" src="./../../../openup/guidances/guidelines/./resources/identify_elements_bce.JPG"     width="290" />
+</p>
+<p>Para este exemplo, o <a class="elementLink" href="./../../../openup/guidances/guidelines/entity_control_boundary_pattern_C4047897.html" guid="_uF-QYEAhEdq_UJTvM1DM2Q">Padrão Entidade-Controle-Fronteira</a> foi usado para derivar duas classes (LoginUI e LoginController). Adicionalmente, dois elementos de design já identificados na arquitetura (SecuritySystemInterface e User) também foram incorporados.</p>
+<h3>Determine como os elementos colaboram para realizar o cenário</h3>
+<p>Quando da determinação das colaborações, dois tipos de diagramas são úteis.</p>
+<ul>
+    <li>Um diagrama de objeto dinâmico , mostrando como os elementos de design colaboram para realizar os requisitos.</li>
+    <li>Um diagrama de classe estático, mostrando as classes envolvidas na realização dos requisitos.</li>
+</ul>
+<p>Lembre-se também de atualizar qualquer outro diagrama afetado, com base nas alterações ou inclusões feitas no design.</p>
+<p>Crie uma série de diagramas de objeto dinâmicos que mostram como um conjunto de objetos colabora para executar o comportamento dos cenários. Mesmo que apenas um cenário esteja sendo projetado, podem ser necessários vários diagramas para mostrá-lo em partes menores e compreensíveis ou sob vários contextos.</p>
+<p>
+    <img style="WIDTH: 776px; HEIGHT: 355px" height="355" alt="Diagrama de Seqüência de User Login"     src="./../../../openup/guidances/guidelines/./resources/user_login_seq.JPG" width="776" />
+</p>
+<p>O diagrama de seqüência acima mostra as credenciais do usuário passadas ao sistema de segurança para autenticação. Os passos no cenário do caso de uso são transformados em mensagens entre os objetos participantes. As mensagens neste exemplo não estão ainda completamente formadas (não existem parâmetros ou valores de retorno), então elas estão com o prefixo "//" para mostrar que é necessário mais trabalho. Um diagrama de seqüência foi usado neste exemplo, mas um diagrama de comunicação poderia ter sido usado.</p>
+<p>Ele pode ser útil para criar um ou mais diagramas de classe estáticos que mostram as classes no design que suportam a realização. Estes diagramas de classe são normalmente chamados de diagramas de Visão das Classes Participantes, eles fornecem uma visão focada no design global mostrando apenas as classes, relacionamentos, operações e atributos relevantes para a colaboração.</p>
+<p>
+    <img height="469" alt="Visão das Classes Participantes - Login" src="./../../../openup/guidances/guidelines/./resources/login_vopc.jpg" width="448" />
+</p>
+<p>Este diagrama mostra as operações e os relacionamentos que foram identificadas ao desenhar o diagrama de seqüência. Os relacionamentos neste exemplo ainda não foram refinados, sendo assim eles são exibidos como simples associações. Lembre-se de examinar o diagrama para verificar se o design pode suportar o comportamento do diagrama de seqüência.</p>
+<p>Trabalhar o modelo neste nível de detalhe durante a fase inicial do projeto pode ser útil. Ele mantém os diagramas relativamente simples e fáceis de compreender. Ele torna-os mais fáceis de desenhar em uma reunião de trabalho e mais fáceis de alterar durante o processo de discussão. Geralmente é mais fácil de acrescentar o detalhe quando há acordo sobre o essencial.</p>
+<h3>Refine as decisões de design</h3>
+<p>Uma vez que a parte fundamental do design esteja relativamente estável, você pode começar a adicionar detalhes a ele. Alguns destes podem ser feitos no código ou no modelo. Se for escolhido no modelo, então refine os atributos, as responsabilidades e os relacionamentos.</p>
+<h4>Descreva as responsabilidades</h4>
+<p>As responsabilidades das classes são ações que deverão ser executadas por um objeto ou o conhecimento mantido e fornecido para outros objetos. Cada classe normalmente possuirá várias responsabilidades; cada responsabilidade irá evoluir para uma ou mais operações durante o design.</p>
+<p>As responsabilidades são derivadas das mensagens nos diagramas de interação ou dos requisitos não-funcionais que uma classe tem que suportar. Documente a responsabilidade, dando-lhe um nome, e opcionalmente uma descrição resumida (o que ela faz).</p>
+<p>Estas operações podem se tornar auto-evidentes a partir de seu contexto, elas podem dar descrições textuais do algoritmo necessário para executar o comportamento, ou podem gerar um outro passo completo desta técnica onde um grupo de classes que colaboram entre si para executar as partes internas da operação são identificadas, etc.</p>
+<h4>Descrever atributos e associações</h4>
+<p>Uma classe pode ter que armazenar dados simples, tais como: texto, inteiro, e coisas do gênero. Para tal tipo de dado, os atributos são definidos para as classes. Para um atributo mais complexo ou "comportamental", considere a criação de uma classe extra e estabeleça uma associação para ela.</p>
+<p>Para exercer as suas responsabilidades, as classes podem depender de outras classes que forneçam o comportamento necessário. Essas outras classes podem ser aquelas já identificadas nesta sessão de design, podem ser classes existentes retiradas da arquitetura, ou a criação de novas classes pode ser necessária. As associações em um diagrama de classe podem ser usadas para representar os relacionamentos entre as classes.</p>
+<p>
+    <img height="439" alt="Visão das Classes Participantes - Login (refinado)" src="./../../../openup/guidances/guidelines/./resources/login_vopc_refined.jpg" width="557" />
+</p>
+<p>Este diagrama mostra uma série de aperfeiçoamentos. A classe LoginUI foi substituída pela LoginForm. A classe User foi renomeada para UserCredentials e é criada pela classe LoginForm, ao invés de LoginController. Ela é então usada como parâmetro para as mensagens subseqüentes ao invés de passar os atributos individuais. A classe SecuritySystemInterface foi refinada em dois elementos, ISystemSecurity, que fornece uma simples fachada para interação com o resto do design; e SecuritySystemProxy, que trata a interação com o sistema de segurança externa.</p>
+<h3>Projete as partes internas</h3>
+<p>As classes no design são susceptíveis de serem distribuídas entre diferentes pacotes e subsistemas ou componentes.</p>
+<p>
+    <img height="304" alt="User Login - Pacotes de Design" src="./../../../openup/guidances/guidelines/./resources/dv_Packaging.JPG" width="571" />
+</p>
+<p>Neste exemplo, os elementos LoginForm, LoginController e UserCredentials foram colocados em um pacote chamado LocalSecurity. A SecuritySystemProxy é uma parte de um subsistema chamado SecuritySystemAdapter que realiza a interface ISecuritySystem. A SecuritySystemAdapter envolve a SecuritySystem legada, expressa aqui como um componente que oferece a interface validateUser.</p>
+<p>Cada um destes elementos de pacote pode ser distribuído entre a equipe para um futuro trabalho de desenvolvimento.</p>
+<h3>Conclusão</h3>
+<p>Esta diretriz percorreu as técnicas de forma concreta começando com um cenário de um caso de uso até a distribuição das classes identificadas em um conjunto de pacotes. Este exemplo demonstra uma técnica para projetar visualmente, mas deve ser considerado apenas como um passo conceitual de design. Uma pessoa pode facilmente aplicar esta técnica na definição das partes internas da classe SecuritySystemProxy, mostrando a forma como ela irá colaborar com um conjunto de classes para validar as credenciais.</p>
+<p>Ao aplicar esta diretriz, trabalhe em pequenos pedaços e lembre-se da meta de entregar software que forneça valor aos usuários. Para entregar software de alta qualidade é necessária a consideração de como as peças vão trabalhar em conjunto para entregar esse valor. Mas logo que decisões importantes forem tomadas e comunicadas aos membros da equipe, estes deverão começar a implementação do código fonte para verificar o design e entregar o valor.</p></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

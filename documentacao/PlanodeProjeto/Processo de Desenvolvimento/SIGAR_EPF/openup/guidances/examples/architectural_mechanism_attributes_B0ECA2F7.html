@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Example: Atributos de Mecanismo Arquitetural</title>
+<meta name="uma.type" content="Example">
+<meta name="uma.name" content="architectural_mechanism_attributes">
+<meta name="uma.presentationName" content="Atributos de Mecanismo Arquitetural">
+<meta name="element_type" content="example">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_eQ_s8Om5Edupia_tZIXEqg"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Example: Atributos de Mecanismo Arquitetural</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/example.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Este exemplo ilustra como representar atributos para os Mecanismos Arquiteturais.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/arch_mech_2932DFB6.html" guid="_mzxI0A4LEduibvKwrGxWxA">Mecanismo Arquitetural</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/architectural_mechanisms_62CFB6B7.html" guid="_J6BKgNvIEduv2KOT-Teh6w">Mecanismos Arquiteturais</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>A seguir é mostrado como se capturam informações de <a class="elementLink" href="./../../../openup/guidances/concepts/arch_mech_2932DFB6.html" guid="_mzxI0A4LEduibvKwrGxWxA">Mecanismo Arquitetural</a>. Este exemplo mostra dois mecanismos possíveis: Persistência e Comunicação.</p>
+<h1>Persistência</h1>
+<p>Para todas as classes com instâncias que podem tornar-se persistentes, você precisa identificar:</p>
+<ul>
+    <li>
+        <p>
+            <b>Granularidade</b>: Qual é o alcance do tamanho dos objetos a serem persistidos?</p>
+    </li>
+    <li>
+        <p>
+            <b>Volume</b>: Quantos objetos (número) você precisa manter persistentes?</p>
+    </li>
+    <li>
+        <p>
+            <b>Duração</b>: Quanto tempo normalmente o objeto precisa ser mantido?</p>
+    </li>
+    <li>
+        <p>
+            <b>Mecanismo de Recuperação</b>: Como um objeto é identificado e recuperado de forma exclusiva?</p>
+    </li>
+    <li>
+        <p>
+            <b>Freqüência de Atualização</b>: Os objetos são mais ou menos constantes? Eles são permanentemente atualizados?</p>
+    </li>
+    <li>
+        <p>
+            <b>Confiabilidade</b>: Os objetos precisam sobreviver a uma falha do processo, do processador, ou de todo o sistema?</p>
+    </li>
+</ul>
+<h1>Comunicação</h1>
+<p>Para todos os elementos de modelo que necessitam se comunicar com os componentes ou serviços que estejam em execução em outros processos ou threads, você precisará identificar:</p>
+<ul>
+    <li>
+        <p>
+            <b>Latência</b>: Quão rápido os processos devem se comunicar com os outros?</p>
+    </li>
+    <li>
+        <p>
+            <b>Sincronismo</b>: Comunicação assíncrona</p>
+    </li>
+    <li>
+        <p>
+            <b>Tamanho da Mensagem</b>: Um espectro pode ser mais adequado do que um único número</p>
+    </li>
+    <li>
+        <p>
+            <b>Protocolo</b>: Controle de fluxo, buffering, etc.</p>
+    </li>
+</ul>
+<p>Note que aqui não existem informações em nível de design ou especificação. Ao invés, trata-se mais da reunião e refinação dos requisitos arquiteturalmente significantes.</p></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

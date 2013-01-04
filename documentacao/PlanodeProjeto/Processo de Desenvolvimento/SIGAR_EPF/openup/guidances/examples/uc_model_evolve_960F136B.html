@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Example: Evolu&ccedil;&atilde;o do Modelo de Caso de Uso</title>
+<meta name="uma.type" content="Example">
+<meta name="uma.name" content="uc_model_evolve">
+<meta name="uma.presentationName" content="Evolu&ccedil;&atilde;o do Modelo de Caso de Uso">
+<meta name="element_type" content="example">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_t4QdAMNqEdu2IdAIaWZyAw"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Example: Evolu&ccedil;&atilde;o do Modelo de Caso de Uso</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/example.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Este exemplo ilustra como o modelo de caso de uso evolui no tempo quando você usa uma abordagem &quot;abranger antes de aprofundar&quot; para maximizar o valor e minimizar o risco o mais cedo no ciclo de vida e para minimizar o re-trabalho mais tarde.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/detail_ucs_and_scenarios_6BC56BB7.html" guid="_4BJ_YCxSEdqjsdw1QLH_6Q">Detalhar Casos de Uso e Cen&aacute;rios</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/find_and_outline_actors_and_ucs_BB5516A9.html" guid="_eyL0wCu-EdqSxKAVa9kmvA">Encontrar e Descrever Atores e Casos de Uso</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/examples/use_case_spec_CD5DD9B1.html" guid="_JLOiIMNvEdu2IdAIaWZyAw">Especifica&ccedil;&atilde;o de Caso de Uso</a>
+</li>
+<li>
+<a href="./../../../openup/workproducts/uc_model_85965D1B.html" guid="_W2SgEDR5EdutE_HNDTJk5Q">Modelo de Caso de Uso</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><h1>Introdução</h1>
+<p>Este exemplo ilustra como o modelo de caso de uso e a especificação de caso de uso associada, evoluirão durante o ciclo de vida. Mostra o estado do modelo de caso de uso em dois pontos no ciclo de vida: concepção inicial e no fim da elaboração. A finalidade é ilustrar como alguém pode <a class="elementLink" href="./../../../openup/tasks/find_and_outline_requirements_90D272B9.html" guid="_P9cMUPV_EdmdHa9MmVPgqQ">Encontrar e Descrever os Requisitos</a> e <a class="elementLink" href="./../../../openup/tasks/detail_requirements_9747F71E.html" guid="_0e1mIMlgEdmt3adZL5Dmdw">Detalhar os Requisitos</a> para maximizar o valor aos Stakeholders e minimizar o risco o mais cedo no projeto, bem como minimizar o re-trabalho mais tarde.</p>
+<p>O exemplo usa um Caixa Automático como sistema de exemplo porque é familiar para a maioria das pessoas. Esta familiaridade simplifica a compreensão dos princípios sem se perder na terminologia específica do domínio.</p>
+<h2>Concepção Inicial</h2>
+<p>Assuma que você acabou de começar no projeto como Analista. Você identificou os principais Stakeholders e se reuniu com eles para discutir as suas necessidades. Durante as reuniões, você identificou uma série de atores chave, casos de uso e requisitos suplementares para o sistema ATM. Você capturou os casos de uso e os atores, apenas com os nomes e descrições resumidas, no modelo de caso de uso. Um exemplo deste trabalho é fornecido no documento <strong>Concepção do Modelo de Caso de Uso do ATM</strong>.</p>
+<p>Antes de investir tempo significativo para detalhar estes casos de uso, você reconhece que a abordagem "abranger antes de aprofundar" pode economizar tempo valioso e permitir a identificação dos itens de maior valor e maior risco de forma que você possa se concentrar neles primeiro.</p>
+<p>Você faz uma sessão de brainstorming com os Stakeholders e descreve o fluxo básico de cada um dos principais casos de uso. Enquanto você está trabalhando, você pode identificar alguns fluxos alternativos adicionais. Lute contra o impulso de "mergulhar" nos detalhes destes fluxos alternativos neste momento, simplesmente relacione-os e volte mais tarde quando você tiver um melhor entendimento da "grande imagem".</p>
+<p>Exemplos das notas que você toma durante este exercício estão nos anexos. (<strong>Descrição de Retirar Dinheiro</strong>, <strong>Descrição de Depositar Fundos</strong> e <strong>Descrição de Transferir Fundos</strong>).<br /> <b>Nota</b>: a escolha da fonte é intencional para ilustrar que são notas, e não documentos formais.</p>
+<p>Revisando suas notas, você reconhece que existe algum comportamento que é comum à maioria dos casos de uso, que são os passos necessários para validar o Cliente do Banco. Fatorar este comportamento em um caso de uso &lt;&lt;include&gt;&gt; simplificará a comunicação, o planejamento da iteração e a manutenção.</p>
+<p>Você atualiza o modelo de caso de uso para ficar de acordo: <strong>Elaboração do Modelo de Caso de Uso do ATM</strong></p>
+<h2>Elaboração</h2>
+<p>Com uma melhor compreensão do sistema, você pode agora dar prioridade a seu esforço para maximizar o valor e minimizar o risco. Você começa detalhando o comportamento comum capturado no caso de uso: Validar Usuário. Este caso de uso captura os principais requisitos arquiteturais que exercitarão uma parcela significativa do sistema (comunicação com o banco, interface do leitor de cartão, etc.). Implementar este principal cenário irá reduzir bastante o risco.</p>
+<p>Um exemplo da especificação do caso de uso Validar Usuário está em anexo: <strong>Especificação de Caso de Uso - Validar Usuário</strong>.
+</p>
+<p>Note que pode ainda haver algumas perguntas não respondidas, mas isto é normal. Capture-as diretamente na especificação de caso de uso e responda-as (veja a Seção 5.6 da <strong>Especificação de Caso de Uso Validar Usuário</strong>).</p>
+<p>Continuando com uma outra linha arquiteturalmente significativa, você detalha o fluxo básico e alguns fluxos alternativos principais do caso de uso: Retirar Dinheiro. Você sabe que se a equipe puder implementá-lo, muito das outras funcionalidades será de baixo risco.</p>
+<p>Um exemplo da especificação do caso de uso Retirar Dinheiro está em anexo: <strong>Especificação de Caso de Uso - Retirar Dinheiro</strong>.</p>
+<h1>Resumo</h1>
+<p>Seguindo a abordagem "abranger antes de aprofundar" para descrever e detalhar os casos de uso, você pode tomar melhores decisões na priorização. Comece identificando os atores. Então para cada ator, pergunte "Qual é a principal necessidade deste ator usar o sistema?". Isto conduzirá à identificação dos casos de uso. Capture os atores e os casos de uso no modelo de caso de uso junto com uma descrição resumida.</p>
+<p>Priorize os casos de uso, e então esboce o cenário principal ou o fluxo básico. À medida que estiver trabalhando o caso de uso você pode identificar os fluxos alternativos (o que pode dar errado, que opções estão disponíveis, etc.). Capture-os, junto com uma descrição resumida.</p>
+<p>Revise o modelo de caso de uso, re-priorize e avalie o risco. Para os casos de uso de maior prioridade (baseado no valor aos Stakeholders) ou de maior risco, detalhe o cenário principal e os fluxos alternativos críticos.</p>
+<p>Se você seguir esta abordagem, aumentará a probabilidade de entregar cedo algo de valor, minimizar o risco e minimizar o re-trabalho.<br />
+</p></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Attached Files</th><td class="sectionTableCell">
+<UL>
+<li>
+<a href="./../../../openup/guidances/examples/resources/atm_uc_model_elaboration.doc" target="_blank">atm_uc_model_elaboration.doc</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/examples/resources/atm_uc_model_inception.doc" target="_blank">atm_uc_model_inception.doc</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/examples/resources/deposit_funds_outline.doc" target="_blank">deposit_funds_outline.doc</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/examples/resources/transfer_funds_outline.doc" target="_blank">transfer_funds_outline.doc</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/examples/resources/use_case_spec_validate_user.doc" target="_blank">use_case_spec_validate_user.doc</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/examples/resources/use_case_spec_withdraw_cash.doc" target="_blank">use_case_spec_withdraw_cash.doc</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/examples/resources/withdraw_cash_outline.doc" target="_blank">withdraw_cash_outline.doc</a>
+</li>
+</UL>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

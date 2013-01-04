@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Padr&atilde;o Entidade-Controle-Fronteira</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="entity_control_boundary_pattern">
+<meta name="uma.presentationName" content="Padr&atilde;o Entidade-Controle-Fronteira">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_uF-QYEAhEdq_UJTvM1DM2Q"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Padr&atilde;o Entidade-Controle-Fronteira</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz descreve uma forma rápida para construir um design que seja robusto o suficiente para realizar os requisitos funcionais.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/analyze_the_design_4C4750C0.html" guid="__MnggPTdEduDKIuqTXQ8SA">Analisar o Design</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/architecture_1F9C65DA.html" guid="_0TX9AMlgEdmt3adZL5Dmdw">Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/design_solution_A97CE9EA.html" guid="_0fshwMlgEdmt3adZL5Dmdw">Projetar a Solução</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/uc_realizations_448DDA77.html" guid="_2uan8NbyEdqu5o2S60g5LA">Realizações de Casos de Uso</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>Quando da identificação dos elementos para um cenário de comportamento do sistema, você pode alinhar cada elemento participante a uma das três principais perspectivas: <b>Entidade</b>, <b>Controle</b> ou <b>Fronteira</b>. Embora as especificidades das linguagens, frameworks e heurísticas de design de qualidade, eles irão conduzir o design final, um primeiro corte que cubra o comportamento necessário do sistema pode sempre ser montado com elementos destas três perspectivas.</p>
+<p>Este padrão é semelhante ao padrão Modelo Visão Controle (descrito em [<a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#BUS96" guid="_9ToeIB83Edqsvps02rpOOg">BUS96</a>] e em [<a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html#WIKP-MVC" guid="_9ToeIB83Edqsvps02rpOOg">WIKP-MVC</a>], dentre outros lugares), mas o Padrão Entidade Controle Fronteira (ECF) não é apenas adequado para lidar com interfaces de usuário, e dá ao Controle um papel um pouco diferente a desempenhar.</p>
+<h4 align="left">Exemplo do padrão ECF</h4>
+<p>
+     <img alt="" src="./../../../openup/guidances/guidelines/./resources/ebc_diagram.JPG" />
+</p>
+<h1>Elementos entidade</h1>
+<p>Uma entidade é um elemento passivo de longa duração, que é responsável por algumas partes significativas da informação. Não que dizer que as entidades são "dados", enquanto outros elementos de design são "funções". As entidades executam o comportamento organizado em torno de alguma quantidade coesa de dados.</p>
+<p>Um exemplo de uma entidade para um aplicativo de serviço ao cliente é uma entidade Cliente que gerencie todas as informações sobre um cliente. Um elemento de design para esta entidade deverá incluir dados sobre o cliente, comportamento para gerenciar os dados, comportamento para validar as informações do cliente e para executar outros cálculos de negócio, tal como "Este cliente está habilitado a comprar o produto x?"</p>
+<p>A identificação das entidades como parte deste padrão pode ser feita muitas vezes em diferentes níveis de abstração do código, em diferentes níveis de quantidade e, a partir da perspectiva de diferentes contextos. Por exemplo, você pode fazer uma verificação de análise em um cenário de criação de uma campanha de marketing e identificar o elemento cliente com vários elementos de dados do cliente, tais como nome e endereço, bem como vários comportamentos necessários, tais como a gestão dos dados de nome e endereço e a capacidade de avaliar o cliente baseado em algum algoritmo (uma aplicação deste padrão poderia estar abstraída do código, ser genérica e não ter nenhum contexto específico). Mais tarde, você poderia fazer uma verificação no mesmo cenário, aplicando um mecanismo arquitetural para acesso a banco de dados que divide o endereço fora do seu próprio elemento, mova a responsabilidade de armazenar e recuperar clientes para um novo elemento de controle, e identifique decisões específicas de banco de dados, tais como o uso de chaves primárias nas entidades. (Uma aplicação deste padrão poderia estar próxima ao código, ser detalhada e alinhada com um contexto de banco de dados).</p>
+<h1>Elementos de controle</h1>
+<p>Um elemento de controle gerencia o fluxo de interação do cenário. Um elemento de controle poderia gerenciar todo o comportamento de um cenário. Ou poderia gerenciar as interações entre um subconjunto dos elementos. O comportamento e as regras de negócios relativas às informações relevantes para o cenário devem ser atribuídos às entidades; os elementos de controlo são responsáveis apenas pelo fluxo do cenário.</p>
+<p>CriarCampanhaDeMarketing é um exemplo de um elemento de controle para uma aplicação de serviço ao cliente. Este elemento de design responderia a certos elementos de fronteira do front-end e colaboraria com outras entidades, elementos de controle e elementos de fronteira de back-end para suportar a criação de uma campanha de marketing.</p>
+<p>Assim como este exemplo de entidade, podem ser necessárias várias verificações para a identificação de elementos de controle. Uma primeira verificação poderia ser uma verificação de análise que identifica um elemento de controle para um cenário, com comportamento para se certificar que o design pode suportar o fluxo de eventos. Uma verificação posterior poderia encontrar controles para gerenciar colaborações reutilizáveis de elementos de baixo nível que irão se associar a uma unidade de código específica a ser escrita.</p>
+<h1>Elementos de fronteira</h1>
+<p>Um elemento de fronteira está na periferia de um sistema ou subsistema, mas pertence a ele. Para qualquer cenário sendo considerado, em todo o sistema ou em um subsistema, alguns elementos de fronteira serão elementos "front-end" que aceitam entradas de fora da área que está sendo projetada, e outros elementos serão "back-end", que gerenciam a comunicação para suportar elementos que estejam fora do sistema ou subsistema.</p>
+<p>Dois exemplos de elementos de fronteira para um aplicativo de serviço ao cliente podem ser o front-end FormulárioDeCampanhaDeMarketing e o back-end SistemaDeOrçamento. O FormulárioDeCampanhaDeMarketing gerenciaria a troca de informações entre o usuário e o sistema, e o SistemaDeOrçamento gerenciaria a troca de informações entre o sistema e um sistema externo que gerencie orçamentos.</p>
+<p>Uma verificação de análise poderia identificar um elemento de fronteira para cada parte externa relevante a um cenário. Posteriormente, elas poderiam ser subdivididas em vários elementos de fronteira ou pequenas comunidades compostas por elementos colaboradores de todos os três estereótipos.</p>
+<h1>Percorrendo o cenário</h1>
+<p>Você pode percorrer um cenário iniciado por algo fora dos limites do sistema ou subsistema que está sendo projetado e distribuir a responsabilidade para executar o comportamento suportando o cenário para os elementos identificados de cada tipo. Os elementos de design apropriados, responsáveis por cada ação no cenário, estarão de acordo com o que foi descrito na definição de cada tipo de elemento descrito aqui anteriormente.</p>
+<p>Além de identificar o comportamento necessário para executar o cenário, a iniciação deste comportamento de elementos de design para elementos de design identifica os relacionamentos necessários. Existem certos relacionamentos adequados entre os elementos participantes. Um elemento pode comunicar-se com outros elementos do mesmo tipo. Os elementos de controle podem se comunicar com cada um dos outros dois tipos, mas os elementos entidade e fronteira não devem se comunicar diretamente.</p>
+<p>Esta tabela mostra as ligações adequadas entre os elementos de design.</p>
+<table cellspacing="2" cellpadding="2" width="400" summary="Ligações Adequadas" border="1">
+    <tbody>
+        <tr>
+            <td>
+            </td>
+            <th scope="col">
+                <center>Entidade</center>
+            </th>
+            <th scope="col">
+                <center>Fronteira</center>
+            </th>
+            <th scope="col">
+                <center>Controle</center>
+            </th>
+        </tr>
+        <tr>
+            <th scope="row">Entidade</th>
+            <td>
+                <center>
+                    X
+                </center>
+            </td>
+            <td>
+            </td>
+            <td>
+                <center>
+                    X
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Fronteira</th>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                <center>
+                    X
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Controle</th>
+            <td>
+                <center>
+                    X
+                </center>
+            </td>
+            <td>
+                <center>
+                    X
+                </center>
+            </td>
+            <td>
+                <center>
+                    X
+                </center>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>Ao aplicar este padrão, você pode criar um design robusto que identifica os elementos, o comportamento e os relacionamentos necessários para suportar um cenário.</p></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

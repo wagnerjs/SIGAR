@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Modelo de Caso de Uso</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="uc_model">
+<meta name="uma.presentationName" content="Modelo de Caso de Uso">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_0VAUsMlgEdmt3adZL5Dmdw"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Modelo de Caso de Uso</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz descreve como desenvolver e evoluir o modelo de caso de uso para capturar os requisitos funcionais para o sistema em desenvolvimento.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/tasks/find_and_outline_requirements_90D272B9.html" guid="_P9cMUPV_EdmdHa9MmVPgqQ">Encontrar e Descrever os Requisitos</a>
+</li>
+<li>
+<a href="./../../../openup/workproducts/uc_model_85965D1B.html" guid="_W2SgEDR5EdutE_HNDTJk5Q">Modelo de Caso de Uso</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/requirements_4467C860.html" guid="_0TR2ZMlgEdmt3adZL5Dmdw">Requisitos</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><h3>Introdução</h3>
+<p>A chave para o êxito do desenvolvimento iterativo é garantir que a equipe de desenvolvimento maximize o valor aos stakeholders e minimize os riscos no início do ciclo de vida, minimizando ao mesmo tempo o re-trabalho posterior. Isto impõe algumas restrições sobre a forma como desenvolvemos o modelo de caso de uso.</p>
+<p>Em um dos extremos existe a abordagem clássica em cascata, que tenta detalhar todos os requisitos antes do design e da implementação. Esta abordagem atrasa a entrega de valor aos Stakeholders e a redução dos riscos desnecessariamente.</p>
+<p>No outro extremo está o início do desenvolvimento antes do entendimento do que o sistema deve fazer. Esta abordagem resulta em significativo, e dispendioso, re-trabalho ao final do ciclo de vida.</p>
+<p>A melhor abordagem consiste em detalhar apenas os requisitos que serão o foco do desenvolvimento na próxima iteração (ou na seguinte). A seleção destes requisitos é motivada pelo valor e risco, e, portanto, exige no mínimo um entendimento abstrato da visão contextual.</p>
+<p>A discussão a seguir irá descrever o método utilizado para evoluir o modelo de caso de uso, para alcançar essas metas.</p>
+<h3>
+    <a id="How the Use-Case Model Evolves" name="How the Use-Case Model Evolves">Como o Modelo de Caso de Uso Evolui</a>
+</h3>
+<p>A abordagem recomendada para a evolução do modelo de caso de uso baseia-se no método "abranger antes de aprofundar". Nesta abordagem, alguém identifica os atores e casos de uso e descreve-os rapidamente. Baseado neste conhecimento pode-se então realizar uma primeira avaliação dos riscos e prioridades e, então, concentrar os esforços de detalhamento dos casos de uso nas áreas certas.</p>
+<h4>Concepção</h4>
+<p>O objetivo da Concepção é entender o escopo do sistema. Temos que compreender o principal objetivo do sistema, o que está dentro do escopo do sistema, e o que é externo ao sistema. Devemos nos esforçar para relacionar todos os principais atores e casos de uso, entretanto, não devemos nos dar ao luxo de detalhar todos os requisitos neste momento. Esforce-se no sentido de identificar, pelo nome, aproximadamente 80% dos principais atores e casos de uso e fornecer uma descrição resumida (de uma a três linhas) para cada um.</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <h5>Identifique os Stakeholders</h5>
+    <p>Comece relacionando todos os Stakeholders externos ao sistema. Estas pessoas serão a fonte dos requisitos.</p>
+    <h5>Identifique os Atores</h5>
+    <p>Nomeie e descreva os principais atores. Veja <a class="elementLinkWithType" href="./../../../openup/guidances/guidelines/find_and_outline_actors_and_ucs_BB5516A9.html" guid="_eyL0wCu-EdqSxKAVa9kmvA">Guideline: Encontrar e Descrever Atores e Casos de Uso</a>.</p>
+    <h5>Identifique os Casos de Uso</h5>
+    <p>Para cada ator, pergunte: "o que este ator quer conseguir com o sistema"? Isto revelará os principais casos de uso do sistema. Nomeie e descreva cada um dos casos de uso à medida que você for descobrindo-os.</p>
+    <h5>Atualize o Modelo de Caso de Uso</h5>
+    <p>Atualize o modelo de caso de uso para registrar os nomes e as descrições resumidas dos atores e casos de uso. Capture os relacionamentos entre os atores e os casos de uso.</p>
+    <h5>Descreva os Fluxos Básicos</h5>
+    <p>Para os casos de uso considerados de alta prioridade pelos Stakeholders, ou de alto risco pela equipe de desenvolvimento, capture uma descrição passo-a-passo do Fluxo Básico. Não se preocupe com a estruturação do fluxo neste momento. Concentre-se em captar o diálogo entre o ator e o sistema e os requisitos fundamentais para o sistema.</p>
+    <h5>Identifique os Fluxos Alternativos</h5>
+    <p>À medida que estiver trabalhando nos Fluxos Básicos, pergunte: "O que pode dar errado?"; "Que opções estão disponíveis neste momento?"; Etc. Estes tipos de pergunta irão revelar os fluxos alternativos. Capture-os, dando-lhes um nome e uma descrição resumida. Não detalhe estes fluxos alternativos neste momento.</p>
+    <h5>Re-fatore o Modelo de Caso de Uso</h5>
+    <p>Baseado nos Fluxos Básicos que você identificou, determine se existem comportamentos comuns que poderiam ser fatorados em casos de uso &lt;&lt;include&gt;&gt;. Re-fatore o Modelo de Caso de Uso de acordo com o necessário.</p>
+    <h5>Priorize os Casos de Uso</h5>
+    <p>Dada a descrição abstrata que agora você tem dos requisitos, trabalhe com os Stakeholders para priorizar os casos de uso. Esta será a principal entrada para o planejamento da iteração.</p>
+</blockquote>
+<h4>Elaboração</h4>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <p>A finalidade da elaboração é demonstrar a viabilidade da solução antes de comprometer recursos adicionais. Para ser bem sucedida, alguém deve demonstrar que o valor aos Stakeholders pode ser entregue e que o risco de continuar é aceitável. Devemos nos esforçar em detalhar e implementar aproximadamente 20% dos cenários. Estes cenários devem ser selecionados para alcançar uma boa cobertura da arquitetura (por exemplo, uma fatia vertical através da arquitetura, tocando tantos componentes e interfaces quanto possível, é preferível ao invés de elaborar somente a Interface de Usuário).</p>
+    <h5>Detalhe o Fluxo Básico</h5>
+    <p>Para os Casos de Uso selecionados para a próxima iteração, invista o tempo detalhando o fluxo básico agora. Veja <a class="elementLinkWithType" href="./../../../openup/guidances/guidelines/detail_ucs_and_scenarios_6BC56BB7.html" guid="_4BJ_YCxSEdqjsdw1QLH_6Q">Guideline: Detalhar Casos de Uso e Cenários</a>.</p>
+    <h5>Detalhe o Fluxo Alternativo</h5>
+    <p>Para os fluxos alternativos selecionados para a próxima iteração, invista o tempo detalhando os fluxos agora.</p>
+    <h5>Atualize o Modelo de Caso de Uso</h5>
+    <p>Atualize o Modelo de Caso de Uso para capturar qualquer aperfeiçoamento que tenha resultado de seu trabalho. Dependendo da complexidade do sistema, você pode agrupar, de forma lógica, os casos de uso em pacotes para simplificar a comunicação, o planejamento da iteração e o desenvolvimento em paralelo.</p>
+</blockquote>
+<h4>Construção</h4>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <p>A finalidade da construção é entregar gradativamente a funcionalidade (e o valor). Trabalhando com base no plano de iteração, continue detalhando os requisitos restantes. Almeje a conclusão de aproximadamente 90 a 95% dos casos de uso, até o final da construção.</p>
+    <h5>Detalhe os Fluxos Básicos</h5>
+    <p>Para os Casos de Uso selecionados para a próxima iteração, invista o tempo detalhando o fluxo básico agora. Veja <a class="elementLinkWithType" href="./../../../openup/guidances/guidelines/detail_ucs_and_scenarios_6BC56BB7.html" guid="_4BJ_YCxSEdqjsdw1QLH_6Q">Guideline: Detalhar Casos de Uso e Cenários</a>.</p>
+    <h5>Detalhe os Fluxos Alternativos</h5>
+    <p>Para os fluxos alternativos selecionados para a próxima iteração, invista o tempo detalhando os fluxos agora.</p>
+    <h5>Atualize o Modelo de Caso de Uso</h5>
+    <p>Atualize o Modelo de Caso de Uso para capturar qualquer aperfeiçoamento que tenha resultado de seu trabalho.</p>
+</blockquote>
+<h4>Transição</h4>
+<p>A finalidade da transição é tornar o sistema operacional em seu ambiente alvo. Alguns requisitos ainda não estarão cobertos até este momento, mas se fizemos as coisas certas, eles não devem afetar o design. Os casos de uso restantes, aproximadamente de 5% a 10%, devem ser detalhados e implementados nesta fase.</p>
+<h3>
+    <a id="Avoiding Functional Decomposition" name="Avoiding Functional Decomposition">Evitando a Decomposição Funcional</a>
+</h3>
+<p>Uma armadilha comum para os novatos em modelagem de caso de uso é realizar uma decomposição funcional do sistema. Isto resulta em muitos "casos de uso" pequenos, que isoladamente não entregam o "resultado de valor observável" para o ator. Para evitar isso, preste atenção nos seguintes sintomas:</p>
+<ul>
+    <li>
+        <strong>Pequenos</strong> casos de uso, significando que a descrição do fluxo de eventos tem apenas uma ou poucas sentenças.</li>
+    <li>
+        <strong>Muitos</strong> casos de uso, significando que a quantidade de casos de uso conta-se as centenas, e não as dezenas.</li>
+    <li>Nomes de casos de uso tais como "executar esta operação nestes determinados dados" ou "executar esta função com esses dados". Por exemplo, "Entrar com a Senha num Caixa Eletrônico (ATM)" não deve ser modelado como um caso de uso separado para o Caixa Eletrônico (ATM), porque ninguém usará o sistema para fazer somente isso. Um caso de uso é um fluxo de eventos completo que resulta em algo de valor para um ator.</li>
+</ul>
+<p>Para evitar a decomposição funcional, certifique-se que o modelo de caso de uso responde a estas perguntas:</p>
+<ul>
+    <li>Qual é o contexto do sistema?</li>
+    <li>Porque você está construindo este sistema?</li>
+    <li>O que o usuário deseja que o sistema faça?</li>
+    <li>Como os usuários se beneficiarão do sistema?</li>
+</ul>
+<h3>
+    <a id="Structuring the Use-Case Model" name="Structuring the Use-Case Model">Estruturando o Modelo de Caso de Uso</a>
+</h3>
+<p>Existem três razões principais para estruturar o modelo de caso de uso:</p>
+<ul>
+    <li>Para tornar os casos de uso mais fáceis de entender.</li>
+    <li>Para compartilhar o comportamento comum descrito em vários casos de uso.</li>
+    <li>Para tornar o modelo de caso de uso mais fácil de manter.</li>
+</ul>
+<p>Entretanto, a estruturação não é a primeira coisa a ser feita. Não existe vantagem em estruturar os casos de uso até que você conheça um pouco mais de seus comportamentos, além de uma descrição de uma-sentença. Você deve ter feito, pelo menos, uma descrição passo-a-passo do fluxo de eventos do caso de uso para ter certeza que suas decisões são baseadas em uma compreensão exata do comportamento.</p>
+<p>Existem vários conceitos avançados de modelagem disponíveis na literatura para a estruturação do modelo de caso de uso, entretanto, seguindo o princípio de "simplicidade" o mais útil deles é o relacionamento &lt;&lt;include&gt;&gt;, discutido neste processo. Este relacionamento permite fatorar o comportamento comum em um caso de uso separado que é "incluído" em outros casos de uso. Veja <a class="elementLinkWithType" href="./../../../openup/guidances/concepts/use_case_model_CD178AF9.html" guid="_2jyfUAhVEduRe8TeoBmuGg">Concept: Modelo de Caso de Uso</a> para mais detalhes.</p>
+<p>Outro aspecto da estruturação do modelo de caso de uso para facilitar a compreensão, é o agrupamento dos casos de uso em pacotes. O modelo de caso de uso pode ser organizado como uma hierarquia de pacotes de casos de uso. Para obter mais informações sobre os pacotes de casos de uso, veja <a class="elementLinkWithType" href="./../../../openup/guidances/concepts/use_case_model_CD178AF9.html" guid="_2jyfUAhVEduRe8TeoBmuGg">Concept: Modelo de Caso de Uso</a>.</p>
+<h3>
+    <a id="Use Cases Are Always Related to Actors" name="Use Cases Are Always Related to Actors">Relacionamento entre Casos de Uso e Atores</a>
+</h3>
+<p>A execução de cada caso de uso inclui a comunicação com um ou mais atores. Uma instância de um caso de uso é sempre iniciada por um ator pedindo ao sistema para fazer algo. Isto implica que cada caso de uso deve ter associações de comunicação com os atores. A razão para esta regra é assegurar que o sistema forneça somente a funcionalidade que os usuários necessitam e nada mais. A existência de casos de uso que ninguém tenha solicitado é um indício de que algo está errado no modelo de caso de uso ou nos requisitos.</p>
+<p>Entretanto, existem algumas exceções a esta regra:</p>
+<ul>
+    <li>Um caso de uso &lt;&lt;include&gt;&gt; não pode interagir com um ator, se o caso de uso base o fizer.</li>
+    <li>Um caso de uso pode ser iniciado de acordo com um agendamento (por exemplo, uma vez por semana ou uma vez por dia), o que significa que o relógio do sistema é quem inicia. O relógio do sistema é interno ao sistema; portanto, o caso de uso não é iniciado por um ator, mas por um evento interno do sistema. Se nenhuma interação de outro ator ocorrer no caso de uso, ele não terá qualquer associação com atores. No entanto, por uma questão de clareza, você pode usar o "tempo" como um ator para mostrar como o caso de uso é iniciado nos seus diagramas de caso de uso. <strong>ATENÇÃO</strong>: se você tiver vários atores "tempo" no seu modelo, questione-os. Talvez você não tenha notado a existência de um ator verdadeiro, tal como um administrador responsável pelo agendamento de informes, etc.</li>
+</ul></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/use_case_model_CD178AF9.html" guid="_2jyfUAhVEduRe8TeoBmuGg">Modelo de Caso de Uso</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Guidelines</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/detail_ucs_and_scenarios_6BC56BB7.html" guid="_4BJ_YCxSEdqjsdw1QLH_6Q">Detalhar Casos de Uso e Cenários</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/find_and_outline_actors_and_ucs_BB5516A9.html" guid="_eyL0wCu-EdqSxKAVa9kmvA">Encontrar e Descrever Atores e Casos de Uso</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

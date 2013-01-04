@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Design Teste-primeiro</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="test_first_design">
+<meta name="uma.presentationName" content="Design Teste-primeiro">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_0Y6kUMlgEdmt3adZL5Dmdw"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Design Teste-primeiro</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz explica como aplicar o design teste-primeiro.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/development_B5D1D8A.html" guid="_0TeDoMlgEdmt3adZL5Dmdw">Desenvolvimento</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/evolve_the_design_3C9D6965.html" guid="_C4U9QPTeEduDKIuqTXQ8SA">Evoluir o Design</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/run_developer_tests_73D7DBC4.html" guid="_0iYCUMlgEdmt3adZL5Dmdw">Executar os Testes de Desenvolvedor</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/implement_solution_5D5698C8.html" guid="_0hyzgMlgEdmt3adZL5Dmdw">Implementar a Solução</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/impl_developer_tests_F186F76F.html" guid="_0iL1EMlgEdmt3adZL5Dmdw">Implementar os Testes de Desenvolvedor</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/refactoring_33F165CA.html" guid="_OlyWoOX7Edu8VZPtlaU33g">Re-fatoração</a>
+</li>
+<li>
+<a href="./../../../openup/workproducts/developer_test_8470ED13.html" guid="_0YuXEclgEdmt3adZL5Dmdw">Teste de Desenvolvedor</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><h3>Introdução</h3>
+<p>Com o Design Teste-Primeiro (TFD) você faz o design detalhado de uma forma just-in-time (JIT) através da escrita de um simples teste antes de escrever bastante código produtivo necessário para executar o teste. Quando você tiver que adicionar uma nova funcionalidade ao seu sistema, execute os seguintes passos:</p>
+<ol>
+    <li>
+        <strong>Adicione rapidamente um teste de desenvolvedor</strong>. Você necessita de código fonte apenas para fazer o erro acontecer. Por exemplo, um novo método prestes a ser adicionado a uma classe poderá ser criado apenas para provocar uma exceção fatal.</li>
+    <li>
+        <strong>Execute os seus testes</strong>. Você executará basicamente a suíte completa de teste, embora por causa da velocidade você possa decidir executar somente um subconjunto. O objetivo é assegurar que o novo teste falhe de fato.</li>
+    <li>
+        <strong>Atualize o código produzido</strong>. O objetivo é adicionar apenas a funcionalidade necessária para que o código passe no teste.</li>
+    <li>
+        <strong>Execute sua suíte de teste de novo</strong>. Se os testes falharem você terá que atualizar o código funcional e testá-lo de novo. Uma vez que os testes passem repita os passos.</li>
+</ol><br />
+<p>
+    <img height="600" alt="Fluxo do Design Teste-Primeiro" src="./../../../openup/guidances/guidelines/./resources/test_first_design.jpg" width="294" />
+</p>
+<h4>Por Que TFD?</h4>
+<p>Uma vantagem significativa do TFD é que ele lhe permite executar pequenos passos ao escrever o software, o que não é somente mais seguro como também mais produtivo do que escrever código em grandes quantidades. Por exemplo, suponha que você tenha adicionado um novo código funcional, compilado e testado ele. Existem grandes chances que seus testes falhem por causa de defeitos existentes no novo código. É muito mais fácil encontrar, e então reparar, estes defeitos se você tiver escrito apenas cinco linhas novas de código ao invés de cinqüenta. A implicação disto é que, o quão mais rápido forem seu compilador e sua suíte de teste de regressão, mais atrativo será continuar com passos cada vez menores.</p>
+<p>Existem outras três estratégias comuns de teste (listadas aqui em ordem de eficácia).</p>
+<ol>
+    <li>
+        <strong>Escrever diversos testes primeiro</strong>. Esta é uma variante do TFD onde você escreve mais de um teste antes de escrever bastante código produtivo necessário para executar os testes. A vantagem é que você não precisa construir seu sistema como normalmente é feito, podendo economizar tempo. Tem a desvantagem que você terá que escrever mais código produtivo de uma só vez, aumentando a dificuldade de encontrar a causa de erros novos.</li>
+    <li>
+        <strong>Testar após o fato</strong>. Nesta abordagem você escreve um pouco de código produtivo e então escreve bastante teste para valida-lo. Esta abordagem tem a vantagem de que você, pelo menos, ainda está validando o código, mas tem a desvantagem de que você perde o benefício inerente do design de escrever o teste primeiramente.</li>
+</ol><br />
+<h3>Coisas boas para saber</h3>
+<p>1. Uma regra assumida pelo TDD é que você tenha um framework de teste unitário disponível. Os desenvolvedores de software Ágeis usam com freqüência a família de ferramentas de código aberto xUnit, tais como <a href="http://www.junit.org/"><strong>JUnit</strong></a> ou <a href="http://www.vbunit.org/"><strong>VBUnit</strong></a>, embora as ferramentas comerciais também sejam opções viáveis.</p>
+<p>2. Design Orientado a Teste (TDD) = TFD + <a class="elementLink" href="./../../../openup/guidances/concepts/refactoring_1B63BA3B.html" guid="_Poc7IPDzEdqYgerqi84oCA">Re-fatoração</a>
+</p>
+<p>3. TFD/TDD é normalmente usado com código comercial orientado a objeto, embora esta abordagem possa também ser usada para código processual, código de interface de usuário e código de base de dados.</p></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/test_first_design_E01F3CB8.html" guid="_s7YkUBD2EdyfbNOwzwtrjw">Design Teste-primeiro</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/refactoring_1B63BA3B.html" guid="_Poc7IPDzEdqYgerqi84oCA">Re-fatoração</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Guidelines</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/refactoring_33F165CA.html" guid="_OlyWoOX7Edu8VZPtlaU33g">Re-fatoração</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Reutiliza&ccedil;&atilde;o de Software</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="software_reuse">
+<meta name="uma.presentationName" content="Reutiliza&ccedil;&atilde;o de Software">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_vO2uoO0OEduUpsu85bVhiQ"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Reutiliza&ccedil;&atilde;o de Software</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz descreve como reutilizar software e elementos de design.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/analyze_the_design_4C4750C0.html" guid="__MnggPTdEduDKIuqTXQ8SA">Analisar o Design</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/development_B5D1D8A.html" guid="_0TeDoMlgEdmt3adZL5Dmdw">Desenvolvimento</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/evolve_the_design_3C9D6965.html" guid="_C4U9QPTeEduDKIuqTXQ8SA">Evoluir o Design</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/core_principle_focus_346C6FAF.html" guid="_9gocwMvoEdqukPpotm3DYg">Focar na arquitetura, o mais cedo possível, para reduzir o risco e organizar o desenvolvimento.</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/implement_solution_5D5698C8.html" guid="_0hyzgMlgEdmt3adZL5Dmdw">Implementar a Solução</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/design_solution_A97CE9EA.html" guid="_0fshwMlgEdmt3adZL5Dmdw">Projetar a Solução</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/refine_the_architecture_7723A69E.html" guid="_0gRJgMlgEdmt3adZL5Dmdw">Refinar a Arquitetura</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>A maximização da reutilização tem sempre sido uma importante meta de desenvolvimento de software. É melhor reutilizar o design e o código existentes do que despender recursos na criação, teste, e primeira liberação de algo novo com o risco dos problemas ocultos que todos os novos softwares têm. As linguagens, especialmente as orientadas a objetos, foram desenvolvidas para tornar a reutilização mais fácil. Mas somente a linguagem não é suficiente para fornecer uma reutilização de custo eficaz. A maior parte do software reutilizável vem de arquitetos e desenvolvedores qualificados que são capazes de identificar e alavancar oportunidades de reutilização.</p>
+<p>Existem três perspectivas a serem consideradas quando da reutilização de software: código (implementação), design e framework ou arquitetura. Os arquitetos devem buscar a reutilização de significantes frameworks de aplicação, tais como camadas que pode ser aplicadas a muitos tipos diferentes de aplicações. Os desenvolvedores devem buscar os designs e padrões que possam ser reutilizados para produzir o comportamento desejado ou estruturas robustas. Eles devem também procurar uma forma de reduzir a quantidade de código a ser escrito pela alavancagem de código e componentes estáveis que tenham sido usados com sucesso em ambientes de produção.</p>
+<h4>Identificando Oportunidades de Reutilização</h4>
+<p>A melhor forma de permitir que uma equipe encontre oportunidades de reutilização é exercer excelentes práticas de design e programação. É difícil encontrar código e design que possam ser reutilizados quando se trata de classes grandes, classes que não possuem um foco bem definido ou classes com relacionamentos que são difíceis de compreender. As classes devem ser pequenas, de fácil compreensão e altamente coesas para facilitar a identificação de oportunidades de reutilização. Qualquer funcionalidade que possa ser razoavelmente separada em outra classe, deve ser. Outra forma de dizer isto é que qualquer conceito que possa ser aplicado a mais de um tipo de classe deve ter a sua própria classe.</p>
+<p>Por exemplo, se alguns cálculos são adicionados a uma classe existente, pode fazer sentido a re-fatoração desses cálculos em uma nova classe auxiliar. Esses cálculos podem então ser reutilizados em qualquer outra classe, sem o ônus do conhecimento da funcionalidade da classe original.</p>
+<p>A forma mais simples, porem menos eficiente para identificar oportunidades de reutilização é "cheirar" código semelhante. Um desenvolvedor deve recordar de algo que fez semelhante ao que está projetando ou implementado agora. Uma vez que a implementação anterior tenha sido descoberta ou recordada ela poderá ser reutilizada. Os desenvolvedores sempre encontrarão oportunidades de reutilização desta forma. Mas a sua natureza não estruturada não maximizará as áreas potenciais de reutilização.</p>
+<p>A colaboração é uma boa técnica para identificar oportunidades de reutilização. Ela fornece uma estrutura onde a identificação da reutilização - ao invés da escrita de código - seja a meta do exercício. E quanto mais pessoas estiverem procurando por oportunidades de reutilização, mais provável será que elas sejam encontradas. Um brainstorming ou uma reunião de revisão, que se concentre na identificação de oportunidades de reutilização, pode ser útil para a consecução desta meta.</p>
+<p>Os padrões são boas formas para encontrar oportunidades de reutilização no design e no framework. Veja <a class="elementLinkWithType" href="./../../../openup/guidances/concepts/pattern_10BE6D96.html" guid="_0YJvUMlgEdmt3adZL5Dmdw">Concept: Padrão</a>, para mais informações.</p>
+<p>A análise do comportamento é uma outra boa forma para identificar áreas potenciais para reutilização. Analise como as classes precisam colaborar para fornecer alguma funcionalidade específica, tal como um requisito ou característica. Esta colaboração pode ser documentada em diagramas de seqüência (comportamento) e classe (estrutura) e podem ser reutilizadas em circunstâncias semelhantes.</p>
+<p>
+    A <a class="elementLink" href="./../../../openup/guidances/concepts/refactoring_1B63BA3B.html" guid="_Poc7IPDzEdqYgerqi84oCA">Re-fatoração</a> deve sempre ser considerada quando da reutilização de código. O código (ou o design) muitas vezes não é escrito originalmente para ser reutilizado, ou um código reutilizável pode não se ajustar perfeitamente a uma nova situação.</p>
+<h4>Técnicas de Reutilização</h4>
+<p>A reutilização pode ser executada de formas diferentes, dependendo da capacidade do ambiente de implementação. A técnica é mais simples é copiar o código de um lugar para outro. Isso não é aconselhável, pois não é realmente reutilização. Várias cópias de código fonte são difíceis de manter e eventualmente podem divergir umas das outras. A reutilização significa o uso do mesmo código para executar tarefas semelhantes, como forma de aumentar a qualidade e reduzir a sobrecarga.</p>
+<p>Algumas linguagens, como o C++, suportam templates. Os Templates, às vezes referenciados como código parametrizado, são precursores dos padrões. Um template é um código com parâmetros que é aplicado apenas quando for necessário, em tempo de compilação. A Biblioteca Padrão de Templates (STL) do C++ é um exemplo. Ela fornece muitos tipos de contêineres reutilizáveis (listas, conjuntos, arrays seguros, etc) que não possuem alguns dos inconvenientes da herança. Os templates, tais como estes, também são úteis como classes de mixagem em linguagens como o C++ que suportam herança múltipla. Pelo fato das mixagens serem implementadas como templates, elas permitem um tipo de herança múltipla sem a bagagem.</p>
+<h4>Herança e Agregação</h4>
+<p>Herança (também conhecida como generalização) é uma forma fácil de implementar polimorfismo e tem sido usada como o principal mecanismo de reutilização nas modernas linguagens orientadas a objeto. Isso é lamentável, visto que a herança impõe uma estrutura rígida no design de software que é difícil de alterar. Qualquer hierarquia de herança que compartilhe código das classes pai para as classes filho terá problemas quando tiverem três ou mais níveis hierárquicos. Muitas exceções ocorrer para manter um puro relacionamento "é-um" entre classes pai e filho, onde se considera que as classes filho tenham sempre todas as propriedades e comportamentos dos pais. A herança deve ser usada para compartilhar definições (interfaces) e não implementações. Anos de dificuldades com implementações de herdando tornaram essa prática um princípio primário de design orientado a objeto.</p>
+<p>Sempre que a herança for utilizada, é melhor ser instanciada apenas a última classe filho (nó folha) da hierarquia de herança. Todas as classes pai devem ser abstratas. Isso acontece porque a classe que tenta ser reutilizável e concreta - para fornecer comportamento específico e reutilizável ao mesmo tempo - quase sempre deixa de cumprir suas metas. Isto é uma dimensão da coesão. Uma coisa que torna uma classe coesa é que ela seja dedicada a reutilização ou dedicada a uma implementação específica, mas não a ambas.</p>
+<p>A agregação é uma técnica que reúne ou agrega a funcionalidade em elementos maiores de funcionalidade. Ela fornece uma estrutura que é muito mais flexível e reutilizável do que a herança. É melhor reutilizar a implementação e o design agregando pequenos pedaços de funcionalidade em conjunto ao invés de tentar herdar a funcionalidade de uma classe pai.</p>
+<p>Você também poderá encontrar oportunidades de reutilização, revisando as interfaces. Se as interfaces descreverem comportamento semelhante, pode ser possível eliminar uma das interfaces, tendo apenas uma implementação que realiza ambas as interfaces, ou re-fatorando as interfaces para colocar o conteúdo redundante em uma nova interface mais simples.</p>
+<h4>Encontrando Código Reutilizável</h4>
+<p>Existem várias fontes de código reutilizável sem ser o que os desenvolvedores estão escrevendo para um projeto específico. Outros locais para coleta de código são:</p>
+<ul>
+    <li>Bibliotecas internas (corporativas) de código.</li>
+    <li>Bibliotecas de terceiros</li>
+    <li>Bibliotecas embutidas nas linguagens</li>
+    <li>Exemplos de código extraídos de tutoriais, telas de ajuda, livros, etc.</li>
+    <li>Um guru local ou colega com bastante conhecimento de código</li>
+    <li>Código existente nos sistemas</li>
+    <li>Produtos de código aberto (tenha certeza de estar respeitando os acordos de licenciamento)</li>
+</ul>
+<p>Também, muitas ferramentas capazes de gerar código poderão gerar código compreensível baseadas em especificações mínimas. Por exemplo, uma ferramenta de design poderia gerar um atributo com os métodos get e set assim que o Designer tivesse especificado-o. Outras ferramentas mais sofisticadas, com conhecimento de um framework específico, poderiam gerar código volumoso para garantir que a classe esteja em conformidade com o framework. Um exemplo poderia ser uma ferramenta que gerasse código adicional significante quando uma classe fosse definida como sendo uma entidade Java Bean. Este tipo de transformação consistente, de uma especificação (o design) para uma implementação (o código), pode também ser considerado uma forma de reutilização de código.</p>
+<h4>Não Reutilize Tudo</h4>
+<p>A reutilização torna o código e o design mais baratos de usar, porém mais caros para construir. Exige experiência e ponderada consideração para criar uma implementação ou design que seja suficientemente abstrato para que outros possam reutilizar, mas concretos o suficiente para serem verdadeiramente úteis. O código reutilizável também deve ser mantido. Muitas organizações terão dificuldade em atribuir responsabilidade para a manutenção de código reutilizável, se não tiverem um grupo dedicado a reutilização.</p>
+<p>Normalmente não é uma boa idéia criar código ou design para reutilização, a menos que você saiba que ele será reutilizado. É melhor re-fatorar o software para ser mais reutilizável após ter sido descoberto que ele pode ser reutilizado. Uma regra de ouro é escrever pensando em reutilização só quando você souber que vai reutilizar o código pelo menos 3 vezes. Caso contrário, o custo de construção e manutenção de parte do software não será recuperado pela redução da sobrecarga em outras áreas de desenvolvimento.</p></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/pattern_10BE6D96.html" guid="_0YJvUMlgEdmt3adZL5Dmdw">Padrão</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/refactoring_1B63BA3B.html" guid="_Poc7IPDzEdqYgerqi84oCA">Re-fatoração</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Guidelines</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/layering_F169CF07.html" guid="_0gpkAMlgEdmt3adZL5Dmdw">Dividir em camadas</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/guidelines/refactoring_33F165CA.html" guid="_OlyWoOX7Edu8VZPtlaU33g">Re-fatoração</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Concept: Componente</title>
+<meta name="uma.type" content="Concept">
+<meta name="uma.name" content="component">
+<meta name="uma.presentationName" content="Componente">
+<meta name="element_type" content="concept">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_0YP18MlgEdmt3adZL5Dmdw"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Concept: Componente</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/concept.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Este conceito descreve os componentes como eles são aplicados neste processo.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/abstract_away_complexity_DBF13AE6.html" guid="_we3F4ACpEdu8m4dIntu6jA">Abstrair da Complexidade</a>
+</li>
+<li>
+<a href="./../../../openup/disciplines/architecture_1F9C65DA.html" guid="_0TX9AMlgEdmt3adZL5Dmdw">Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/workproducts/architecture_notebook_9BB92433.html" guid="_0XAf0MlgEdmt3adZL5Dmdw">Caderno de Arquitetura</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p align="left">A indústria e a literatura de software usam o termo <strong>componente</strong> para referenciar muitas coisas diferentes. É usado normalmente com sentido amplo para significar uma parte constituinte. Também é normalmente usado com sentido restrito para denotar as características específicas que permitem a recolocação e a montagem em sistemas maiores.</p>
+<p align="left">Aqui. Nós usamos o termo <em>componente</em> para significar <strong>uma parte encapsulada de um sistema</strong> que é não trivial, quase independente, substituível e que cumpra uma função específica no contexto de uma arquitetura bem definida. Incluindo dois tipos de componentes:</p>
+<ul>
+    <li>
+        <div align="left">
+            <p>
+                <strong>Componente de design</strong>, uma significativa parte do design encapsulada que inclui subsistemas de design e, às vezes, significantes classes de design e pacotes de design.</p>
+        </div>
+    </li>
+    <li>
+        <div align="left">
+            <p>
+                <strong>Componente de implementação</strong>, uma significativa parte encapsulada da implementação, geralmente o código que implementa um componente de design.</p>
+        </div>
+    </li>
+</ul>
+<p align="left">Idealmente, a implementação reflete o design; sendo assim, você pode simplesmente se referenciar aos <em>componentes</em>, visto que cada componente tem um design e uma implementação.</p>
+<h4 align="left">Capacidade de substituição do componente</h4>
+<p align="left">Na terminologia da UML, os componentes podem ser substituíveis. Entretanto, isto pode simplesmente significar que o componente expõe um conjunto de interfaces que escondem sua implementação.</p>
+<p align="left">Existem outros tipos de capacidade de substituição mais fortes:</p>
+<div align="left">
+    <ul>
+        <li>
+            <p>
+                <strong>Capacidade de substituição de arquivo fonte</strong>: se duas classes forem implementadas em um único arquivo de código fonte, então essas classes não poderão ser controladas e ter versões de forma separada. Entretanto, se um grupo de arquivos implementa completamente um único componente, e nenhum outro, então os arquivos fonte do componente são substituíveis. Esta característica torna mais fácil o uso do controle de versão, o uso do arquivo como uma linha de base, e a reutilização do arquivo fonte.</p>
+        </li>
+        <li>
+            <p>
+                <strong>Capacidade de substituição da implantação</strong>: se duas classes forem implantadas em um único arquivo executável, então as classes não têm capacidade de substituição independente em um sistema implantado. É desejável que os componentes mais genéricos sejam substituíveis durante a implantação, o que permite que as novas versões do componente sejam implantadas sem a necessidade da reconstrução dos outros componentes. Isto significa geralmente que existe um arquivo ou um grupo de arquivos que implantam este componente, e nenhum outro componente.</p>
+        </li>
+        <li>
+            <p>
+                <strong>Capacidade de substituição em tempo de execução</strong>: se um componente pode ser implantado em um sistema em execução, então ele é conhecido como um <em>substituível em tempo de execução</em>. Isto permite a atualização do software sem perda de disponibilidade.</p>
+        </li>
+        <li>
+            <p>
+                <strong>Transparência de localização</strong>: os componentes com interfaces endereçáveis por rede são referenciados como tendo <em>transparência de localização</em>. Isto permite que os componentes sejam re-alocados em outros servidores ou sejam replicados em múltiplos servidores para suportar tolerância à falhas, balanceamento de carga, etc. Estes tipos de componentes são normalmente referenciados como componentes <em>distribuídos</em> ou <em>que podem ser distribuídos</em>.</p>
+        </li>
+    </ul>
+</div>
+<h4 align="left">Instanciação de componente</h4>
+<p align="left">Um componente pode ou não ser diretamente instanciado em tempo de execução.</p>
+<p align="left">Um componente indiretamente instanciado é implementado, ou realizado, por um grupo de classes, sub-componentes, ou partes. O próprio componente não aparece na implementação; serve meramente como um design que uma implementação deverá seguir. As classes de realização, sub-componentes ou partes devem cobrir todas as operações especificadas na interface do componente. A forma de implementar o componente é de responsabilidade da pessoa que implementa.</p>
+<p align="left">Um componente diretamente instanciado especifica sua própria implementação encapsulada. É instanciado como um objeto endereçável, o que significa que um componente de design tem uma construção correspondente na linguagem de implementação; conseqüentemente ele pode ser referenciado explicitamente.</p><p/><p align="left">A Linguagem de Modelagem Unificada [<a class="elementLinkWithUserText" href="./../../../openup/guidances/supportingmaterials/references_6CCF393.html" guid="_9ToeIB83Edqsvps02rpOOg">UML05</a>] define <em>componente</em> da seguinte forma:</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <blockquote>
+        <p>Uma parte modular de um sistema que encapsula seu conteúdo e cuja manifestação seja substituível dentro de seu ambiente. Um componente define seu comportamento em termos de interfaces fornecidas e requeridas. Desta forma, um componente serve como um tipo, cuja conformidade é definida por suas interfaces fornecidas e requeridas (abrangendo suas semânticas estática e dinâmica). (Veja <strong>Representação UML</strong> ao final desta seção para definições das versões mais atuais da UML).</p>
+        <p>Um <em>componente</em> é definido como um subtipo de classe estruturada. Conseqüentemente, um componente tem atributos e operações, pode participar nas associações e nas generalizações e tem estrutura e portas internas.</p>
+    </blockquote>
+</blockquote>
+<p align="left">Existem estereótipos padrão da UML que se aplicam aos componentes, incluindo &lt;&lt;subsystem&gt;&gt; para modelar componentes de larga escala, &lt;&lt;specification&gt;&gt; e &lt;&lt;realization&gt;&gt; para modelar componentes com definições distintas de especificações e realizações, onde uma especificação pode ter múltiplas realizações.</p>
+<p align="left">Aqui, nós usamos o termo <em>componente</em> de uma forma mais geral do que a definição da UML. Ao invés de definir o componente como tendo características modulares, de implantação e de substituição, nós recomendamos estas características dos componentes como desejáveis. Veja a seção sobre Característica de Substituição do Componente.</p>
+<h4 align="left">Modelagem dos componentes</h4>
+<p align="left">O componente da UML é uma construção de modelagem que fornece as seguintes capacidades:</p>
+<div align="left">
+    <ul>
+        <li>Agrupar classes para definir uma parte mais genérica de um sistema</li>
+        <li>Separar as interfaces visíveis da implementação interna</li>
+        <li>Executar instâncias de tempo-de-execução</li>
+    </ul>
+</div>
+<p align="left">Um componente inclui interfaces <strong>fornecidas</strong> e <strong>requeridas</strong> que formam a base para agrupar os componentes. Uma <strong>interface fornecida</strong> é tanto implementada diretamente pelo componente como por uma de suas classes de realização ou sub-componentes, ou é o tipo de uma porta do componente fornecida. Uma <strong>interface requerida</strong> é designada por uma dependência de uso do componente ou de uma de suas classes de realização ou sub-componentes, ou é o tipo de uma porta requerida.</p>
+<p align="left">Um componente tem uma visão externa (ou visão de <em>caixa escura</em>) através de suas propriedades e operações publicamente visíveis. Opcionalmente, um comportamento tal como uma máquina de estado de protocolo pode ser anexada a uma interface, uma porta, e ao próprio componente para definir a visão externa mais precisamente fazendo com que restrições dinâmicas na seqüência da operação chamem explicitamente. A ligação entre componentes em um sistema, ou o outro contexto, pode ser definida estruturalmente usando dependências entre as interfaces dos componentes (tipicamente em diagramas de componentes).</p>
+<p align="left">Opcionalmente, você pode fazer uma especificação mais detalhada da colaboração estrutural usando partes e conectores em estruturas compostas para especificar a colaboração do papel ou do nível da instância entre os componentes. Esta é a visão interna do componente (ou visão de <em>caixa branca</em>) através de suas propriedades privativas e classes de realização ou sub-componentes. Esta visão mostra como o comportamento externo é realizado internamente. O mapeamento entre as visões externas e internas é feito por dependências em diagramas de componentes ou em conectores de delegação para as partes internas em diagramas compostos de estrutura.</p>
+<p align="left">A recomendação é usar componentes para a representação de subsistemas de design.</p>
+<h4 align="left">Representação UML</h4>
+<p align="left">A definição de <em>componente</em> na UML mudou durante o tempo com a liberação de diferentes versões. A versão da UML pode ser restringida pelas características das ferramentas de modelagem que você usa. Esta é a razão pela qual as definições de 1.3 a 2.0 estão sendo fornecidas aqui.</p>
+<p align="left">A UML 2.0 define <em>componente</em> como:</p>
+<blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <blockquote>
+        <p align="left">…uma parte modular de um sistema que encapsula seu conteúdo e cuja manifestação seja substituível dentro de seu ambiente.</p>
+        <p align="left">Um componente define seu comportamento em termos de interfaces fornecidas e requeridas. Desta forma, um componente serve como um tipo cuja conformidade é definida por suas interfaces fornecidas e requeridas (abrangendo suas semânticas estática e dinâmica).</p>
+    </blockquote>
+</blockquote>
+<p align="left">A UML 1.5 define <em>componente</em> como:</p>
+<blockquote>
+    <blockquote>
+        <div align="left">Uma parte modular de um sistema que pode ser implantada e substituída e que encapsula a implementação e expõe um conjunto de interfaces. Um componente é normalmente especificado por uma ou mais classes ou sub-componentes que residem nele e podem ser implementados por um ou mais artefatos (por exemplo: arquivos binários, executáveis ou scripts).</div>
+        <div align="left">
+            <p>Na UML 1.3 e em suas versões mais antigas, a notação de componente foi usada para representar arquivos na implementação. Os arquivos não são mais considerados componentes pelas definições mais novas da UML. Entretanto, muitas ferramentas e perfis UML ainda usam a notação de componente para representar arquivos.</p>
+        </div>
+    </blockquote>
+</blockquote></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Mecanismos Arquiteturais</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="architectural_mechanisms">
+<meta name="uma.presentationName" content="Mecanismos Arquiteturais">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_J6BKgNvIEduv2KOT-Teh6w"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Mecanismos Arquiteturais</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz descreve como evoluir os mecanismos arquiteturais da definição até a implementação.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/architecture_1F9C65DA.html" guid="_0TX9AMlgEdmt3adZL5Dmdw">Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/arch_mech_2932DFB6.html" guid="_mzxI0A4LEduibvKwrGxWxA">Mecanismo Arquitetural</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><p>Os mecanismos arquiteturais representam conceitos técnicos fundamentais que serão padronizados por toda a solução. Eles são refinados durante o projeto em três estados, representados pelas três categorias de Mecanismos Arquiteturais:</p>
+<ul>
+    <li>
+        <strong>Mecanismo de Análise</strong>, que dá ao mecanismo um nome, uma descrição resumida e alguns atributos básicos derivados dos requisitos do projeto</li>
+    <li>
+        <strong>Mecanismo de Design</strong>, que são mais concretos e assumem alguns detalhes do ambiente de implementação</li>
+    <li>
+        <strong>Mecanismo de Implementação</strong>, que especifica a exata implementação de cada mecanismo</li>
+</ul>
+<p>Quando o <a class="elementLink" href="./../../../openup/roles/architect_E7A12309.html" guid="_0X9iEMlgEdmt3adZL5Dmdw">Arquiteto</a> identifica inicialmente um mecanismo arquitetural ele esta estabelecendo um marcador que diz para a equipe, "Nós iremos lidar com este aspecto do sistema de forma padronizada. Descobriremos os detalhes mais tarde." À medida que o projeto avança, os mecanismos arquiteturais são gradualmente refinados até que se tornem parte do software.</p>
+<h4>Mecanismos de Análise</h4>
+<p>Os mecanismos de análise são os estados iniciais para os mecanismos arquiteturais. São identificados no início do projeto e representam marcações para futuro desenvolvimento de software. Eles permitem à equipe focar na compreensão dos requisitos sem se distrair com as especificidades de uma implementação complexa. Os mecanismos de análise são descobertos pelo levantamento dos requisitos e pela procura de conceitos técnicos recorrentes. Segurança, persistência e interfaces legadas são alguns exemplos. Com efeito, o <a class="elementLink" href="./../../../openup/roles/architect_E7A12309.html" guid="_0X9iEMlgEdmt3adZL5Dmdw">Arquiteto</a> reúne os requisitos que descrevem tópicos arquiteturalmente importantes colocando-os em uma única lista. Tornando-os mais fáceis de serem gerenciados.</p>
+<p>Os mecanismos de análise são descritos com termos simples:</p>
+<ul>
+    <li>
+        <strong>Nome</strong>: identifica o mecanismo.</li>
+    <li>
+        <strong>Atributos Básicos</strong>: definem os requisitos do mecanismo. Estes atributos podem variar dependendo do mecanismo que está sendo analisado. Veja <a class="elementLinkWithType" href="./../../../openup/guidances/examples/architectural_mechanism_attributes_B0ECA2F7.html" guid="_eQ_s8Om5Edupia_tZIXEqg">Example: Atributos de Mecanismo Arquitetural</a> para mais orientação.</li>
+</ul>
+<p>Uma vez que a lista de mecanismos de análise tenha sido definida, ela pode ser priorizada e os mecanismos refinados de acordo com os objetivos da iteração. Não é necessário desenvolver todo o conjunto de mecanismos arquiteturais em software funcional de uma única vez. Muitas vezes é mais sensato desenvolver apenas os mecanismos necessários para suportar a funcionalidade a ser entregue na iteração atual.</p>
+<h4>Mecanismos de Design</h4>
+<p>Os mecanismos de design representam decisões sobre tecnologias concretas que serão usadas para desenvolver mecanismos arquiteturais. Por exemplo, a decisão de usar um RDBMS para persistência. Normalmente nada mais complexo do que isso (embora, evidentemente, o esforço envolvido na tomada de decisões pode, por vezes, ser muito complexo).</p>
+<p>A decisão sobre quando aperfeiçoar um mecanismo arquitetônico do estado de análise para o de projeto é em grande parte arbitrária. Frequentemente haverá restrições em vigor no projeto que forcem a tomada de decisão a respeito de algumas destas questões. Por exemplo, pode existir um padrão corporativo para bancos de dados significando que a decisão para a adoção de um mecanismo de persistência possa ser tomada no primeiro dia do projeto.</p>
+<p>Em outras ocasiões, a decisão pode direcionar para produtos que a equipe do projeto ainda não adquiriu. Neste caso, a decisão tem de ser tomada em tempo hábil para permitir os produtos necessários sejam colocados à disposição da equipe.</p>
+<p>Muitas vezes, pode ser útil desenvolver um código prototípico para provar que estas decisões estão sólidas. O <a class="elementLink" href="./../../../openup/roles/architect_E7A12309.html" guid="_0X9iEMlgEdmt3adZL5Dmdw">Arquiteto</a> deve estar seguro de que as tecnologias selecionadas sejam capazes de atender os requisitos. Os atributos capturados com os mecanismos de análise correspondentes deverão ser usados como critérios para comprovar a validade das decisões.</p>
+<h4>Mecanismo de Implementação</h4>
+<p>Um mecanismo de implementação especifica a implementação real para o mecanismo arquitetural (daí o nome). Ele pode ser modelado como um padrão de design ou representado como código de exemplo.</p>
+<p>O melhor momento para produzir o mecanismo de implementação é normalmente quando a primeira parte da funcionalidade necessária é agendada para desenvolvimento. O <a class="elementLink" href="./../../../openup/roles/architect_E7A12309.html" guid="_0X9iEMlgEdmt3adZL5Dmdw">Arquiteto</a> e o <a class="elementLink" href="./../../../openup/roles/developer_C633AB7.html" guid="_0YDosMlgEdmt3adZL5Dmdw">Desenvolvedor</a> trabalham juntos para desenvolvê-lo.</p></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/arch_mech_2932DFB6.html" guid="_mzxI0A4LEduibvKwrGxWxA">Mecanismo Arquitetural</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Examples</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/examples/architectural_mechanism_attributes_B0ECA2F7.html" guid="_eQ_s8Om5Edupia_tZIXEqg">Atributos de Mecanismo Arquitetural</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/examples/architectural_mechanisms_415C32A3.html" guid="_O39h0O9pEdu635i_iQ5Jag">Mecanismos Arquiteturais</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

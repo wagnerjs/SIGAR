@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Concept: Cria&ccedil;&atilde;o de Relat&oacute;rio e An&aacute;lise de Falhas</title>
+<meta name="uma.type" content="Concept">
+<meta name="uma.name" content="failure_analysis_rpt_creation">
+<meta name="uma.presentationName" content="Cria&ccedil;&atilde;o de Relat&oacute;rio e An&aacute;lise de Falhas">
+<meta name="element_type" content="concept">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_0jhR0MlgEdmt3adZL5Dmdw"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Concept: Cria&ccedil;&atilde;o de Relat&oacute;rio e An&aacute;lise de Falhas</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/concept.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Este conceito trata como conduzir a análise de falhas baseando-se na execução de testes. O resultado desta análise pode assumir a forma de um informe de análise de falhas.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/test_FB85069.html" guid="_0TkKQMlgEdmt3adZL5Dmdw">Teste</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><h3>Introdução</h3>
+<p>Durante o procedimento de teste, você vai encontrar falhas relacionadas com a execução dos seus testes com várias formas, tais como defeitos de código, erros de usuário, mau funcionamento do programa e problemas com scripts de teste. Este conceito discute algumas formas de conduzir a análise de falhas e, em seguida, relatar suas descobertas.</p>
+<h3>Análise de Falhas</h3>
+<p>Depois de executar o teste, é uma boa prática identificar entradas para revisão dos resultados do esforço de teste. Algumas fontes prováveis são os defeitos que ocorreram durante a execução dos scripts de teste, as métricas de solicitação de mudança e os detalhes no <a class="elementLinkWithType" href="./../../../openup/workproducts/test_log_CBA2FDF4.html" guid="_0ZlSsMlgEdmt3adZL5Dmdw">Artifact: Registro de Teste</a>.</p>
+<p>A execução de scripts de teste resulta em erros de diferentes tipos, tais como defeitos encontrados, comportamentos inesperados ou falhas gerais do script de teste. Quando você executa os scripts de teste, uma das coisas mais importantes a fazer é distinguir entre as causas e os efeitos da falha. É importante diferenciar as falhas no sistema sob teste das relacionadas com os próprios testes.</p>
+<p>As métricas de solicitações de mudança são úteis para analisar e corrigir falhas nos testes. Selecione métricas que irão facilitar a criação de informes incidentes a partir de uma coleção de solicitações de mudança.</p>
+<p>Métricas de solicitação de mudança que podem ser úteis para você em sua análise de falhas são:</p>
+<ul>
+    <li>cobertura do teste</li>
+    <li>prioridade</li>
+    <li>impacto</li>
+    <li>tendências para defeito</li>
+    <li>densidade</li>
+</ul>
+<p>Finalmente, uma das fontes mais críticas para a sua análise de falas é o <a class="elementLinkWithType" href="./../../../openup/workproducts/test_log_CBA2FDF4.html" guid="_0ZlSsMlgEdmt3adZL5Dmdw">Artifact: Registro de Teste</a>. Registros relevantes podem vir de várias fontes: eles podem ser capturados pelas ferramentas que você usa (ferramentas de diagnóstico e de execução de testes), geradas por testes automatizados ou ferramentas de métricas, saídas dos próprios itens alvo de teste ou gravados manualmente pelo testador. Reúna todas as fontes disponíveis de registro de teste e examine seus conteúdos. Verifique se todos os testes previstos executaram até a conclusão, e que todos os testes necessários, foram previstos.</p>
+<h3>Testes Auto-Documentáveis</h3>
+<p>Para testes automatizados, é importante que o próprio teste analise os resultados e reporte claramente para si se executou com sucesso ou falhou. Isto proporciona a forma mais eficiente de executar uma série de testes, sem a necessidade de intervenção humana. Quando da autoria de testes auto-documentáveis, garanta que o reporte considere tanto resultados corretos como falhas.</p>
+<h3>Gravando Suas Constatações</h3>
+<p>Depois de ter conduzido a sua análise de falhas, você pode decidir formalizar os resultados desta análise, gravando suas constatações em um informe. Existem vários fatores que influenciam na decisão de registrar a sua análise de falhas em um informe. Alguns dos principais fatores incluem: nível de formalidade do processo de teste, complexidade do esforço de teste e a necessidade de comunicar os resultados do teste para toda a equipe de desenvolvimento. Em ambientes menos formais, pode ser suficiente gravar a sua análise de falhas de forma resumida.</p></td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>

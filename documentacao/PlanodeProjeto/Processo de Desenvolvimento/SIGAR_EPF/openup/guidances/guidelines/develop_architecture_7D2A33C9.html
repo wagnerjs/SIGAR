@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt" xml:lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: Desenvolver a Arquitetura</title>
+<meta name="uma.type" content="Guideline">
+<meta name="uma.name" content="develop_architecture">
+<meta name="uma.presentationName" content="Desenvolver a Arquitetura">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../../css/default.css" type="text/css">
+<script src="./../../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var backPath = './../../../';
+					var imgPath = './../../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo,  '', false, false, false);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><a name="Top"></a>
+<div id="page-guid" value="_mDf2EBapEduSTJywppIxVQ"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Guideline: Desenvolver a Arquitetura</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../../images/guidance.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">Esta diretriz fornece informações adicionais para suportar o desenvolvimento e o refinamento contínuo da arquitetura.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/disciplines/architecture_1F9C65DA.html" guid="_0TX9AMlgEdmt3adZL5Dmdw">Arquitetura</a>
+</li>
+<li>
+<a href="./../../../openup/guidances/concepts/executable_architecture_D4E68CBD.html" guid="_O1kAANvfEduv2KOT-Teh6w">Arquitetura Executável</a>
+</li>
+<li>
+<a href="./../../../openup/tasks/refine_the_architecture_7723A69E.html" guid="_0gRJgMlgEdmt3adZL5Dmdw">Refinar a Arquitetura</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<td class="sectionTableSingleCell"><h1>Identifique os elementos de design arquiteturalmente significantes</h1>
+<p align="left">Considere cada cenário de alta prioridade que está dentro do escopo do projeto. Percorra as ações que o cenário inicia, e destaque as áreas da arquitetura que são fatores da realização ou implementação dos requisitos.</p>
+<p>A identificação de componentes irá ajudar a esconder a complexidade do sistema e o ajudará a trabalhar em um nível superior. Os componentes precisam ser internamente coesos e fornecer serviços externos através de uma interface limitada. A identificação dos componentes pode ser baseada nas camadas arquiteturais, escolhas de implantação ou nas principais abstrações. Faça estas perguntas para si próprio:</p>
+<ul>
+    <li>O que está logicamente ou funcionalmente relacionado (o mesmo caso uso ou serviço, por exemplo)?</li>
+    
+  <li>Quais entidades fornecem serviços para vários outros serviços?</li>
+    <li>Quais entidades dependem umas das outras? Fortemente ou fracamente?</li>
+    <li>Quais entidades você deve ser capaz de trocar independentemente das outras?</li>
+    <li>O que será executado no mesmo processador ou nó de rede?</li>
+    <li>Quais partes estão restritas por semelhantes requisitos de desempenho?</li>
+</ul>
+<p>Cada componente inclui entidades do domínio do problema, classes de controle que coordenam tarefas complexas dentro dos componentes e interfaces que gerenciam a comunicação com o ambiente. A interface para cada elemento instanciado está identificada. Neste ponto, as interfaces não precisam ser tão detalhadas como as assinaturas, mas elas precisam documentar a necessidade dos elementos, o que eles podem usar e o que eles podem ser dependentes.</p>
+<p>Os padrões identificados definem os tipos de elementos, mas não uma quantidade específica. Aplique os padrões escolhidos para definir um novo conjunto de elementos que estejam em conformidade com os padrões. A funcionalidade será atribuída aos elementos instanciados.</p>
+<h1>Refine os Mecanismos Arquiteturais</h1>
+<p>Considere cada cenário de qualidade com prioridade alta, e associe cada um deles aos Mecanismos Arquiteturais. Refine os mecanismos para identificar a tecnologia específica que irá lidar com cada mecanismo no escopo. Por exemplo, para o mecanismo de Persistência, pode ser adequado utilizar um sistema de gerenciamento de banco de dados relacional, como o MySQL. Considere a seleção da tecnologia no contexto dos requisitos e restrições.</p>
+<p>Veja <a class="elementLinkWithType" href="./../../../openup/guidances/concepts/arch_mech_2932DFB6.html" guid="_mzxI0A4LEduibvKwrGxWxA">Concept: Mecanismo Arquitetural</a> para mais informações.</p>
+<h2 align="left">Associe o software ao hardware</h2>
+<p align="left">Produza uma associação precisa dos componentes de software implantáveis aos nós de rede.</p>
+<h2>Defina as arquiteturas de desenvolvimento e teste</h2>
+<p>A configuração dos ambientes onde o sistema será desenvolvido e testado pode ser diferente do ambiente de produção, e isso pode ter um impacto sobre a solução. Por exemplo:</p>
+<ul>
+    <li>Pode ser necessário o desenvolvimento de software adicional para suportar os testes.</li>
+    <li>Pode ser necessário definir configurações alternativas de implantação para ambientes diferentes, em resposta às restrições do hardware de desenvolvimento e testes.</li>
+    <li>Múltiplos ambientes podem ser necessários para suportar diferentes categorias de testes (tais como testes de desempenho ou de aceitação pelo usuário). Estes terão que ser especificados.</li>
+</ul>
+<p>Estes cenários, embora não seja desejável, muitas vezes são impostos à equipe através de várias restrições. Consequentemente, a arquitetura para estes diferentes ambientes terá que ser especificada com especial atenção para diferenças significantes. Certifique-se de considerar o impacto de qualquer diferença na qualidade da arquitetura de produção global.</p>
+<h2>Valide a arquitetura</h2>
+<p>A forma mais segura de validar a arquitetura é através de software. O software desenvolvido até o final da fase de Elaboração é altamente direcionado para validar a arquitetura (até o ponto em que possa ser colocado em linha de base), proporcionando certo nível de estabilidade durante a fase de Construção.</p>
+<p>Ele também pode ser útil para efetuar validações simples, percorrendo os principais conceitos e modelos de design, talvez usando um quadro branco ou outras técnicas colaborativas. Isso pode ajudar a refinar a concepção, mas não será um substituto para a construção de algum software.</p>
+<h2>Comunique as decisões</h2>
+<p>Você pode documentar e comunicar suas decisões de várias formas, por exemplo:</p>
+<ul>
+    
+  <li>Publicação de código fonte de referência</li>
+    
+  <li>Publicação de modelos de referência</li>
+    
+  <li>Publicação de documentação da arquitetura de software</li>
+    
+  <li>Apresentações formais do material</li>
+    
+  <li>Demonstrações informais da arquitetura</li>
+</ul></td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table class="sectionTable" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/concepts/business_pattern_BBA870BB.html" guid="_Z53x0BapEduSTJywppIxVQ">Padrão de Negócio</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th class="sectionTableHeading" scope="row">Guidelines</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../openup/guidances/guidelines/architectural_view_FF6EDA37.html" guid="_T9nygClEEduLGM8dfVsrKg">Visão Arquitetural</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"><p>Este programa e o material que o acompanha são disponibilizados sob a<br /> <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> que acompanha esta distribuição.</p><p/><p>
+    <a class="elementLink" href="./../../../openup/guidances/supportingmaterials/openup_copyright_C3031062.html" guid="_UaGfECcTEduSX6N2jUafGA">Direitos Autorais do OpenUP</a>.</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script type="text/javascript" language="JavaScript">
+				contentPage.onload();
+			</script>
+</html>
