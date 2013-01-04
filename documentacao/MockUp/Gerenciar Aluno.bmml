@@ -1,0 +1,94 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1446" measuredH="748" mockupW="1365" mockupH="724">
+  <controls>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::BreadCrumbs" x="108" y="208" w="-1" h="-1" measuredW="154" measuredH="24" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>Login%26bm%3BLogin.bmml%26bm%3BLogin.bmml%26bm%3BLogin.bmml%2CGerenciar%20Aluno%26bm%3BGerenciar%20Aluno.bmml%26bm%3BGerenciar%20Aluno.bmml%26bm%3BGerenciar%20Aluno.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2227%2C187%2C69%2C208%22%20href%3D%22Login.bmml%22%20alt%3D%22Login%22%20id%3D%229_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2281%2C187%2C185%2C208%22%20href%3D%22Gerenciar%2520Aluno.bmml%22%20alt%3D%22Gerenciar%20Aluno%22%20id%3D%229_1%22/%3E%0A</map>
+        <text>Home%2C%20Pesquisar%20Alunos</text>
+      </controlProperties>
+    </control>
+    <control controlID="107" controlTypeID="com.balsamiq.mockups::Image" x="602" y="105" w="-1" h="-1" measuredW="303" measuredH="164" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./assets/logo-sigar.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="111" controlTypeID="__group__" x="81" y="24" w="1365" h="724" measuredW="1365" measuredH="724" zOrder="0" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="0" y="0" w="1365" h="724" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="111">
+          <controlProperties>
+            <text>SiGAR%20-%20Sistema%20de%20Gerenciamento%20de%20Aulas%20de%20Refor%E7o%0Ahttp%3A//www.sigar.com.br</text>
+            <verticalScrollbar>true</verticalScrollbar>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="113" controlTypeID="__group__" x="108" y="260" w="1303" h="440" measuredW="1303" measuredH="440" zOrder="3" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="5" controlTypeID="__group__" x="0" y="0" w="1303" h="440" measuredW="1303" measuredH="440" zOrder="0" locked="false" isInGroup="113">
+          <controlProperties/>
+          <groupChildrenDescriptors>
+            <control controlID="3" controlTypeID="__group__" x="0" y="0" w="1303" h="440" measuredW="1303" measuredH="440" zOrder="0" locked="false" isInGroup="5">
+              <groupChildrenDescriptors>
+                <control controlID="5" controlTypeID="__group__" x="0" y="0" w="1303" h="440" measuredW="1303" measuredH="440" zOrder="0" locked="false" isInGroup="3">
+                  <groupChildrenDescriptors>
+                    <control controlID="0" controlTypeID="__group__" x="0" y="0" w="1303" h="440" measuredW="1303" measuredH="440" zOrder="0" locked="false" isInGroup="5">
+                      <groupChildrenDescriptors>
+                        <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="0" y="0" w="1303" h="440" measuredW="305" measuredH="100" zOrder="0" locked="false" isInGroup="0">
+                          <controlProperties>
+                            <hrefs>Cadastrar%20Aluno%26bm%3BCadastrar%20Aluno.bmml%26bm%3BCadastrar%20Aluno.bmml%26bm%3BCadastrar%20Aluno.bmml%2CGerenciar%20Aluno%26bm%3BGerenciar%20Aluno.bmml%26bm%3BGerenciar%20Aluno.bmml%26bm%3BGerenciar%20Aluno.bmml</hrefs>
+                            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2247%2C236%2C159%2C261%22%20href%3D%22Cadastrar%2520Aluno.bmml%22%20alt%3D%22Cadastrar%20Aluno%22%20id%3D%220_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22159%2C236%2C273%2C261%22%20href%3D%22Gerenciar%2520Aluno.bmml%22%20alt%3D%22Gerenciar%20Aluno%22%20id%3D%220_1%22/%3E%0A</map>
+                            <selectedIndex>1</selectedIndex>
+                            <tabHPosition>left</tabHPosition>
+                            <tabVPosition>top</tabVPosition>
+                            <text>Cadastrar%20Alunos%2C%20%20Pesquisar%20Alunos%2C</text>
+                          </controlProperties>
+                        </control>
+                      </groupChildrenDescriptors>
+                    </control>
+                    <control controlID="6" controlTypeID="com.balsamiq.mockups::SearchBox" x="24" y="48" w="1254" h="-1" measuredW="120" measuredH="25" zOrder="1" locked="false" isInGroup="5">
+                      <controlProperties>
+                        <text>Guilherme</text>
+                      </controlProperties>
+                    </control>
+                    <control controlID="8" controlTypeID="com.balsamiq.mockups::DataGrid" x="24" y="88" w="1254" h="201" measuredW="481" measuredH="49" zOrder="2" locked="false" isInGroup="5">
+                      <controlProperties>
+                        <rowHeight>26</rowHeight>
+                        <selectedIndex>0</selectedIndex>
+                        <text>Nome%2C%20Email%2C%20Telefone%2C%20Mais%20Informa%E7%F5es%0AGuilherme%20Baufaker%2C%20gbre.111@gmail.com%2C%20%2861%29%2033013930%2C%20%5Bx%5D</text>
+                        <verticalScrollbar>false</verticalScrollbar>
+                      </controlProperties>
+                    </control>
+                  </groupChildrenDescriptors>
+                </control>
+                <control controlID="6" controlTypeID="com.balsamiq.mockups::Button" x="959" y="310" w="325" h="40" measuredW="188" measuredH="38" zOrder="1" locked="false" isInGroup="3">
+                  <controlProperties>
+                    <color>11982760</color>
+                    <href>Informa%E7%F5es%20Alunos%26bm%3BInforma%E7%F5es%20Alunos.bmml%26bm%3BInforma%E7%F5es%20Alunos.bmml%26bm%3BInforma%E7%F5es%20Alunos.bmml</href>
+                    <icon>ForwardIcon%7Cmedium</icon>
+                    <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22986%2C546%2C1311%2C586%22%20href%3D%22Informa%25C3%25A7%25C3%25B5es%2520Alunos.bmml%22%20alt%3D%22Informa%E7%F5es%20Alunos%22%20id%3D%226%22/%3E</map>
+                    <state>up</state>
+                    <text>Visualizar%20Informa%E7%F5es</text>
+                  </controlProperties>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="117" controlTypeID="__group__" x="1188" y="208" w="208" h="22" measuredW="208" measuredH="22" zOrder="2" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="131" h="22" measuredW="131" measuredH="21" zOrder="0" locked="false" isInGroup="117">
+          <controlProperties>
+            <text>Voc%EA%20est%E1%20logo%20como%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Link" x="140" y="0" w="-1" h="-1" measuredW="68" measuredH="21" zOrder="1" locked="false" isInGroup="117">
+          <controlProperties>
+            <text>Secretaria</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>

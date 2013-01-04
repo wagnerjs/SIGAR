@@ -1,0 +1,147 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1374" measuredH="412" mockupW="1314" mockupH="392">
+  <controls>
+    <control controlID="0" controlTypeID="__group__" x="60" y="20" w="1314" h="392" measuredW="1314" measuredH="392" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <controlName>Aba%20Cadastrar%20Alunos</controlName>
+        <href>Cadastrar%20Aluno%26bm%3BCadastrar%20Aluno.bmml%26bm%3BCadastrar%20Aluno.bmml%26bm%3BCadastrar%20Aluno.bmml</href>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="__group__" x="0" y="0" w="1314" h="392" measuredW="1314" measuredH="392" zOrder="0" locked="false" isInGroup="0">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="0" y="0" w="1314" h="392" measuredW="337" measuredH="100" zOrder="0" locked="false" isInGroup="0">
+              <controlProperties>
+                <selectedIndex>0</selectedIndex>
+                <text>Cadastrar%20Alunos%2C%20%20Cadastrar%20Professores</text>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="1" controlTypeID="__group__" x="11" y="43" w="400" h="329" measuredW="400" measuredH="329" zOrder="1" locked="false" isInGroup="0">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="__group__" x="0" y="0" w="400" h="329" measuredW="400" measuredH="329" zOrder="0" locked="false" isInGroup="1">
+              <groupChildrenDescriptors>
+                <control controlID="0" controlTypeID="__group__" x="0" y="0" w="400" h="329" measuredW="400" measuredH="329" zOrder="0" locked="false" isInGroup="0">
+                  <groupChildrenDescriptors>
+                    <control controlID="0" controlTypeID="com.balsamiq.mockups::FieldSet" x="0" y="0" w="400" h="329" measuredW="200" measuredH="170" zOrder="0" locked="false" isInGroup="0">
+                      <controlProperties>
+                        <backgroundAlpha>0</backgroundAlpha>
+                        <color>0</color>
+                        <text>Dados%20do%20Aluno</text>
+                      </controlProperties>
+                    </control>
+                  </groupChildrenDescriptors>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+            <control controlID="1" controlTypeID="__group__" x="8" y="22" w="383" h="234" measuredW="383" measuredH="234" zOrder="1" locked="false" isInGroup="1">
+              <groupChildrenDescriptors>
+                <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="1" y="3" w="42" h="21" measuredW="40" measuredH="21" zOrder="0" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>Nome</text>
+                  </controlProperties>
+                </control>
+                <control controlID="1" controlTypeID="__group__" x="52" y="0" w="331" h="27" measuredW="331" measuredH="27" zOrder="1" locked="false" isInGroup="1">
+                  <groupChildrenDescriptors>
+                    <control controlID="0" controlTypeID="__group__" x="0" y="0" w="331" h="27" measuredW="331" measuredH="27" zOrder="0" locked="false" isInGroup="1">
+                      <groupChildrenDescriptors>
+                        <control controlID="0" controlTypeID="__group__" x="0" y="0" w="331" h="27" measuredW="331" measuredH="27" zOrder="0" locked="false" isInGroup="0">
+                          <groupChildrenDescriptors>
+                            <control controlID="0" controlTypeID="__group__" x="0" y="0" w="331" h="27" measuredW="331" measuredH="27" zOrder="0" locked="false" isInGroup="0">
+                              <groupChildrenDescriptors>
+                                <control controlID="0" controlTypeID="com.balsamiq.mockups::TextInput" x="0" y="0" w="331" h="-1" measuredW="163" measuredH="27" zOrder="0" locked="false" isInGroup="0">
+                                  <controlProperties>
+                                    <text>Guilherme%20Baufaker%20R%EAgo</text>
+                                  </controlProperties>
+                                </control>
+                              </groupChildrenDescriptors>
+                            </control>
+                          </groupChildrenDescriptors>
+                        </control>
+                      </groupChildrenDescriptors>
+                    </control>
+                  </groupChildrenDescriptors>
+                </control>
+                <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="0" y="70" w="136" h="21" measuredW="126" measuredH="21" zOrder="2" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>Data%20de%20Nascimento%3A</text>
+                  </controlProperties>
+                </control>
+                <control controlID="3" controlTypeID="com.balsamiq.mockups::DateChooser" x="133" y="69" w="149" h="-1" measuredW="139" measuredH="25" zOrder="3" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>%20%2024/11%20/1991%20%20%20%20</text>
+                  </controlProperties>
+                </control>
+                <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="0" y="102" w="133" h="21" measuredW="40" measuredH="21" zOrder="4" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>Email%3A</text>
+                  </controlProperties>
+                </control>
+                <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="1" y="167" w="83" h="21" measuredW="76" measuredH="21" zOrder="5" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>Ano%20Escolar%3A</text>
+                  </controlProperties>
+                </control>
+                <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="0" y="132" w="52" h="21" measuredW="48" measuredH="21" zOrder="6" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>Celular%3A</text>
+                  </controlProperties>
+                </control>
+                <control controlID="7" controlTypeID="com.balsamiq.mockups::TextInput" x="145" y="99" w="237" h="-1" measuredW="130" measuredH="27" zOrder="7" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>gbre.111@gmail.com</text>
+                  </controlProperties>
+                </control>
+                <control controlID="8" controlTypeID="com.balsamiq.mockups::ComboBox" x="84" y="166" w="299" h="-1" measuredW="156" measuredH="23" zOrder="8" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>Ensino%20M%E9dio%20-%203%BA%20Ano</text>
+                  </controlProperties>
+                </control>
+                <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="0" y="40" w="44" h="21" measuredW="36" measuredH="21" zOrder="9" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>Sexo</text>
+                  </controlProperties>
+                </control>
+                <control controlID="12" controlTypeID="com.balsamiq.mockups::Label" x="1" y="207" w="51" h="21" measuredW="47" measuredH="21" zOrder="10" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>Escola%3A</text>
+                  </controlProperties>
+                </control>
+                <control controlID="13" controlTypeID="com.balsamiq.mockups::TextInput" x="84" y="207" w="299" h="-1" measuredW="161" measuredH="27" zOrder="11" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>Centro%20Educacional%20Sigma</text>
+                  </controlProperties>
+                </control>
+                <control controlID="14" controlTypeID="com.balsamiq.mockups::TextInput" x="58" y="129" w="325" h="-1" measuredW="100" measuredH="27" zOrder="12" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <text>%2861%29%2084913939</text>
+                  </controlProperties>
+                </control>
+                <control controlID="16" controlTypeID="__group__" x="52" y="39" w="198" h="23" measuredW="198" measuredH="23" zOrder="13" locked="false" isInGroup="1">
+                  <groupChildrenDescriptors>
+                    <control controlID="0" controlTypeID="com.balsamiq.mockups::RadioButton" x="8" y="0" w="80" h="22" measuredW="74" measuredH="22" zOrder="0" locked="false" isInGroup="16">
+                      <controlProperties>
+                        <state>selected</state>
+                        <text>Masculino</text>
+                      </controlProperties>
+                    </control>
+                    <control controlID="1" controlTypeID="com.balsamiq.mockups::RadioButton" x="112" y="0" w="78" h="22" measuredW="72" measuredH="22" zOrder="1" locked="false" isInGroup="16">
+                      <controlProperties>
+                        <text>Feminino</text>
+                      </controlProperties>
+                    </control>
+                    <control controlID="2" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="198" h="23" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="16">
+                      <controlProperties>
+                        <backgroundAlpha>0</backgroundAlpha>
+                        <verticalScrollbar>false</verticalScrollbar>
+                      </controlProperties>
+                    </control>
+                  </groupChildrenDescriptors>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>

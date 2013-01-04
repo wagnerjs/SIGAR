@@ -1,0 +1,76 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1590" measuredH="724" mockupW="1344" mockupH="724">
+  <controls>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::BreadCrumbs" x="279" y="207" w="-1" h="-1" measuredW="59" measuredH="24" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>Home%26bm%3BHome.bmml%26bm%3BHome.bmml%26bm%3BHome.bmml%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2233%2C210%2C75%2C231%22%20href%3D%22Home.bmml%22%20alt%3D%22Home%22%20id%3D%229_0%22/%3E%0A</map>
+        <text>Home%2C</text>
+      </controlProperties>
+    </control>
+    <control controlID="111" controlTypeID="__group__" x="246" y="0" w="1344" h="724" measuredW="1344" measuredH="724" zOrder="0" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="0" y="0" w="1344" h="724" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="111">
+          <controlProperties>
+            <text>SiGAR%20-%20Sistema%20de%20Gerenciamento%20de%20Aulas%20de%20Refor%E7o%0Ahttp%3A//www.sigar.com.br</text>
+            <verticalScrollbar>true</verticalScrollbar>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="118" controlTypeID="com.balsamiq.mockups::Image" x="804" y="82" w="-1" h="-1" measuredW="303" measuredH="164" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./assets/logo-sigar.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="126" controlTypeID="__group__" x="745" y="251" w="354" h="149" measuredW="354" measuredH="149" zOrder="3" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="6" controlTypeID="__group__" x="0" y="0" w="354" h="149" measuredW="354" measuredH="149" zOrder="0" locked="false" isInGroup="126">
+          <groupChildrenDescriptors>
+            <control controlID="6" controlTypeID="__group__" x="0" y="0" w="354" h="149" measuredW="354" measuredH="149" zOrder="0" locked="false" isInGroup="6">
+              <groupChildrenDescriptors>
+                <control controlID="0" controlTypeID="com.balsamiq.mockups::Button" x="36" y="94" w="303" h="40" measuredW="89" measuredH="38" zOrder="0" locked="false" isInGroup="6">
+                  <controlProperties>
+                    <href>Login%26bm%3BLogin.bmml%26bm%3BLogin.bmml%26bm%3BLogin.bmml</href>
+                    <icon>ContactIcon%7Cmedium</icon>
+                    <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22535%2C345%2C838%2C385%22%20href%3D%22Login.bmml%22%20alt%3D%22Login%22%20id%3D%220%22/%3E</map>
+                    <menuIcon>false</menuIcon>
+                    <text>Login</text>
+                  </controlProperties>
+                </control>
+                <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="146" y="25" w="192" h="-1" measuredW="76" measuredH="27" zOrder="1" locked="false" isInGroup="6">
+                  <controlProperties>
+                    <text>Secretaria</text>
+                  </controlProperties>
+                </control>
+                <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="146" y="58" w="192" h="-1" measuredW="44" measuredH="27" zOrder="2" locked="false" isInGroup="6">
+                  <controlProperties>
+                    <text>*****</text>
+                  </controlProperties>
+                </control>
+                <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="36" y="28" w="98" h="21" measuredW="40" measuredH="21" zOrder="4" locked="false" isInGroup="6">
+                  <controlProperties>
+                    <text>Login%3A</text>
+                  </controlProperties>
+                </control>
+                <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="36" y="58" w="111" h="21" measuredW="46" measuredH="21" zOrder="5" locked="false" isInGroup="6">
+                  <controlProperties>
+                    <text>Senha%3A</text>
+                  </controlProperties>
+                </control>
+                <control controlID="5" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="354" h="149" measuredW="100" measuredH="70" zOrder="3" locked="false" isInGroup="6">
+                  <controlProperties>
+                    <backgroundAlpha>0</backgroundAlpha>
+                    <borderColor>3355443</borderColor>
+                    <borderStyle>roundedSolid</borderStyle>
+                    <href>Login%26bm%3BLogin.bmml%26bm%3BLogin.bmml%26bm%3BLogin.bmml</href>
+                    <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22499%2C251%2C853%2C400%22%20href%3D%22Login.bmml%22%20alt%3D%22Login%22%20id%3D%225%22/%3E</map>
+                  </controlProperties>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
