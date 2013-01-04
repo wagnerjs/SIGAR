@@ -34,7 +34,9 @@
 	
 	
 	$con->conexaoBanco();
+	
 
+	$cadastro->inserir();
 	
 	$con->fechaConexaoBanco();
 ?>
