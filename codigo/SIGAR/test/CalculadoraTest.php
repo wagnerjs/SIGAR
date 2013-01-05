@@ -1,17 +1,20 @@
 <?php
-require_once '../src/Calculadora.php';
+require_once '../src/model/Pessoa.class.php';
+require_once '../src/model/Usuario.class.php';
+require_once '../src/model/Aluno.class.php';
+
 
 class CalculadoraTest extends PHPUnit_Framework_TestCase
 {
 
     public function testSoma()
     {
-        $valor1 = '2';
-        $valor2 = '3';
 
-        $calculadora = new Calculadora();
+        $aluno = new Aluno("gbre", "12345");
 
-        $this->assertEquals('5', $calculadora->soma($valor1, $valor2));
+  
+        $this->assertEquals('Guilherme', $aluno->getNome());
     }
 
 }
+?>

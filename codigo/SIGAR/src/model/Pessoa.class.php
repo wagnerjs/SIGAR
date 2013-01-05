@@ -1,6 +1,6 @@
 <?php
 
-class Pessoa
+abstract class Pessoa
 {
 	private $_nome;
 	private $_sexo;
@@ -10,17 +10,8 @@ class Pessoa
 	private $_celular;
 	private $_endereco;
 	
-	
-	
-	public function setEndereco($_endereco)
-	{
-     $this->_endereco= $_endereco;	
-	}
-	
-	public function getEndereco()
-	{
-	 return $this->_endereco;
-	}
+
+
 	
 	public function setNome( $_nome )
 	{

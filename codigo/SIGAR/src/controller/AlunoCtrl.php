@@ -1,5 +1,15 @@
 <?php
-	$nome = $_POST['txtNome'];
+   
+    	include "Aluno.class.php";
+	include "Endereco.class.php";
+	include "Pessoa.class.php";
+	include "Usuario.class.php";
+       
+class AlunoCrtl {   
+
+public function instanciarAluno ()
+    {
+        $nome = $_POST['txtNome'];
 	$sexo = $_POST['sexo'];
 	$nascimento = $_POST['dataNasc'];
 	$email = $_POST['email'];
@@ -24,19 +34,11 @@
 	$referencia = $_POST['referencia'];
 	
 	
-	include "conexao.class.php";
-	include "Aluno.class.php";
-	include "Endereco.class.php";
-	include "Pessoa.class.php";
-	include "Usuario.class.php";
-	
-	$con = new Conexao();
-	
-	
-	$con->conexaoBanco();
-	
-
-	$cadastro->inserir();
-	
-	$con->fechaConexaoBanco();
+        $endereco_obj = new Endereco($endereco,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
+        $responsavel_obj = new Responsavel($nomeResp,$cpfResp,$telResResp, $telTrabResp, $telCelResp, $parentesco, $emailResp);
+        $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj);
+        
+        return aluno_obj;
+    }
+}     
 ?>
