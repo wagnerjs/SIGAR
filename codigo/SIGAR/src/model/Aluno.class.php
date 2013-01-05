@@ -6,11 +6,25 @@
         private $_anoEscolar;
 	private $_escola;
 	private $_responsavel;
-        private $_usuario;
+ 
 	
-       
-       
-	public function getAnoEscolar()
+        function __construct($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj){
+            $this->setNome($nome);
+            $this->setSexo($sexo);
+            $this->setNascimento($nascimento);
+            $this->setEmail($email);
+            $this->set_telefoneResidencial($telResidencial);
+            $this->setCelular($telCelular);
+            $this->set_($endereco_obj);
+            $this->set_endereco($endereco_obj);
+            $this->_anoEscolar = $anoEscolar;
+            $this->_escola = $escola;
+            $this->_responsavel = $responsavel_obj;        
+                    
+        }
+
+
+        public function getAnoEscolar()
 	{
 		return $this->_anoEscolar;
 	}

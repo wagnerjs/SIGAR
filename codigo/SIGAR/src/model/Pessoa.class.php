@@ -6,12 +6,19 @@ abstract class Pessoa
 	private $_sexo;
 	private $_nascimento;
 	private $_email;
-	private $_telefone;
+	private $_telefoneResidencial;
 	private $_celular;
 	private $_endereco;
 	
+        public function get_endereco() {
+            return $this->_endereco;
+        }
 
+        public function set_endereco($_endereco) {
+            $this->_endereco = $_endereco;
+        }
 
+        
 	
 	public function setNome( $_nome )
 	{
@@ -32,11 +39,7 @@ abstract class Pessoa
 	{
 		$this->_email = $_email;
 	}
-	
-	public function setTelefone( $_telefone )
-	{
-		$this->_telefone = $_telefone;
-	}
+
 	
 	public function setCelular( $_celular )
 	{
@@ -62,13 +65,15 @@ abstract class Pessoa
 	{
 		return $this->_email;
 	}
-	
-	public function getTelefone()
-	{
-		return $this->_telefone;
-	}
-	
-	public function getCelular()
+	public function get_telefoneResidencial() {
+            return $this->_telefoneResidencial;
+        }
+
+        public function set_telefoneResidencial($_telefoneResidencial) {
+            $this->_telefoneResidencial = $_telefoneResidencial;
+        }
+
+        	public function getCelular()
 	{
 		return $this->_celular;
 	}

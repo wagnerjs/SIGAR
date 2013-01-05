@@ -2,9 +2,12 @@
 
 class Usuario extends Pessoa {
     
- 
+    function __construct($_login, $_senha) {
+        $this->_login = $_login;
+        $this->_senha = $_senha;
+    }
 
-    
+        
     private $_login;
     private $_senha;
 

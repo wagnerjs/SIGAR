@@ -10,6 +10,18 @@
 	private $_uf;
 	private $_referencia;
 	
+        function __construct($endereco,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia) {
+            $this->_cep = $cep;
+            $this->_endereco = $endereco;
+            $this->_numeroCasa = $numero;
+            $this->_complemento = $complemento;
+            $this->_bairro = $bairro;
+            $this->_cidade = $cidade;
+            $this->_uf = $uf;
+            $this->_referencia = $referencia;
+        }
+
+        
 	public function setUf( $_uf )
 	{
 	    $this->_uf = $_uf;
