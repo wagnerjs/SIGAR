@@ -13,11 +13,14 @@ require_once '../src/model/Responsavel.class.php';
  */
 class AlunoCtrl_Test extends PHPUnit_Framework_TestCase 
 {
-   
+    /**
+     * @test
+     * @return \Endereco
+     */
     public function testCriarObjetoEndereco()
     {
-        $endereco = 'QE 44 CONJUNTO X';
-        $cep = '71070237';
+        $endereco = 'QE 32 CONJUNTO H';
+        $cep = '710283832';
         $bairro = 'Guara';
         $cidade = 'Brasília';
         $complemento = 'casa';
@@ -43,19 +46,21 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
 
     }
    
-   
+   /**
+    * @test
+    * @return \Responsavel
+    */
     public function testCriarResponsavel()
     {
-       $nomeResp = 'Juno';
+       $nomeResp = 'Pai';
        $cpfResp = '012202033';
-       $telResResp='33013930'; 
+       $telResResp='33012392'; 
        $telTrabResp = '334373022';
        $telCelResp = '93322392';
        $parentesco = 'pai';
-       $emailResp = 'junorego@uol.com.br';
+       $emailResp = 'pai@emai.com.br';
         
        $responsavel_obj = new Responsavel($nomeResp,$cpfResp,$telResResp, $telTrabResp, $telCelResp, $parentesco, $emailResp);
-    
         $this->assertNotNull($responsavel_obj->getCategoria(), 'Campo não foi adicionado no HTML');
         $this->assertNotNull($responsavel_obj->getCelular(), 'Campo não foi adicionado no HTML');
         $this->assertNotNull($responsavel_obj->getCpf(), 'Campo não foi adicionado no HTML');
@@ -65,9 +70,29 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
         //$this->assertNotNull($responsavel_obj->getSexo(), 'Campo não foi adicionado no HTML');
         $this->assertNotNull($responsavel_obj->getTelTrabalho(), 'Campo não foi adicionado no HTML');
        
+        return $responsavel_obj;
     }
-   //     
-//        $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj);
+    /**
+     * @test
+     * @depends testCriarResponsavel
+     * @depends testCriarObjetoEndereco
+     */
+    public function testPop(Responsavel $responsavel_obj, Endereco $endereco_obj)
+    {
+       $nome = 'Aluno';
+       $sexo = 'masculino';
+       $email = 'gbre';
+       $nascimento = '24/11/1995';
+       $anoEscolar = '3 ano';
+       $telResidencial = '(61) 330133239';
+       $telCelular = '(61) 9332292';
+       $escola = 'sigma';
+       
+        $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj);
+    
+        echo print_r($aluno_obj, true);
+    }
+
 }
 
 ?>

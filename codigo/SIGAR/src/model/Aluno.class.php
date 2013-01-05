@@ -15,7 +15,6 @@
             $this->setEmail($email);
             $this->set_telefoneResidencial($telResidencial);
             $this->setCelular($telCelular);
-            $this->set_($endereco_obj);
             $this->set_endereco($endereco_obj);
             $this->_anoEscolar = $anoEscolar;
             $this->_escola = $escola;
