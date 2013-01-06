@@ -1,3 +1,6 @@
+<?php
+	include "validaSession.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +28,7 @@
 
 <body>
   <div class="container">
-    <p>Logado como: Secretária | <u>Sair</u></p>
+    <p>Logado como: <?php echo $ObjSessao->getUsuario();?> | <a href= "logoff.php" class="link"><u>Sair</u></a></p>
   </div>
 </body>
 </html>

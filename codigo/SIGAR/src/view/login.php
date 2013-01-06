@@ -1,3 +1,23 @@
+<?php
+	include 'validaSession.php';
+	include_once '../include/conexao.class.php';
+
+	if(isset($_POST['enviar'])){
+		$obj_conecta = new bd;
+			$obj_conecta->conecta();
+			$obj_conecta->seleciona_bd();
+
+		$ObjSessao->setUsuario($_POST['login']);
+		$ObjSessao->setSenha($_POST['senha']);
+		$ObjSessao->autentica();
+
+		$obj_conecta->fechaConexao();
+
+		if($ObjSessao->getResposta()==null)
+			header("location: telaLogado.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +27,7 @@
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>index</title>
+  <title>Login</title>
   <meta name="description" content="" />
   <meta name="author" content="Fellype" />
 
@@ -30,10 +50,13 @@
     	<img src="img/logo.png" alt="SIGAR" />
     	<p>Sistema Gerenciador de Aulas de Reforço</p>
     </div>
-    <form id="login">
-    	<input id="userName" type="text" value="Usuário"/>
-    	<input id="passWord" type="password" value="Senha"/>
-    	<a href="#"><img src="img/button.png" height="40" width="170"/></a>
+    <form id="login" action="login.php" method="POST">
+    	<input id="userName" class="campo" type="text" value="Usuário" name="login"/>
+    	<input id="passWord" class="campo" type="password" value="Senha" name="senha"/>
+		<input type="submit" name="enviar" value="" id="entrar"/>
+		<br>
+		<?php echo $ObjSessao->getResposta(); ?>
+    	<!--<a href="#"><img src="img/button.png" height="40" width="170"/></a>-->
     </form>
   </div>
 </body>

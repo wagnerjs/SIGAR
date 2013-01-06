@@ -24,7 +24,7 @@ body {
 	margin-left: 200px;
 }
 
-#login input {
+#login input.campo {
 	font-size: 1.5em;
 	margin-left: 10px;
 	height: 40px;
@@ -39,3 +39,8 @@ body {
 	margin-top: -10px;
 }
 
+#entrar {
+	background-image: url("../img/entrar.png");
+	width: 240px;
+	height: 90px;
+}
