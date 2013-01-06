@@ -7,7 +7,7 @@ CREATE DATABASE SIGAR;
 USE SIGAR;
 
 CREATE  TABLE IF NOT EXISTS `SIGAR`.`Pessoa` (
-  `idPessoa` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
+  `idPessoa` INT NOT NULL AUTO_INCREMENT ,
   `nome` VARCHAR(45) NULL ,
   `email` VARCHAR(45) NULL ,
   `endereco` VARCHAR(45) NULL ,
@@ -29,7 +29,7 @@ CREATE  TABLE IF NOT EXISTS `SIGAR`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT ,
   `login` VARCHAR(45) NULL ,
   `senha` VARCHAR(45) NULL ,
-  `idPessoa` INT UNSIGNED ZEROFILL NOT NULL ,
+  `idPessoa` INT NOT NULL ,
   PRIMARY KEY (`idUsuario`) ,
   INDEX `fk_Usuario_Pessoa1_idx` (`idPessoa` ASC) ,
   CONSTRAINT `fk_Usuario_Pessoa1`
@@ -44,7 +44,7 @@ ENGINE = InnoDB;
 -- Table `SIGAR`.`Secretaria`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `SIGAR`.`Secretaria` (
-  `idSecretaria` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
+  `idSecretaria` INT NOT NULL AUTO_INCREMENT ,
   `carteiraTrabalho` VARCHAR(45) NULL ,
   `idUsuario` INT NOT NULL ,
   PRIMARY KEY (`idSecretaria`) ,
@@ -63,7 +63,7 @@ ENGINE = InnoDB;
 -- Table `SIGAR`.`Professor`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `SIGAR`.`Professor` (
-  `idProfessor` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
+  `idProfessor` INT NOT NULL AUTO_INCREMENT ,
   `meioTransporte` VARCHAR(45) NULL ,
   `idUsuario` INT NOT NULL ,
   PRIMARY KEY (`idProfessor`) ,
@@ -80,10 +80,10 @@ ENGINE = InnoDB;
 -- Table `SIGAR`.`Responsavel`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `SIGAR`.`Responsavel` (
-  `idResponsavel` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
+  `idResponsavel` INT NOT NULL AUTO_INCREMENT ,
   `categoria` VARCHAR(45) NULL ,
   `telefoneTrabalho` VARCHAR(45) NULL ,
-  `idPessoa` INT UNSIGNED ZEROFILL NOT NULL ,
+  `idPessoa` INT NOT NULL ,
   PRIMARY KEY (`idResponsavel`) ,
   INDEX `fk_Responsavel_Pessoa1_idx` (`idPessoa` ASC) ,
   CONSTRAINT `fk_Responsavel_Pessoa1`
@@ -101,7 +101,7 @@ CREATE  TABLE IF NOT EXISTS `SIGAR`.`Aluno` (
   `idAluno` INT NOT NULL AUTO_INCREMENT ,
   `anoEscolar` VARCHAR(45) NULL ,
   `escola` VARCHAR(45) NULL ,
-  `idResponsavel` INT UNSIGNED ZEROFILL NOT NULL ,
+  `idResponsavel` INT NOT NULL ,
   `idUsuario` INT NOT NULL ,
   PRIMARY KEY (`idAluno`) ,
   INDEX `fk_Aluno_Responsavel1_idx` (`idResponsavel` ASC) ,
@@ -123,7 +123,7 @@ ENGINE = InnoDB;
 -- Table `SIGAR`.`Aula`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `SIGAR`.`Aula` (
-  `idaula` INT ZEROFILL UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `idaula` INT NOT NULL AUTO_INCREMENT ,
   `idAluno` INT NOT NULL ,
   `data` DATE NULL ,
   `horaInicio` TIME NULL ,
@@ -146,7 +146,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `SIGAR`.`Endereco` (
   `idendereco` INT NOT NULL ,
-  `idPessoa` INT UNSIGNED ZEROFILL NOT NULL ,
+  `idPessoa` INT NOT NULL ,
   `cep` VARCHAR(45) NULL ,
   `logradouro` VARCHAR(45) NULL ,
   `numero` INT NULL ,
@@ -169,8 +169,8 @@ ENGINE = InnoDB;
 -- Table `SIGAR`.`Agenda`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `SIGAR`.`Agenda` (
-  `idAgenda` INT ZEROFILL UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `idusuario` INT UNSIGNED ZEROFILL NOT NULL ,
+  `idAgenda` INT NOT NULL AUTO_INCREMENT ,
+  `idusuario` INT NOT NULL ,
   PRIMARY KEY (`idAgenda`) ,
   UNIQUE INDEX `idagenda_UNIQUE` (`idAgenda` ASC) ,
   UNIQUE INDEX `idusuario_UNIQUE` (`idusuario` ASC) )
@@ -181,8 +181,8 @@ ENGINE = InnoDB;
 -- Table `SIGAR`.`Disponibilidade`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `SIGAR`.`Disponibilidade` (
-  `idDisponibilidade` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
-  `idProfessor` INT UNSIGNED ZEROFILL NOT NULL ,
+  `idDisponibilidade` INT NOT NULL AUTO_INCREMENT ,
+  `idProfessor` INT NOT NULL ,
   PRIMARY KEY (`idDisponibilidade`) ,
   UNIQUE INDEX `iddisponibilidade_UNIQUE` (`idDisponibilidade` ASC) ,
   INDEX `fk_Disponibilidade_Professor1_idx` (`idProfessor` ASC) ,
@@ -198,8 +198,8 @@ ENGINE = InnoDB;
 -- Table `SIGAR`.`horario_disponivel`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `SIGAR`.`horario_disponivel` (
-  `idhorario_disponivel` INT ZEROFILL UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `idDisponibilidade` INT UNSIGNED ZEROFILL NOT NULL ,
+  `idhorario_disponivel` INT NOT NULL AUTO_INCREMENT ,
+  `idDisponibilidade` INT NOT NULL ,
   `dia` VARCHAR(45) NULL ,
   `horaInicio` VARCHAR(45) NULL ,
   `horaFim` VARCHAR(45) NULL ,
@@ -218,9 +218,9 @@ ENGINE = InnoDB;
 -- Table `SIGAR`.`Relatorio`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `SIGAR`.`Relatorio` (
-  `idrelatorio` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
+  `idrelatorio` INT NOT NULL AUTO_INCREMENT ,
   `idAluno` INT NOT NULL ,
-  `idProfessor` INT UNSIGNED ZEROFILL NOT NULL ,
+  `idProfessor` INT NOT NULL ,
   `dataInicio` DATE NULL ,
   `dataFim` DATE NULL ,
   `descricao` VARCHAR(1000) NULL ,
