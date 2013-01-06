@@ -1,6 +1,6 @@
 <?php
 	include 'validaSession.php';
-	include_once '../include/conexao.class.php';
+	include_once '../BD/conexao.class.php';
 
 	if(isset($_POST['enviar'])){
 		$obj_conecta = new bd;

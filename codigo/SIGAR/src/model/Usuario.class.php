@@ -1,6 +1,6 @@
 <?php
 
-class Usuario extends Pessoa {
+class Usuario {
     
     function __construct($_login, $_senha) {
         $this->_login = $_login;
