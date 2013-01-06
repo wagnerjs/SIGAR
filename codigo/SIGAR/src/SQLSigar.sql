@@ -1,4 +1,12 @@
-CREATE  TABLE IF NOT EXISTS `mydb`.`Pessoa` (
+-- -----------------------------------------------------------------------------------
+-- PARA EXCUTAR O SCRIP, ABRA O PHPMYADMIN, CLIQUE DIRETO EM SQL COPIE E COLE DO JEITO 
+-- QUE ESTA AQUI, ESPERE E PRONTO! ATUALIZE A PAGINA QUE ESTARÁ LA O BANCO "SIGAR"
+-- -----------------------------------------------------------------------------------
+
+CREATE DATABASE SIGAR;
+USE SIGAR;
+
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`Pessoa` (
   `idPessoa` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
   `nome` VARCHAR(45) NULL ,
   `email` VARCHAR(45) NULL ,
@@ -15,9 +23,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Usuario`
+-- Table `SIGAR`.`Usuario`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Usuario` (
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT ,
   `login` VARCHAR(45) NULL ,
   `senha` VARCHAR(45) NULL ,
@@ -26,52 +34,52 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Usuario` (
   INDEX `fk_Usuario_Pessoa1_idx` (`idPessoa` ASC) ,
   CONSTRAINT `fk_Usuario_Pessoa1`
     FOREIGN KEY (`idPessoa` )
-    REFERENCES `mydb`.`Pessoa` (`idPessoa` )
+    REFERENCES `SIGAR`.`Pessoa` (`idPessoa` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Secretaria`
+-- Table `SIGAR`.`Secretaria`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Secretaria` (
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`Secretaria` (
   `idSecretaria` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
   `carteiraTrabalho` VARCHAR(45) NULL ,
-  `idUsuario` INT ZEROFILL UNSIGNED NOT NULL ,
+  `idUsuario` INT NOT NULL ,
   PRIMARY KEY (`idSecretaria`) ,
   INDEX `fk_Secretaria_Usuario1_idx` (`idUsuario` ASC) ,
   UNIQUE INDEX `idUsuario_UNIQUE` (`idUsuario` ASC) ,
   UNIQUE INDEX `idSecretaria_UNIQUE` (`idSecretaria` ASC) ,
   CONSTRAINT `idUsuario`
     FOREIGN KEY (`idUsuario` )
-    REFERENCES `mydb`.`Usuario` (`idUsuario` )
+    REFERENCES `SIGAR`.`Usuario` (`idUsuario` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Professor`
+-- Table `SIGAR`.`Professor`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Professor` (
-  `idProfessor` INT NOT NULL AUTO_INCREMENT ,
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`Professor` (
+  `idProfessor` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
   `meioTransporte` VARCHAR(45) NULL ,
   `idUsuario` INT NOT NULL ,
   PRIMARY KEY (`idProfessor`) ,
   INDEX `fk_Professor_Usuario1_idx` (`idUsuario` ASC) ,
-  CONSTRAINT `idUsuario`
+  CONSTRAINT `idUsuario2`
     FOREIGN KEY (`idUsuario` )
-    REFERENCES `mydb`.`Usuario` (`idUsuario` )
+    REFERENCES `SIGAR`.`Usuario` (`idUsuario` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Responsavel`
+-- Table `SIGAR`.`Responsavel`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Responsavel` (
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`Responsavel` (
   `idResponsavel` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
   `categoria` VARCHAR(45) NULL ,
   `telefoneTrabalho` VARCHAR(45) NULL ,
@@ -80,16 +88,16 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Responsavel` (
   INDEX `fk_Responsavel_Pessoa1_idx` (`idPessoa` ASC) ,
   CONSTRAINT `fk_Responsavel_Pessoa1`
     FOREIGN KEY (`idPessoa` )
-    REFERENCES `mydb`.`Pessoa` (`idPessoa` )
+    REFERENCES `SIGAR`.`Pessoa` (`idPessoa` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Aluno`
+-- Table `SIGAR`.`Aluno`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Aluno` (
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`Aluno` (
   `idAluno` INT NOT NULL AUTO_INCREMENT ,
   `anoEscolar` VARCHAR(45) NULL ,
   `escola` VARCHAR(45) NULL ,
@@ -100,23 +108,23 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Aluno` (
   INDEX `fk_Aluno_Usuario1_idx` (`idUsuario` ASC) ,
   CONSTRAINT `fk_Aluno_Responsavel1`
     FOREIGN KEY (`idResponsavel` )
-    REFERENCES `mydb`.`Responsavel` (`idResponsavel` )
+    REFERENCES `SIGAR`.`Responsavel` (`idResponsavel` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Aluno_Usuario1`
     FOREIGN KEY (`idUsuario` )
-    REFERENCES `mydb`.`Usuario` (`idUsuario` )
+    REFERENCES `SIGAR`.`Usuario` (`idUsuario` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Aula`
+-- Table `SIGAR`.`Aula`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Aula` (
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`Aula` (
   `idaula` INT ZEROFILL UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `idAluno` INT UNSIGNED ZEROFILL NOT NULL ,
+  `idAluno` INT NOT NULL ,
   `data` DATE NULL ,
   `horaInicio` TIME NULL ,
   `duracao` TIME NULL ,
@@ -127,16 +135,16 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Aula` (
   UNIQUE INDEX `idAluno_UNIQUE` (`idAluno` ASC) ,
   CONSTRAINT `fk_aula_Aluno1`
     FOREIGN KEY (`idAluno` )
-    REFERENCES `mydb`.`Aluno` (`idAluno` )
+    REFERENCES `SIGAR`.`Aluno` (`idAluno` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Endereco`
+-- Table `SIGAR`.`Endereco`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Endereco` (
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`Endereco` (
   `idendereco` INT NOT NULL ,
   `idPessoa` INT UNSIGNED ZEROFILL NOT NULL ,
   `cep` VARCHAR(45) NULL ,
@@ -151,16 +159,16 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Endereco` (
   INDEX `fk_endereco_Pessoa1_idx` (`idPessoa` ASC) ,
   CONSTRAINT `fk_endereco_Pessoa1`
     FOREIGN KEY (`idPessoa` )
-    REFERENCES `mydb`.`Pessoa` (`idPessoa` )
+    REFERENCES `SIGAR`.`Pessoa` (`idPessoa` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Agenda`
+-- Table `SIGAR`.`Agenda`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Agenda` (
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`Agenda` (
   `idAgenda` INT ZEROFILL UNSIGNED NOT NULL AUTO_INCREMENT ,
   `idusuario` INT UNSIGNED ZEROFILL NOT NULL ,
   PRIMARY KEY (`idAgenda`) ,
@@ -170,26 +178,26 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Disponibilidade`
+-- Table `SIGAR`.`Disponibilidade`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Disponibilidade` (
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`Disponibilidade` (
   `idDisponibilidade` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
-  `idProfessor` INT NOT NULL ,
+  `idProfessor` INT UNSIGNED ZEROFILL NOT NULL ,
   PRIMARY KEY (`idDisponibilidade`) ,
   UNIQUE INDEX `iddisponibilidade_UNIQUE` (`idDisponibilidade` ASC) ,
   INDEX `fk_Disponibilidade_Professor1_idx` (`idProfessor` ASC) ,
   CONSTRAINT `fk_Disponibilidade_Professor1`
     FOREIGN KEY (`idProfessor` )
-    REFERENCES `mydb`.`Professor` (`idProfessor` )
+    REFERENCES `SIGAR`.`Professor` (`idProfessor` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`horario_disponivel`
+-- Table `SIGAR`.`horario_disponivel`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`horario_disponivel` (
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`horario_disponivel` (
   `idhorario_disponivel` INT ZEROFILL UNSIGNED NOT NULL AUTO_INCREMENT ,
   `idDisponibilidade` INT UNSIGNED ZEROFILL NOT NULL ,
   `dia` VARCHAR(45) NULL ,
@@ -200,18 +208,18 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`horario_disponivel` (
   UNIQUE INDEX `idhorario_disponivel_UNIQUE` (`idhorario_disponivel` ASC) ,
   CONSTRAINT `fk_horario_disponivel_disponibilidade1`
     FOREIGN KEY (`idDisponibilidade` )
-    REFERENCES `mydb`.`Disponibilidade` (`idDisponibilidade` )
+    REFERENCES `SIGAR`.`Disponibilidade` (`idDisponibilidade` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Relatorio`
+-- Table `SIGAR`.`Relatorio`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Relatorio` (
+CREATE  TABLE IF NOT EXISTS `SIGAR`.`Relatorio` (
   `idrelatorio` INT UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT ,
-  `idAluno` INT UNSIGNED ZEROFILL NOT NULL ,
+  `idAluno` INT NOT NULL ,
   `idProfessor` INT UNSIGNED ZEROFILL NOT NULL ,
   `dataInicio` DATE NULL ,
   `dataFim` DATE NULL ,
@@ -227,19 +235,12 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Relatorio` (
   UNIQUE INDEX `Professor_idProfessor_UNIQUE` (`idProfessor` ASC) ,
   CONSTRAINT `fk_relatorio_Aluno1`
     FOREIGN KEY (`idAluno` )
-    REFERENCES `mydb`.`Aluno` (`idAluno` )
+    REFERENCES `SIGAR`.`Aluno` (`idAluno` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_relatorio_Professor1`
     FOREIGN KEY (`idProfessor` )
-    REFERENCES `mydb`.`Professor` (`idProfessor` )
+    REFERENCES `SIGAR`.`Professor` (`idProfessor` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-USE `mydb` ;
-
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
