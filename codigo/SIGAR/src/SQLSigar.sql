@@ -1,6 +1,6 @@
 -- -----------------------------------------------------------------------------------
 -- PARA EXCUTAR O SCRIP, ABRA O PHPMYADMIN, CLIQUE DIRETO EM SQL COPIE E COLE DO JEITO 
--- QUE ESTA AQUI, ESPERE E PRONTO! ATUALIZE A PAGINA QUE ESTARÁ LA O BANCO "SIGAR"
+-- QUE ESTA AQUI, ESPERE E PRONTO! ATUALIZE A PAGINA QUE ESTARï¿½ LA O BANCO "SIGAR"
 -- -----------------------------------------------------------------------------------
 
 CREATE DATABASE SIGAR;
@@ -16,7 +16,6 @@ CREATE  TABLE IF NOT EXISTS `SIGAR`.`Pessoa` (
   `sexo` VARCHAR(45) NULL ,
   `dataNascimento` DATE NULL ,
   `tipo` VARCHAR(45) NULL ,
-  `cpf` VARCHAR(45) NULL ,
   PRIMARY KEY (`idPessoa`) ,
   UNIQUE INDEX `idusuario_UNIQUE` (`idPessoa` ASC) )
 ENGINE = InnoDB;
@@ -83,6 +82,7 @@ CREATE  TABLE IF NOT EXISTS `SIGAR`.`Responsavel` (
   `idResponsavel` INT NOT NULL AUTO_INCREMENT ,
   `categoria` VARCHAR(45) NULL ,
   `telefoneTrabalho` VARCHAR(45) NULL ,
+  `cpf` VARCHAR(45) NULL ,
   `idPessoa` INT NOT NULL ,
   PRIMARY KEY (`idResponsavel`) ,
   INDEX `fk_Responsavel_Pessoa1_idx` (`idPessoa` ASC) ,
