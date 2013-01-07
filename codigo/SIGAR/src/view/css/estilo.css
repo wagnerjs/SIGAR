@@ -51,9 +51,16 @@ hr {
 }
 
 #entrar {
+        margin-top: -10px;
+        margin-left: 7px;
 	background-image: url("../img/entrar.png");
-	width: 240px;
-	height: 90px;
+        background-size: 170px 65px;
+	width: 170px;
+	height: 65px;
+        background-repeat:	no-repeat;
+	background-color:	transparent;
+	border:			none;
+	text-indent:		-999em;
 }
 
 .boxMenu {
