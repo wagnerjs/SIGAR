@@ -1,3 +1,6 @@
+<?php
+	include "validaSession.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,7 @@
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>index</title>
+  <title>Cadastrar Aluno</title>
   <meta name="description" content="" />
   <meta name="author" content="Fellype" />
 
@@ -26,12 +29,12 @@
 <body>
         <div class="container">
             <img src="img/logo.png" vspace="50"/>
-             <p class="status">Logado como: <?php /*echo $ObjSessao->getUsuario();*/?> | <a href= "logoff.php" class="link"><u>Sair</u></a></p>
+            <p class="status">Logado como:<b> <?php echo $ObjSessao->getUsuario();?> | <a href= "logoff.php" >Sair</b></a></p>
             <div id="sysBox">
                 <div class="inner">
                     <br/>
                     <a href="#"><span class="selected">Cadastrar Alunos</span></a>
-                    <a href="pesquisa.html"><span class="normal">Pesquisar Alunos</span></a>
+                    <a href="pesquisaAluno.php"><span class="normal">Pesquisar Alunos</span></a>
                     <div class="content">
                         <div>
                             <form name="form1" action="controler.php" method="post">
@@ -59,8 +62,16 @@
                                     <option value="3em">3º ano do Ensino Médio</option>
                                     <option value= "outros"> Outros</option>
                                     </select><br/>
-                                    Escola: <input type="text" name="escola" size="10" maxlength="10"><br/><br/>
-                                    <b>Dados do Responsável</b>
+                                    Escola: <input type="text" name="escola" size="10" maxlength="10"><br/>
+                                    Endereco: <input type="text" name="endereco"><br/>
+                                    Nº: <input type="text" name="numero"><br/>
+                                    Complemento: <input type="text" name="complemento"><br/>
+                                    Bairro: <input type="text" name="bairro"><br/>
+                                    Cidade: <input type="text" name="cidade"><br/>
+                                    UF: <input type="text" name="uf"><br/>
+                                    CEP: <input type="text" name="cep"><br/>
+                                    Refencia: <input type="text" name="referencia"><br/><br/>
+									<b>Dados do Responsável</b>
                                     <hr/>
                                     Nome: <input type="text" name="txtNomeResp" size="10" maxlength="50"><br/>
                                     Parentesco: <input type="radio" name="parentesco" value="pai"> Pai
@@ -71,15 +82,9 @@
                                     Telefone Residencial: <input type="text" name="telResResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
                                     Telefone Celular: <input type="text"  name="telCelResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
                                     Telefone Trabalho: <input type="text" name="telTrabResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
-                                    Endereco: <input type="text" name="endereco"><br>
-                                    Nº: <input type="text" name="numero"><br>
-                                    Complemento: <input type="text" name="complemento"><br>
-                                    Bairro: <input type="text" name="bairro"><br>
-                                    Cidade: <input type="text" name="cidade"><br>
-                                    UF: <input type="text" name="uf"><br>
-                                    CEP: <input type="text" name="cep"><br>
-                                    Refencia: <input type="text" name="referencia"><br>
-                                    <input type="submit" name="enviar" value="Enviar" />
+                                    Mesmo endereço do Aluno?: <input type="radio" name="parentesco" value="pai"> Sim
+                                    <input type="radio" name="parentesco" value="mae"> Não<br/><br/>
+									<input type="submit" name="enviar" value="Enviar" />
                                     <input type="reset" name="limpar" value="Limpar" />
                                     <input type="button" value="Fechar" onClick="fechaJanela()">
                             </form>

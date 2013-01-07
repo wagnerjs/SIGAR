@@ -14,7 +14,7 @@
 		$obj_conecta->fechaConexao();
 
 		if($ObjSessao->getResposta()==null)
-			header("location: telaLogado.php");
+			header("location: index.php");
 	}
 ?>
 

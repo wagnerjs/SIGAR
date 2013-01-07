@@ -31,7 +31,7 @@
       <div id="logo">
     	<img src="img/logo.png" alt="SIGAR" />
       </div>
-    <p class="status">Logado como <?php echo $ObjSessao->getUsuario();?> | <a href= "logoff.php" class="link"><u>Sair</u></a></p>
+    <p class="status">Logado como:<b> <?php echo $ObjSessao->getUsuario();?> | <a href= "logoff.php" >Sair</b></a></p>
     <div class="row-fluid show-grid">
         <div class="span6">
             <div class="boxMenu">
@@ -50,8 +50,8 @@
     <div class="row-fluid show-grid">
         <div class="span6">
             <div class="boxMenu">
-                <a href="#"><div><img src="img/icon-man.png" />  Cadastrar Alunos</div></a>
-                <a href="#"><div><img src="img/icon-find.png" />  Pesquisar Alunos</div></a>
+                <a href="cadastroAluno.php"><div><img src="img/icon-man.png" />  Cadastrar Alunos</div></a>
+                <a href="pesquisaAluno.php"><div><img src="img/icon-find.png" />  Pesquisar Alunos</div></a>
             </div>
         </div>
         <div class="span6">

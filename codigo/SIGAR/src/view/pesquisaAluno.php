@@ -1,3 +1,6 @@
+<?php
+	include "validaSession.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,7 @@
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>index</title>
+  <title>Pesquisar Aluno</title>
   <meta name="description" content="" />
   <meta name="author" content="Fellype" />
 
@@ -26,11 +29,11 @@
 <body>
         <div class="container">
             <img src="img/logo.png" vspace="50"/>
-             <p class="status">Logado como: <?php /*echo $ObjSessao->getUsuario();*/?> | <a href= "logoff.php" class="link"><u>Sair</u></a></p>
+            <p class="status">Logado como:<b> <?php echo $ObjSessao->getUsuario();?> | <a href= "logoff.php" >Sair</b></a></p>
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="cadastro.html"><span class="normal">Cadastrar Alunos</span></a>
+                    <a href="cadastroAluno.php"><span class="normal">Cadastrar Alunos</span></a>
                     <a href="#"><span class="selected">Pesquisar Alunos</span></a>
                     <div class="content">
                         <div>

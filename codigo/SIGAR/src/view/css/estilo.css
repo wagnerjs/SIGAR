@@ -5,6 +5,33 @@ body {
 	height: 700px;
 	/*font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;*/	
 }
+
+.status a{
+	color: #3c3c3c;
+	text-decoration: underline;
+}
+
+.status a:hover{
+	color: #3c3c3c;
+	text-decoration: underline;
+}
+
+.status a:active
+{
+	color: #3c3c3c;
+	text-decoration: underline;
+}
+.status a:visited
+{
+	color: #3c3c3c;
+	text-decoration: underline;
+}
+.status a:link
+{
+	color: #3c3c3c;
+	text-decoration: underline;
+}
+
 hr {
     color: #515154;
     background-color: #515154;
@@ -48,6 +75,7 @@ hr {
 
 .status {
     text-align: right;
+	color: #3c3c3c;
 }
 
 #entrar {
@@ -103,6 +131,7 @@ hr {
 
 .boxMenu a:hover {
     text-decoration: none;
+	color: #000000;
 }
 
 #sysBox {
