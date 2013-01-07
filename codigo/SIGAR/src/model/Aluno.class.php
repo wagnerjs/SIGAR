@@ -1,4 +1,5 @@
 <?php 
+include 'Acesso.class.php';
 
 class Aluno extends Pessoa{
      

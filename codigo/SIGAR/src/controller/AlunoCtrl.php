@@ -32,7 +32,6 @@ public function instanciarAluno ()
 	$cep = $_POST['cep'];
 	$referencia = $_POST['referencia'];
 	
-	
         $endereco_obj = new Endereco($endereco,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
         $responsavel_obj = new Responsavel($nomeResp,$cpfResp,$telResResp, $telTrabResp, $telCelResp, $parentesco, $emailResp);
         $user_obj = new User();
@@ -41,7 +40,7 @@ public function instanciarAluno ()
         $alunoDAO = new AlunoDAO();
         $user_obj = $aluno_obj->get_usuario();
         
-        $alunoDAO->salvarAluno($aluno_obj, $endereco_obj, $responsavel_obj, $user_obj);
+        $alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_obj);
     }
 }     
 ?>

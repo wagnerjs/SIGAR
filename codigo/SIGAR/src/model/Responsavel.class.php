@@ -13,17 +13,19 @@
 class Responsavel extends Pessoa {
 
     private $_categoria;
-    private $_cpf;
     private $_telTrabalho;
     
-    function __construct($nomeResp,$cpfResp,$telResResp, $telTrabResp, $telCelResp, $parentesco, $emailResp) {
+    function __construct($nomeResp,$emailResp,$telResResp, $telCelResp, $sexo ,$nascimento, $cpf, $categoria, $telefoneTrabalho, $endereco_obj) {
         $this->setNome($nomeResp);
+        $this->setSexo($sexo);
+        $this->setNascimento($nascimento);
         $this->setEmail($emailResp);
         $this->set_telefoneResidencial($telResResp);
         $this->setCelular($telCelResp);
-        $this->_categoria = $parentesco;
-        $this->_cpf = $cpfResp;
-        $this->_telTrabalho = $telTrabResp;
+        $this->set_endereco($endereco_obj);
+        $this->setCpf($cpf);
+        $this->_categoria = $categoria;
+        $this->_telTrabalho = $telefoneTrabalho;
     }
 
     

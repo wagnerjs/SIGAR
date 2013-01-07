@@ -21,7 +21,7 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
      */
     public function testCriarObjetoEndereco()
     {
-        $endereco = 'QE 32 CONJUNTO H';
+        $logradouro = 'QE 32 CONJUNTO H';
         $cep = '710283832';
         $bairro = 'Guara';
         $cidade = 'Brasília';
@@ -30,8 +30,10 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
         $uf = 'DF';
         $referencia = 'Brasília';
         
-        $endereco_obj = new Endereco($endereco,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
+        $endereco_obj = new Endereco($logradouro,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
 
+        $this->assertNotNull($endereco_obj->getUf());
+        $this->assertNotNull($endereco_obj->getLogradouro());
         $this->assertNotNull($endereco_obj->getBairro());
         $this->assertNotNull($endereco_obj->getCep());
         $this->assertNotNull($endereco_obj->getCidade());
@@ -45,26 +47,30 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
    /**
     * @test
     * @return \Responsavel
+    * @depends testCriarObjetoEndereco
     */
-    public function testCriarResponsavel()
+    public function testCriarResponsavel(Endereco $endereco_obj)
     {
        $nomeResp = 'Pai';
-       $cpfResp = '012202033';
+       $sexo = 'masculino';
+       $cpf = '012202033';
        $telResResp='33012392'; 
-       $telTrabResp = '334373022';
+       $telefoneTrabalho = '334373022';
        $telCelResp = '93322392';
-       $parentesco = 'pai';
+       $categoria = 'pai';
+       $nascimento = '1990-11-12';
        $emailResp = 'pai@emai.com.br';
         
-       $responsavel_obj = new Responsavel($nomeResp,$cpfResp,$telResResp, $telTrabResp, $telCelResp, $parentesco, $emailResp);
-        $this->assertNotNull($responsavel_obj->getCategoria(), 'Campo não foi adicionado no HTML');
-        $this->assertNotNull($responsavel_obj->getCelular(), 'Campo não foi adicionado no HTML');
-        $this->assertNotNull($responsavel_obj->getCpf(), 'Campo não foi adicionado no HTML');
-        $this->assertNotNull($responsavel_obj->getEmail(), 'Campo não foi adicionado no HTML');
-        //$this->assertNotNull($responsavel_obj->getNascimento(), 'Campo não foi adicionado no HTML');
-        $this->assertNotNull($responsavel_obj->getNome(), 'Campo não foi adicionado no HTML');
-        //$this->assertNotNull($responsavel_obj->getSexo(), 'Campo não foi adicionado no HTML');
-        $this->assertNotNull($responsavel_obj->getTelTrabalho(), 'Campo não foi adicionado no HTML');
+       $responsavel_obj = new Responsavel($nomeResp,$emailResp,$telResResp, $telCelResp, $sexo ,$nascimento, $cpf, $categoria, $telefoneTrabalho, $endereco_obj);
+        
+       $this->assertNotNull($responsavel_obj->getCategoria(), 'Campo não foi adicionado no HTML');
+       $this->assertNotNull($responsavel_obj->getCelular(), 'Campo não foi adicionado no HTML');
+       $this->assertNotNull($responsavel_obj->getCpf(), 'Campo não foi adicionado no HTML');
+       $this->assertNotNull($responsavel_obj->getEmail(), 'Campo não foi adicionado no HTML');
+       $this->assertNotNull($responsavel_obj->getNascimento(), 'Campo não foi adicionado no HTML');
+       $this->assertNotNull($responsavel_obj->getNome(), 'Campo não foi adicionado no HTML');
+       $this->assertNotNull($responsavel_obj->getSexo(), 'Campo não foi adicionado no HTML');
+       $this->assertNotNull($responsavel_obj->getTelTrabalho(), 'Campo não foi adicionado no HTML');
        
         return $responsavel_obj;
     }
@@ -86,13 +92,11 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
        $user_obj = new User();
        $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj,$user_obj);
        
-       
-       
        $this->assertNotNull($aluno_obj);
        
        $aluno_dao = new AlunoDao();
        
-       $this->assertEquals('1', $aluno_dao->salvarAluno($aluno_obj,$endereco_obj,$responsavel_obj,$user_obj));
+       $this->assertEquals('1', $aluno_dao->salvarAluno($aluno_obj,$responsavel_obj,$user_obj));
        
     }
 }

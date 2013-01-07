@@ -2,7 +2,7 @@
  class Endereco{
  
 	private $_cep;
-	private $_endereco;
+	private $_logradouro;
 	private $_numeroCasa;
 	private $_complemento;
 	private $_bairro;
@@ -10,9 +10,9 @@
 	private $_uf;
 	private $_referencia;
 	
-        function __construct($endereco,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia) {
+        function __construct($logradouro="",$cep="",$bairro="",$cidade="",$complemento="",$numero="",$uf="",$referencia="") {
             $this->_cep = $cep;
-            $this->_endereco = $endereco;
+            $this->_logradouro = $logradouro;
             $this->_numeroCasa = $numero;
             $this->_complemento = $complemento;
             $this->_bairro = $bairro;
@@ -39,9 +39,9 @@
 		$this->_cep = $_cep;
 	}
 	
-	public function setEndereco( $_endereco )
+	public function setLogradouro( $_logradouro )
 	{
-		$this->_endereco = $_endereco;
+		$this->_logradouro= $_logradouro;
 	}
 	
 	public function setNumeroCasa( $_numeroCasa )
@@ -74,9 +74,9 @@
 		return $this->_cep;
 	}
 	
-	public function getEndereco()
+	public function getLogradouro()
 	{
-		return $this->_endereco;
+		return $this->_logradouro;
 	}
 	
 	public function getNumeroCasa()
