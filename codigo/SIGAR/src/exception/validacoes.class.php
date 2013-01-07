@@ -7,7 +7,6 @@
 
         protected $_email;
         protected $_res_email;
-        protected $_email_repetido;
 
         protected $_cpf;
     	protected $_res_valida_cpf;
@@ -24,6 +23,8 @@
 
         protected $_nrtelefone;
         protected $_res_nrtelefone;
+        protected $_telefone_resid;
+        protected $_res_telefone_resid;
 
     	protected $_descricao_endereco;
     	protected $_res_descricao_endereco;
@@ -53,34 +54,21 @@
                 }
         }
 
-	function valida_email()
+	function valida_email($email)
 	{   
-		$obj_bd = new bd;
-			$obj_bd->conecta();
-			$obj_bd->seleciona_bd();
-
-		$sql = "
-			SELECT
-				`email`
-			FROM
-				`pessoa`
-			WHERE
-				`pessoa` = '$this->_email_repetido;'";
-		mysql_query( $sql );
-
-	//Se foi encontrado algum resultado retorna 1, caso contrario 0.
-			if ( mysql_affected_rows() > 0 )
+                        $obj_validacaoDAO = new validacaoDAO;
+                        if(empty($email)){
+                            $this->_email_repetido = "<b><font color=red> * </font>Favor digitar um email";
+                        }elseif ($obj_validacaoDAO->email_repetido($email) > 0 )
 			{
 				$this->_email_repetido = "<b><font color=red> * </font>Email já cadastrado";
 				$this->_erro = 1;
-			}
-		$obj_bd->fechaConexao();
-	
-            if (( strlen ( $this->_email ) < 8 ) || strstr ( $this->_email,'@' ) == false || (strstr ( $this->_email,'.' ) == false))
+			}elseif (( strlen ( $this->_email ) < 8 ) || strstr ( $this->_email,'@' ) == false || (strstr ( $this->_email,'.' ) == false))
             {
                 $this->_res_email = "<b><font color=red> * </font>Favor digitar o seu e-mail corretamente.";
                 $this->_erro = 1;
             }
+                        
 	}
         
 	function validacpf()
@@ -139,53 +127,27 @@
 
 	function cpf_repetido()
 	{
+                $obj_validacaoDAO = new validacaoDAO;
 		$this->_cpf = str_replace( '.', '', $this->_cpf );
 		$this->_cpf = str_replace( '-', '', $this->_cpf );
-
-		$obj_bd = new bd;
-			$obj_bd->conecta();
-			$obj_bd->seleciona_bd();
-
-		$sql = "
-			SELECT
-				cpf
-			FROM
-				`usuario`
-			WHERE
-				cpf = '$this->_cpf'";
-		mysql_query( $sql );
-
-			if ( mysql_affected_rows() > 0 )
+                                
+			if ( $obj_validacaoDAO->cpf_repetidoDAO($this->_cpf) > 0 )
 			{
 				$this->_res_cpf_repetido = "<b><font color=red> * </font>CPF j� cadastrado!";
 				$this->_erro = 1;
 			}
-		$obj_bd->fechaConexao();
 	}
 
 
 	function valida_nomeusuario()
 	{
-		$obj_bd = new bd;
-			$obj_bd->conecta();
-			$obj_bd->seleciona_bd();
-
-		$sql = "
-			SELECT
-				`nomeusuario`
-			FROM
-				`usuario`
-			WHERE
-				`nomeusuario` = '$this->_nome_usuario'";
-		mysql_query( $sql );
-
-	//Se foi encontrado algum resultado retorna 1, caso contrario 0.
-			if ( mysql_affected_rows() > 0 )
+                    $obj_validacaoDAO = new validacaoDAO;
+                    //Se foi encontrado algum resultado retorna 1, caso contrario 0.
+			if ( $obj_validacaoDAO->valida_nomeusuario($this->_nome_usuario) > 0 )
 			{
 				$this->_res_nome_usuario = "<b><font color=red> * </font>Usu�rio j� cadastrado";
 				$this->_erro = 1;
 			}
-		$obj_bd->fechaConexao();
 	}
 
 	function caracteres_nome()
@@ -223,8 +185,14 @@
 			$this->_erro = 1;
 		}
 	}
+        
+        function valida_telefone_resid(){
+            if(empty($this->_telefone_resid)){
+                $this->_res_telefone_resid = "<b><font color=red> * </font>Favor digitar o seu Telefone residencial.";
+            }
+        }
 
-	function valida_descricao_endereco()
+        function valida_descricao_endereco()
 	{
 		if ( empty ( $this->_descricao_endereco ) or strstr ( $this->_descricao_endereco,' ' ) == false )
 		{
