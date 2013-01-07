@@ -3,6 +3,7 @@
 require_once '../src/include/conexao.class.php';
 class AlunoDAO {
     
+    //Salvar ALuno
     public function salvarAluno(Aluno $aluno) {
            
         $obj_conecta = new bd;
