@@ -30,11 +30,8 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
         $uf = 'DF';
         $referencia = 'Brasília';
         
-        
         $endereco_obj = new Endereco($endereco,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
-        
-       
-      
+
         $this->assertNotNull($endereco_obj->getBairro());
         $this->assertNotNull($endereco_obj->getCep());
         $this->assertNotNull($endereco_obj->getCidade());
@@ -43,9 +40,6 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
         $this->assertNotNull($endereco_obj->getComplemento());
         
         return $endereco_obj;
-    
-      
-
     }
    
    /**
@@ -84,34 +78,20 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
        $nome = 'Aluno';
        $sexo = 'masculino';
        $email = 'gbre';
-       $nascimento = '24/11/1995';
+       $nascimento = '1995-11-24';
        $anoEscolar = '3 ano';
        $telResidencial = '(61) 330133239';
        $telCelular = '(61) 9332292';
        $escola = 'sigma';
        
-        $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj);
+       $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj);
         
-        
-        echo print_r($aluno_obj, true);
-        $this->assertNotNull($aluno_obj);
-        return $aluno_obj;
-    }
-    
-    /**
-     * @test
-     * @depends testAluno
-     */
-    public function testDAO(Aluno $aluno_obj)
-    {
+       $this->assertNotNull($aluno_obj);
        
        $aluno_dao = new AlunoDao();
        
-       $aluno_dao->salvarAluno($aluno_obj);
        $this->assertEquals('1', $aluno_dao->salvarAluno($aluno_obj));
     }
-    
-
 }
 
 ?>

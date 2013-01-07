@@ -1,9 +1,8 @@
 <?php
-   
-    	include "Aluno.class.php";
-	include "Endereco.class.php";
-	include "Pessoa.class.php";
-	include "Usuario.class.php";
+include "Aluno.class.php";
+include "Endereco.class.php";
+include "Pessoa.class.php";
+include "Usuario.class.php";
        
 class AlunoCrtl {   
 
