@@ -1,5 +1,5 @@
-<?php 
-include 'Acesso.class.php';
+<?php
+require_once 'Pessoa.class.php';
 
 class Aluno extends Pessoa{
      

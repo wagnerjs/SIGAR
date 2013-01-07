@@ -1,6 +1,8 @@
 <?php
 	include "validaSession.php";
+	include_once '../controller/AlunoCtrl.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,12 +39,12 @@
                     <a href="pesquisaAluno.php"><span class="normal">Pesquisar Alunos</span></a>
                     <div class="content">
                         <div>
-                            <form name="form1" action="controler.php" method="post">
+                            <form name="form1" action="AlunoCtrl.php" method="post">
                                     <b>Dados do Aluno</b>
                                     <hr/>
                                     Nome: <input type="text" name="txtNome" size="10" maxlength="50"><br>
                                     Sexo: <input type="radio" name="sexo" value="m"> Masculino
-                                                       <input type="radio" name="sexo" value="f"> Feminino<br/><br/>
+                                          <input type="radio" name="sexo" value="f"> Feminino<br/><br/>
                                     Data de Nascimento: <input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);"><br>
                                     Email: <input type="text" name="email" size="10" maxlength="50"><br>
                                     Telefone Residencial: <input type="text"  name="telResidencial" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
@@ -74,7 +76,10 @@
 									<b>Dados do Responsável</b>
                                     <hr/>
                                     Nome: <input type="text" name="txtNomeResp" size="10" maxlength="50"><br/>
-                                    Parentesco: <input type="radio" name="parentesco" value="pai"> Pai
+									Data de Nascimento: <input type="text" name="dataNascResp" size="10" maxlength="10" onkeyup="mascaraData(this);"><br>
+                                    Sexo: <input type="radio" name="sexoResp" value="m"> Masculino
+                                          <input type="radio" name="sexoResp" value="f"> Feminino<br/><br/>
+									Parentesco: <input type="radio" name="parentesco" value="pai"> Pai
                                     <input type="radio" name="parentesco" value="mae"> Mae
                                     <input type="radio" name="parentesco" value="outro"> Outro<br/><br/>
                                     CPF <input type="text" name="cpfResp" size="10" maxlength="10"><br/>
@@ -82,11 +87,10 @@
                                     Telefone Residencial: <input type="text" name="telResResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
                                     Telefone Celular: <input type="text"  name="telCelResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
                                     Telefone Trabalho: <input type="text" name="telTrabResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
-                                    Mesmo endereço do Aluno?: <input type="radio" name="parentesco" value="pai"> Sim
-                                    <input type="radio" name="parentesco" value="mae"> Não<br/><br/>
+                                    Mesmo endereço do Aluno?: <input type="radio" name="mesmoEnd" value="sim"> Sim
+                                    <input type="radio" name="mesmoEnd" value="nao"> Não<br/><br/>
 									<input type="submit" name="enviar" value="Enviar" />
                                     <input type="reset" name="limpar" value="Limpar" />
-                                    <input type="button" value="Fechar" onClick="fechaJanela()">
                             </form>
                         </div>
                     </div>

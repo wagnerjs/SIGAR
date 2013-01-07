@@ -1,29 +1,34 @@
 <?php
-include "Aluno.class.php";
-include "Endereco.class.php";
-include "Pessoa.class.php";
-include "Usuario.class.php";
+require_once '../model/Aluno.class.php';
+require_once '../model/Endereco.class.php';
+require_once '../model/Pessoa.class.php';
+require_once '../model/User.class.php';
        
 class AlunoCrtl {   
 
 public function instanciarAluno ()
     {
-        $nome = $_POST['txtNome'];
-	$sexo = $_POST['sexo'];
-	$nascimento = $_POST['dataNasc'];
-	$email = $_POST['email'];
+        $nomeAluno = $_POST['txtNome'];
+	$sexoAluno = $_POST['sexo'];
+	$nascimentoAluno = $_POST['dataNasc'];
+	$emailAluno = $_POST['email'];
 	$telResidencial = $_POST['telResidencial'];
-	$telCelular = $_POST['telCeluar'];
+	$telCelular = $_POST['telCelular'];
 	$anoEscolar = $_POST['anoEscolar'];
 	$escola = $_POST['escola'];
 	$nomeResp = $_POST['txtNomeResp'];
-	$parentesco = $_POST['parentesco'];
+	$categoria = $_POST['parentesco'];
 	$cpfResp = $_POST['cpfResp'];
 	$emailResp = $_POST['emailResp'];
 	$telResResp = $_POST['telResResp'];
+        $sexoResp = $_POST['sexoResp'];
+        $nascimentoResp = $_POST['dataNascResp'];
 	$telCelResp = $_POST['telCelResp'];
 	$telTrabResp = $_POST['telTrabResp'];
-	$endereco = $_POST['endereco'];
+        
+        $mesmoEnd = $_POST['mesmoEnd'];
+	
+        $endereco = $_POST['endereco'];
 	$numero = $_POST['numero'];
 	$complemento = $_POST['complemento'];
 	$bairro = $_POST['bairro'];
@@ -31,11 +36,27 @@ public function instanciarAluno ()
 	$uf = $_POST['uf'];
 	$cep = $_POST['cep'];
 	$referencia = $_POST['referencia'];
-	
-        $endereco_obj = new Endereco($endereco,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
-        $responsavel_obj = new Responsavel($nomeResp,$cpfResp,$telResResp, $telTrabResp, $telCelResp, $parentesco, $emailResp);
+        
+        /*$enderecoResp = $_POST['enderecoResp'];
+	$numeroResp = $_POST['numeroResp'];
+	$complementoResp = $_POST['complementoResp'];
+	$bairroResp = $_POST['bairroResp'];
+	$cidadeResp = $_POST['cidadeResp'];
+	$ufResp = $_POST['ufResp'];
+	$cepResp = $_POST['cepResp'];
+	$referenciaResp = $_POST['referenciaResp'];*/
+        
+        if($mesmoEnd == "sim"){
+            $endereco_obj = new Endereco($endereco,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
+            $responsavel_obj = new Responsavel($nomeResp,$emailResp,$telResResp, $telCelResp, $sexoResp, $nascimentoResp, $cpfResp, $categoria, $telTrabResp, $endereco_obj );
+        }   
+        else{
+            $endereco_obj = new Endereco($enderecoResp,$cepResp,$bairroResp,$cidadeResp,$complementoResp,$numeroResp,$ufResp,$referenciaResp);
+            $responsavel_obj = new Responsavel($nomeResp,$emailResp,$telResResp, $telCelResp, $sexoResp, $nascimentoResp, $cpfResp, $categoria, $telTrabResp, $endereco_obj );
+        }
+        
         $user_obj = new User();
-        $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj, $user_obj);
+            $aluno_obj = new Aluno ($nomeAluno,$sexoAluno,$nascimentoAluno,$emailAluno,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj, $user_obj);
         
         $alunoDAO = new AlunoDAO();
         $user_obj = $aluno_obj->get_usuario();
