@@ -5,6 +5,7 @@ require_once '../src/model/Usuario.class.php';
 require_once '../src/model/Aluno.class.php';
 require_once '../src/model/Endereco.class.php';
 require_once '../src/model/Responsavel.class.php';
+require_once '../src/DAO/AlunoDAO.php';
 
 /**
  * Description of AlunoCtrl_Test
@@ -77,7 +78,7 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
      * @depends testCriarResponsavel
      * @depends testCriarObjetoEndereco
      */
-    public function testPop(Responsavel $responsavel_obj, Endereco $endereco_obj)
+    public function testALuno(Responsavel $responsavel_obj, Endereco $endereco_obj)
     {
        $nome = 'Aluno';
        $sexo = 'masculino';
@@ -89,9 +90,24 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
        $escola = 'sigma';
        
         $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj);
-    
+        
+        
         echo print_r($aluno_obj, true);
+        return $aluno_obj;
     }
+    
+    /**
+     * 
+     * @depends testAluno
+     * @depends testCriarResponsavel
+     * @depends testCriarObjetoEndereco
+     */
+    public function testDAO(Responsavel $responsavel_obj, Endereco $endereco_obj, Aluno $aluno_obj)
+    {
+       
+       $crtrl_aluno = new AlunoCtrl_Test($responsavel_obj, $endereco_obj, $aluno_obj);
+    }
+    
 
 }
 
