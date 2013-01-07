@@ -6,6 +6,7 @@ require_once '../src/model/Aluno.class.php';
 require_once '../src/model/Endereco.class.php';
 require_once '../src/model/Responsavel.class.php';
 require_once '../src/DAO/AlunoDAO.php';
+require_once '../src/include/conexao.class.php';
 
 /**
  * Description of AlunoCtrl_Test
@@ -78,7 +79,7 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
      * @depends testCriarResponsavel
      * @depends testCriarObjetoEndereco
      */
-    public function testALuno(Responsavel $responsavel_obj, Endereco $endereco_obj)
+    public function testAluno(Responsavel $responsavel_obj, Endereco $endereco_obj)
     {
        $nome = 'Aluno';
        $sexo = 'masculino';
@@ -93,19 +94,21 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
         
         
         echo print_r($aluno_obj, true);
+        $this->assertNotNull($aluno_obj);
         return $aluno_obj;
     }
     
     /**
-     * 
+     * @test
      * @depends testAluno
-     * @depends testCriarResponsavel
-     * @depends testCriarObjetoEndereco
      */
-    public function testDAO(Responsavel $responsavel_obj, Endereco $endereco_obj, Aluno $aluno_obj)
+    public function testDAO(Aluno $aluno_obj)
     {
        
-       $crtrl_aluno = new AlunoCtrl_Test($responsavel_obj, $endereco_obj, $aluno_obj);
+       $aluno_dao = new AlunoDao();
+       
+       $aluno_dao->salvarAluno($aluno_obj);
+       $this->assertEquals('1', $aluno_dao->salvarAluno($aluno_obj));
     }
     
 

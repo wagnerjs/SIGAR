@@ -38,7 +38,9 @@ public function instanciarAluno ()
         $responsavel_obj = new Responsavel($nomeResp,$cpfResp,$telResResp, $telTrabResp, $telCelResp, $parentesco, $emailResp);
         $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj);
         
-        return aluno_obj;
+        $alunoDAO = new AlunoDAO();
+        
+        $alunoDAO->salvarAluno($aluno_obj, $endereco_obj, $responsavel_obj);
     }
 }     
 ?>
