@@ -14,7 +14,7 @@
 		$obj_conecta->fechaConexao();
 
 		if($ObjSessao->getResposta()==null)
-			header("location: index.php");
+			header("location: telaPrincipal.php");
 	}
 ?>
 
@@ -29,7 +29,6 @@
 
   <title>Login</title>
   <meta name="description" content="" />
-  <meta name="author" content="Fellype" />
 
   <meta name="viewport" content="width=device-width; initial-scale=1.0" />
 

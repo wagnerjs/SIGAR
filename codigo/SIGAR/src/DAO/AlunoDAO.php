@@ -1,7 +1,9 @@
 <?php
+$urlBD = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src/utils/conexao.class.php";
+require_once $urlBD;
+$urlEndereco = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
+require_once $urlEndereco;
 
-require_once '../src/utils/conexao.class.php';
-require_once '../src/model/Endereco.class.php';
 class AlunoDAO {
     
 public function salvarAluno(Aluno $aluno, Responsavel $responsavel, User $user) {
