@@ -7,8 +7,9 @@
 
         protected $_email;
         protected $_res_email;
+        protected $_email_repetido;
 
-    	protected $_cpf;
+        protected $_cpf;
     	protected $_res_valida_cpf;
     	protected $_res_cpf_repetido;
 
@@ -53,7 +54,28 @@
         }
 
 	function valida_email()
-	{
+	{   
+		$obj_bd = new bd;
+			$obj_bd->conecta();
+			$obj_bd->seleciona_bd();
+
+		$sql = "
+			SELECT
+				`email`
+			FROM
+				`pessoa`
+			WHERE
+				`pessoa` = '$this->_email_repetido;'";
+		mysql_query( $sql );
+
+	//Se foi encontrado algum resultado retorna 1, caso contrario 0.
+			if ( mysql_affected_rows() > 0 )
+			{
+				$this->_email_repetido = "<b><font color=red> * </font>Email já cadastrado";
+				$this->_erro = 1;
+			}
+		$obj_bd->fechaConexao();
+	
             if (( strlen ( $this->_email ) < 8 ) || strstr ( $this->_email,'@' ) == false || (strstr ( $this->_email,'.' ) == false))
             {
                 $this->_res_email = "<b><font color=red> * </font>Favor digitar o seu e-mail corretamente.";
