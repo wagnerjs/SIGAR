@@ -35,11 +35,13 @@ public function instanciarAluno ()
 	
         $endereco_obj = new Endereco($endereco,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
         $responsavel_obj = new Responsavel($nomeResp,$cpfResp,$telResResp, $telTrabResp, $telCelResp, $parentesco, $emailResp);
-        $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj);
+        $user_obj = new User();
+        $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj, $user_obj);
         
         $alunoDAO = new AlunoDAO();
+        $user_obj = $aluno_obj->get_usuario();
         
-        $alunoDAO->salvarAluno($aluno_obj, $endereco_obj, $responsavel_obj);
+        $alunoDAO->salvarAluno($aluno_obj, $endereco_obj, $responsavel_obj, $user_obj);
     }
 }     
 ?>

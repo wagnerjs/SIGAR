@@ -83,7 +83,7 @@ abstract class Pessoa
             $this->_telefoneResidencial = $_telefoneResidencial;
         }
 
-        	public function getCelular()
+        public function getCelular()
 	{
 		return $this->_celular;
 	}
