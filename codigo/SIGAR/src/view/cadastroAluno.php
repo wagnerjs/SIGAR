@@ -3,8 +3,13 @@
 	include_once '../controller/AlunoCtrl.php';
 
 	if(isset($_POST['enviar'])){
+            //echo "TESTE:".$_POST['txtNome'];
+            
             $AlunoCtrl = new AlunoCrtl();
 		$AlunoCtrl->setNomeAluno($_POST['txtNome']);
+                
+           //echo "TESTE2".$AlunoCtrl->getNomeAluno();
+           
                 $AlunoCtrl->setSexoAluno($_POST['sexo']);
                 $AlunoCtrl->setNascimentoAluno($_POST['dataNasc']);
                 $AlunoCtrl->setEmailAluno($_POST['email']);

@@ -5,7 +5,6 @@ require_once '../model/Endereco.class.php';
 require_once '../model/Pessoa.class.php';
 require_once '../model/Responsavel.class.php';
 require_once '../model/User.class.php';
-
        
 class AlunoCrtl {
         protected $_nomeAluno;

@@ -15,7 +15,7 @@ class Responsavel extends Pessoa {
     private $_categoria;
     private $_telTrabalho;
     
-    function __construct($nomeResp,$emailResp,$telResResp, $telCelResp, $sexo ,$nascimento, $cpf, $categoria, $telefoneTrabalho, $endereco_obj) {
+    function __construct($nomeResp="",$emailResp="",$telResResp="", $telCelResp="", $sexo="",$nascimento="", $cpf="", $categoria="", $telefoneTrabalho="", $endereco_obj="") {
         $this->setNome($nomeResp);
         $this->setSexo($sexo);
         $this->setNascimento($nascimento);
@@ -27,8 +27,6 @@ class Responsavel extends Pessoa {
         $this->_categoria = $categoria;
         $this->_telTrabalho = $telefoneTrabalho;
     }
-
-    
     
     public function setCategoria($_categoria) {
         $this->_categoria = $_categoria;

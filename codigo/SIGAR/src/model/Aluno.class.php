@@ -9,7 +9,7 @@ class Aluno extends Pessoa{
         private $_usuario;
         
 
-        function __construct($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj, $user_obj){
+        function __construct($nome="",$sexo="",$nascimento="",$email="",$anoEscolar="",$telResidencial="",$telCelular="",$escola="",$endereco_obj="",$responsavel_obj="", $user_obj=""){
             $this->setNome($nome);
             $this->setSexo($sexo);
             $this->setNascimento($nascimento);
