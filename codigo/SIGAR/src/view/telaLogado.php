@@ -28,7 +28,39 @@
 
 <body>
   <div class="container">
-    <p>Logado como: <?php echo $ObjSessao->getUsuario();?> | <a href= "logoff.php" class="link"><u>Sair</u></a></p>
+      <div id="logo">
+    	<img src="img/logo.png" alt="SIGAR" />
+      </div>
+    <p class="status">Logado como <?php echo $ObjSessao->getUsuario();?> | <a href= "logoff.php" class="link"><u>Sair</u></a></p>
+    <div class="row-fluid show-grid">
+        <div class="span6">
+            <div class="boxMenu">
+                <a href="#"><div><img src="img/icon-calendar.png" />  Agendar Aula</div></a>
+                <a href="#"><div><img src="img/icon-time.png" />  Gerenciar Aulas Marcadas</div></a>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="boxMenu">
+                <a href="#"><div><img src="img/icon-graph.png" />  Fluxo de Caixa</div></a>
+                <a href="#"><div><img src="img/icon-rh.png" />  RH</div></a>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row-fluid show-grid">
+        <div class="span6">
+            <div class="boxMenu">
+                <a href="#"><div><img src="img/icon-man.png" />  Cadastrar Alunos</div></a>
+                <a href="#"><div><img src="img/icon-find.png" />  Pesquisar Alunos</div></a>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="boxMenu">
+                <a href="#"><div><img src="img/icon-man.png" />  Cadastrar Professores</div></a>
+                <a href="#"><div><img src="img/icon-rh.png" />  Gerenciar Professores</div></a>
+            </div>
+        </div>
+    </div>
   </div>
 </body>
 </html>
