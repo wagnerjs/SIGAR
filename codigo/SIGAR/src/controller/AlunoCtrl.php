@@ -48,17 +48,17 @@ class AlunoCrtl {
         
         public function instanciarAluno()
         {
-            if($this->mesmoEnd == "sim"){
-                $endereco_obj = new Endereco($this->endereco,$this->cep,$this->bairro,$this->cidade,$this->complemento,$this->numero,$this->uf,$this->referencia);
-                $responsavel_obj = new Responsavel($this->nomeResp,$this->emailResp,$this->telResResp, $this->telCelResp, $this->sexoResp, $this->nascimentoResp, $this->cpfResp, $this->categoria, $this->telTrabResp, $endereco_obj );
+            if($this->_mesmoEnd == "sim"){
+                $endereco_obj = new Endereco($this->_endereco,$this->_cep,$this->_bairro,$this->_cidade,$this->_complemento,$this->_numero,$this->_uf,$this->_referencia);
+                $responsavel_obj = new Responsavel($this->_nomeResp,$this->_emailResp,$this->_telResResp, $this->_telCelResp, $this->_sexoResp, $this->_nascimentoResp, $this->_cpfResp, $this->_categoria, $this->_telTrabResp, $endereco_obj );
             }   
             else{
-                $endereco_obj = new Endereco($this->enderecoResp,$this->cepResp,$this->bairroResp,$this->cidadeResp,$this->complementoResp,$this->numeroResp,$this->ufResp,$this->referenciaResp);
-                $responsavel_obj = new Responsavel($this->nomeResp,$this->emailResp,$this->telResResp, $this->telCelResp, $this->sexoResp, $this->nascimentoResp, $this->cpfResp, $this->categoria, $this->telTrabResp, $endereco_obj );
+                $endereco_obj = new Endereco($this->_enderecoResp,$this->_cepResp,$this->_bairroResp,$this->_cidadeResp,$this->_complementoResp,$this->_numeroResp,$this->_ufResp,$this->_referenciaResp);
+                $responsavel_obj = new Responsavel($this->_nomeResp,$this->_emailResp,$this->_telResResp, $this->_telCelResp, $this->_sexoResp, $this->_nascimentoResp, $this->_cpfResp, $this->_categoria, $this->_telTrabResp, $endereco_obj );
             }
 
             $user_obj = new User();
-            $aluno_obj = new Aluno ($this->nomeAluno,$this->sexoAluno,$this->nascimentoAluno,$this->emailAluno,$this->anoEscolar,$this->telResidencial,$this->telCelular,$this->escola,$endereco_obj, $responsavel_obj, $user_obj);
+            $aluno_obj = new Aluno ($this->_nomeAluno,$this->_sexoAluno,$this->_nascimentoAluno,$this->_emailAluno,$this->_anoEscolar,$this->_telResidencial,$this->_telCelular,$this->_escola,$endereco_obj, $responsavel_obj, $user_obj);
             $user_obj = $aluno_obj->get_usuario();
 
             $alunoDAO = new AlunoDAO();

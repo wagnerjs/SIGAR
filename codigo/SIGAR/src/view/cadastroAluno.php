@@ -50,7 +50,7 @@
 			                
                 $AlunoCtrl->instanciarAluno();
                 
-                $res = "Aluno Cadastrado com sucesso!";
+                $res = "<font color=green><b>Aluno Cadastrado com sucesso!</b></font>";
 	}
 ?>
 
@@ -89,8 +89,8 @@
                     <a href="pesquisaAluno.php"><span class="normal">Pesquisar Alunos</span></a>
                     <div class="content">
                         <div>
-                            <?php echo @$res; ?>
                             <form name="form1" action="cadastroAluno.php" method="post">
+                                    <?php echo @$res; ?><br/><br/>
                                     <b>Dados do Aluno</b>
                                     <hr/>
                                     Nome: <input type="text" name="txtNome" size="10" maxlength="50"><br>
