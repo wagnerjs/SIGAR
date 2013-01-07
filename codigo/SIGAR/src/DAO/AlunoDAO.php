@@ -1,6 +1,6 @@
 <?php
 
-require_once '../src/include/conexao.class.php';
+require_once '../src/utils/conexao.class.php';
 require_once '../src/model/Endereco.class.php';
 class AlunoDAO {
     

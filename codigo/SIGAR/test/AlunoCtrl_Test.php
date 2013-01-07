@@ -6,7 +6,7 @@ require_once '../src/model/Aluno.class.php';
 require_once '../src/model/Endereco.class.php';
 require_once '../src/model/Responsavel.class.php';
 require_once '../src/DAO/AlunoDAO.php';
-require_once '../src/include/conexao.class.php';
+require_once '../src/utils/conexao.class.php';
 
 /**
  * Description of AlunoCtrl_Test
