@@ -1,5 +1,5 @@
 <?php
-include_once '../BD/login.class.php';
+include_once '../include/login.class.php';
 $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src/view";
 
 //inicializa a sessao
