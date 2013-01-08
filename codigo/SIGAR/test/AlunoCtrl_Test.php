@@ -80,14 +80,14 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
      */
     public function testAluno(Responsavel $responsavel_obj, Endereco $endereco_obj)
     {
-       $nome = 'Aluno';
+       $nome = 'Aluno Teste João';
        $sexo = 'masculino';
        $email = 'gbre';
        $nascimento = '1995-11-24';
        $anoEscolar = '3 ano';
        $telResidencial = '(61) 330133239';
        $telCelular = '(61) 9332292';
-       $escola = 'sigma';
+       $escola = 'Sigma';
        $user_obj = new User();
        $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj,$user_obj);
        
