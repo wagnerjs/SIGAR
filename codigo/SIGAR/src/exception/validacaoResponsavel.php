@@ -5,10 +5,12 @@ class validacaoResponsavel {
     protected $_erro;
     protected $_res_valida_cpf;
     protected $_res_cpf_repetido;
+    public $arrayErro = array();
     
     function validacpf($_cpf) {
         if (empty($_cpf)) {
             $this->_res_valida_cpf = "<b><font color=red> * </font>Favor digitar um cpf";
+            $this->arrayErro[] = $this->_res_valida_cpf;
             $this->_erro = 1;
         } else {
 
@@ -21,6 +23,7 @@ class validacaoResponsavel {
                     ($_cpf == '77777777777') || ($_cpf == '88888888888') ||
                     ($_cpf == '99999999999') || ($_cpf == '00000000000')) {
                 $this->_res_valida_cpf = "<b><font color=red> * </font>CPF invalido!";
+                $this->arrayErro[] = $this->_res_valida_cpf;
                 $this->_erro = 1;
             } else {
                 $aux_cpf = "";
@@ -29,6 +32,7 @@ class validacaoResponsavel {
                         $aux_cpf .= substr($_cpf, $j, 1);
                 if (strlen($aux_cpf) != 11) {
                     $this->_res_valida_cpf = "<b><font color=red> * </font>CPF invalido!";
+                    $this->arrayErro[] = $this->_res_valida_cpf;
                     $this->_erro = 1;
                 } else {
                     $cpf1 = $aux_cpf;
@@ -52,6 +56,7 @@ class validacaoResponsavel {
                     }
                     if ($controle != $cpf2) {
                         $this->_res_valida_cpf = "<b><font color=red> * </font>CPF inv�lido!";
+                        $this->arrayErro[] = $this->_res_valida_cpf;
                         $this->_erro = 1;
                     }
                 }
@@ -66,6 +71,7 @@ class validacaoResponsavel {
 
         if ($obj_validacaoDAO->cpf_repetidoDAO($_cpf) > 0) {
             $this->_res_cpf_repetido = "<b><font color=red> * </font>CPF j� cadastrado!";
+            $this->arrayErro[] = $this->_res_cpf_repetido;
             $this->_erro = 1;
         }
     }
