@@ -3,28 +3,27 @@
 	include_once '../controller/AlunoCtrl.php';
 
 	if(isset($_POST['enviar'])){
-            //echo "TESTE:".$_POST['txtNome'];
-            
             $AlunoCtrl = new AlunoCrtl();
-		$AlunoCtrl->setNomeAluno($_POST['txtNome']);
-                
-           //echo "TESTE2".$AlunoCtrl->getNomeAluno();
-           
+		$AlunoCtrl->setNomeAluno(utf8_decode($_POST['txtNome']));
                 $AlunoCtrl->setSexoAluno($_POST['sexo']);
-                $AlunoCtrl->setNascimentoAluno($_POST['dataNasc']);
+                $dataAlunoRecebida = $_POST['dataNasc'];
+                $dataAluno = implode("-",array_reverse(explode("/",$dataAlunoRecebida)));
+                $AlunoCtrl->setNascimentoAluno($dataAluno);
                 $AlunoCtrl->setEmailAluno($_POST['email']);
                 $AlunoCtrl->setTelResidencial($_POST['telResidencial']);
                 $AlunoCtrl->setTelCelular($_POST['telCelular']);
                 $AlunoCtrl->setAnoEscolar($_POST['anoEscolar']);
                 $AlunoCtrl->setEscola($_POST['escola']);
 		
-                $AlunoCtrl->setNomeResp($_POST['txtNomeResp']);
+                $AlunoCtrl->setNomeResp(utf8_decode($_POST['txtNomeResp']));
 		$AlunoCtrl->setCategoria($_POST['parentesco']);
                 $AlunoCtrl->setCpfResp($_POST['cpfResp']);
                 $AlunoCtrl->setEmailResp($_POST['emailResp']);
                 $AlunoCtrl->setTelResResp($_POST['telResResp']);
                 $AlunoCtrl->setSexoResp($_POST['sexoResp']);
-		$AlunoCtrl->setNascimentoResp($_POST['dataNascResp']);
+                $dataRespRecebida = $_POST['dataNascResp'];
+                $dataResp = implode("-",array_reverse(explode("/",$dataRespRecebida)));
+		$AlunoCtrl->setNascimentoResp($dataResp);
                 $AlunoCtrl->setTelCelResp($_POST['telCelResp']);
                 $AlunoCtrl->setTelTrabResp($_POST['telTrabResp']);
                 
@@ -33,20 +32,20 @@
 		$AlunoCtrl->setEndereco($_POST['endereco']);
                 $AlunoCtrl->setNumero($_POST['numero']);
                 $AlunoCtrl->setComplemento($_POST['complemento']);
-                $AlunoCtrl->setBairro($_POST['bairro']);
-                $AlunoCtrl->setCidade($_POST['cidade']);
+                $AlunoCtrl->setBairro(utf8_decode($_POST['bairro']));
+                $AlunoCtrl->setCidade(utf8_decode($_POST['cidade']));
 		$AlunoCtrl->setUf($_POST['uf']);
                 $AlunoCtrl->setCep($_POST['cep']);
-                $AlunoCtrl->setReferencia($_POST['referencia']);
+                $AlunoCtrl->setReferencia(utf8_decode($_POST['referencia']));
                 
-                /*$AlunoCtrl->setEnderecoResp($_POST['enderecoResp']);
+                $AlunoCtrl->setEnderecoResp($_POST['enderecoResp']);
                 $AlunoCtrl->setNumeroResp($_POST['numeroResp']);
                 $AlunoCtrl->setComplementoResp($_POST['complementoResp']);
-                $AlunoCtrl->setBairroResp($_POST['bairroResp']);
-                $AlunoCtrl->setCidadeResp($_POST['cidadeResp']);
+                $AlunoCtrl->setBairroResp(utf8_decode($_POST['bairroResp']));
+                $AlunoCtrl->setCidadeResp(utf8_decode($_POST['cidadeResp']));
 		$AlunoCtrl->setUfResp($_POST['ufResp']);
                 $AlunoCtrl->setCepResp($_POST['cepResp']);
-                $AlunoCtrl->setReferenciaResp($_POST['referenciaResp']);*/
+                $AlunoCtrl->setReferenciaResp($_POST['referenciaResp']);
 			                
                 $AlunoCtrl->instanciarAluno();
                 
@@ -65,6 +64,7 @@
 
   <title>Cadastrar Aluno</title>
   <meta name="description" content="" />
+  <meta name="author" content="Fellype" />
 
   <meta name="viewport" content="width=device-width; initial-scale=1.0" />
 
@@ -75,6 +75,8 @@
   <link href="css/estilo.css" rel="stylesheet" media="screen">
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.valid8.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.maskedinput-1.3.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/base.js"></script>
 </head>
 
@@ -88,18 +90,20 @@
                     <a href="#"><span class="selected">Cadastrar Alunos</span></a>
                     <a href="pesquisaAluno.php"><span class="normal">Pesquisar Alunos</span></a>
                     <div class="content">
-                        <div>
+                        <div>                           
                             <form name="form1" action="cadastroAluno.php" method="post">
                                     <?php echo @$res; ?><br/><br/>
                                     <b>Dados do Aluno</b>
                                     <hr/>
-                                    Nome: <input type="text" name="txtNome" size="10" maxlength="50"><br>
-                                    Sexo: <input type="radio" name="sexo" value="m"> Masculino
-                                          <input type="radio" name="sexo" value="f"> Feminino<br/><br/>
-                                    Data de Nascimento: <input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);"><br>
-                                    Email: <input type="text" name="email" size="10" maxlength="50"><br>
-                                    Telefone Residencial: <input type="text"  name="telResidencial" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
-                                    Telefone Celular: <input type="text"  name="telCelular" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
+                                    <div class="row-fluid show-grid">
+                                        <div class="span6">
+                                             Nome: <span><input type="text" name="txtNome" size="10" maxlength="50" id="inputNome" class="necessary"></span><br>
+                                    Sexo: <input type="radio" name="sexo" value="m" class="necessary"> Masculino
+                                          <input type="radio" name="sexo" value="f" class="necessary"> Feminino<br/><br/>
+                                    Data de Nascimento: <span><input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);" class="necessary" id="inputDataNascResp"></span><br>
+                                    Email: <span><input type="text" name="email" size="10" maxlength="50" id="inputEmail" class="necessary"></span><br>
+                                    Telefone Residencial: <span><input type="text"  name="telResidencial" size="10" maxlength="14" onkeypress="mascara(this, mtel );" id="inputTelRes" class="necessary"></span><br>
+                                    Telefone Celular: <span><input type="text"  name="telCelular" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"></span><br>
                                     Ano Escolar: <select name="anoEscolar">
                                     <option value="1ef">1º ano do Ensino Fundamental</option>
                                     <option value="2ef">2º ano do Ensino Fundamental</option>
@@ -115,34 +119,113 @@
                                     <option value="3em">3º ano do Ensino Médio</option>
                                     <option value= "outros"> Outros</option>
                                     </select><br/>
-                                    Escola: <input type="text" name="escola" size="10" maxlength="50"><br/>
-                                    Endereco: <input type="text" name="endereco"><br/>
-                                    Nº: <input type="text" name="numero"><br/>
-                                    Complemento: <input type="text" name="complemento"><br/>
-                                    Bairro: <input type="text" name="bairro"><br/>
-                                    Cidade: <input type="text" name="cidade"><br/>
-                                    UF: <input type="text" name="uf"><br/>
-                                    CEP: <input type="text" name="cep"><br/>
-                                    Refencia: <input type="text" name="referencia"><br/><br/>
-                                    <b>Dados do Responsável</b>
-                                    <hr/>
-                                    Nome: <input type="text" name="txtNomeResp" size="10" maxlength="50"><br/>
-                                    Data de Nascimento: <input type="text" name="dataNascResp" size="10" maxlength="10" onkeyup="mascaraData(this);"><br>
-                                    Sexo: <input type="radio" name="sexoResp" value="m"> Masculino
-                                          <input type="radio" name="sexoResp" value="f"> Feminino<br/><br/>
-                                    Parentesco: <input type="radio" name="parentesco" value="pai"> Pai
-                                                <input type="radio" name="parentesco" value="mae"> Mae
-                                                <input type="radio" name="parentesco" value="outro"> Outro<br/><br/>
-                                    CPF <input type="text" name="cpfResp" size="15" maxlength="15"><br/>
-                                    Email: <input type="text" name="emailResp" size="10" maxlength="50"><br/>
-                                    Telefone Residencial: <input type="text" name="telResResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
-                                    Telefone Celular: <input type="text"  name="telCelResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
-                                    Telefone Trabalho: <input type="text" name="telTrabResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );"><br>
-                                    Mesmo endereço do Aluno?: <input type="radio" name="mesmoEnd" value="sim"> Sim
-                                                              <input type="radio" name="mesmoEnd" value="nao"> Não<br/><br/>
+                                    Escola: <span><input type="text" name="escola" size="8" maxlength="10" id="inputEscola" class="necessary" style="width:140px;">
+                                        </div>
+                                        <div class="span6">
+                                    Logradouro: <span><input type="text" name="endereco" id="inputEndereco" class="necessary" style="width:159px;"></span><br/>
+                                    Nº: <span><input type="text" name="numero" id="inputN" class="necessary"></span><br/>
+                                    Complemento: <span><input type="text" name="complemento"></span><br/>
+                                    Bairro: <span><input type="text" name="bairro" id="inputBairro" class="necessary"></span><br/>
+                                    Cidade: <span><input type="text" name="cidade" id="inputCidade" class="necessary" style="width:159px;"></span><br/>
+                                    UF: <span><select id="inputUf" name="uf" class="necessary">
+                                                <option value=""></option>
+                                                <option value="AC">AC</option>
+                                                <option value="AL">AL</option>
+                                                <option value="AM">AM</option>
+                                                <option value="AP">AP</option>
+                                                <option value="BA">BA</option>
+                                                <option value="CE">CE</option>
+                                                <option value="DF">DF</option>
+                                                <option value="ES">ES</option>
+                                                <option value="GO">GO</option>
+                                                <option value="MA">MA</option>
+                                                <option value="MG">MG</option>
+                                                <option value="MS">MS</option>
+                                                <option value="MT">MT</option>
+                                                <option value="PA">PA</option>
+                                                <option value="PB">PB</option>
+                                                <option value="PE">PE</option>
+                                                <option value="PI">PI</option>
+                                                <option value="PR">PR</option>
+                                                <option value="RJ">RJ</option>
+                                                <option value="RN">RN</option>
+                                                <option value="RS">RS</option>
+                                                <option value="RO">RO</option>
+                                                <option value="RR">RR</option>
+                                                <option value="SC">SC</option>
+                                                <option value="SE">SE</option>
+                                                <option value="SP">SP</option>
+                                                <option value="TO">TO</option>
+                                         </select></span><br/>
+                                    CEP: <span><input type="text" name="cep" id="inputCep" class="necessary"></span><br/>
+                                    Referência: <input type="text" name="referencia"><br/><br/></div>
+                                    </div>
+                                   
                                     
-                                    <input type="submit" name="enviar" value="Enviar" />
-                                    <input type="reset" name="limpar" value="Limpar" />
+				    <b>Dados do Responsável</b>
+                                    <hr/>
+                                    <div class="row-fluid show-grid">
+                                        <div class="span6">
+                                            Nome: <span><input type="text" name="txtNomeResp" size="10" maxlength="50" id="inputNomeResp" class="necessary"></span><br/>
+                                            Data de Nascimento: <span><input type="text" name="dataNascResp" size="10" maxlength="10" class="necessary" id="inputDataNascResp"></span><br/>
+                                            Sexo: <input type="radio" name="sexoResp" value="m" class="necessary"> Masculino
+                                                  <input type="radio" name="sexoResp" value="f" class="necessary"> Feminino<br/><br/>
+                                            Parentesco: <input type="radio" name="parentesco" value="pai" class="necessary"> Pai
+                                            <input type="radio" name="parentesco" value="mae" class="necessary"> Mae
+                                            <input type="radio" name="parentesco" value="outro" class="necessary"> Outro<br/><br/>
+                                            CPF: <span><input type="text" name="cpfResp" size="15" maxlength="15" id="inputCpf" class="necessary"></span><br/>
+                                            Email: <span><input type="text" name="emailResp" size="10" maxlength="50" id="inputEmailResp" class="necessary"></span><br/>
+                                            Telefone Residencial: <span><input type="text" name="telResResp" size="10" maxlength="14" class="necessary" onkeypress="mascara(this, mtel );" id="inputTelResp"></span><br>
+                                            Telefone Celular: <input type="text"  name="telCelResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"><br>
+                                            Telefone Trabalho: <input type="text" name="telTrabResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"><br>
+                                            Mesmo endereço do Aluno?: <input type="radio" name="mesmoEnd" value="sim" id="closeEndResp" class="necessary"> Sim
+                                            <input type="radio" name="mesmoEnd" value="nao" id="openEndResp" class="necessary"> Não<br/><br/>
+                                        </div>
+                                        <div class="span6" id="endResp">    
+                                            Logradouro: <span><input type="text" name="enderecoResp" id="inputEndereco" class="necessary" style="width:159px;"></span><br/>
+                                    Nº: <span><input type="text" name="numeroResp" id="inputN" class="necessary"></span><br/>
+                                    Complemento: <span><input type="text" name="complementoResp"></span><br/>
+                                    Bairro: <span><input type="text" name="bairroResp" id="inputBairro" class="necessary"></span><br/>
+                                    Cidade: <span><input type="text" name="cidadeResp" id="inputCidade" class="necessary"></span><br/>
+                                    UF: <span><select id="inputUf" name="ufResp" id="uf" class="necessary">
+                                                <option value=""></option>
+                                                <option value="AC">AC</option>
+                                                <option value="AL">AL</option>
+                                                <option value="AM">AM</option>
+                                                <option value="AP">AP</option>
+                                                <option value="BA">BA</option>
+                                                <option value="CE">CE</option>
+                                                <option value="DF">DF</option>
+                                                <option value="ES">ES</option>
+                                                <option value="GO">GO</option>
+                                                <option value="MA">MA</option>
+                                                <option value="MG">MG</option>
+                                                <option value="MS">MS</option>
+                                                <option value="MT">MT</option>
+                                                <option value="PA">PA</option>
+                                                <option value="PB">PB</option>
+                                                <option value="PE">PE</option>
+                                                <option value="PI">PI</option>
+                                                <option value="PR">PR</option>
+                                                <option value="RJ">RJ</option>
+                                                <option value="RN">RN</option>
+                                                <option value="RS">RS</option>
+                                                <option value="RO">RO</option>
+                                                <option value="RR">RR</option>
+                                                <option value="SC">SC</option>
+                                                <option value="SE">SE</option>
+                                                <option value="SP">SP</option>
+                                                <option value="TO">TO</option>
+                                         </select></span><br/>
+                                    CEP: <span><input type="text" name="cepResp" id="inputCep" class="necessary"></span><br/>
+                                    Referência: <input type="text" name="referenciaResp"><br/><br/></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <input type="submit" name="enviar" value="Enviar" id="cadEnv" />
+                                        <input type="reset" name="limpar" value="Limpar" />
+                                    </div>
                             </form>
                         </div>
                     </div>

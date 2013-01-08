@@ -5,6 +5,9 @@ body {
 	height: 700px;
 	/*font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;*/	
 }
+select {
+    width: 80px;
+}
 
 .status a{
 	color: #3c3c3c;
@@ -183,4 +186,24 @@ hr {
     border-radius: 10px;
     box-shadow: 0px 0px 5px #7a7a7a;
     background-color: #d2edf6;
+}
+
+.goRight {
+    float: right;
+}
+
+.validationMessage {
+    padding: 5px;
+    color: red;
+    font-size: 0.96em;
+    font-weight: bold;
+}
+
+#endResp {
+    float: right;
+    margin-bottom: -20px;
+}
+
+.cadSubmit {
+    margin: 40px;
 }
