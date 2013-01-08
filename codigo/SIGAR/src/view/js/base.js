@@ -4,6 +4,23 @@
 
 $(document).ready(function(){
     
+    $('#login input').focus(function(){ 
+   		if (this.value==this.defaultValue) {
+   			this.value='';
+   		}
+   		
+   		$('#login input').css('color','#3c3c3c');
+   	});
+        
+       $('#login input').focusout(function(){
+   		if (this.value=='') {
+   			this.value=this.defaultValue;
+   			$('#login input').css('color','#9393aa');
+   		}
+   		
+   	});
+    
+    
     $('#endResp').hide();
     $('#openEndResp').click(function(){
         $('#endResp').fadeIn('slow');
@@ -31,21 +48,8 @@ $(document).ready(function(){
         ).valid8("Necessário!");
 	
 	
-   	$('#login input').focus(function(){   		
-   		if (this.value==this.defaultValue) {
-   			this.value='';
-   		}
-   		
-   		$('#login input').css('color','#3c3c3c');
-   	});
    	
-   	$('#login input').focusout(function(){
-   		if (this.value=='') {
-   			this.value=this.defaultValue;
-   			$('#login input').css('color','#9393aa');
-   		}
-   		
-   	});
+   	
         
 
 });

@@ -5,6 +5,11 @@ body {
 	height: 700px;
 	/*font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;*/	
 }
+
+input {
+    height: 30px;
+}
+
 select {
     width: 80px;
 }
@@ -79,6 +84,33 @@ hr {
 .status {
     text-align: right;
 	color: #3c3c3c;
+}
+
+#cadEnv {
+	background-image: url("../img/enviar.png");
+        background-size: 130px 50px;
+	width: 130px;
+	height: 50px;
+        background-repeat:	no-repeat;
+	background-color:	transparent;
+	border:			none;
+	text-indent:		-999em;
+}
+
+#limpar {
+	background-image: url("../img/limpar.png");
+        background-size: 130px 50px;
+	width: 130px;
+	height: 50px;
+        background-repeat:	no-repeat;
+	background-color:	transparent;
+	border:			none;
+	text-indent:		-999em;
+}
+
+.submits {
+    margin-top: -140px;
+    margin-left: 57px;
 }
 
 #entrar {

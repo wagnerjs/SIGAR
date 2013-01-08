@@ -82,7 +82,7 @@
 
 <body>
         <div class="container">
-            <img src="img/logo.png" vspace="50"/>
+            <a href="telaPrincipal.php"><img src="img/logo.png" vspace="50"/></a>
             <p class="status">Logado como:<b> <?php echo $ObjSessao->getUsuario();?> | <a href= "logoff.php" >Sair</b></a></p>
             <div id="sysBox">
                 <div class="inner">
@@ -97,13 +97,13 @@
                                     <hr/>
                                     <div class="row-fluid show-grid">
                                         <div class="span6">
-                                             Nome: <span><input type="text" name="txtNome" size="10" maxlength="50" id="inputNome" class="necessary"></span><br>
+                                             Nome:<br/> <span><input type="text" name="txtNome" size="10" maxlength="50" id="inputNome" class="necessary"></span><br>
                                     Sexo: <input type="radio" name="sexo" value="m" class="necessary"> Masculino
                                           <input type="radio" name="sexo" value="f" class="necessary"> Feminino<br/><br/>
-                                    Data de Nascimento: <span><input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);" class="necessary" id="inputDataNascResp"></span><br>
-                                    Email: <span><input type="text" name="email" size="10" maxlength="50" id="inputEmail" class="necessary"></span><br>
-                                    Telefone Residencial: <span><input type="text"  name="telResidencial" size="10" maxlength="14" onkeypress="mascara(this, mtel );" id="inputTelRes" class="necessary"></span><br>
-                                    Telefone Celular: <span><input type="text"  name="telCelular" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"></span><br>
+                                    Data de Nascimento:<br/> <span><input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);" class="necessary" id="inputDataNascResp"></span><br>
+                                    Email:<br/> <span><input type="text" name="email" size="10" maxlength="50" id="inputEmail" class="necessary"></span><br>
+                                    Telefone Residencial:<br/> <span><input type="text"  name="telResidencial" size="10" maxlength="14" onkeypress="mascara(this, mtel );" id="inputTelRes" class="necessary"></span><br>
+                                    Telefone Celular:<br/> <span><input type="text"  name="telCelular" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"></span><br>
                                     Ano Escolar: <select name="anoEscolar">
                                     <option value="1ef">1º ano do Ensino Fundamental</option>
                                     <option value="2ef">2º ano do Ensino Fundamental</option>
@@ -119,14 +119,14 @@
                                     <option value="3em">3º ano do Ensino Médio</option>
                                     <option value= "outros"> Outros</option>
                                     </select><br/>
-                                    Escola: <span><input type="text" name="escola" size="8" maxlength="10" id="inputEscola" class="necessary" style="width:140px;">
+                                    Escola:<br/> <span><input type="text" name="escola" size="8" maxlength="10" id="inputEscola" class="necessary" >
                                         </div>
                                         <div class="span6">
-                                    Logradouro: <span><input type="text" name="endereco" id="inputEndereco" class="necessary" style="width:159px;"></span><br/>
-                                    Nº: <span><input type="text" name="numero" id="inputN" class="necessary"></span><br/>
-                                    Complemento: <span><input type="text" name="complemento"></span><br/>
-                                    Bairro: <span><input type="text" name="bairro" id="inputBairro" class="necessary"></span><br/>
-                                    Cidade: <span><input type="text" name="cidade" id="inputCidade" class="necessary" style="width:159px;"></span><br/>
+                                    Logradouro:<br/> <span><input type="text" name="endereco" id="inputEndereco" class="necessary"></span><br/>
+                                    Nº:<br/> <span><input type="text" name="numero" id="inputN" class="necessary"></span><br/>
+                                    Complemento:<br/> <span><input type="text" name="complemento"></span><br/>
+                                    Bairro:<br/> <span><input type="text" name="bairro" id="inputBairro" class="necessary"></span><br/>
+                                    Cidade:<br/> <span><input type="text" name="cidade" id="inputCidade" class="necessary" ></span><br/>
                                     UF: <span><select id="inputUf" name="uf" class="necessary">
                                                 <option value=""></option>
                                                 <option value="AC">AC</option>
@@ -157,8 +157,8 @@
                                                 <option value="SP">SP</option>
                                                 <option value="TO">TO</option>
                                          </select></span><br/>
-                                    CEP: <span><input type="text" name="cep" id="inputCep" class="necessary"></span><br/>
-                                    Referência: <input type="text" name="referencia"><br/><br/></div>
+                                    CEP:<br/> <span><input type="text" name="cep" id="inputCep" class="necessary"></span><br/>
+                                    Referência:<br/> <input type="text" name="referencia"><br/><br/></div>
                                     </div>
                                    
                                     
@@ -166,27 +166,27 @@
                                     <hr/>
                                     <div class="row-fluid show-grid">
                                         <div class="span6">
-                                            Nome: <span><input type="text" name="txtNomeResp" size="10" maxlength="50" id="inputNomeResp" class="necessary"></span><br/>
-                                            Data de Nascimento: <span><input type="text" name="dataNascResp" size="10" maxlength="10" class="necessary" id="inputDataNascResp"></span><br/>
+                                            Nome:<br/> <span><input type="text" name="txtNomeResp" size="10" maxlength="50" id="inputNomeResp" class="necessary"></span><br/>
+                                            Data de Nascimento:<br/> <span><input type="text" name="dataNascResp" size="10" maxlength="10" class="necessary" id="inputDataNascResp"></span><br/>
                                             Sexo: <input type="radio" name="sexoResp" value="m" class="necessary"> Masculino
                                                   <input type="radio" name="sexoResp" value="f" class="necessary"> Feminino<br/><br/>
                                             Parentesco: <input type="radio" name="parentesco" value="pai" class="necessary"> Pai
                                             <input type="radio" name="parentesco" value="mae" class="necessary"> Mae
                                             <input type="radio" name="parentesco" value="outro" class="necessary"> Outro<br/><br/>
-                                            CPF: <span><input type="text" name="cpfResp" size="15" maxlength="15" id="inputCpf" class="necessary"></span><br/>
-                                            Email: <span><input type="text" name="emailResp" size="10" maxlength="50" id="inputEmailResp" class="necessary"></span><br/>
-                                            Telefone Residencial: <span><input type="text" name="telResResp" size="10" maxlength="14" class="necessary" onkeypress="mascara(this, mtel );" id="inputTelResp"></span><br>
-                                            Telefone Celular: <input type="text"  name="telCelResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"><br>
-                                            Telefone Trabalho: <input type="text" name="telTrabResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"><br>
+                                            CPF:<br/> <span><input type="text" name="cpfResp" size="15" maxlength="15" id="inputCpf" class="necessary"></span><br/>
+                                            Email:<br/> <span><input type="text" name="emailResp" size="10" maxlength="50" id="inputEmailResp" class="necessary"></span><br/>
+                                            Telefone Residencial:<br/> <span><input type="text" name="telResResp" size="10" maxlength="14" class="necessary" onkeypress="mascara(this, mtel );" id="inputTelResp"></span><br>
+                                            Telefone Celular:<br/> <input type="text"  name="telCelResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"><br>
+                                            Telefone Trabalho:<br/> <input type="text" name="telTrabResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"><br>
                                             Mesmo endereço do Aluno?: <input type="radio" name="mesmoEnd" value="sim" id="closeEndResp" class="necessary"> Sim
                                             <input type="radio" name="mesmoEnd" value="nao" id="openEndResp" class="necessary"> Não<br/><br/>
                                         </div>
                                         <div class="span6" id="endResp">    
-                                            Logradouro: <span><input type="text" name="enderecoResp" id="inputEndereco" class="necessary" style="width:159px;"></span><br/>
-                                    Nº: <span><input type="text" name="numeroResp" id="inputN" class="necessary"></span><br/>
-                                    Complemento: <span><input type="text" name="complementoResp"></span><br/>
-                                    Bairro: <span><input type="text" name="bairroResp" id="inputBairro" class="necessary"></span><br/>
-                                    Cidade: <span><input type="text" name="cidadeResp" id="inputCidade" class="necessary"></span><br/>
+                                            Logradouro: <br/><span><input type="text" name="enderecoResp" id="inputEndereco" class="necessary" ></span><br/>
+                                    Nº: <br/><span><input type="text" name="numeroResp" id="inputN" class="necessary"></span><br/>
+                                    Complemento: <br/><span><input type="text" name="complementoResp"></span><br/>
+                                    Bairro: <br/><span><input type="text" name="bairroResp" id="inputBairro" class="necessary"></span><br/>
+                                    Cidade: <br/><span><input type="text" name="cidadeResp" id="inputCidade" class="necessary"></span><br/>
                                     UF: <span><select id="inputUf" name="ufResp" id="uf" class="necessary">
                                                 <option value=""></option>
                                                 <option value="AC">AC</option>
@@ -217,14 +217,14 @@
                                                 <option value="SP">SP</option>
                                                 <option value="TO">TO</option>
                                          </select></span><br/>
-                                    CEP: <span><input type="text" name="cepResp" id="inputCep" class="necessary"></span><br/>
-                                    Referência: <input type="text" name="referenciaResp"><br/><br/></div>
+                                    CEP:<br/> <span><input type="text" name="cepResp" id="inputCep" class="necessary"></span><br/>
+                                    Referência: <br/><input type="text" name="referenciaResp"><br/><br/></div>
                                         </div>
                                     </div>
                                     
-                                    <div>
+                                    <div class="submits">
                                         <input type="submit" name="enviar" value="Enviar" id="cadEnv" />
-                                        <input type="reset" name="limpar" value="Limpar" />
+                                        <input type="reset" name="limpar" value="Limpar" id="limpar" />
                                     </div>
                             </form>
                         </div>
