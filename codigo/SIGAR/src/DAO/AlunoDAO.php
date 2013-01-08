@@ -7,7 +7,9 @@ require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/conexao.class.php";
 
 class AlunoDAO {
     
-public function salvarAluno(Aluno $aluno, Responsavel $responsavel, User $user) {
+    protected $_res;
+    
+    public function salvarAluno(Aluno $aluno, Responsavel $responsavel, User $user) {
         //Cria a conexão com o banco de dados
         $obj_conecta = new bd();
             $obj_conecta->conecta();
@@ -66,5 +68,26 @@ public function salvarAluno(Aluno $aluno, Responsavel $responsavel, User $user) 
 
         return $linha;
     }
+    
+    public function listarAlunos(){
+        //Cria a conexão com o banco de dados
+        $obj_conecta = new bd();
+            $obj_conecta->conecta();
+            $obj_conecta->seleciona_bd();
+            
+        $sql = "SELECT  `pessoa`.`nome` ,  `pessoa`.`email` ,  `aluno`.`escola` ,`pessoa`.`dataNascimento`, `pessoa`.`sexo`, `pessoa`.`telefoneResidencial` , `aluno`.`anoEscolar` 
+        FROM  `pessoa` ,  `aluno` ,  `usuario` 
+        WHERE  `aluno`.`idUsuario` =  `usuario`.`idUsuario` 
+        AND  `usuario`.`idPessoa` =  `pessoa`.`idPessoa` "; 
+        $res=mysql_query($sql);
+        
+        if(mysql_num_rows($res)==0)
+            $res="Nada encontrado!";
+
+        $obj_conecta->fechaConexao();
+            
+        return $res;
+    }
+    
 }
 ?>

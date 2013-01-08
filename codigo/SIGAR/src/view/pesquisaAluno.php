@@ -1,5 +1,6 @@
 <?php
 	include "validaSession.php";
+        include_once '../controller/AlunoCtrl.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +28,7 @@
 
 <body>
         <div class="container">
-            <img src="img/logo.png" vspace="50"/>
+            <a href="telaPrincipal.php"><img src="img/logo.png" vspace="50"/></a>
             <p class="status">Logado como:<b> <?php echo $ObjSessao->getUsuario();?> | <a href= "logoff.php" >Sair</b></a></p>
             <div id="sysBox">
                 <div class="inner">
@@ -37,16 +38,36 @@
                     <div class="content">
                         <div>
                             Pesquisar aluno: <input type="text"/>
-                            <table>
+                            <table border="1">
                                 <tr>
                                     <th>Nome</th>
                                     <th>Email</th>
-                                    <th>Telefone</th>
-                                    <th>Mais informações</th>
+                                    <th>Escola</th>
+                                    <th>Escolaridade</th>
+                                    <th>Data Nascimento</th>
+                                    <th>Sexo</th>
+                                    <th>Telefone Residencial</th>
                                 </tr>
+                                <?php
+                                $AlunoCtrl = new AlunoCrtl();
+                                    $AlunoCtrl->listarAluno();
+
+                                if(mysql_num_rows($AlunoCtrl->getResposta())>0){
+                                    for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
+                                ?>
                                 <tr>
-                                    <td></td>
+                                    <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'nome');?></td>
+                                    <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'email'); ?></td>
+                                    <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'escola');?></td>
+                                    <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'anoEscolar');?></td>
+                                    <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'dataNascimento');?></td>
+                                    <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'sexo'); ?></td>
+                                    <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'telefoneResidencial');?></td>
                                 </tr>
+                                <?php
+                                    }
+                                }
+                                ?>
                             </table>
                         </div>
                     </div>

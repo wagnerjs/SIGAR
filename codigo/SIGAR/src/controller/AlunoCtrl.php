@@ -45,6 +45,7 @@ class AlunoCrtl {
         protected $_ufResp;
         protected $_cepResp;
         protected $_referenciaResp;
+        protected $_res;
         
         public function instanciarAluno()
         {
@@ -65,6 +66,16 @@ class AlunoCrtl {
             $alunoDAO = new AlunoDAO();
 
             $alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_obj);
+        }
+        
+        public function listarAluno()
+        {
+            $alunoDAO = new AlunoDAO();
+            $this->_res = $alunoDAO->listarAlunos();
+        }
+        
+        public function getResposta() {
+            return $this->_res;
         }
         
         public function getNomeAluno() {
