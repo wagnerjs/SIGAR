@@ -37,14 +37,14 @@ class AlunoCrtl {
         protected $_cep;
         protected $_referencia;
 
-        /*protected $_enderecoResp;
+        protected $_enderecoResp;
         protected $_numeroResp;
         protected $_complementoResp;
         protected $_bairroResp;
         protected $_cidadeResp;
         protected $_ufResp;
         protected $_cepResp;
-        protected $_referenciaResp;*/
+        protected $_referenciaResp;
         
         public function instanciarAluno()
         {
@@ -53,8 +53,9 @@ class AlunoCrtl {
                 $responsavel_obj = new Responsavel($this->_nomeResp,$this->_emailResp,$this->_telResResp, $this->_telCelResp, $this->_sexoResp, $this->_nascimentoResp, $this->_cpfResp, $this->_categoria, $this->_telTrabResp, $endereco_obj );
             }   
             else{
-                $endereco_obj = new Endereco($this->_enderecoResp,$this->_cepResp,$this->_bairroResp,$this->_cidadeResp,$this->_complementoResp,$this->_numeroResp,$this->_ufResp,$this->_referenciaResp);
-                $responsavel_obj = new Responsavel($this->_nomeResp,$this->_emailResp,$this->_telResResp, $this->_telCelResp, $this->_sexoResp, $this->_nascimentoResp, $this->_cpfResp, $this->_categoria, $this->_telTrabResp, $endereco_obj );
+                $endereco_obj = new Endereco($this->_endereco,$this->_cep,$this->_bairro,$this->_cidade,$this->_complemento,$this->_numero,$this->_uf,$this->_referencia);
+                $endereco_obj_resp = new Endereco($this->_enderecoResp,$this->_cepResp,$this->_bairroResp,$this->_cidadeResp,$this->_complementoResp,$this->_numeroResp,$this->_ufResp,$this->_referenciaResp);
+                $responsavel_obj = new Responsavel($this->_nomeResp,$this->_emailResp,$this->_telResResp, $this->_telCelResp, $this->_sexoResp, $this->_nascimentoResp, $this->_cpfResp, $this->_categoria, $this->_telTrabResp, $endereco_obj_resp );
             }
 
             $user_obj = new User();

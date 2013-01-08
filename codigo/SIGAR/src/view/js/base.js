@@ -38,7 +38,9 @@ $(document).ready(function(){
         $('#inputTelRes,#inputTelResp').mask("(99)9999-9999");
         $('.tel').mask("(99)9999-9999");
         $('#inputN').mask("?99999");
+		$('#inputNResp').mask("?99999");
         $('#inputCep').mask("99999-999");
+		$('#inputCepResp').mask("99999-999");
         $('#inputCpf').mask("999.999.999-99");
         
         

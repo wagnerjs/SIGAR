@@ -79,7 +79,6 @@
   <script src="js/jquery.maskedinput-1.3.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/base.js"></script>
 </head>
-
 <body>
         <div class="container">
             <a href="telaPrincipal.php"><img src="img/logo.png" vspace="50"/></a>
@@ -119,15 +118,15 @@
                                     <option value="3em">3º ano do Ensino Médio</option>
                                     <option value= "outros"> Outros</option>
                                     </select><br/>
-                                    Escola:<br/> <span><input type="text" name="escola" size="8" maxlength="10" id="inputEscola" class="necessary" >
+                                    Escola:<br/> <span><input type="text" name="escola" size="8" maxlength="100" id="inputEscola" class="necessary" >
                                         </div>
                                         <div class="span6">
-                                    Logradouro:<br/> <span><input type="text" name="endereco" id="inputEndereco" class="necessary"></span><br/>
-                                    Nº:<br/> <span><input type="text" name="numero" id="inputN" class="necessary"></span><br/>
-                                    Complemento:<br/> <span><input type="text" name="complemento"></span><br/>
-                                    Bairro:<br/> <span><input type="text" name="bairro" id="inputBairro" class="necessary"></span><br/>
-                                    Cidade:<br/> <span><input type="text" name="cidade" id="inputCidade" class="necessary" ></span><br/>
-                                    UF: <span><select id="inputUf" name="uf" class="necessary">
+                                        Logradouro:<br/> <span><input type="text" name="endereco" id="inputEndereco" class="necessary"></span><br/>
+                                        Nº:<br/> <span><input type="text" name="numero" id="inputN" class="necessary"></span><br/>
+                                        Complemento:<br/> <span><input type="text" name="complemento"></span><br/>
+                                        Bairro:<br/> <span><input type="text" name="bairro" id="inputBairro" class="necessary"></span><br/>
+                                        Cidade:<br/> <span><input type="text" name="cidade" id="inputCidade" class="necessary" ></span><br/>
+                                        UF: <span><select id="inputUf" name="uf" class="necessary">
                                                 <option value=""></option>
                                                 <option value="AC">AC</option>
                                                 <option value="AL">AL</option>
@@ -157,15 +156,13 @@
                                                 <option value="SP">SP</option>
                                                 <option value="TO">TO</option>
                                          </select></span><br/>
-                                    CEP:<br/> <span><input type="text" name="cep" id="inputCep" class="necessary"></span><br/>
-                                    Referência:<br/> <input type="text" name="referencia"><br/><br/></div>
-                                    </div>
-                                   
-                                    
-				    <b>Dados do Responsável</b>
-                                    <hr/>
-                                    <div class="row-fluid show-grid">
-                                        <div class="span6">
+                                         CEP:<br/> <span><input type="text" name="cep" id="inputCep" class="necessary"></span><br/>
+                                         Referência:<br/> <input type="text" name="referencia"><br/><br/></div>
+                                         </div>
+                                         <b>Dados do Responsável</b>
+                                         <hr/>
+                                         <div class="row-fluid show-grid">
+                                            <div class="span6">
                                             Nome:<br/> <span><input type="text" name="txtNomeResp" size="10" maxlength="50" id="inputNomeResp" class="necessary"></span><br/>
                                             Data de Nascimento:<br/> <span><input type="text" name="dataNascResp" size="10" maxlength="10" class="necessary" id="inputDataNascResp"></span><br/>
                                             Sexo: <input type="radio" name="sexoResp" value="m" class="necessary"> Masculino
@@ -180,14 +177,14 @@
                                             Telefone Trabalho:<br/> <input type="text" name="telTrabResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"><br>
                                             Mesmo endereço do Aluno?: <input type="radio" name="mesmoEnd" value="sim" id="closeEndResp" class="necessary"> Sim
                                             <input type="radio" name="mesmoEnd" value="nao" id="openEndResp" class="necessary"> Não<br/><br/>
-                                        </div>
-                                        <div class="span6" id="endResp">    
+                                            </div>
+                                            <div class="span6" id="endResp">    
                                             Logradouro: <br/><span><input type="text" name="enderecoResp" id="inputEndereco" class="necessary" ></span><br/>
-                                    Nº: <br/><span><input type="text" name="numeroResp" id="inputN" class="necessary"></span><br/>
-                                    Complemento: <br/><span><input type="text" name="complementoResp"></span><br/>
-                                    Bairro: <br/><span><input type="text" name="bairroResp" id="inputBairro" class="necessary"></span><br/>
-                                    Cidade: <br/><span><input type="text" name="cidadeResp" id="inputCidade" class="necessary"></span><br/>
-                                    UF: <span><select id="inputUf" name="ufResp" id="uf" class="necessary">
+                                            Nº:<br/> <span><input type="text" name="numeroResp" id="inputNResp" class="necessary"></span><br/>
+                                            Complemento: <br/><span><input type="text" name="complementoResp"></span><br/>
+                                            Bairro: <br/><span><input type="text" name="bairroResp" id="inputBairro" class="necessary"></span><br/>
+                                            Cidade: <br/><span><input type="text" name="cidadeResp" id="inputCidade" class="necessary"></span><br/>
+                                            UF: <span><select id="inputUf" name="ufResp" id="uf" class="necessary">
                                                 <option value=""></option>
                                                 <option value="AC">AC</option>
                                                 <option value="AL">AL</option>
@@ -217,11 +214,10 @@
                                                 <option value="SP">SP</option>
                                                 <option value="TO">TO</option>
                                          </select></span><br/>
-                                    CEP:<br/> <span><input type="text" name="cepResp" id="inputCep" class="necessary"></span><br/>
-                                    Referência: <br/><input type="text" name="referenciaResp"><br/><br/></div>
+                                        CEP:<br/> <span><input type="text" name="cepResp" id="inputCepResp" class="necessary"></span><br/>
+                                        Referência: <br/><input type="text" name="referenciaResp"><br/><br/></div>
                                         </div>
                                     </div>
-                                    
                                     <div class="submits">
                                         <input type="submit" name="enviar" value="Enviar" id="cadEnv" />
                                         <input type="reset" name="limpar" value="Limpar" id="limpar" />
