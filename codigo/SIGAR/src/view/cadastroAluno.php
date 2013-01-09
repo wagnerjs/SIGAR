@@ -4,50 +4,51 @@
 
 	if(isset($_POST['enviar'])){
             $AlunoCtrl = new AlunoCrtl();
-		$AlunoCtrl->setNomeAluno(utf8_decode($_POST['txtNome']));
-                $AlunoCtrl->setSexoAluno($_POST['sexo']);
+		$nomeAluno=utf8_decode($_POST['txtNome']);
+                $sexoAluno=$_POST['sexo'];
                 $dataAlunoRecebida = $_POST['dataNasc'];
                 $dataAluno = implode("-",array_reverse(explode("/",$dataAlunoRecebida)));
-                $AlunoCtrl->setNascimentoAluno($dataAluno);
-                $AlunoCtrl->setEmailAluno($_POST['email']);
-                $AlunoCtrl->setTelResidencial($_POST['telResidencial']);
-                $AlunoCtrl->setTelCelular($_POST['telCelular']);
-                $AlunoCtrl->setAnoEscolar($_POST['anoEscolar']);
-                $AlunoCtrl->setEscola($_POST['escola']);
+                $emailAluno = $_POST['email'];
+                $telResidencialAluno=$_POST['telResidencial'];
+                $telCelularAluno=$_POST['telCelular'];
+                $anoEscolar=$_POST['anoEscolar'];
+                $escola=$_POST['escola'];
 		
-                $AlunoCtrl->setNomeResp(utf8_decode($_POST['txtNomeResp']));
-		$AlunoCtrl->setCategoria($_POST['parentesco']);
-                $AlunoCtrl->setCpfResp($_POST['cpfResp']);
-                $AlunoCtrl->setEmailResp($_POST['emailResp']);
-                $AlunoCtrl->setTelResResp($_POST['telResResp']);
-                $AlunoCtrl->setSexoResp($_POST['sexoResp']);
+                $nomeResp=utf8_decode($_POST['txtNomeResp']);
+		$parentesco=$_POST['parentesco'];
+                $cpfResp=$_POST['cpfResp'];
+                $emailResp=$_POST['emailResp'];
+                $telResp=$_POST['telResResp'];
+                $sexoResp=$_POST['sexoResp'];
                 $dataRespRecebida = $_POST['dataNascResp'];
                 $dataResp = implode("-",array_reverse(explode("/",$dataRespRecebida)));
-		$AlunoCtrl->setNascimentoResp($dataResp);
-                $AlunoCtrl->setTelCelResp($_POST['telCelResp']);
-                $AlunoCtrl->setTelTrabResp($_POST['telTrabResp']);
+                $telCelularResp=$_POST['telCelResp'];
+                $telTrabResp=$_POST['telTrabResp'];
                 
-                $AlunoCtrl->setMesmoEnd($_POST['mesmoEnd']);
+                $mesmoEnd=$_POST['mesmoEnd'];
 		
-		$AlunoCtrl->setEndereco($_POST['endereco']);
-                $AlunoCtrl->setNumero($_POST['numero']);
-                $AlunoCtrl->setComplemento($_POST['complemento']);
-                $AlunoCtrl->setBairro(utf8_decode($_POST['bairro']));
-                $AlunoCtrl->setCidade(utf8_decode($_POST['cidade']));
-		$AlunoCtrl->setUf($_POST['uf']);
-                $AlunoCtrl->setCep($_POST['cep']);
-                $AlunoCtrl->setReferencia(utf8_decode($_POST['referencia']));
+		$enderecoAluno=$_POST['endereco'];
+                $numeroAluno=$_POST['numero'];
+                $complementoAluno=$_POST['complemento'];
+                $bairroAluno=utf8_decode($_POST['bairro']);
+                $cidadeAluno=utf8_decode($_POST['cidade']);
+		$ufAluno=$_POST['uf'];
+                $cepAluno=$_POST['cep'];
+                $referenciaAluno=utf8_decode($_POST['referencia']);
                 
-                $AlunoCtrl->setEnderecoResp($_POST['enderecoResp']);
-                $AlunoCtrl->setNumeroResp($_POST['numeroResp']);
-                $AlunoCtrl->setComplementoResp($_POST['complementoResp']);
-                $AlunoCtrl->setBairroResp(utf8_decode($_POST['bairroResp']));
-                $AlunoCtrl->setCidadeResp(utf8_decode($_POST['cidadeResp']));
-		$AlunoCtrl->setUfResp($_POST['ufResp']);
-                $AlunoCtrl->setCepResp($_POST['cepResp']);
-                $AlunoCtrl->setReferenciaResp($_POST['referenciaResp']);
+                $enderecoResp=$_POST['enderecoResp'];
+                $numeroResp=$_POST['numeroResp'];
+                $complementoResp=$_POST['complementoResp'];
+                $bairroResp=utf8_decode($_POST['bairroResp']);
+                $cidadeResp=utf8_decode($_POST['cidadeResp']);
+		$ufResp=$_POST['ufResp'];
+                $cepResp=$_POST['cepResp'];
+                $referenciaResp=$_POST['referenciaResp'];
 			                
-                $AlunoCtrl->instanciarAluno();
+                $AlunoCtrl->instanciarAluno($nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
+                        $nomeResp, $parentesco, $cpfResp,$emailResp, $telResp, $sexoResp, $dataResp,$telCelularResp,$telTrabResp,
+                        $mesmoEnd,$enderecoAluno,$numeroAluno,$complementoAluno,$bairroAluno,$cidadeAluno,$ufAluno,$cepAluno,$referenciaAluno,
+                        $enderecoResp, $numeroResp, $complementoResp, $bairroResp,$cidadeResp,$ufResp,$cepResp,$referenciaResp);
                 
                 $res = "<font color=green><b>Aluno Cadastrado com sucesso!</b></font>";
 	}
