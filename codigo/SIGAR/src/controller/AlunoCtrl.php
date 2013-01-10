@@ -33,7 +33,15 @@ class AlunoCrtl {
 
             $alunoDAO = new AlunoDAO();
 
-            $alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_objeto);
+            if ($alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_objeto) == '1')
+            {
+                return 'Cadastro Efetuado Com Sucesso';
+            }
+             else {
+                 return 'Cadastro Não Foi Eftuado Com Sucesso';
+             }
+            
+            
         }
         
         public function listarAluno()
