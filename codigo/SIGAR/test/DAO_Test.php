@@ -30,22 +30,22 @@ class DAOTest extends PHPUnit_Framework_TestCase{
         
         
        $nomeResp = 'Pai do Aluno';
-       $sexoResp = 'masculino';
-       $cpf = '012202033';
-       $telResResp='33012392'; 
-       $telefoneTrabalho = '334373022';
-       $telCelResp = '93322392';
+       $sexoResp = 'm';
+       $cpf = '012.202.033-21';
+       $telResResp='(61)3301-3239'; 
+       $telefoneTrabalho = '(61)3301-3239';
+       $telCelResp = '(61)3301-3239';
        $categoria = 'pai';
        $nascimentoResp = '1990-11-12';
        $emailResp = 'pai@emai.com.br';
        
        $nome = 'Aluno de teste';
-       $sexo = 'masculino';
+       $sexo = 'm';
        $email = 'gbre';
        $nascimento = '1995-11-24';
        $anoEscolar = '3 ano';
-       $telResidencial = '(61) 330133239';
-       $telCelular = '(61) 9332292';
+       $telResidencial = '(61)3301-3239';
+       $telCelular = '(61)9332-1292';
        $escola = 'Sigma';
        
        $this->endereco_obj=new Endereco($logradouro,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
