@@ -15,23 +15,25 @@ class AlunoCrtl {
                                         $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
                                         $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp)
         {
-            if($_mesmoEnd == "sim"){
-                $endereco_obj = new Endereco($_endereco,$_cep,$_bairro,$_cidade,$_complemento,$_numero,$_uf,$_referencia);
-                $responsavel_obj = new Responsavel($_nomeResp,$_emailResp,$_telResResp, $_telCelResp, $_sexoResp, $_nascimentoResp, $_cpfResp, $_categoria, $_telTrabResp, $endereco_obj );
-            }   
-            else{
-                $endereco_obj = new Endereco($_endereco,$_cep,$_bairro,$_cidade,$_complemento,$_numero,$_uf,$_referencia);
-                $endereco_obj_resp = new Endereco($_enderecoResp,$_cepResp,$_bairroResp,$_cidadeResp,$_complementoResp,$_numeroResp,$_ufResp,$_referenciaResp);
-                $responsavel_obj = new Responsavel($_nomeResp,$_emailResp,$_telResResp, $_telCelResp, $_sexoResp, $_nascimentoResp, $_cpfResp, $_categoria, $_telTrabResp, $endereco_obj_resp );
-            }
+        
+            $endereco_aluno = new Endereco($_endereco,$_cep,$_bairro,$_cidade,$_complemento,$_numero,$_uf,$_referencia);
+            $endereco_responsavel = new Endereco($_enderecoResp,$_cepResp,$_bairroResp,$_cidadeResp,$_complementoResp,$_numeroResp,$_ufResp,$_referenciaResp);
+
+
+            $objeto_Resp = new Responsavel();
+            $enderecoResp = $objeto_Resp->verifica_Endereco_Responsavel($endereco_aluno, $endereco_responsavel,$_mesmoEnd);
+
+            $responsavel_obj = new Responsavel($_nomeResp,$_emailResp,$_telResResp, $_telCelResp, $_sexoResp, $_nascimentoResp, $_cpfResp, $_categoria, $_telTrabResp, $enderecoResp );
+
 
             $user_obj = new User();
-            $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_obj, $responsavel_obj, $user_obj);
-            $user_obj = $aluno_obj->get_usuario();
+            $user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
+            $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_aluno, $responsavel_obj, $user_objeto);
+
 
             $alunoDAO = new AlunoDAO();
 
-            $alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_obj);
+            $alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_objeto);
         }
         
         public function listarAluno()

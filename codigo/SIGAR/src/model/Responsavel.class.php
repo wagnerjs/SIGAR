@@ -51,7 +51,20 @@ class Responsavel extends Pessoa {
     public function getTelTrabalho() {
         return $this->_telTrabalho;
     }
+    
+    public function verifica_Endereco_Responsavel($enderecoAluno, $enderecoResponsavel,$mesmoEndereco){
 
+            if($mesmoEndereco == "sim"){
+                    $enderecoResponsavel = $enderecoAluno;
+            }   
+            else{
+                    //Não altera o objeto com o enereço de responsavel        
+            }
+
+
+
+            return $enderecoResponsavel;
+    }
 }
 
 ?>
