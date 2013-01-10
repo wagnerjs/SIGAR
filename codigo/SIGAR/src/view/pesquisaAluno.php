@@ -24,6 +24,8 @@
   <script src="js/jquery-latest.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/base.js"></script>
+  <link href="css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
+  <script type="text/javascript" src="js/tablecloth.js"></script>
 </head>
 
 <body>
@@ -56,7 +58,7 @@
                                     for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
                                 ?>
                                 <tr>
-                                    <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'nome');?></td>
+                                    <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></td>
                                     <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'email'); ?></td>
                                     <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'escola');?></td>
                                     <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'anoEscolar');?></td>

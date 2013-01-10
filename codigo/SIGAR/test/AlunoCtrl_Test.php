@@ -23,11 +23,11 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
         $logradouro = 'QE 32 CONJUNTO H';
         $cep = '710283832';
         $bairro = 'Guara';
-        $cidade = 'Brasília';
+        $cidade = 'Brasilia';
         $complemento = 'casa';
         $numero = '19';
         $uf = 'DF';
-        $referencia = 'Brasília';
+        $referencia = 'Brasilia';
         
         $endereco_obj = new Endereco($logradouro,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
 
@@ -50,7 +50,7 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
     */
     public function testCriarResponsavel(Endereco $endereco_obj)
     {
-       $nomeResp = 'Pai';
+       $nomeResp = 'Pai do Aluno';
        $sexo = 'masculino';
        $cpf = '012202033';
        $telResResp='33012392'; 
@@ -60,7 +60,7 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
        $nascimento = '1990-11-12';
        $emailResp = 'pai@emai.com.br';
         
-       $responsavel_obj = new Responsavel($nomeResp,$emailResp,$telResResp, $telCelResp, $sexo ,$nascimento, $cpf, $categoria, $telefoneTrabalho, $endereco_obj);
+       $responsavel_obj = new Responsavel(utf8_decode($nomeResp),$emailResp,$telResResp, $telCelResp, $sexo ,$nascimento, $cpf, $categoria, $telefoneTrabalho, $endereco_obj);
         
        $this->assertNotNull($responsavel_obj->getCategoria(), 'Campo não foi adicionado no HTML');
        $this->assertNotNull($responsavel_obj->getCelular(), 'Campo não foi adicionado no HTML');
@@ -80,7 +80,7 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
      */
     public function testAluno(Responsavel $responsavel_obj, Endereco $endereco_obj)
     {
-       $nome = 'Aluno Teste João';
+       $nome = 'Aluno de teste';
        $sexo = 'masculino';
        $email = 'gbre';
        $nascimento = '1995-11-24';
@@ -89,7 +89,7 @@ class AlunoCtrl_Test extends PHPUnit_Framework_TestCase
        $telCelular = '(61) 9332292';
        $escola = 'Sigma';
        $user_obj = new User();
-       $aluno_obj = new Aluno ($nome,$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj,$user_obj);
+       $aluno_obj = new Aluno (utf8_decode($nome),$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,$endereco_obj,$responsavel_obj,$user_obj);
        
        $this->assertNotNull($aluno_obj);
        
