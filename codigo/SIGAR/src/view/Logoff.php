@@ -1,6 +1,6 @@
 <?php
-	//inclusão da página que valida a sessão do usuário
-	include "validaSession.php";
-	//destroi a sessão do usuário
+	//inclusï¿½o da pï¿½gina que valida a sessï¿½o do usuï¿½rio
+	include "ValidaSession.php";
+	//destroi a sessï¿½o do usuï¿½rio
 	$ObjSessao->logoff();
 ?>

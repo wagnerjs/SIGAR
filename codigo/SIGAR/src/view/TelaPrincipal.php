@@ -1,5 +1,5 @@
 <?php
-	include "validaSession.php";
+	include "ValidaSession.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@
       <div id="logo">
     	<img src="img/logo.png" alt="SIGAR" />
       </div>
-    <p class="status">Logado como:<b> <?php echo $ObjSessao->getUsuario();?> | <a href= "logoff.php" >Sair</b></a></p>
+    <p class="status">Logado como:<b> <?php echo $ObjSessao->getUsuario();?> | <a href= "Logoff.php" >Sair</b></a></p>
     <div class="row-fluid show-grid">
         <div class="span6">
             <div class="boxMenu">

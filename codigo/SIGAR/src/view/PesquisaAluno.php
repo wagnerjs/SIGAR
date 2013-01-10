@@ -1,5 +1,5 @@
 <?php
-	include "validaSession.php";
+	include "ValidaSession.php";
         include_once '../controller/AlunoCtrl.php';
 ?>
 <!DOCTYPE html>

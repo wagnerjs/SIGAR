@@ -2,8 +2,8 @@
 /*$diretorioRaiz = $_SERVER['DOCUMENT_ROOT'];
 $urlBD =  $diretorioRaiz."/SIGAR/codigo/SIGAR/src/utils/conexao.class.php";
 $urlEndereco = $diretorioRaiz."/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";*/
-require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
-require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/conexao.class.php";
+require_once "../src/model/Endereco.class.php";
+require_once "../src/utils/Conexao.class.php";
 
 class AlunoDAO {
     
