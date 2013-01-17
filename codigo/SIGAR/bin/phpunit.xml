@@ -4,7 +4,11 @@
     </testsuite>
     <filter>
         <whitelist>
-            <directory suffix=".php">../src/</directory>
+            <directory suffix=".php">../src/model</directory>
+             <directory suffix=".php">../src/DAO</directory>
+              <directory suffix=".php">../src/controller</directory>
+               <directory suffix=".php">../src/exception</directory>
+                <directory suffix=".php">../src/utils</directory>
         </whitelist>
         
         <exclude>

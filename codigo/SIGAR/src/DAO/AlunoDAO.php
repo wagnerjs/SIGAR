@@ -5,7 +5,7 @@ $urlEndereco = $diretorioRaiz."/SIGAR/codigo/SIGAR/src/model/Endereco.class.php"
 require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
 require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
 
-class AlunoDAO {
+class AlunoDAO  {
     
     protected $_res;
     
@@ -16,7 +16,7 @@ class AlunoDAO {
             $obj_conecta->seleciona_bd();
         
         $sql= "INSERT INTO `pessoa` (`idPessoa`, `nome`, `email`, `telefoneResidencial`, `telefoneCelular`, `sexo`, `dataNascimento`, `cpf`) VALUES
-            (NULL,  '".$aluno->getNome()."', '".$aluno->getEmail()."', '".$aluno->get_telefoneResidencial()."', '".$aluno->getCelular()."', '".$aluno->getSexo()."', '".$aluno->getNascimento()."', '".$aluno->getCpf()."');";
+            (NULL,  '".$aluno->getNome()."', '".$aluno->getEmail()."', '".$aluno->getTelefoneResidencial()."', '".$aluno->getCelular()."', '".$aluno->getSexo()."', '".$aluno->getNascimento()."', '".$aluno->getCpf()."');";
         mysql_query($sql);
         $idPessoaAluno = mysql_insert_id();
         
@@ -26,7 +26,7 @@ class AlunoDAO {
         $idUsuarioAluno = mysql_insert_id();
         
         $sql= "INSERT INTO `pessoa` (`idPessoa`, `nome`, `email`, `telefoneResidencial`, `telefoneCelular`, `sexo`, `dataNascimento`, `cpf`) VALUES
-        (NULL,  '".$responsavel->getNome()."', '".$responsavel->getEmail()."', '".$responsavel->get_telefoneResidencial()."', '".$responsavel->getCelular()."', '".$responsavel->getSexo()."', '".$responsavel->getNascimento()."', '".$responsavel->getCpf()."');";
+        (NULL,  '".$responsavel->getNome()."', '".$responsavel->getEmail()."', '".$responsavel->getTelefoneResidencial()."', '".$responsavel->getCelular()."', '".$responsavel->getSexo()."', '".$responsavel->getNascimento()."', '".$responsavel->getCpf()."');";
         mysql_query($sql);
         $idPessoaResponsavel = mysql_insert_id();
         
@@ -38,13 +38,10 @@ class AlunoDAO {
         $sql = "INSERT INTO `aluno` (`idAluno`, `anoEscolar`, `escola`, `idResponsavel`, `idUsuario`) VALUES 
         (NULL, '".$aluno->getAnoEscolar()."', '".$aluno->getEscola()."', '".$idResponsavel."', '".$idUsuarioAluno."');";
         mysql_query($sql);
-        //$idAluno = mysql_insert_id();
+      
+        $enderecoAluno = $aluno->getEndereco();
         
-        //$enderecoAluno = new Endereco();
-        $enderecoAluno = $aluno->get_endereco();
-        
-        //$enderecoResponsavel = new Endereco();
-        $enderecoResponsavel = $responsavel->get_endereco();
+        $enderecoResponsavel = $responsavel->getEndereco();
         
         $sql = "INSERT INTO `endereco` (`idendereco`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `referencia`, `uf`) VALUES 
         (NULL, '".$enderecoAluno->getCep()."', '".$enderecoAluno->getLogradouro()."', ".$enderecoAluno->getNumeroCasa().", '".$enderecoAluno->getComplemento()."', '".$enderecoAluno->getBairro()."', '".$enderecoAluno->getCidade()."', '".$enderecoAluno->getReferencia()."', '".$enderecoAluno->getUf()."');";

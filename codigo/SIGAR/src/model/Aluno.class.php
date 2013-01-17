@@ -14,9 +14,9 @@ class Aluno extends Pessoa{
             $this->setSexo($sexo);
             $this->setNascimento($nascimento);
             $this->setEmail($email);
-            $this->set_telefoneResidencial($telResidencial);
+            $this->setTelefoneResidencial($telResidencial);
             $this->setCelular($telCelular);
-            $this->set_endereco($endereco_obj);
+            $this->setEndereco($endereco_obj);
             $this->_anoEscolar = $anoEscolar;
             $this->_escola = $escola;
             $this->_responsavel = $responsavel_obj;
@@ -33,32 +33,15 @@ class Aluno extends Pessoa{
 	{
             return $this->_escola;
 	}
-	public function setAnoEscolar( $_anoEscolar )
-	{
-            $this->_anoEscolar = $_anoEscolar;
-	}
-	
-	public function setEscola( $_escola )
-	{
-            $this->_escola = $_escola;
-	}
- 
-	public function setResponsavel($_responsavel)
-	{
-            $this->_responsavel=$_responsavel;
-	}
             public function getResponsavel()
 	{
 	return $this->_responsavel;
 	}
         
-        public function get_usuario() {
+        public function getUsuario() {
             return $this->_usuario;
         }
 
-        public function set_usuario($_usuario) {
-            $this->_usuario = $_usuario;
-        }
  }
 
 ?>

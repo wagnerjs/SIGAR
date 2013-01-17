@@ -21,54 +21,11 @@
             $this->_referencia = $referencia;
         }
 
-        
-	public function setUf( $_uf )
-	{
-	    $this->_uf = $_uf;
-	}
 	 
 	public function getUf()
 	{
 	    return $this->_uf;
 	}
-	
-	
-	
-	public function setCep( $_cep )
-	{
-		$this->_cep = $_cep;
-	}
-	
-	public function setLogradouro( $_logradouro )
-	{
-		$this->_logradouro= $_logradouro;
-	}
-	
-	public function setNumeroCasa( $_numeroCasa )
-	{
-		$this->_numeroCasa = $_numeroCasa;
-	}
-	
-	public function setComplemento( $_complemento )
-	{
-		$this->_complemento = $_complemento;
-	}
-	
-	public function setBairro( $_bairro )
-	{
-		$this->_bairro = $_bairro;
-	}
-	
-	public function setCidade( $_cidade )
-	{
-		$this->_cidade = $_cidade;
-	}
-	
-	public function setReferencia( $_referencia )
-	{
-		$this->_referencia = $_referencia;
-	}	
-	
 	public function getCep()
 	{
 		return $this->_cep;

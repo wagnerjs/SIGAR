@@ -87,7 +87,7 @@ class Model_Test extends PHPUnit_Framework_TestCase {
         $this->assertNotNull($this->aluno_obj->getEscola());
         $this->assertNotNull($this->aluno_obj->getResponsavel());
         $this->assertNotNull($this->aluno_obj->getAnoEscolar());
-        $this->assertNotNull($this->aluno_obj->get_usuario());
+        $this->assertNotNull($this->aluno_obj->getUsuario());
         $this->assertNotNull($this->aluno_obj->getResponsavel());
        
     }
