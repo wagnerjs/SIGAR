@@ -1,6 +1,6 @@
 <?php
-	include "ValidaSession.php";
-        include_once '../controller/AlunoCtrl.php';
+	require 'ValidaSession.php';
+        require_once '../controller/AlunoCtrl.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

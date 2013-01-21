@@ -1,5 +1,5 @@
 <?php
-	include "ValidaSession.php";
+	require 'ValidaSession.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
