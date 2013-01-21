@@ -1,11 +1,12 @@
 
 <?php
-require_once '../src/DAO/AlunoDAO.php';
-require_once '../src/model/Pessoa.class.php';
-require_once '../src/model/User.class.php';
-require_once '../src/model/Aluno.class.php';
-require_once '../src/model/Endereco.class.php';
-require_once '../src/model/Responsavel.class.php';
+require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/AlunoDAO.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Pessoa.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/User.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Aluno.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Responsavel.class.php';
 
 /**
  * @author Guilherme Baufaker  <gbre.111@gmail.com>
