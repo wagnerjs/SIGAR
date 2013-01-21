@@ -1,7 +1,5 @@
 <?php
-/*$diretorioRaiz = $_SERVER['DOCUMENT_ROOT'];
-$urlBD =  $diretorioRaiz."/SIGAR/codigo/SIGAR/src/utils/conexao.class.php";
-$urlEndereco = $diretorioRaiz."/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";*/
+
 require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
 require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
 
@@ -26,7 +24,8 @@ class AlunoDAO  {
         $idUsuarioAluno = mysql_insert_id();
         
         $sql= "INSERT INTO `pessoa` (`idPessoa`, `nome`, `email`, `telefoneResidencial`, `telefoneCelular`, `sexo`, `dataNascimento`, `cpf`) VALUES
-        (NULL,  '".$responsavel->getNome()."', '".$responsavel->getEmail()."', '".$responsavel->getTelefoneResidencial()."', '".$responsavel->getCelular()."', '".$responsavel->getSexo()."', '".$responsavel->getNascimento()."', '".$responsavel->getCpf()."');";
+        (NULL,  '".$responsavel->getNome()."', '".$responsavel->getEmail()."', '".$responsavel->getTelefoneResidencial()."', '".$responsavel->getCelular()."', '".$responsavel->getSexo()."', 
+            '".$responsavel->getNascimento()."', '".$responsavel->getCpf()."');";
         mysql_query($sql);
         $idPessoaResponsavel = mysql_insert_id();
         
@@ -44,7 +43,8 @@ class AlunoDAO  {
         $enderecoResponsavel = $responsavel->getEndereco();
         
         $sql = "INSERT INTO `endereco` (`idendereco`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `referencia`, `uf`) VALUES 
-        (NULL, '".$enderecoAluno->getCep()."', '".$enderecoAluno->getLogradouro()."', ".$enderecoAluno->getNumeroCasa().", '".$enderecoAluno->getComplemento()."', '".$enderecoAluno->getBairro()."', '".$enderecoAluno->getCidade()."', '".$enderecoAluno->getReferencia()."', '".$enderecoAluno->getUf()."');";
+        (NULL, '".$enderecoAluno->getCep()."', '".$enderecoAluno->getLogradouro()."', 
+            ".$enderecoAluno->getNumeroCasa().", '".$enderecoAluno->getComplemento()."', '".$enderecoAluno->getBairro()."', '".$enderecoAluno->getCidade()."', '".$enderecoAluno->getReferencia()."', '".$enderecoAluno->getUf()."');";
         mysql_query($sql);
         $idEnderecoAluno = mysql_insert_id();
         
@@ -53,7 +53,8 @@ class AlunoDAO  {
         mysql_query($sql);
         
         $sql = "INSERT INTO `endereco` (`idendereco`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `referencia`, `uf`) VALUES 
-        (NULL, '".$enderecoResponsavel->getCep()."', '".$enderecoResponsavel->getLogradouro()."', ".$enderecoResponsavel->getNumeroCasa().", '".$enderecoResponsavel->getComplemento()."', '".$enderecoResponsavel->getBairro()."', '".$enderecoResponsavel->getCidade()."', '".$enderecoResponsavel->getReferencia()."', '".$enderecoResponsavel->getUf()."');";
+        (NULL, '".$enderecoResponsavel->getCep()."', '".$enderecoResponsavel->getLogradouro()."', ".$enderecoResponsavel->getNumeroCasa().", '".$enderecoResponsavel->getComplemento()."', 
+            '".$enderecoResponsavel->getBairro()."', '".$enderecoResponsavel->getCidade()."', '".$enderecoResponsavel->getReferencia()."', '".$enderecoResponsavel->getUf()."');";
         mysql_query($sql);
         $idEnderecoResponsavel = mysql_insert_id();
         
@@ -119,7 +120,9 @@ class AlunoDAO  {
                         }
 
 
-                $sql = "UPDATE  `pessoa` SET  `nome` =  `".$aluno->getNome()."`, `email` =  `".$aluno->getEmail()."`, `telefoneResidencial` =  `".$aluno->get_telefoneResidencial()."`, `telefoneCelular` =  `".$aluno->getCelular()."`, `sexo` =  `".$aluno->getSexo()."`, `dataNascimento` =  `".$aluno->getNascimento()."`, `cpf` =  `NULL` WHERE  `pessoa`.`idPessoa` =".$idPessoaAluno." ;";
+                $sql = "UPDATE  `pessoa` SET  `nome` =  `".$aluno->getNome()."`, `email` =  `".$aluno->getEmail()."`, 
+                    `telefoneResidencial` =  `".$aluno->get_telefoneResidencial()."`, `telefoneCelular` =  `".$aluno->getCelular()."`, `sexo` =  `".$aluno->getSexo()."`, `dataNascimento` =  `".$aluno->getNascimento()."`, 
+                        `cpf` =  `NULL` WHERE  `pessoa`.`idPessoa` =".$idPessoaAluno." ;";
 
                 $altera = mysql_query($sql);
 
@@ -138,7 +141,8 @@ class AlunoDAO  {
 
         public function alterarEndereco($idPessoa){
 
-                $idEndereco = mysql_query("SELECT `endereco_pessoa`.`idEndereco` FROM `endereco_pessoa` WHERE `endereco_pessoa`.`idPessoa` = ".$idPessoa.";");
+                $idEndereco = mysql_query("SELECT `endereco_pessoa`.`idEndereco` FROM `endereco_pessoa` WHERE `endereco_pessoa`.`idPessoa
+                    ` = ".$idPessoa.";");
 
                 $sql = "UPDATE `sigar`.`endereco` SET `cep` = '".$enderecoAluno->getCep()."',`logradouro` = '".$enderecoAluno->getLogradouro()."',`numero` = ".$enderecoAluno->getNumeroCasa().",`complemento` = '".$enderecoAluno->getComplemento()."',`bairro` = '".$enderecoAluno->getBairro()."',`cidade` = '".$enderecoAluno->getCidade()."',`referencia` = '".$enderecoAluno->getReferencia()."',`uf` = '".$enderecoAluno->getUf()."' WHERE `endereco`.`idendereco` = ".$idEndereco.";"; 
 
@@ -178,7 +182,8 @@ class AlunoDAO  {
                         }
 
 
-                $sql = "UPDATE  `pessoa` SET  `nome` =  `".$responsavel->getNome()."`, `email` =  `".$responsavel->getEmail()."`, `telefoneResidencial` =  `".$responsavel->get_telefoneResidencial()."`, `telefoneCelular` =  `".$responsavel->getCelular()."`, `sexo` =  `".$responsavel->getSexo()."`, `dataNascimento` =  `".$responsavel->getNascimento()."`, `cpf` =  `".$responsavel->getCpf()."` WHERE  `pessoa`.`idPessoa` = ".$IdPessoaResponsavel.";";
+                $sql = "UPDATE  `pessoa` SET  `nome` =  `".$responsavel->getNome()."`, `email` =  `".$responsavel->getEmail()."`, `telefoneResidencial` =  `".$responsavel->get_telefoneResidencial()."`, 
+                    `telefoneCelular` =  `".$responsavel->getCelular()."`, `sexo` =  `".$responsavel->getSexo()."`, `dataNascimento` =  `".$responsavel->getNascimento()."`, `cpf` =  `".$responsavel->getCpf()."` WHERE  `pessoa`.`idPessoa` = ".$IdPessoaResponsavel.";";
 
                 $altera = mysql_query($sql);
 
