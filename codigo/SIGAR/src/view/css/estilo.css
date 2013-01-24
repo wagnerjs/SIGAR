@@ -108,6 +108,28 @@ hr {
 	text-indent:		-999em;
 }
 
+#excluir {
+	background-image: url("../img/excluir.png");
+        background-size: 130px 50px;
+	width: 130px;
+	height: 50px;
+        background-repeat:	no-repeat;
+	background-color:	transparent;
+	border:			none;
+	text-indent:		-999em;
+}
+
+#editar {
+	background-image: url("../img/editar.png");
+        background-size: 130px 50px;
+	width: 130px;
+	height: 50px;
+        background-repeat:	no-repeat;
+	background-color:	transparent;
+	border:			none;
+	text-indent:		-999em;
+}
+
 .submits {
     margin-top: -140px;
     margin-left: 57px;
@@ -238,4 +260,84 @@ hr {
 
 .cadSubmit {
     margin: 40px;
+}
+
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+  
+#boxes .window {
+  position:fixed;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+
+#boxes #dialog {
+  border-radius: 15px;
+  width:500px; 
+  height:auto;
+  padding:10px;
+  background-color:#ffffff;
+}
+
+#boxes #dialog div {
+  margin: 15px;
+}
+
+#boxes #dialog1 {
+  width:375px; 
+  height:203px;
+}
+
+#dialog1 .d-header {
+  background:url(images/login-header.png) no-repeat 0 0 transparent; 
+  width:375px; 
+  height:150px;
+}
+
+#dialog1 .d-header input {
+  position:relative;
+  top:60px;
+  left:100px;
+  border:3px solid #cccccc;
+  height:22px;
+  width:200px;
+  font-size:15px;
+  padding:5px;
+  margin-top:4px;
+}
+
+#dialog1 .d-blank {
+  float:left;
+  background:url(images/login-blank.png) no-repeat 0 0 transparent; 
+  width:267px; 
+  height:53px;
+}
+
+#dialog1 .d-login {
+  float:left;
+  width:108px; 
+  height:53px;
+}
+
+#boxes #dialog2 {
+  background:url(images/notice.png) no-repeat 0 0 transparent; 
+  width:326px; 
+  height:229px;
+  padding:50px 0 20px 25px;
+}
+
+
+#table_example a:hover {
+    text-decoration: underline;
 }
