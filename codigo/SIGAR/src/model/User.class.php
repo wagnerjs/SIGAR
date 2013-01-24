@@ -31,14 +31,17 @@ class User {
     }
     
     public function cria_Usuario_Padrao($nome_aluno, $nascimentoAluno){
-        
+        /*
         $nome_array = strtolower($nome_aluno);
         $nome_array = explode(" ", $nome_aluno);
         $usuario = $nome_array[0].".".$nome_array[1];
         
         $senha_array = explode("-", $nascimentoAluno);
         $senha = "*".$nome_array[0].$senha_array[0];
-    
+    */
+        $usuario="";
+        $senha="";
+        
         
         $user_obj = new User();
         $user_obj->setLogin($usuario);
