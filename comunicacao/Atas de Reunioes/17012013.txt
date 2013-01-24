@@ -1,6 +1,7 @@
 Data: 17/01/2013
 Hora: 12h10
-Presentes: Alex, Hebert, Rafael, Matheus, Wagner, Guilherme
+Tipo: Presencial
+Presentes: Alex, Fellype, Hebert, Rafael, Matheus, Wagner, Guilherme
 
 - Elaboração do projeto na ferramenta ScrumWise
 - Elaboração de itens do Backlog alinhadas as entregas

@@ -1,0 +1,10 @@
+Data: 22/01/2013
+Hora: 21h00
+Tipo: Skype
+Presentes: Alex, Fellype, Hebert, Wagner
+
+Objetivo
+- Treinamento nos conceitos do SCRUM
+- Treinamento na ferramenta de acompanhamento de projeto - ScrumWise
+
+Fim: 21h40
