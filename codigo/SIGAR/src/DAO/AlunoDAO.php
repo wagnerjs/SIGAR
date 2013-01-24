@@ -1,7 +1,7 @@
 <?php
 
-require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
-require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
+require_once "D:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
+require_once "D:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
 
 class AlunoDAO  {
     
