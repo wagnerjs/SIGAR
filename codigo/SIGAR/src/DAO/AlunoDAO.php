@@ -72,11 +72,19 @@ class AlunoDAO  {
             $obj_conecta = new bd();
                 $obj_conecta->conecta();
                 $obj_conecta->seleciona_bd();
-
+                
+            /*
             $sql = "SELECT  `pessoa`.`nome` ,  `pessoa`.`email` ,  `aluno`.`escola` ,`pessoa`.`dataNascimento`, `pessoa`.`sexo`, `pessoa`.`telefoneResidencial` , `aluno`.`anoEscolar` 
             FROM  `pessoa` ,  `aluno` ,  `usuario` 
             WHERE  `aluno`.`idUsuario` =  `usuario`.`idUsuario` 
             AND  `usuario`.`idPessoa` =  `pessoa`.`idPessoa` "; 
+            */
+             
+            $sql = "SELECT  `pessoa`.* ,  `aluno`.* 
+            FROM  `pessoa` ,  `aluno` ,  `usuario` 
+            WHERE  `aluno`.`idUsuario` =  `usuario`.`idUsuario` 
+            AND  `usuario`.`idPessoa` =  `pessoa`.`idPessoa` "; 
+            
             $res=mysql_query($sql);
 
             if(mysql_num_rows($res)==0)
@@ -89,11 +97,17 @@ class AlunoDAO  {
     
     
 
-        public function alterarAluno($idPessoaAluno){
+        public function alterarAluno(int $idPessoaAluno,Aluno $aluno, User $user, Responsavel $responsavel){
+                $obj_conecta = new bd();
+                $obj_conecta->conecta();
+                $obj_conecta->seleciona_bd();
 
                 $sql ="SELECT  `usuario`.`idUsuario` FROM  `usuario`,  `pessoa` WHERE  `usuario`.`idPessoa` = `pessoa`.`idPessoa` AND `pessoa`.`idPessoa`= ".$idPessoaAluno." ;";
-
                 $idUsuario = mysql_query($sql);
+                    if(mysql_num_rows($idUsuario)==0)
+                    {
+                        $idUsuario="Nada encontrado!";
+                    }
 
 
                 $sql = "UPDATE `aluno` SET  `anoEscolar` =  '".$aluno->getAnoEscolar()."',`escola` =  '".$aluno->getEscola()."' WHERE  `aluno`.`idUsuario` =".$idPessoaAluno."; "; 
@@ -133,16 +147,25 @@ class AlunoDAO  {
                                 echo "Tabela pessoa alterada com sucesso";
                         }
 
-
+                alterarEndereco($idPessoaALuno, $aluno); 
+                
+                $idPessoaResponsavel = mysql_query("SELECT  `pessoa`.`idPessoa` FROM  `responsavel`,  `pessoa`, aluno WHERE  `responsavel`.`idPessoa` = `pessoa`.`idPessoa` AND `responsavel`.`idResponsavel`= `aluno`.`idResponsavel` AND `aluno`.`idAluno`= ".$idAluno." ;");
+                
+                alterarResponsavel($idPessoaResponsavel,$responsavel);
 
         }
 
 
 
-        public function alterarEndereco($idPessoa){
+        public function alterarEndereco($idPessoa,Aluno $aluno){
+                $obj_conecta = new bd();
+                $obj_conecta->conecta();
+                $obj_conecta->seleciona_bd();
 
                 $idEndereco = mysql_query("SELECT `endereco_pessoa`.`idEndereco` FROM `endereco_pessoa` WHERE `endereco_pessoa`.`idPessoa
                     ` = ".$idPessoa.";");
+                
+                $enderecoAluno = $aluno->getEndereco();
 
                 $sql = "UPDATE `sigar`.`endereco` SET `cep` = '".$enderecoAluno->getCep()."',`logradouro` = '".$enderecoAluno->getLogradouro()."',`numero` = ".$enderecoAluno->getNumeroCasa().",`complemento` = '".$enderecoAluno->getComplemento()."',`bairro` = '".$enderecoAluno->getBairro()."',`cidade` = '".$enderecoAluno->getCidade()."',`referencia` = '".$enderecoAluno->getReferencia()."',`uf` = '".$enderecoAluno->getUf()."' WHERE `endereco`.`idendereco` = ".$idEndereco.";"; 
 
@@ -159,7 +182,7 @@ class AlunoDAO  {
         }
 
 
-        //Metodo a ser vai associar a nova pessoa ao Endereço já existente
+        //Metodo a ser  vai associar a nova pessoa ao Endereço já existente
 
         public function inserirMesmoEndereco($idPessoa,$idEndereco){
 
@@ -167,8 +190,11 @@ class AlunoDAO  {
 
         }
 
-
-        public function alterarResponsavel($idPessoaResponsavel){
+        //Fazer o alterar endereco responsavel
+        public function alterarResponsavel($idPessoaResponsavel,  Responsavel $responsavel){
+                $obj_conecta = new bd();
+                $obj_conecta->conecta();
+                $obj_conecta->seleciona_bd();
 
                 $sql = "UPDATE  `sigar`.`responsavel` SET  `categoria` =  '".$responsavel->getCategoria()."', `telefoneTrabalho` =  '".$responsavel->getTelTrabalho()."' WHERE  `responsavel`.`idPessoa` =".$idPessoaResponsavel.";";
 
@@ -199,6 +225,9 @@ class AlunoDAO  {
 
 
         public function deletarAluno($idPessoaAluno){
+                $obj_conecta = new bd();
+                $obj_conecta->conecta();
+                $obj_conecta->seleciona_bd();
 
                 $sql ="SELECT  `aluno`.`idAluno` FROM  `usuario`, `aluno` WHERE  `usuario`.`idUsuario` = `aluno`.`idUsuario` AND `usuario`.`idPessoa`= ".$idPessoaAluno." ;";
 
@@ -254,7 +283,8 @@ class AlunoDAO  {
                                 echo "Dados tabela PESSOA deletado com sucesso";
                         }
 
-
+                $idPessoaResponsavel = mysql_query("SELECT  `pessoa`.`idPessoa` FROM  `responsavel`,  `pessoa`, aluno WHERE  `responsavel`.`idPessoa` = `pessoa`.`idPessoa` AND `responsavel`.`idResponsavel`= `aluno`.`idResponsavel` AND `aluno`.`idAluno`= ".$idAluno." ;");       
+                deletarResponsavel($idPessoaResponsavel);
 
                 //Não deletar o endereço pois pode estar sendo utilizado por outra pessoa
 
@@ -262,6 +292,9 @@ class AlunoDAO  {
 
 
         public function deletarResponsavel($idPessoaResponsavel){
+                $obj_conecta = new bd();
+                $obj_conecta->conecta();
+                $obj_conecta->seleciona_bd();
 
                 $sql = "SELECT  `responsavel`.`idResponsavel` FROM  `responsavel` WHERE  `responsavel`.`idPessoa` = ".$idPessoaResponsavel." ;";
                 $idResponsavel = mysql_query($sql);

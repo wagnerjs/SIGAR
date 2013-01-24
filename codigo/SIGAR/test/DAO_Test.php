@@ -66,6 +66,9 @@ class DAOTest extends PHPUnit_Framework_TestCase{
         $aluno_dao = new AlunoDao();
        
        $this->assertEquals('1', $aluno_dao->salvarAluno($this->aluno_obj,$this->responsavel_obj,$this->user_obj));
+        //$this->assertEquals('1', $aluno_dao->listarAlunos());
+       //$this->assertEquals('1', $aluno_dao->alterarAluno(42));
+       
     }
     
 }
