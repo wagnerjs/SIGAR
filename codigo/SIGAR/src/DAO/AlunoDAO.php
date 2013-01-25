@@ -1,7 +1,7 @@
 <?php
 
-require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
-require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
+require_once "D:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
+require_once "D:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
 
 class AlunoDAO  {
     
@@ -96,8 +96,8 @@ class AlunoDAO  {
         }
     
     
-
-        public function alterarAluno(int $idPessoaAluno,Aluno $aluno, User $user, Responsavel $responsavel){
+        
+        public function alterarAluno($idPessoaAluno,Aluno $aluno, User $user, Responsavel $responsavel){
                 $obj_conecta = new bd();
                 $obj_conecta->conecta();
                 $obj_conecta->seleciona_bd();
@@ -106,77 +106,118 @@ class AlunoDAO  {
                 $idUsuario = mysql_query($sql);
                     if(mysql_num_rows($idUsuario)==0)
                     {
-                        $idUsuario="Nada encontrado!";
+                        $idUsuario="Nada encontrado!++++";
                     }
 
 
                 $sql = "UPDATE `aluno` SET  `anoEscolar` =  '".$aluno->getAnoEscolar()."',`escola` =  '".$aluno->getEscola()."' WHERE  `aluno`.`idUsuario` =".$idPessoaAluno."; "; 
 
-                $altera = mysql_query($sql);
-
-                        if($altera){
-
-                        }
-                        else {
-                                echo "Tabela aluno alterado com sucesso";
-                        }
-
-
-                $sql = "UPDATE `usuario` SET  `login` =  `".$user->getLogin()."`, `senha` = `".$user->getSenha()."` WHERE  `usuario`.`idPessoa` = ".$idPessoaALuno.";";
-
-                $altera = mysql_query($sql);
-
-                        if($altera){
-
-                        }
-                        else {
-                                echo "Tabela usuario alterado com sucesso";
-                        }
-
-
-                $sql = "UPDATE  `pessoa` SET  `nome` =  `".$aluno->getNome()."`, `email` =  `".$aluno->getEmail()."`, 
-                    `telefoneResidencial` =  `".$aluno->get_telefoneResidencial()."`, `telefoneCelular` =  `".$aluno->getCelular()."`, `sexo` =  `".$aluno->getSexo()."`, `dataNascimento` =  `".$aluno->getNascimento()."`, 
-                        `cpf` =  `NULL` WHERE  `pessoa`.`idPessoa` =".$idPessoaAluno." ;";
-
-                $altera = mysql_query($sql);
-
-                        if($altera){
-
-                        }
-                        else {
-                                echo "Tabela pessoa alterada com sucesso";
-                        }
-
-                alterarEndereco($idPessoaALuno, $aluno); 
+                $alteraTabAluno = mysql_query($sql);
                 
-                $idPessoaResponsavel = mysql_query("SELECT  `pessoa`.`idPessoa` FROM  `responsavel`,  `pessoa`, aluno WHERE  `responsavel`.`idPessoa` = `pessoa`.`idPessoa` AND `responsavel`.`idResponsavel`= `aluno`.`idResponsavel` AND `aluno`.`idAluno`= ".$idAluno." ;");
+                if($alteraTabAluno){
+                     //echo "Tabela aluno alterado com sucesso+++++";
+                }
+                else {
+                      echo "ERRO alteração tabela aluno+++++++++";         
+                }
+
+
+                $sql = "UPDATE `usuario` SET  `login` =  '".$user->getLogin()."', `senha` = '".$user->getSenha()."' WHERE  `usuario`.`idPessoa` = ".$idPessoaAluno.";";
+
+                $alteraTabUsuario = mysql_query($sql);
                 
-                alterarResponsavel($idPessoaResponsavel,$responsavel);
+                if($alteraTabUsuario){
+                     //echo "<br> Tabela Usuario alterado com sucesso <br>";
+                }
+                else {
+                      echo "<br> ERRO alteração tabela USUARIO <br>";         
+                }
+     
+                $sql = "UPDATE  `pessoa` SET  `nome` =  '".$aluno->getNome()."', `email` =  '".$aluno->getEmail()."', 
+                    `telefoneResidencial` =  '".$aluno->getTelefoneResidencial()."', `telefoneCelular` =  '".$aluno->getCelular()."', `sexo` =  '".$aluno->getSexo()."', `dataNascimento` =  '".$aluno->getNascimento()."', 
+                        `cpf` =  'NULL' WHERE  `pessoa`.`idPessoa` =".$idPessoaAluno." ;";
+
+               $alteraTabPessoa = mysql_query($sql);
+                
+                if($alteraTabPessoa){
+                     //echo "<br>Tabela Pessoa alterado com sucesso........IDPESSOAaLUNO=[".$idPessoaAluno."]<br>";
+                }
+                else {
+                      echo "<br>ERRO alteração tabela PESSOA......IDPESSOAaLUNO=[".$idPessoaAluno."]<br>";         
+                }
+                
+                echo "<br>IdPessoaAluno = [".$idPessoaAluno."] <br><br>";
+                
+                $this->alterarEndereco($idPessoaAluno, $aluno); 
+                
+                $sql ="SELECT  `aluno`.`idAluno` FROM  `usuario`, `aluno` WHERE  `usuario`.`idUsuario` = `aluno`.`idUsuario` AND `usuario`.`idPessoa`= ".$idPessoaAluno." ;";
+                $resultadoAluno = mysql_query($sql);
+                $idAluno = 0;
+                while($aux = mysql_fetch_array($resultadoAluno)){
+                    $idAluno = $aux['idAluno'];
+                }
+                
+                if(mysql_num_rows($resultadoAluno)==0)
+                {
+                      echo "<br> NENHUM ALUNO encontrado! <br>";
+                }
+                else{
+                    echo "<br> IDALUNO=".$idAluno." <br>";
+                }
+                $sql = "SELECT  `pessoa`.`idPessoa` FROM  `responsavel`,  `pessoa`, aluno WHERE  `responsavel`.`idPessoa` = `pessoa`.`idPessoa` AND `responsavel`.`idResponsavel`= `aluno`.`idResponsavel` AND `aluno`.`idAluno`= ".$idAluno." ;";
+                $resultadoResponsavel = mysql_query($sql);
+                $idPessoaResponsavel = 0;
+                while($aux = mysql_fetch_array($resultadoResponsavel)){
+                    $idPessoaResponsavel = $aux['idPessoa'];
+                }
+                
+                echo "<br> IdPessoaResponsavel = [".$idPessoaResponsavel."] <br><br>";
+                
+                $this->alterarResponsavel($idPessoaResponsavel,$responsavel);
+                
+                $linha = mysql_affected_rows();
+
+                return $linha;
 
         }
 
 
 
-        public function alterarEndereco($idPessoa,Aluno $aluno){
+        public function alterarEndereco($idPessoaAluno,Aluno $aluno){
+                
                 $obj_conecta = new bd();
                 $obj_conecta->conecta();
                 $obj_conecta->seleciona_bd();
-
-                $idEndereco = mysql_query("SELECT `endereco_pessoa`.`idEndereco` FROM `endereco_pessoa` WHERE `endereco_pessoa`.`idPessoa
-                    ` = ".$idPessoa.";");
+                
+                echo "<br> Chegou no metodo IdPessoaAluno = [".$idPessoaAluno."] <br><br>";
+                
+                $sql = "SELECT `endereco_pessoa`.`idEndereco` FROM `endereco_pessoa` WHERE `endereco_pessoa`.`idPessoa` = ".$idPessoaAluno.";";
+                $resulltadoEndereco = mysql_query($sql);
+                $idEndereco = 0;
+                while($aux = mysql_fetch_array($resulltadoEndereco)){
+                    $idEndereco = $aux['idEndereco'];
+                }
+                
+                if(mysql_num_rows($resulltadoEndereco)==0)
+                {
+                      echo "<br> NENHUM ENDERECO encontrado! POSSIVELIDENDERECO=".$idEndereco." <br>";
+                }
+                else{
+                    echo "<br> IDENDERECO=".$idEndereco." <br> ";
+                }
                 
                 $enderecoAluno = $aluno->getEndereco();
 
                 $sql = "UPDATE `sigar`.`endereco` SET `cep` = '".$enderecoAluno->getCep()."',`logradouro` = '".$enderecoAluno->getLogradouro()."',`numero` = ".$enderecoAluno->getNumeroCasa().",`complemento` = '".$enderecoAluno->getComplemento()."',`bairro` = '".$enderecoAluno->getBairro()."',`cidade` = '".$enderecoAluno->getCidade()."',`referencia` = '".$enderecoAluno->getReferencia()."',`uf` = '".$enderecoAluno->getUf()."' WHERE `endereco`.`idendereco` = ".$idEndereco.";"; 
-
-                $altera = mysql_query($sql);
-
-                        if($altera){
-
-                        }
-                        else {
-                                echo "Tabela endereco alterada com sucesso";
-                        }
+                
+                echo "<br>Comando ALTERA SQL: ".$sql." <br><br>";
+                $alteraTabEndereco = mysql_query($sql);
+                if($alteraTabEndereco){
+                     echo "<br> Tabela ENDERECO alterado com sucesso <br>";
+                }
+                else {
+                      echo "<br> ERRO alteração tabela ENDERECO <br>";         
+                }
 
 
         }
@@ -195,30 +236,30 @@ class AlunoDAO  {
                 $obj_conecta = new bd();
                 $obj_conecta->conecta();
                 $obj_conecta->seleciona_bd();
+                
+                echo "<br> Chegou no metodo IdPessoaResponsavel = [".$idPessoaResponsavel."] <br><br>";
 
                 $sql = "UPDATE  `sigar`.`responsavel` SET  `categoria` =  '".$responsavel->getCategoria()."', `telefoneTrabalho` =  '".$responsavel->getTelTrabalho()."' WHERE  `responsavel`.`idPessoa` =".$idPessoaResponsavel.";";
 
-                $altera = mysql_query($sql);
+                $alteraTabResponsavel = mysql_query($sql);
+                if($alteraTabResponsavel){
+                     echo "<br> Tabela RESPONSAVEL alterado com sucesso <br>";
+                }
+                else {
+                      echo "<br> ERRO alteração tabela RESPONSAVEL <br>";         
+                }
 
-                        if($altera){
 
-                        }
-                        else {
-                                echo "Tabela responsavel alterada com sucesso";
-                        }
+                $sql = "UPDATE  `pessoa` SET  `nome` =  '".$responsavel->getNome()."', `email` =  '".$responsavel->getEmail()."', `telefoneResidencial` =  '".$responsavel->getTelefoneResidencial()."', 
+                    `telefoneCelular` =  '".$responsavel->getCelular()."', `sexo` =  '".$responsavel->getSexo()."', `dataNascimento` =  '".$responsavel->getNascimento()."', `cpf` =  '".$responsavel->getCpf()."' WHERE  `pessoa`.`idPessoa` = ".$idPessoaResponsavel.";";
 
-
-                $sql = "UPDATE  `pessoa` SET  `nome` =  `".$responsavel->getNome()."`, `email` =  `".$responsavel->getEmail()."`, `telefoneResidencial` =  `".$responsavel->get_telefoneResidencial()."`, 
-                    `telefoneCelular` =  `".$responsavel->getCelular()."`, `sexo` =  `".$responsavel->getSexo()."`, `dataNascimento` =  `".$responsavel->getNascimento()."`, `cpf` =  `".$responsavel->getCpf()."` WHERE  `pessoa`.`idPessoa` = ".$IdPessoaResponsavel.";";
-
-                $altera = mysql_query($sql);
-
-                        if($altera){
-
-                        }
-                        else {
-                                echo "mysql_error()";
-                        }
+                $alteraTabPessoaResp = mysql_query($sql);
+                if($alteraTabPessoaResp){
+                     echo " <br> Tabela PESSOARESPONSAVEL alterado com sucesso <br>";
+                }
+                else {
+                      echo "<br> EROO alteração tabela PESSOARESPONSAVEL <br>";         
+                }
 
         }
 
