@@ -87,5 +87,10 @@ class AlunoCrtl {
             return $this->_res;
         }
         
+        public function listarAlunoAjax($alunoID) {            
+            $alunoDAO = new AlunoDAO();
+            return $alunoDAO->listarAluno($alunoID);          
+        }
+        
 }     
 ?>

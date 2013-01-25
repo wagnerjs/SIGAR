@@ -96,6 +96,39 @@ class AlunoDAO  {
 
             return $res;
         }
+        
+         public function listarAluno($alunoID){
+            //Cria a conexão com o banco de dados
+            $obj_conecta = new bd();
+                $obj_conecta->conecta();
+                $obj_conecta->seleciona_bd();
+                
+            /*
+            $sql = "SELECT  `pessoa`.`nome` ,  `pessoa`.`email` ,  `aluno`.`escola` ,`pessoa`.`dataNascimento`, `pessoa`.`sexo`, `pessoa`.`telefoneResidencial` , `aluno`.`anoEscolar` 
+            FROM  `pessoa` ,  `aluno` ,  `usuario` 
+            WHERE  `aluno`.`idUsuario` =  `usuario`.`idUsuario` 
+            AND  `usuario`.`idPessoa` =  `pessoa`.`idPessoa` "; 
+            */
+             
+            $sql = "SELECT `pessoa`.* , `aluno`.* , `endereco`.*, `responsavel`.*
+                    FROM `pessoa` , `aluno` , `usuario` , `endereco`, `responsavel`
+                    WHERE `aluno`.`idUsuario` = `usuario`.`idUsuario` 
+                    AND `usuario`.`idPessoa` = `pessoa`.`idPessoa` 
+                    AND `aluno`.`idResponsavel` = `responsavel`.`idResponsavel` 
+                    AND `endereco`.`idEndereco` IN (SELECT `idEndereco` FROM `endereco_pessoa` WHERE `endereco_pessoa`.`idPessoa` = `pessoa`.`idPessoa`)
+                    AND `aluno`.`idAluno` = $alunoID "; 
+                      
+            $res= mysql_query($sql);
+
+            if(mysql_num_rows($res)==0)
+                $res="Nada encontrado!";
+            else
+                $res = mysql_fetch_array ($res);
+
+            $obj_conecta->fechaConexao();
+
+            return $res;
+        }
     
         public function  selecionarIdUsuario($idPessoaAluno){
                 $this->criarConexao();

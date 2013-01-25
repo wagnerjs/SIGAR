@@ -39,6 +39,9 @@
   <link href="css/estilo.css" rel="stylesheet" media="screen">
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.valid8.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.maskedinput-1.3.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.quicksearch.js"></script>
   <script src="js/base.js"></script>
 </head>
 

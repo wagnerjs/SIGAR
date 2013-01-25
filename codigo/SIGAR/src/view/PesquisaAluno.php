@@ -33,68 +33,13 @@
 <body>
 
 
-<a href="#dialog" name="modal">View Consulta</a>
-
 <div id="boxes">
-
-<div id="dialog" class="window">
-    <div>
-    <a href="#"class="close"/>Fechar</a>
-
-    <b>Nome:</b> <span id="consNome"> José </span> <b>Sexo:</b> <span id="consSex"> M </span>
-    <br/>
-    <b>Data de nascimento:</b> <span id="consData"> 10/12/1990 </span>
-    <br/>
-    <b>Email:</b> <span id="consMail"> jose@gmail.com </span>
-    <br/>
-    <b>Tel. Residencial:</b> <span id="consTelRes"> (61)3458-8796 </span>
-    <br/>
-    <b>Tel. Celular:</b> <span id="consTelCel"> (61)3458-8796 </span>
-    <br/>
-    <b>Ano Escolar:</b> <span id="consAno"> 1º Ano do Ensino Médio </span>
-    <br/>
-    <b>Escola:</b> <span id="consEscola"> Leonardo da Vinci </span>
-    <br/>
-    <b>Logradouro:</b> <span id="consLogradouro"> Teste </span>
-    <br/>
-    <b>Nº:</b> <span id="consN"> 16 </span>
-    <br/>
-    <b>Complemento:</b> <span id="consComp"> Teste </span>
-    <br/>
-    <b>Bairro:</b> <span id="consBairro"> Teste </span>
-    <br/>
-    <b>Cidade:</b> <span id="consCidade"> Teste </span>
-    <br/>
-    <b>UF:</b><span id="consUF"> DF </span> <b>CEP:</b> <span id="consCEP"> 85454148 </span>
-    <br/>
-    <b>Referência:</b> <span id="consRef"> Teste </span>
-    <br/><br/>
-    <b>Dados do responsável</b>
-    <hr/>
-    <b>Nome:</b> <span id="consNomeRes"> José </span> <b>Sexo:</b> <span id="consSexRes"> M </span>
-    <br/>
-    <b>Data de nascimento:</b> <span id="consDataRes"> Teste </span>
-    <br/>
-    <b>Parentesco:</b> <span id="consParent"> Teste </span>
-    <br/>
-    <b>CPF:</b> <span id="consCPF"> Teste </span>
-    <br/>
-    <b>Email:</b> <span id="consMailRes"> jose@gmail.com </span>
-    <br/>
-    <b>Tel. Residencial:</b> <span id="consTelResRes"> (61)3458-8796 </span>
-    <br/>
-    <b>Tel. Celular:</b> <span id="consTelCelRes"> (61)3458-8796 </span>
-    <br/>
-    <b>Tel. Trabalho:</b> <span id="consTelTrab"> (61)3458-8796 </span>
-    <br/>
-    <br/>
-    <input type="button" name="editar" id="editar" />
-    <input type="button" name="excluir" id="excluir" />    
+    <div id="dialog" class="window">
+        <a href="#" class="close" />Fechar</a>
+        <div id="ajaxContainer">
+        </div>
     </div>
-</div>
-
-<!-- Mask to cover the whole screen -->
-  <div id="mask"></div>
+<div id="mask"></div>
 </div>
         <div class="container">
             <a href="telaPrincipal.php"><img src="img/logo.png" vspace="50"/></a>
@@ -133,7 +78,7 @@
                                         for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
                                     ?>
                                     <tr>
-                                        <td><a href="#"><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
+                                        <td><a href="#" onClick="abrirModal(<?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'idAluno'));?>)"><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
                                         <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'email'); ?></td>
                                         <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'escola');?></td>
                                         <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'anoEscolar');?></td>
