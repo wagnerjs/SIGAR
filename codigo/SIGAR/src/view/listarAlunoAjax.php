@@ -6,7 +6,10 @@
     $res = $AlunoCtrl->listarAlunoAjax($_GET["alunoID"]); 
     
     if(isset($_POST['excluir'])){
-        $AlunoCtrl->apagarAluno($_GET["alunoID"]);        
+        $retorno -> $AlunoCtrl->apagarAluno($_GET["alunoID"]);
+        if($retorno>1){
+            $resposta = "<font color=green><b>Aluno deletado com sucesso!</b></font>";
+        }
     }
 ?>
 
