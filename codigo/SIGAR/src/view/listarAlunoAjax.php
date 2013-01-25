@@ -3,7 +3,11 @@
     require_once '../controller/AlunoCtrl.php';
         
     $AlunoCtrl = new AlunoCrtl();
-    $res = $AlunoCtrl->listarAlunoAjax($_GET["alunoID"]);   
+    $res = $AlunoCtrl->listarAlunoAjax($_GET["alunoID"]); 
+    
+    if(isset($_POST['excluir'])){
+        $AlunoCtrl->apagarAluno($_GET["alunoID"]);        
+    }
 ?>
 
        

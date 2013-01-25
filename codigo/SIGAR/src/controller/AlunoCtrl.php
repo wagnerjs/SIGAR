@@ -83,6 +83,14 @@ class AlunoCrtl {
             $this->_res = $alunoDAO->listarAlunos();
         }
         
+        public function apagarAluno($idPessoaAluno){
+            $alunoDAO = new AlunoDAO();
+            $alunoDAO->deletarAluno($idPessoaAluno);
+        }
+        
+    
+       
+        
         public function getResposta() {
             return $this->_res;
         }
