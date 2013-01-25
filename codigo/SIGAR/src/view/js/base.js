@@ -1,8 +1,33 @@
 /**
  * @author Fellype
  */
+function abrirModal(id) {
+    $.get('http://localhost/SIGAR/codigo/SIGAR/src/view/listarAlunoAjax.php',
+    { alunoID : id},
+    function(data) {
+        $("#ajaxContainer").html(data);
+        $('a[name=modal]').click();
+    })
+}
+
 
 $(document).ready(function(){
+    
+    $('#login input').focus(function(){ 
+    if (this.value==this.defaultValue) {
+            this.value='';
+    }
+   		
+    $('#login input').css('color','#3c3c3c');
+    });
+        
+    $('#login input').focusout(function(){
+             if (this.value=='') {
+                     this.value=this.defaultValue;
+                     $('#login input').css('color','#9393aa');
+             }
+
+     });
     
     $('#inputDataNasc,#inputDataNascResp').mask("99/99/9999");
     $('#inputTelRes,#inputTelResp').mask("(99)9999-9999");
@@ -93,24 +118,7 @@ $(document).ready(function(){
 	 
 	});
     
-    $('input#id_search').quicksearch('table#table_example tbody tr');
-    
-    $('#login input').focus(function(){ 
-    if (this.value==this.defaultValue) {
-            this.value='';
-    }
-   		
-    $('#login input').css('color','#3c3c3c');
-    });
-        
-    $('#login input').focusout(function(){
-             if (this.value=='') {
-                     this.value=this.defaultValue;
-                     $('#login input').css('color','#9393aa');
-             }
-
-     });
-    
+    $('input#id_search').quicksearch('table#table_example tbody tr');    
     
     $('#cadEnv').click(function(event){
         alert('Are input fields valid? ' + $('input').isValid());
