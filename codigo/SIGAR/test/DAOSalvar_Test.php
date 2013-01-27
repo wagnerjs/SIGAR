@@ -11,7 +11,7 @@ require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Responsavel.class.php
 /**
  * @author Guilherme Baufaker  <gbre.111@gmail.com>
  */
-class DAOTest extends PHPUnit_Framework_TestCase{
+class DAOSalvar_Test extends PHPUnit_Framework_TestCase{
      
     protected $aluno_obj; 
     protected $endereco_obj;
@@ -20,9 +20,9 @@ class DAOTest extends PHPUnit_Framework_TestCase{
     
     public function setUp()
     {
-        $logradouro = 'QE 32 CONJUNTO H';
+        $logradouro = 'SMPW 21 CONJUNTO 3';
         $cep = '710283832';
-        $bairro = 'Guara';
+        $bairro = 'PARK WWAY';
         $cidade = 'Brasilia';
         $complemento = 'casa';
         $numero = '19';
@@ -30,7 +30,7 @@ class DAOTest extends PHPUnit_Framework_TestCase{
         $referencia = 'Brasilia';
         
         
-       $nomeResp = 'Pai do Aluno';
+       $nomeResp = 'EDSON ALVES';
        $sexoResp = 'm';
        $cpf = '012.202.033-21';
        $telResResp='(61)3301-3239'; 
@@ -38,16 +38,16 @@ class DAOTest extends PHPUnit_Framework_TestCase{
        $telCelResp = '(61)3301-3239';
        $categoria = 'pai';
        $nascimentoResp = '1990-11-12';
-       $emailResp = 'pai@emai.com.br';
+       $emailResp = 'EDSONSALVER@emai.com.br';
        
-       $nome = 'Aluno de teste';
+       $nome = 'hilmer';
        $sexo = 'm';
-       $email = 'gbre';
+       $email = 'HILMER@GMAIL.COM';
        $nascimento = '1995-11-24';
-       $anoEscolar = '3 ano';
-       $telResidencial = '(61)3301-3239';
-       $telCelular = '(61)9332-1292';
-       $escola = 'Sigma';
+       $anoEscolar = '2 ano';
+       $telResidencial = '(61)3321-3030';
+       $telCelular = '(61)9999-8699';
+       $escola = 'FGA';
        
        $this->endereco_obj=new Endereco($logradouro,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
        $this->user_obj = new User();
@@ -61,15 +61,22 @@ class DAOTest extends PHPUnit_Framework_TestCase{
      * @test
      *
      */
-    public function TestDAO()
+    public function TestSalvarAlunoDAO()
     {
         $aluno_dao = new AlunoDao();
        
        $this->assertEquals('1', $aluno_dao->salvarAluno($this->aluno_obj,$this->responsavel_obj,$this->user_obj));
-        //$this->assertEquals('1', $aluno_dao->listarAlunos());
-       //$this->assertEquals('1', $aluno_dao->alterarAluno(42));
+      // $this->assertEquals('1', $aluno_dao->listarAlunos());    
        
     }
-    
+    /*
+       public function TestListarAlunoDAO()
+    {
+        $aluno_dao = new AlunoDao();
+        $this->assertEquals('1', $aluno_dao->listarAlunos());     
+    }
+     * 
+     */
+
 }
 ?>

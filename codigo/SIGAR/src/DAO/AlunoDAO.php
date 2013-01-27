@@ -6,7 +6,9 @@ require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
 class AlunoDAO  {
     
     protected $_res;
-    
+    protected $_obj_conecta;
+
+
     public function salvarAluno(Aluno $aluno, Responsavel $responsavel, User $user) {
         //Cria a conexão com o banco de dados
         $obj_conecta = new bd();
@@ -128,56 +130,101 @@ class AlunoDAO  {
             return $res;
         }
     
-    
+        public function  selecionarIdUsuario($idPessoaAluno){
+                $this->criarConexao();
+             
+                $sql = "SELECT  `usuario`.`idUsuario` FROM  `usuario`,  `pessoa` WHERE  `usuario`.`idPessoa` = `pessoa`.`idPessoa` AND `pessoa`.`idPessoa`= ".$idPessoaAluno." ;";
+                $resultadoIdUsuario = mysql_query($sql);
+                echo  "ECHO APERECE: ".$resultadoIdUsuario." <<<<<<<";
+                $idUsuario = 0;
+                while($aux = mysql_fetch_array($resultadoIdUsuario)){
+                    $idUsuario = $aux['idUsuario'];
+                }
+                if(mysql_num_rows($resultadoIdUsuario)==0)
+                {
+                    $idUsuario="Nada encontrado!++++";
+                }
+                return $idUsuario;            
+        }
         
-        public function alterarAluno($idPessoaAluno,Aluno $aluno, User $user, Responsavel $responsavel){
-                $obj_conecta = new bd();
-                $obj_conecta->conecta();
-                $obj_conecta->seleciona_bd();
+        public function alterarAlunoBanco($idPessoaAluno,Aluno $aluno){
+            $retorno = 0;
+            $this->criarConexao();
+            
+            $idUsuario = $this->selecionarIdUsuario($idPessoaAluno);
+            
+            $sql = "UPDATE `aluno` SET  `anoEscolar` =  '".$aluno->getAnoEscolar()."',`escola` =  '".$aluno->getEscola()."' WHERE  `aluno`.`idUsuario` =".$idUsuario."; "; 
+                            
+            $alteraTabAluno = mysql_query($sql);
+            
+            if($alteraTabAluno){
+                echo "ENTROU NO IF";
+                $retorno = $retorno + 1;
+            }
+            else {
+               //Aluno não pode ser alterado         
+            }
+                   
+            return $retorno; 
+        }
+        
+        public function alterarUsuario($idPessoaAluno,User $user){
+            $retorno = 0;
+            $this->criarConexao();
+            
+            $sql = "UPDATE `usuario` SET  `login` =  '".$user->getLogin()."', `senha` = '".$user->getSenha()."' WHERE  `usuario`.`idPessoa` = ".$idPessoaAluno.";";
 
-                $sql ="SELECT  `usuario`.`idUsuario` FROM  `usuario`,  `pessoa` WHERE  `usuario`.`idPessoa` = `pessoa`.`idPessoa` AND `pessoa`.`idPessoa`= ".$idPessoaAluno." ;";
-                $idUsuario = mysql_query($sql);
-                    if(mysql_num_rows($idUsuario)==0)
-                    {
-                        $idUsuario="Nada encontrado!++++";
-                    }
-
-
-                $sql = "UPDATE `aluno` SET  `anoEscolar` =  '".$aluno->getAnoEscolar()."',`escola` =  '".$aluno->getEscola()."' WHERE  `aluno`.`idUsuario` =".$idPessoaAluno."; "; 
-
-                $alteraTabAluno = mysql_query($sql);
-                
-                if($alteraTabAluno){
-                     //echo "Tabela aluno alterado com sucesso+++++";
-                }
-                else {
-                      echo "ERRO alteração tabela aluno+++++++++";         
-                }
-
-
-                $sql = "UPDATE `usuario` SET  `login` =  '".$user->getLogin()."', `senha` = '".$user->getSenha()."' WHERE  `usuario`.`idPessoa` = ".$idPessoaAluno.";";
-
-                $alteraTabUsuario = mysql_query($sql);
-                
-                if($alteraTabUsuario){
-                     //echo "<br> Tabela Usuario alterado com sucesso <br>";
-                }
-                else {
-                      echo "<br> ERRO alteração tabela USUARIO <br>";         
-                }
-     
-                $sql = "UPDATE  `pessoa` SET  `nome` =  '".$aluno->getNome()."', `email` =  '".$aluno->getEmail()."', 
+            $alteraTabUsuario = mysql_query($sql);
+            echo "<alteraTAB>".$alteraTabUsuario."<alteraTAB>";
+   
+            if($alteraTabUsuario){
+                $retorno++;
+            }
+            else {
+               //Usuario não pode ser alterado         
+            }
+            
+            return $retorno; 
+        }
+        
+        public function alterarPessoaAluno($idPessoaAluno,Aluno $aluno){
+            $retorno = 0;
+            $this->criarConexao();
+            
+            $sql = "UPDATE  `pessoa` SET  `nome` =  '".$aluno->getNome()."', `email` =  '".$aluno->getEmail()."', 
                     `telefoneResidencial` =  '".$aluno->getTelefoneResidencial()."', `telefoneCelular` =  '".$aluno->getCelular()."', `sexo` =  '".$aluno->getSexo()."', `dataNascimento` =  '".$aluno->getNascimento()."', 
                         `cpf` =  'NULL' WHERE  `pessoa`.`idPessoa` =".$idPessoaAluno." ;";
 
-               $alteraTabPessoa = mysql_query($sql);
+            $alteraTabPessoa = mysql_query($sql);
+                      
+            if($alteraTabPessoa){
+                $retorno++;
+            }
+            else {
+               //Pessoa não pode ser alterado         
+            }
+            
+            return $retorno; 
+        }
+        public function criarConexao(){
+            $this->obj_conecta = new bd();
+            $this->obj_conecta->conecta();
+            $this->obj_conecta->seleciona_bd();
+          
+        }
+
+        public function alterarAluno($idPessoaAluno,Aluno $aluno, User $user, Responsavel $responsavel){
+                $this->criarConexao();
                 
-                if($alteraTabPessoa){
-                     //echo "<br>Tabela Pessoa alterado com sucesso........IDPESSOAaLUNO=[".$idPessoaAluno."]<br>";
-                }
-                else {
-                      echo "<br>ERRO alteração tabela PESSOA......IDPESSOAaLUNO=[".$idPessoaAluno."]<br>";         
-                }
+                $idUsuario = $this->selecionarIdUsuario($idPessoaAluno);
+                              
+                $retorno = $this->alterarAlunoBanco($idUsuario,$aluno);
+               
+                $retorno = $retorno + $this->alterarUsuario($idPessoaAluno,$user);
+                                   
+                $retorno = $retorno + $this->alterarPessoaAluno($idPessoaAluno,$aluno);
+                    
+                   
                 
                 echo "<br>IdPessoaAluno = [".$idPessoaAluno."] <br><br>";
                 
@@ -207,10 +254,8 @@ class AlunoDAO  {
                 echo "<br> IdPessoaResponsavel = [".$idPessoaResponsavel."] <br><br>";
                 
                 $this->alterarResponsavel($idPessoaResponsavel,$responsavel);
-                
-                $linha = mysql_affected_rows();
 
-                return $linha;
+                return $retorno;
 
         }
 
@@ -292,8 +337,8 @@ class AlunoDAO  {
                 }
                 else {
                       echo "<br> EROO alteração tabela PESSOARESPONSAVEL <br>";         
-                }
-
+                }                
+             
         }
 
 
@@ -349,6 +394,7 @@ class AlunoDAO  {
                 $sql = "DELETE FROM `sigar`.`pessoa` WHERE `pessoa`.`idPessoa` = ".$idPessoaAluno." ;";
 
                 $deleta = mysql_query($sql);
+                $retorno = mysql_affected_rows();
 
                         if($deleta){
 
@@ -358,9 +404,11 @@ class AlunoDAO  {
                         }
 
                 $idPessoaResponsavel = mysql_query("SELECT  `pessoa`.`idPessoa` FROM  `responsavel`,  `pessoa`, aluno WHERE  `responsavel`.`idPessoa` = `pessoa`.`idPessoa` AND `responsavel`.`idResponsavel`= `aluno`.`idResponsavel` AND `aluno`.`idAluno`= ".$idAluno." ;");       
-                deletarResponsavel($idPessoaResponsavel);
+                $this->deletarResponsavel($idPessoaResponsavel);
 
                 //Não deletar o endereço pois pode estar sendo utilizado por outra pessoa
+                
+                return $retorno;
 
         }
 

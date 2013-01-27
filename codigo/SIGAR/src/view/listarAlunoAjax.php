@@ -3,7 +3,14 @@
     require_once '../controller/AlunoCtrl.php';
         
     $AlunoCtrl = new AlunoCrtl();
-    $res = $AlunoCtrl->listarAlunoAjax($_GET["alunoID"]);   
+    $res = $AlunoCtrl->listarAlunoAjax($_GET["alunoID"]); 
+    
+    if(isset($_POST['excluir'])){
+        $retorno -> $AlunoCtrl->apagarAluno($_GET["alunoID"]);
+        if($retorno>1){
+            $resposta = "<font color=green><b>Aluno deletado com sucesso!</b></font>";
+        }
+    }
 ?>
 
        
