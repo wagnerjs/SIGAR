@@ -129,20 +129,66 @@ class AlunoDAO  {
 
             return $res;
         }
-    
+        
+        public function listarResponsavel($alunoID){
+            //Cria a conexão com o banco de dados
+            $this->criarConexao();
+                            
+            $sql = "SELECT `pessoa`.*, `responsavel`.*, `endereco`.* 
+                    FROM `aluno`,`pessoa`,`responsavel`,`endereco`  
+                    WHERE `aluno`.`idResponsavel` = `responsavel`.`idResponsavel` 
+                    AND `responsavel`.`idPessoa` = `pessoa`.`idPessoa` 
+                    AND `endereco`.`idEndereco` IN 
+                    (SELECT `idEndereco` FROM `endereco_pessoa` 
+                    WHERE `endereco_pessoa`.`idPessoa` = `pessoa`.`idPessoa`)
+                    AND `aluno`.`idAluno` = ".$alunoID.";"; 
+                      
+            $res= mysql_query($sql);
+
+            if(mysql_num_rows($res)==0)
+            {
+                $res="Nada encontrado!";
+            }                
+            else{
+                $res = mysql_fetch_array ($res);
+            }
+                
+            $this->fechaConexao();
+
+            return $res;
+        }      
+                
+        public function selecionarIdPessoaAluno($idAluno)    {
+            $this->criarConexao();
+            
+            $sql = "SELECT `pessoa`.`idPessoa` FROM `pessoa` , `usuario` , `aluno`
+                WHERE `usuario`.`idPessoa` = `pessoa`.`idPessoa`
+                AND `aluno`.`idUsuario` = `usuario`.`idUsuario`
+                AND `aluno`.`idAluno` =".$idAluno.";";
+            $resultadoIdAluno =  mysql_query($sql);
+            $idAluno = 0;
+            while($aux = mysql_fetch_array($resultadoIdAluno)){
+                $idAluno = $aux['idPessoa'];
+            }
+            if(mysql_num_rows($resultadoIdAluno)== 0){
+                $idAluno= "Nada encontrado! ";//Nenhum IdAluno encontrado
+            }
+            
+            return $idAluno;
+            
+        }
         public function  selecionarIdUsuario($idPessoaAluno){
                 $this->criarConexao();
              
                 $sql = "SELECT  `usuario`.`idUsuario` FROM  `usuario`,  `pessoa` WHERE  `usuario`.`idPessoa` = `pessoa`.`idPessoa` AND `pessoa`.`idPessoa`= ".$idPessoaAluno." ;";
                 $resultadoIdUsuario = mysql_query($sql);
-                echo  "ECHO APERECE: ".$resultadoIdUsuario." <<<<<<<";
                 $idUsuario = 0;
                 while($aux = mysql_fetch_array($resultadoIdUsuario)){
                     $idUsuario = $aux['idUsuario'];
                 }
                 if(mysql_num_rows($resultadoIdUsuario)==0)
                 {
-                    $idUsuario="Nada encontrado!++++";
+                    $idUsuario="Nada encontrado!";
                 }
                 return $idUsuario;            
         }
@@ -158,7 +204,6 @@ class AlunoDAO  {
             $alteraTabAluno = mysql_query($sql);
             
             if($alteraTabAluno){
-                echo "ENTROU NO IF";
                 $retorno = $retorno + 1;
             }
             else {
@@ -212,7 +257,11 @@ class AlunoDAO  {
             $this->obj_conecta->seleciona_bd();
           
         }
-
+        
+        public function fecharConexao(){
+            $this->obj_conecta->fecharConexao();
+        }
+        
         public function alterarAluno($idPessoaAluno,Aluno $aluno, User $user, Responsavel $responsavel){
                 $this->criarConexao();
                 
@@ -223,11 +272,7 @@ class AlunoDAO  {
                 $retorno = $retorno + $this->alterarUsuario($idPessoaAluno,$user);
                                    
                 $retorno = $retorno + $this->alterarPessoaAluno($idPessoaAluno,$aluno);
-                    
-                   
-                
-                echo "<br>IdPessoaAluno = [".$idPessoaAluno."] <br><br>";
-                
+                                   
                 $this->alterarEndereco($idPessoaAluno, $aluno); 
                 
                 $sql ="SELECT  `aluno`.`idAluno` FROM  `usuario`, `aluno` WHERE  `usuario`.`idUsuario` = `aluno`.`idUsuario` AND `usuario`.`idPessoa`= ".$idPessoaAluno." ;";
