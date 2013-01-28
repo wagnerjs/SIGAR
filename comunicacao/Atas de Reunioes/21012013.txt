@@ -13,6 +13,6 @@ Realizado
 	- Realizar consulta de aluno
 	- Editar aluno
 	- Excluir aluno
-- Definição de uma treinamento online sobre o SCRUM
+- Definição de um treinamento online sobre o SCRUM
 
 Fim : 00h10

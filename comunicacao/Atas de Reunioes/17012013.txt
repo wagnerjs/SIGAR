@@ -3,6 +3,7 @@ Hora: 12h10
 Tipo: Presencial
 Presentes: Alex, Fellype, Hebert, Rafael, Matheus, Wagner, Guilherme
 
+Objetivo
 - Elaboração do projeto na ferramenta ScrumWise
 - Elaboração de itens do Backlog alinhadas as entregas
 - Proposta de elaborar dojo para treinamento de teste

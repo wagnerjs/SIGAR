@@ -1,0 +1,12 @@
+Data: 28/01/2013
+Hora: ??
+Tipo: Skype
+Presentes: 
+
+Objetivo
+- Realizar Sprint Review 1
+- Realizar Retrospectiva da Sprint 1
+- Realizar Planejamento da Sprint 2
+
+
+Fim: ??
