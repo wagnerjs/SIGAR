@@ -11,17 +11,37 @@ require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Responsavel.class.php
 /**
  * @author Guilherme Baufaker  <gbre.111@gmail.com>
  */
-class DAODeletar_Test extends PHPUnit_Framework_TestCase{
+class DAOListar_Test extends PHPUnit_Framework_TestCase{
+     
+
+    protected $idPessoaAluno;
+    protected $idAluno;
+
+
+    public function setUp()
+    {
+
+       
+       $this->idPessoaAluno = 21;
+       $this->idAluno = 9;
+       
+    }
+    
     
     /**
      * @test
      *
      */
-
-    public function TestDeletarAlunoDAO(){
+    
+    public function TestSelecionarAlunoDAO(){
         $aluno_dao = new AlunoDAO();
-        $this->assertEquals('1',$aluno_dao->deletarAluno(53));
- 
+        //$this->assertEquals('10',$aluno_dao->listarAluno($this->idAluno));
+        //$this->assertEquals('10',$aluno_dao->listarResponsavel($this->idAluno));
+        $this->assertEquals('21',$aluno_dao->selecionarIdPessoaAluno($this->idAluno));
+        $this->assertEquals('10',$aluno_dao->selecionarIdUsuario($this->idPessoaAluno)); 
     }
+    
+    
+    
 }
 ?>
