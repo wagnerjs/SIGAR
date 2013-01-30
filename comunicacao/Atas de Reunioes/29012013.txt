@@ -1,0 +1,12 @@
+Data: 28/01/2013
+Hora: 22h00
+Tipo: Skype
+Presentes: Alex, Guilherme, Hebert, Matheus, Rafael, Wagner
+
+Objetivo
+- Realizar estimativa da Sprint 2 - Planning Poker
+- Definir atividades das histórias
+
+Os objetivos definidos foram realizados.
+
+Fim: 23h40
