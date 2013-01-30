@@ -71,11 +71,11 @@
                                 </thead>
                                     <tbody>
                                     <?php
-                                    $AlunoCtrl = new AlunoCrtl();
-                                        $AlunoCtrl->listarAluno();
+                                        $AlunoCtrl = new AlunoCrtl();
+                                            $AlunoCtrl->listarAluno();
 
-                                    if(mysql_num_rows($AlunoCtrl->getResposta())>0){
-                                        for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
+                                        if(mysql_num_rows($AlunoCtrl->getResposta())>0){
+                                            for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
                                     ?>
                                     <tr>
                                         <td><a href="#" onClick="abrirModal(<?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'idAluno'));?>)"><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
