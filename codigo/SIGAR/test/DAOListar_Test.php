@@ -22,8 +22,8 @@ class DAOListar_Test extends PHPUnit_Framework_TestCase{
     {
 
        
-       $this->idPessoaAluno = 21;
-       $this->idAluno = 9;
+       $this->idPessoaAluno = 12;
+       $this->idAluno = 1;
        
     }
     
@@ -37,8 +37,8 @@ class DAOListar_Test extends PHPUnit_Framework_TestCase{
         $aluno_dao = new AlunoDAO();
         //$this->assertEquals('10',$aluno_dao->listarAluno($this->idAluno));
         //$this->assertEquals('10',$aluno_dao->listarResponsavel($this->idAluno));
-        $this->assertEquals('21',$aluno_dao->selecionarIdPessoaAluno($this->idAluno));
-        $this->assertEquals('10',$aluno_dao->selecionarIdUsuario($this->idPessoaAluno)); 
+        $this->assertEquals('10',$aluno_dao->selecionarIdPessoaAluno($this->idAluno));
+        $this->assertEquals('12',$aluno_dao->selecionarIdUsuario($this->idPessoaAluno)); 
     }
     
     

@@ -395,14 +395,16 @@ class AlunoDAO  {
 
                 $sql ="SELECT  `aluno`.`idAluno` FROM  `usuario`, `aluno` WHERE  `usuario`.`idUsuario` = `aluno`.`idUsuario` AND `usuario`.`idPessoa`= ".$idPessoaAluno." ;";
 
-                $idAluno = mysql_query($sql);
+                $resultadoAluno = mysql_query($sql);
+                while ($aux = mysql_fetch_array($resultadoAluno)){
+                    $idAluno = $aux['idAluno'];
+                }
 
                 $sql = "DELETE FROM `sigar`.`aluno` WHERE `aluno`.`idAluno` = ".$idAluno.";"; 
 
                 $deleta = mysql_query($sql);
 
                         if($deleta){
-
                         }
                         else {
                                 echo "Dados tabela aluno deletado com sucesso";
@@ -419,13 +421,19 @@ class AlunoDAO  {
                         }
 
                 $sql = "SELECT  `endereco_pessoa`.`idEndereco_Pessoa` FROM  `sigar`.`endereco_pessoa` WHERE  `endereco_pessoa`.`idPessoa` =".$idPessoaAluno.";";
-                $idEnderecoPessoa = mysql_query($sql);
+                $resultadoEnderecoPessoa = mysql_query($sql);
+                while ($aux = mysql_fetch_array($resultadoEnderecoPessoa)){
+                    $idEndereco_Pessoa = $aux['idEndereco_Pessoa'];
+                }
 
                 $sql = "SELECT  `endereco_pessoa`.`idEndereco` FROM  `sigar`.`endereco_pessoa` WHERE  `endereco_pessoa`.`idPessoa` =".$idPessoaAluno.";";
 
-                $idEndereco = mysql_query($sql);
+                $resultadoEndereco = mysql_query($sql);
+                while ($aux = mysql_fetch_array($resultadoEndereco)){
+                    $idEndereco = $aux['idEndereco'];
+                }
 
-                $sql = "DELETE FROM `sigar`.`endereco_pessoa` WHERE `endereco_pessoa`.`idEndereco_Pessoa` = ".$idEnderecoPessoa." ;" ;
+                $sql = "DELETE FROM `sigar`.`endereco_pessoa` WHERE `endereco_pessoa`.`idEndereco_Pessoa` = ".$idEndereco_Pessoa." ;" ;
 
                 $deleta = mysql_query($sql);
 

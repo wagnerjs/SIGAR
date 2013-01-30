@@ -50,7 +50,7 @@ class DAOAlterar_Test extends PHPUnit_Framework_TestCase{
        $telCelular = '(61)8193-7487';
        $escola = 'UNB DARgjgg';
        
-       $this->idPessoaAluno = 21;
+       $this->idPessoaAluno = 12;
        
        $this->endereco_obj=new Endereco($logradouro,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
        $this->user_obj = new User();
