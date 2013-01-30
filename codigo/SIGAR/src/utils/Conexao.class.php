@@ -1,5 +1,5 @@
 <?php
-//Classe de conexï¿½o com o banco de dados
+//Classe de conexão com o banco de dados
 class bd
 {
 	//Atributos privados da classe bd
@@ -9,21 +9,17 @@ class bd
 	private $_bd = 'sigar';
 	private $_conexao;
 
-	//Mï¿½todo de conexï¿½o com o banco de dados
+	//Método de conexão com o banco de dados
 	public function conecta(){
 		$this->_conexao = mysql_connect($this->_host,$this->_usuario,$this->_senha);
-                mysql_query("SET NAMES 'utf8'");
-                mysql_query('SET character_set_connection=utf8');
-                mysql_query('SET character_set_client=utf8');
-                mysql_query('SET character_set_results=utf8');
 	}
 
-	//Mï¿½todo de seleï¿½ï¿½o do banco de dados
+	//Método de seleção do banco de dados
 	public function seleciona_bd(){
 		mysql_select_db($this->_bd,$this->_conexao);
 	}
 
-	//Mï¿½todo que fecha a conexï¿½o com o banco de dados
+	//Método que fecha a conexão com o banco de dados
 	public function fechaConexao(){
 		mysql_close($this->_conexao);
 	}
