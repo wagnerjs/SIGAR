@@ -61,7 +61,7 @@ class ProfessorDAO  {
             
         }
 
-        public function deletarProfessor($idPessoaProfessor){
+        public function deletarAluno($idPessoaProfessor){
                 $obj_conecta = new bd();
                 $obj_conecta->conecta();
                 $obj_conecta->seleciona_bd();
