@@ -79,12 +79,12 @@
                                     ?>
                                     <tr>
                                         <td><a href="#" onClick="abrirModal(<?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'idAluno'));?>)"><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
-                                        <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'email'); ?></td>
-                                        <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'escola');?></td>
-                                        <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'anoEscolar');?></td>
-                                        <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'dataNascimento');?></td>
-                                        <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'sexo'); ?></td>
-                                        <td><?php echo mysql_result($AlunoCtrl->getResposta(),$i,'telefoneResidencial');?></td>
+                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'email')); ?></td>
+                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'escola'));?></td>
+                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'anoEscolar'));?></td>
+                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'dataNascimento'));?></td>
+                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'sexo')); ?></td>
+                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'telefoneResidencial'));?></td>
                                     </tr>
                                     <?php
                                         }
