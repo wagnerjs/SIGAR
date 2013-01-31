@@ -60,8 +60,7 @@ class ProfessorDAO  {
             return $listaMateria;
             
         }
-        
-<<<<<<< HEAD
+
         public function deletarAluno($idPessoaProfessor){
                 $obj_conecta = new bd();
                 $obj_conecta->conecta();
@@ -108,8 +107,5 @@ class ProfessorDAO  {
                 return $retorno;
 
         }
-        
-=======
->>>>>>> 786f20055168c67d44e15e7460a5ed80695deb5e
 }
 ?>
