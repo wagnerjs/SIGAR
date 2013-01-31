@@ -78,7 +78,7 @@
                                         for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
                                     ?>
                                     <tr>
-                                        <td><a href="#" onClick="abrirModal(<?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'idAluno'));?>)"><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
+                                        <td><a href="#" onClick="abrirModal(<?php echo mysql_result($AlunoCtrl->getResposta(),$i,'idAluno');?>)"><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'email')); ?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'escola'));?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'anoEscolar'));?></td>
