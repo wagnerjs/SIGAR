@@ -38,24 +38,24 @@ class CTRLValidaAluno_Test extends PHPUnit_Framework_TestCase {
         $referencia = 'Brasilia';
         
        
-       $mesmoEnd = 'nao';
-       $nomeResp = 'EDSON ALVES';
+       $mesmoEnd = 'sim';
+       $nomeResp = 'JOAOOOOO';
        $sexoResp = 'm';
-       $cpf = '012.202.033-21';
-       $telResResp='(61)3301-3239'; 
-       $telefoneTrabalho = '(61)3301-3239';
-       $telCelResp = '(61)3301-3239';
+       $cpf = '24445312134';
+       $telResResp='6133013239'; 
+       $telefoneTrabalho = '6133013239';
+       $telCelResp = '6133013239';
        $categoria = 'pai';
-       $nascimentoResp = '1990-11-12';
-       $emailResp = 'EDSONSALVER@emai.com.br';
+       $nascimentoResp = '19901112';
+       $emailResp = 'EDSONSALVER@email.com.br';
        
        $nome = 'Hilmer';
        $sexo = 'm';
-       $email = 'HILMER@GMAIL.COM';
-       $nascimento = '1995-11-24';
+       $email = 'HILMER@GMAILl.COM';
+       $nascimento = '19951124';
        $anoEscolar = '2 ano';
-       $telResidencial = '(61)3321-3030';
-       $telCelular = '(61)9999-8699';
+       $telResidencial = '6133213030';
+       $telCelular = '6199998699';
        $escola = 'FGA';
        
        $enderecoResp = "";
