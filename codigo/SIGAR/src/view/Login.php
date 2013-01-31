@@ -1,6 +1,6 @@
 <?php
-	include 'validaSession.php';
-	include_once '../utils/conexao.class.php';
+	require  'ValidaSession.php';
+	require_once '../utils/Conexao.class.php';
 
 	if(isset($_POST['enviar'])){
 		$obj_conecta = new bd;
@@ -39,6 +39,9 @@
   <link href="css/estilo.css" rel="stylesheet" media="screen">
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.valid8.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.maskedinput-1.3.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.quicksearch.js"></script>
   <script src="js/base.js"></script>
 </head>
 

@@ -1,0 +1,19 @@
+Data: 17/01/2013
+Hora: 12h10
+Tipo: Presencial
+Presentes: Alex, Fellype, Hebert, Rafael, Matheus, Wagner, Guilherme
+
+Objetivo
+- Elaboração do projeto na ferramenta ScrumWise
+- Elaboração de itens do Backlog alinhadas as entregas
+- Proposta de elaborar dojo para treinamento de teste
+- Utilizar Planing Poker
+
+Fim: 13h10
+
+- Comentário do professor
+	Cada aluno de MDS deve pegar uma história e desenvolver ela até o final
+					(programação em pares não é obrigatória)
+	Aceitação de cobertura 90% (- interface)
+	Tracking: Acompanhamento do proejeto (medições)
+	Scrum Master rotativo (sugestão)

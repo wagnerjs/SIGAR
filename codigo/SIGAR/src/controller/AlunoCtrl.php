@@ -7,65 +7,126 @@ require_once '../model/Responsavel.class.php';
 require_once '../model/User.class.php';
        
 class AlunoCrtl {
-        protected $_nomeAluno;
-        protected $_sexoAluno;
-        protected $_nascimentoAluno;
-        protected $_emailAluno;
-        protected $_telResidencial;
-        protected $_telCelular;
-        protected $_anoEscolar;
-        protected $_escola;
-        
-        protected $_nomeResp;
-        protected $_categoria;
-        protected $_cpfResp;
-        protected $_emailResp;
-        protected $_telResResp;
-        protected $_sexoResp;
-        protected $_nascimentoResp;
-        protected $_telCelResp;
-        protected $_telTrabResp;
 
-        protected $_mesmoEnd;
-        
-        protected $_endereco;
-        protected $_numero;
-        protected $_complemento;
-        protected $_bairro;
-        protected $_cidade;
-        protected $_uf;
-        protected $_cep;
-        protected $_referencia;
-
-        protected $_enderecoResp;
-        protected $_numeroResp;
-        protected $_complementoResp;
-        protected $_bairroResp;
-        protected $_cidadeResp;
-        protected $_ufResp;
-        protected $_cepResp;
-        protected $_referenciaResp;
         protected $_res;
         
-        public function instanciarAluno()
-        {
-            if($this->_mesmoEnd == "sim"){
-                $endereco_obj = new Endereco($this->_endereco,$this->_cep,$this->_bairro,$this->_cidade,$this->_complemento,$this->_numero,$this->_uf,$this->_referencia);
-                $responsavel_obj = new Responsavel($this->_nomeResp,$this->_emailResp,$this->_telResResp, $this->_telCelResp, $this->_sexoResp, $this->_nascimentoResp, $this->_cpfResp, $this->_categoria, $this->_telTrabResp, $endereco_obj );
-            }   
-            else{
-                $endereco_obj = new Endereco($this->_endereco,$this->_cep,$this->_bairro,$this->_cidade,$this->_complemento,$this->_numero,$this->_uf,$this->_referencia);
-                $endereco_obj_resp = new Endereco($this->_enderecoResp,$this->_cepResp,$this->_bairroResp,$this->_cidadeResp,$this->_complementoResp,$this->_numeroResp,$this->_ufResp,$this->_referenciaResp);
-                $responsavel_obj = new Responsavel($this->_nomeResp,$this->_emailResp,$this->_telResResp, $this->_telCelResp, $this->_sexoResp, $this->_nascimentoResp, $this->_cpfResp, $this->_categoria, $this->_telTrabResp, $endereco_obj_resp );
+        public function validaAluno($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
+                                        $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
+                                        $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
+                                        $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp){
+            $res = 0;
+            
+            $validaAluno = new validacaoAluno();
+            $res = $res + $validaAluno->valida_escola($_escola);
+            $res = $res + $validaAluno->valida_ano_escolar($_anoEscolar);
+            
+            $validaEndereco = new validacaoEndereco();
+            $res = $res + $validaEndereco->valida_logradouro($_endereco);
+            $res = $res + $validaEndereco->valida_numero_casa($_numero);
+            $res = $res + $validaEndereco->valida_bairro($_bairro);
+            $res = $res + $validaEndereco->valida_cidade($_cidade);
+            $res = $res +$validaEndereco->valida_cep($_cep);
+            
+            $res = $res + $validaEndereco->valida_logradouro($_enderecoResp);
+            $res = $res + $validaEndereco->valida_numero_casa($_numeroResp);
+            $res = $res + $validaEndereco->valida_bairro($_bairroResp);
+            $res = $res + $validaEndereco->valida_cidade($_cidadeResp);
+            $res = $res +$validaEndereco->valida_cep($_cepResp);
+            
+            $validaPessoa = new validacaoPessoa();
+            $res = $res + $validaPessoa->valida_nome($_nomeAluno);
+            $res = $res + $validaPessoa->valida_email($_emailAluno);
+            $res = $res + $validaPessoa->valida_telefone($_telCelular);
+            $res = $res + $validaPessoa->valida_telefone($_telResidencial);
+            $res = $res + $validaPessoa->valida_telefone_resid($_telResidencial);
+            
+            $res = $res + $validaPessoa->valida_nome($_nomeResp);
+            $res = $res + $validaPessoa->valida_email($_emailResp);
+            $res = $res + $validaPessoa->valida_telefone($_telCelResp);
+            $res = $res + $validaPessoa->valida_telefone($_telResResp);
+            $res = $res + $validaPessoa->valida_telefone($_telTrabResp);
+            $res = $res + $validaPessoa->valida_telefone_resid($_telResResp);
+            
+            $validaResp = new validacaoResponsavel();
+            $res = $res + $validaResp->validacpf($_cpfResp);
+            $res = $res + $validaResp->cpf_repetido($_cpfResp);
+          
+            if($res==0){
+                $this->instanciarAluno($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
+                                        $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
+                                        $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
+                                        $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp);
             }
+            
+        }
+        
+        
+        
+        public function instanciarAluno($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
+                                        $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
+                                        $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
+                                        $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp)
+        {
+        
+            $endereco_aluno = new Endereco($_endereco,$_cep,$_bairro,$_cidade,$_complemento,$_numero,$_uf,$_referencia);
+            $endereco_responsavel = new Endereco($_enderecoResp,$_cepResp,$_bairroResp,$_cidadeResp,$_complementoResp,$_numeroResp,$_ufResp,$_referenciaResp);
+
+
+            $objeto_Resp = new Responsavel();
+            $enderecoResp = $objeto_Resp->verifica_Endereco_Responsavel($endereco_aluno, $endereco_responsavel,$_mesmoEnd);
+
+            $responsavel_obj = new Responsavel($_nomeResp,$_emailResp,$_telResResp, $_telCelResp, $_sexoResp, $_nascimentoResp, $_cpfResp, $_categoria, $_telTrabResp, $enderecoResp );
+
 
             $user_obj = new User();
-            $aluno_obj = new Aluno ($this->_nomeAluno,$this->_sexoAluno,$this->_nascimentoAluno,$this->_emailAluno,$this->_anoEscolar,$this->_telResidencial,$this->_telCelular,$this->_escola,$endereco_obj, $responsavel_obj, $user_obj);
-            $user_obj = $aluno_obj->get_usuario();
+            $user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
+            $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_aluno, $responsavel_obj, $user_objeto);
+
 
             $alunoDAO = new AlunoDAO();
 
-            $alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_obj);
+            if ($alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_objeto) == '1')
+            {
+                return 'Cadastro Efetuado Com Sucesso';
+            }
+             else {
+                 return 'Cadastro Não Foi Eftuado Com Sucesso';
+             }
+            
+            
+        }
+        
+        public function instanciarAlunoAlterar($idPessoaAluno,$_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
+                                        $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
+                                        $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
+                                        $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp)
+        {
+        
+            $endereco_aluno = new Endereco($_endereco,$_cep,$_bairro,$_cidade,$_complemento,$_numero,$_uf,$_referencia);
+            $endereco_responsavel = new Endereco($_enderecoResp,$_cepResp,$_bairroResp,$_cidadeResp,$_complementoResp,$_numeroResp,$_ufResp,$_referenciaResp);
+
+
+            $objeto_Resp = new Responsavel();
+            $enderecoResp = $objeto_Resp->verifica_Endereco_Responsavel($endereco_aluno, $endereco_responsavel,$_mesmoEnd);
+
+            $responsavel_obj = new Responsavel($_nomeResp,$_emailResp,$_telResResp, $_telCelResp, $_sexoResp, $_nascimentoResp, $_cpfResp, $_categoria, $_telTrabResp, $enderecoResp );
+
+
+            $user_obj = new User();
+            $user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
+            $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_aluno, $responsavel_obj, $user_objeto);
+
+
+            $alunoDAO = new AlunoDAO();
+            if($alunoDAO->alterarAluno($idPessoaAluno, $aluno_obj, $user_objeto, $responsavel_obj) == '1')
+            {
+                return 'Cadastro Efetuado Com Sucesso';
+            }
+             else {
+                 return 'Cadastro Não Foi Eftuado Com Sucesso';
+             }
+            
+            
         }
         
         public function listarAluno()
@@ -74,280 +135,25 @@ class AlunoCrtl {
             $this->_res = $alunoDAO->listarAlunos();
         }
         
+        public function listarResponsavel($alunoID)
+        {
+            $alunoDAO = new AlunoDAO();
+            $this->_res = $alunoDAO->listarResponsavel($alunoID);
+        }
+        
+        public function apagarAluno($idPessoaAluno){
+            $alunoDAO = new AlunoDAO();
+            $alunoDAO->deletarAluno($idPessoaAluno);
+        }
+
         public function getResposta() {
             return $this->_res;
         }
         
-        public function getNomeAluno() {
-            return $this->_nomeAluno;
-        }
-
-        public function setNomeAluno($nomeAluno) {
-            $this->_nomeAluno = $nomeAluno;
-        }
-
-        public function getSexoAluno() {
-            return $this->_sexoAluno;
-        }
-
-        public function setSexoAluno($sexoAluno) {
-            $this->_sexoAluno = $sexoAluno;
-        }
-
-        public function getNascimentoAluno() {
-            return $this->_nascimentoAluno;
-        }
-
-        public function setNascimentoAluno($nascimentoAluno) {
-            $this->_nascimentoAluno = $nascimentoAluno;
-        }
-
-        public function getEmailAluno() {
-            return $this->_emailAluno;
-        }
-
-        public function setEmailAluno($emailAluno) {
-            $this->_emailAluno = $emailAluno;
-        }
-
-        public function getTelResidencial() {
-            return $this->_telResidencial;
-        }
-
-        public function setTelResidencial($telResidencial) {
-            $this->_telResidencial = $telResidencial;
-        }
-
-        public function getTelCelular() {
-            return $this->_telCelular;
-        }
-
-        public function setTelCelular($telCelular) {
-            $this->_telCelular = $telCelular;
-        }
-
-        public function getAnoEscolar() {
-            return $this->_anoEscolar;
-        }
-
-        public function setAnoEscolar($anoEscolar) {
-            $this->_anoEscolar = $anoEscolar;
-        }
-
-        public function getEscola() {
-            return $this->_escola;
-        }
-
-        public function setEscola($escola) {
-            $this->_escola = $escola;
-        }
-
-        public function getNomeResp() {
-            return $this->_nomeResp;
-        }
-
-        public function setNomeResp($nomeResp) {
-            $this->_nomeResp = $nomeResp;
-        }
-
-        public function getCategoria() {
-            return $this->_categoria;
-        }
-
-        public function setCategoria($categoria) {
-            $this->_categoria = $categoria;
-        }
-
-        public function getCpfResp() {
-            return $this->_cpfResp;
-        }
-
-        public function setCpfResp($cpfResp) {
-            $this->_cpfResp = $cpfResp;
-        }
-
-        public function getEmailResp() {
-            return $this->_emailResp;
-        }
-
-        public function setEmailResp($emailResp) {
-            $this->_emailResp = $emailResp;
-        }
-
-        public function getTelResResp() {
-            return $this->_telResResp;
-        }
-
-        public function setTelResResp($telResResp) {
-            $this->_telResResp = $telResResp;
-        }
-
-        public function getSexoResp() {
-            return $this->_sexoResp;
-        }
-
-        public function setSexoResp($sexoResp) {
-            $this->_sexoResp = $sexoResp;
-        }
-
-        public function getNascimentoResp() {
-            return $this->_nascimentoResp;
-        }
-
-        public function setNascimentoResp($nascimentoResp) {
-            $this->_nascimentoResp = $nascimentoResp;
-        }
-
-        public function getTelCelResp() {
-            return $this->_telCelResp;
-        }
-
-        public function setTelCelResp($telCelResp) {
-            $this->_telCelResp = $telCelResp;
-        }
-
-        public function getTelTrabResp() {
-            return $this->_telTrabResp;
-        }
-
-        public function setTelTrabResp($telTrabResp) {
-            $this->_telTrabResp = $telTrabResp;
-        }
-
-        public function getMesmoEnd() {
-            return $this->_mesmoEnd;
-        }
-
-        public function setMesmoEnd($mesmoEnd) {
-            $this->_mesmoEnd = $mesmoEnd;
-        }
-
-        public function getEndereco() {
-            return $this->_endereco;
-        }
-
-        public function setEndereco($endereco) {
-            $this->_endereco = $endereco;
-        }
-
-        public function getNumero() {
-            return $this->_numero;
-        }
-
-        public function setNumero($numero) {
-            $this->_numero = $numero;
-        }
-
-        public function getComplemento() {
-            return $this->_complemento;
-        }
-
-        public function setComplemento($complemento) {
-            $this->_complemento = $complemento;
-        }
-
-        public function getBairro() {
-            return $this->_bairro;
-        }
-
-        public function setBairro($bairro) {
-            $this->_bairro = $bairro;
-        }
-
-        public function getCidade() {
-            return $this->_cidade;
-        }
-
-        public function setCidade($cidade) {
-            $this->_cidade = $cidade;
-        }
-
-        public function getUf() {
-            return $this->_uf;
-        }
-
-        public function setUf($uf) {
-            $this->_uf = $uf;
-        }
-
-        public function getCep() {
-            return $this->_cep;
-        }
-
-        public function setCep($cep) {
-            $this->_cep = $cep;
-        }
-
-        public function getReferencia() {
-            return $this->_referencia;
-        }
-
-        public function setReferencia($referencia) {
-            $this->_referencia = $referencia;
-        }
-
-        public function getEnderecoResp() {
-            return $this->_enderecoResp;
-        }
-
-        public function setEnderecoResp($enderecoResp) {
-            $this->_enderecoResp = $enderecoResp;
-        }
-
-        public function getNumeroResp() {
-            return $this->_numeroResp;
-        }
-
-        public function setNumeroResp($numeroResp) {
-            $this->_numeroResp = $numeroResp;
-        }
-
-        public function getComplementoResp() {
-            return $this->_complementoResp;
-        }
-
-        public function setComplementoResp($complementoResp) {
-            $this->_complementoResp = $complementoResp;
-        }
-
-        public function getBairroResp() {
-            return $this->_bairroResp;
-        }
-
-        public function setBairroResp($bairroResp) {
-            $this->_bairroResp = $bairroResp;
-        }
-
-        public function getCidadeResp() {
-            return $this->_cidadeResp;
-        }
-
-        public function setCidadeResp($cidadeResp) {
-            $this->_cidadeResp = $cidadeResp;
-        }
-
-        public function getUfResp() {
-            return $this->_ufResp;
-        }
-
-        public function setUfResp($ufResp) {
-            $this->_ufResp = $ufResp;
-        }
-
-        public function getCepResp() {
-            return $this->_cepResp;
-        }
-
-        public function setCepResp($cepResp) {
-            $this->_cepResp = $cepResp;
-        }
-
-        public function getReferenciaResp() {
-            return $this->_referenciaResp;
-        }
-
-        public function setReferenciaResp($referenciaResp) {
-            $this->_referenciaResp = $referenciaResp;
-        }
+        public function listarAlunoAjax($alunoID) {            
+            $alunoDAO = new AlunoDAO();
+            return $alunoDAO->listarAluno($alunoID);          
+        }
+        
 }     
 ?>

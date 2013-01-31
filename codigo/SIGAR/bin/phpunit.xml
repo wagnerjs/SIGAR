@@ -1,10 +1,19 @@
 <phpunit bootstrap="./bootstrap.php" colors="true">
     <testsuite name="Testes">
-        <directory>./</directory>
+        <directory>../test</directory>
     </testsuite>
     <filter>
         <whitelist>
-            <directory suffix=".php">../</directory>
+            <directory suffix=".php">../src/model</directory>
+             <directory suffix=".php">../src/DAO</directory>
+              <directory suffix=".php">../src/controller</directory>
+               <directory suffix=".php">../src/exception</directory>
+                <directory suffix=".php">../src/utils</directory>
         </whitelist>
+        
+        <exclude>
+        <directory suffix=".php">../bin</directory>
+        <file>bootstrap.php</file>
+      </exclude>
     </filter>
 </phpunit>

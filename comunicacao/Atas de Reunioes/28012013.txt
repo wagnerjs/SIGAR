@@ -1,0 +1,14 @@
+Data: 28/01/2013
+Hora: 23h00
+Tipo: Skype
+Presentes: Alex, Guilherme, Hebert, Matheus, Rafael, Wagner
+
+Objetivo
+- Realizar Sprint Review 1
+- Realizar Retrospectiva da Sprint 1
+
+Realizado
+- Elaboração da revisão e da retrospectiva da Sprint 1
+- Agendamento de Sprint Planning para 29/01/2013 22h
+
+Fim: 0h30

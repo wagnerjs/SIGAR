@@ -20,17 +20,14 @@ class Responsavel extends Pessoa {
         $this->setSexo($sexo);
         $this->setNascimento($nascimento);
         $this->setEmail($emailResp);
-        $this->set_telefoneResidencial($telResResp);
+        $this->setTelefoneResidencial($telResResp);
         $this->setCelular($telCelResp);
-        $this->set_endereco($endereco_obj);
+        $this->setEndereco($endereco_obj);
         $this->setCpf($cpf);
         $this->_categoria = $categoria;
         $this->_telTrabalho = $telefoneTrabalho;
     }
-    
-    public function setCategoria($_categoria) {
-        $this->_categoria = $_categoria;
-    }
+
 
     public function setCpf($_cpf) {
         $this->_cpf = $_cpf;
@@ -44,14 +41,23 @@ class Responsavel extends Pessoa {
         return $this->_cpf;
     }
 
-    public function setTelTrabalho($_telTrabalho) {
-        $this->_telTrabalho = $_telTrabalho;
-    }
-
     public function getTelTrabalho() {
         return $this->_telTrabalho;
     }
+    
+    public function verifica_Endereco_Responsavel($enderecoAluno, $enderecoResponsavel,$mesmoEndereco){
 
+            if($mesmoEndereco == "sim"){
+                    $enderecoResponsavel = $enderecoAluno;
+            }   
+            else{
+                    //Não altera o objeto com o enereço de responsavel        
+            }
+
+
+
+            return $enderecoResponsavel;
+    }
 }
 
 ?>

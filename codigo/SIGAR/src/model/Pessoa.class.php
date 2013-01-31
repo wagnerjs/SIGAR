@@ -14,17 +14,12 @@ abstract class Pessoa
         public function getCpf() {
             return $this->_cpf;
         }
-
-        public function setCpf($_cpf) {
-            $this->_cpf = $_cpf;
-        }
-
-        	
-        public function get_endereco() {
+        
+        public function getEndereco() {
             return $this->_endereco;
         }
 
-        public function set_endereco($_endereco) {
+        public function setEndereco($_endereco) {
             $this->_endereco = $_endereco;
         }
 
@@ -75,11 +70,11 @@ abstract class Pessoa
 	{
 		return $this->_email;
 	}
-	public function get_telefoneResidencial() {
+	public function getTelefoneResidencial() {
             return $this->_telefoneResidencial;
         }
 
-        public function set_telefoneResidencial($_telefoneResidencial) {
+        public function setTelefoneResidencial($_telefoneResidencial) {
             $this->_telefoneResidencial = $_telefoneResidencial;
         }
 
