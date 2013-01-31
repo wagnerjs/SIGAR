@@ -1,5 +1,7 @@
 <?php
 
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/ValidacaoDAO.php';
+
 class validacaoPessoa {
         protected $_res_nome;
         protected $_res_email;

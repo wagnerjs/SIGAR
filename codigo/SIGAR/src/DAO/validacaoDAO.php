@@ -39,7 +39,7 @@ class validacaoDAO {
 			FROM
 				`usuario`
 			WHERE
-				cpf = '$this->$cpf'";
+				cpf = '$cpf'";
 		mysql_query( $sql );
                 
                 $linhas_afetadas = mysql_affected_rows();

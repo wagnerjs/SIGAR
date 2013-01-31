@@ -65,7 +65,7 @@ class validacaoResponsavel {
         return $erro;
     }
 
-    function cpf_repetido() {
+    function cpf_repetido($_cpf) {
         $obj_validacaoDAO = new validacaoDAO;
         $_cpf = str_replace('.', '', $_cpf);
         $_cpf = str_replace('-', '', $_cpf);

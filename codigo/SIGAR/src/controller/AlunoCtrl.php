@@ -1,10 +1,14 @@
 <?php
-require_once '../DAO/AlunoDAO.php';
-require_once '../model/Aluno.class.php';
-require_once '../model/Endereco.class.php';
-require_once '../model/Pessoa.class.php';
-require_once '../model/Responsavel.class.php';
-require_once '../model/User.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/AlunoDAO.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Aluno.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Pessoa.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Responsavel.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/User.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/exception/ValidacaoAluno.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/exception/ValidacaoEndereco.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/exception/ValidacaoPessoa.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/exception/ValidacaoResponsavel.php';
        
 class AlunoCrtl {
 
@@ -27,11 +31,11 @@ class AlunoCrtl {
             $res = $res + $validaEndereco->valida_cidade($_cidade);
             $res = $res +$validaEndereco->valida_cep($_cep);
             
-            $res = $res + $validaEndereco->valida_logradouro($_enderecoResp);
-            $res = $res + $validaEndereco->valida_numero_casa($_numeroResp);
-            $res = $res + $validaEndereco->valida_bairro($_bairroResp);
-            $res = $res + $validaEndereco->valida_cidade($_cidadeResp);
-            $res = $res +$validaEndereco->valida_cep($_cepResp);
+            $res = $res + $validaEndereco->valida_logradouro_resp($_enderecoResp, $_mesmoEnd);
+            $res = $res + $validaEndereco->valida_numero_casa_resp($_numeroResp, $_mesmoEnd);
+            $res = $res + $validaEndereco->valida_bairro_resp($_bairroResp, $_mesmoEnd);
+            $res = $res + $validaEndereco->valida_cidade_resp($_cidadeResp, $_mesmoEnd);
+            $res = $res +$validaEndereco->valida_cep_resp($_cepResp, $_mesmoEnd);
             
             $validaPessoa = new validacaoPessoa();
             $res = $res + $validaPessoa->valida_nome($_nomeAluno);
@@ -57,7 +61,7 @@ class AlunoCrtl {
                                         $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
                                         $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp);
             }
-            
+            return $res;            
         }
         
         
