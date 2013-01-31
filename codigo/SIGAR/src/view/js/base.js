@@ -5,7 +5,7 @@ function abrirModal(id) {
     $.get('http://localhost/SIGAR/codigo/SIGAR/src/view/listarAlunoAjax.php',
     { alunoID : id},
     function(data) {
-        $("#ajaxContainer").html(data);
+        $("#ajaxContainer").fadeIn(400).html(data);
         $('a[name=modal]').click();
     })
 }

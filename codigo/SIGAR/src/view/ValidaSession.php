@@ -1,21 +1,22 @@
 <?php
-require_once '../utils/Login.class.php';
-$url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src/view";
+$url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
+require_once $url.'/utils/Login.class.php';
 
 //inicializa a sessao
 session_start();
-//verifica se a sessao do USUARIO esta setada/criada
+//verifica se a sessao do USUARIO já esta setada/criada
 if( !isset($_SESSION['usuario']) )
 {
-	//cria uma sessao para o usuario e esta instancia a classe
-	//isso faz com que toda minha classe esta disponivel na minha variavel de sessao
+	//cria uma sessao para o usuario e esta instancia a classe Login
+	//isso faz com que toda a classe esteja disponivel na variavel de sessao
 	$_SESSION["usuario"] = new Login();
 }
-//passo minha classe por referencia para a variavel $ObjSessao
+//a classe é passada por referencia para a variavel $ObjSessao
 $ObjSessao =& $_SESSION["usuario"];
 
-//verifico se o atrituto da minha classe ESTA LOGADO e se o login.php esta dentro da minha variavel de ambiente
-if( !$ObjSessao->estaLogado() && strpos( $_SERVER['SCRIPT_NAME'], 'login.php' ) == false )
+//verifico o atrituto "EstaLogado" da classe e se o login.php esta dentro da minha variavel de ambiente
+//porque caso eu não esteja logado eu tenho que ser direcionado para a página de login
+if( !$ObjSessao->estaLogado() && strpos( $_SERVER['SCRIPT_NAME'], 'Login.php' ) == false )
 	//caso nao esteja logado direciona para a pagina do login.php para que se efetua o login
-	header("location: $url/login.php");
+	header("location: $url/view/Login.php");
 ?>
