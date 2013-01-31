@@ -10,6 +10,58 @@ class AlunoCrtl {
 
         protected $_res;
         
+        public function validaAluno($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
+                                        $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
+                                        $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
+                                        $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp){
+            $res = 0;
+            
+            $validaAluno = new validacaoAluno();
+            $res = $res + $validaAluno->valida_escola($_escola);
+            $res = $res + $validaAluno->valida_ano_escolar($_anoEscolar);
+            
+            $validaEndereco = new validacaoEndereco();
+            $res = $res + $validaEndereco->valida_logradouro($_endereco);
+            $res = $res + $validaEndereco->valida_numero_casa($_numero);
+            $res = $res + $validaEndereco->valida_bairro($_bairro);
+            $res = $res + $validaEndereco->valida_cidade($_cidade);
+            $res = $res +$validaEndereco->valida_cep($_cep);
+            
+            $res = $res + $validaEndereco->valida_logradouro($_enderecoResp);
+            $res = $res + $validaEndereco->valida_numero_casa($_numeroResp);
+            $res = $res + $validaEndereco->valida_bairro($_bairroResp);
+            $res = $res + $validaEndereco->valida_cidade($_cidadeResp);
+            $res = $res +$validaEndereco->valida_cep($_cepResp);
+            
+            $validaPessoa = new validacaoPessoa();
+            $res = $res + $validaPessoa->valida_nome($_nomeAluno);
+            $res = $res + $validaPessoa->valida_email($_emailAluno);
+            $res = $res + $validaPessoa->valida_telefone($_telCelular);
+            $res = $res + $validaPessoa->valida_telefone($_telResidencial);
+            $res = $res + $validaPessoa->valida_telefone_resid($_telResidencial);
+            
+            $res = $res + $validaPessoa->valida_nome($_nomeResp);
+            $res = $res + $validaPessoa->valida_email($_emailResp);
+            $res = $res + $validaPessoa->valida_telefone($_telCelResp);
+            $res = $res + $validaPessoa->valida_telefone($_telResResp);
+            $res = $res + $validaPessoa->valida_telefone($_telTrabResp);
+            $res = $res + $validaPessoa->valida_telefone_resid($_telResResp);
+            
+            $validaResp = new validacaoResponsavel();
+            $res = $res + $validaResp->validacpf($_cpfResp);
+            $res = $res + $validaResp->cpf_repetido($_cpfResp);
+          
+            if($res==0){
+                $this->instanciarAluno($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
+                                        $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
+                                        $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
+                                        $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp);
+            }
+            
+        }
+        
+        
+        
         public function instanciarAluno($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
                                         $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
                                         $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,

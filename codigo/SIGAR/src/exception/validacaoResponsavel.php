@@ -2,16 +2,16 @@
 
 class validacaoResponsavel {
     
-    protected $_erro;
     protected $_res_valida_cpf;
     protected $_res_cpf_repetido;
     public $arrayErro = array();
     
     function validacpf($_cpf) {
+        $erro = 0;
         if (empty($_cpf)) {
             $this->_res_valida_cpf = "<b><font color=red> * </font>Favor digitar um cpf";
             $this->arrayErro[] = $this->_res_valida_cpf;
-            $this->_erro = 1;
+            $erro = 1;
         } else {
 
             $_cpf = str_replace('.', '', $_cpf);
@@ -24,7 +24,7 @@ class validacaoResponsavel {
                     ($_cpf == '99999999999') || ($_cpf == '00000000000')) {
                 $this->_res_valida_cpf = "<b><font color=red> * </font>CPF inválido!";
                 $this->arrayErro[] = $this->_res_valida_cpf;
-                $this->_erro = 1;
+                $erro = 1;
             } else {
                 $aux_cpf = "";
                 for ($j = 0; $j < strlen($_cpf); $j++)
@@ -33,7 +33,7 @@ class validacaoResponsavel {
                 if (strlen($aux_cpf) != 11) {
                     $this->_res_valida_cpf = "<b><font color=red> * </font>CPF invalido!";
                     $this->arrayErro[] = $this->_res_valida_cpf;
-                    $this->_erro = 1;
+                    $erro = 1;
                 } else {
                     $cpf1 = $aux_cpf;
                     $cpf2 = substr($_cpf, -2);
@@ -57,11 +57,12 @@ class validacaoResponsavel {
                     if ($controle != $cpf2) {
                         $this->_res_valida_cpf = "<b><font color=red> * </font>CPF inv�lido!";
                         $this->arrayErro[] = $this->_res_valida_cpf;
-                        $this->_erro = 1;
+                        $erro = 1;
                     }
                 }
             }
         }
+        return $erro;
     }
 
     function cpf_repetido() {
@@ -72,8 +73,11 @@ class validacaoResponsavel {
         if ($obj_validacaoDAO->cpf_repetidoDAO($_cpf) > 0) {
             $this->_res_cpf_repetido = "<b><font color=red> * </font>CPF já cadastrado!";
             $this->arrayErro[] = $this->_res_cpf_repetido;
-            $this->_erro = 1;
+            $erro = 1;
+        }else{
+            $erro = 0;
         }
+        return $erro;
     }
     
 }
