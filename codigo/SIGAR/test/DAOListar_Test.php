@@ -23,8 +23,13 @@ class DAOListar_Test extends PHPUnit_Framework_TestCase{
     {
 
        
+<<<<<<< HEAD
        $this->idPessoaAluno = 12;
        $this->idAluno = 1;
+=======
+       $this->idPessoaAluno = 21;
+       $this->idAluno = 9;
+>>>>>>> 786f20055168c67d44e15e7460a5ed80695deb5e
        $this->idProfessor = 1;
        
     }
@@ -39,8 +44,13 @@ class DAOListar_Test extends PHPUnit_Framework_TestCase{
         $aluno_dao = new AlunoDAO();
                 //$this->assertEquals('10',$aluno_dao->listarAluno($this->idAluno));
         //$this->assertEquals('10',$aluno_dao->listarResponsavel($this->idAluno));
+<<<<<<< HEAD
         $this->assertEquals('10',$aluno_dao->selecionarIdPessoaAluno($this->idAluno));
         $this->assertEquals('12',$aluno_dao->selecionarIdUsuario($this->idPessoaAluno)); 
+=======
+        $this->assertEquals('21',$aluno_dao->selecionarIdPessoaAluno($this->idAluno));
+        $this->assertEquals('10',$aluno_dao->selecionarIdUsuario($this->idPessoaAluno)); 
+>>>>>>> 786f20055168c67d44e15e7460a5ed80695deb5e
         $this->assertEquals('Física,Filosofia',$aluno_dao->selecionarIdUsuario($this->idPessoaAluno)); 
     }
     
