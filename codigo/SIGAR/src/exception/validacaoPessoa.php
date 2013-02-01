@@ -41,16 +41,7 @@ class validacaoPessoa {
         return $erro;                        
     }
     
-        function valida_telefone($_telefone) {
-        if (is_numeric($_telefone) == false) {
-            $this->_res_telefone = "<b><font color=red> * </font>Favor digitar o seu Telefone corretamente.";
-            $this->arrayErro[] = $this->_res_telefone;
-            $erro = 1;
-        }else{
-            $erro = 0;
-        }
-        return $erro;
-    }
+
     
         function valida_telefone_resid($_telefone_resid) {
         if (empty($_telefone_resid)) {

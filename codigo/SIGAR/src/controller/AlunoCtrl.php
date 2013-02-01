@@ -40,15 +40,10 @@ class AlunoCrtl {
             $validaPessoa = new validacaoPessoa();
             $res = $res + $validaPessoa->valida_nome($_nomeAluno);
             $res = $res + $validaPessoa->valida_email($_emailAluno);
-            $res = $res + $validaPessoa->valida_telefone($_telCelular);
-            $res = $res + $validaPessoa->valida_telefone($_telResidencial);
             $res = $res + $validaPessoa->valida_telefone_resid($_telResidencial);
             
             $res = $res + $validaPessoa->valida_nome($_nomeResp);
             $res = $res + $validaPessoa->valida_email($_emailResp);
-            $res = $res + $validaPessoa->valida_telefone($_telCelResp);
-            $res = $res + $validaPessoa->valida_telefone($_telResResp);
-            $res = $res + $validaPessoa->valida_telefone($_telTrabResp);
             $res = $res + $validaPessoa->valida_telefone_resid($_telResResp);
             
             $validaResp = new validacaoResponsavel();
@@ -60,8 +55,12 @@ class AlunoCrtl {
                                         $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
                                         $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
                                         $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp);
+            
+                $mensagem = "<font color=green><b>Aluno Cadastrado com sucesso!</b></font>";
+            }else{
+                $mensagem = "<font color=red><b>Insira os dados corretamente!</b></font>";
             }
-            return $res;            
+            return $mensagem;            
         }
         
         

@@ -45,12 +45,12 @@
                 $cepResp=$_POST['cepResp'];
                 $referenciaResp=$_POST['referenciaResp'];
 			                
-                $AlunoCtrl->validaAluno($nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
+                $res =  $AlunoCtrl->validaAluno($nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
                         $nomeResp, $parentesco, $cpfResp,$emailResp, $telResp, $sexoResp, $dataResp,$telCelularResp,$telTrabResp,
                         $mesmoEnd,$enderecoAluno,$numeroAluno,$complementoAluno,$bairroAluno,$cidadeAluno,$ufAluno,$cepAluno,$referenciaAluno,
                         $enderecoResp, $numeroResp, $complementoResp, $bairroResp,$cidadeResp,$ufResp,$cepResp,$referenciaResp);
                 
-                $res = "<font color=green><b>Aluno Cadastrado com sucesso!</b></font>";
+                
 	}
 ?>
 
