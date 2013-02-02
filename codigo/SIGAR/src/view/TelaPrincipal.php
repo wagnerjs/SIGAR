@@ -49,8 +49,8 @@
     <div class="row-fluid show-grid">
         <div class="span6">
             <div class="boxMenu">
-                <a href="cadastroAluno.php"><div><img src="img/icon-man.png" />  Cadastrar Alunos</div></a>
-                <a href="pesquisaAluno.php"><div><img src="img/icon-find.png" />  Pesquisar Alunos</div></a>
+                <a href="ViewAluno/CadastroAluno.php"><div><img src="img/icon-man.png" />  Cadastrar Alunos</div></a>
+                <a href="ViewAluno/PesquisaAluno.php"><div><img src="img/icon-find.png" />  Pesquisar Alunos</div></a>
             </div>
         </div>
         <div class="span6">

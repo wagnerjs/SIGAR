@@ -8,11 +8,6 @@ class validacaoResponsavel {
     
     function validacpf($_cpf) {
         $erro = 0;
-        if (empty($_cpf)) {
-            $this->_res_valida_cpf = "<b><font color=red> * </font>Favor digitar um cpf";
-            $this->arrayErro[] = $this->_res_valida_cpf;
-            $erro = 1;
-        } else {
 
             $_cpf = str_replace('.', '', $_cpf);
             $_cpf = str_replace('-', '', $_cpf);
@@ -61,11 +56,11 @@ class validacaoResponsavel {
                     }
                 }
             }
-        }
+        
         return $erro;
     }
 
-    function cpf_repetido() {
+    function cpf_repetido($_cpf) {
         $obj_validacaoDAO = new validacaoDAO;
         $_cpf = str_replace('.', '', $_cpf);
         $_cpf = str_replace('-', '', $_cpf);

@@ -1,62 +1,63 @@
 <?php
-	require 'ValidaSession.php';
-	require_once '../controller/AlunoCtrl.php';
+	$url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
+	require $url.'/view/ValidaSession.php';
+    require_once $url.'/controller/AlunoCtrl.php';
         
-        $AlunoCtrl = new AlunoCrtl();
-        $res = $AlunoCtrl->listarAlunoAjax($_GET["alunoID"]); 
-        $dadosResponsavel = $AlunoCtrl->listarResponsavel($_GET["alunoID"]);
+	$AlunoCtrl = new AlunoCrtl();
+	$res = $AlunoCtrl->listarAlunoAjax($_GET["alunoID"]); 
+	$dadosResponsavel = $AlunoCtrl->listarResponsavel($_GET["alunoID"]);
 
 	if(isset($_POST['confirmar'])){
-            $AlunoCtrl = new AlunoCrtl();
+		$AlunoCtrl = new AlunoCrtl();
 		$nomeAluno=utf8_decode($_POST['txtNome']);
-                $sexoAluno=$_POST['sexo'];
-                $dataAlunoRecebida = $_POST['dataNasc'];
-                $dataAluno = implode("-",array_reverse(explode("/",$dataAlunoRecebida)));
-                $emailAluno = $_POST['email'];
-                $telResidencialAluno=$_POST['telResidencial'];
-                $telCelularAluno=$_POST['telCelular'];
-                $anoEscolar=$_POST['anoEscolar'];
-                $escola=$_POST['escola'];
+		$sexoAluno=$_POST['sexo'];
+		$dataAlunoRecebida = $_POST['dataNasc'];
+		$dataAluno = implode("-",array_reverse(explode("/",$dataAlunoRecebida)));
+		$emailAluno = $_POST['email'];
+		$telResidencialAluno=$_POST['telResidencial'];
+		$telCelularAluno=$_POST['telCelular'];
+		$anoEscolar=$_POST['anoEscolar'];
+		$escola=$_POST['escola'];
 		
-                $nomeResp=utf8_decode($_POST['txtNomeResp']);
+		$nomeResp=utf8_decode($_POST['txtNomeResp']);
 		$parentesco=$_POST['parentesco'];
-                $cpfResp=$_POST['cpfResp'];
-                $emailResp=$_POST['emailResp'];
-                $telResp=$_POST['telResResp'];
-                $sexoResp=$_POST['sexoResp'];
-                $dataRespRecebida = $_POST['dataNascResp'];
-                $dataResp = implode("-",array_reverse(explode("/",$dataRespRecebida)));
-                $telCelularResp=$_POST['telCelResp'];
-                $telTrabResp=$_POST['telTrabResp'];
-                
-                $mesmoEnd=$_POST['mesmoEnd'];
+		$cpfResp=$_POST['cpfResp'];
+		$emailResp=$_POST['emailResp'];
+		$telResp=$_POST['telResResp'];
+		$sexoResp=$_POST['sexoResp'];
+		$dataRespRecebida = $_POST['dataNascResp'];
+		$dataResp = implode("-",array_reverse(explode("/",$dataRespRecebida)));
+		$telCelularResp=$_POST['telCelResp'];
+		$telTrabResp=$_POST['telTrabResp'];
+		
+		$mesmoEnd=$_POST['mesmoEnd'];
 		
 		$enderecoAluno=$_POST['endereco'];
-                $numeroAluno=$_POST['numero'];
-                $complementoAluno=$_POST['complemento'];
-                $bairroAluno=utf8_decode($_POST['bairro']);
-                $cidadeAluno=utf8_decode($_POST['cidade']);
+		$numeroAluno=$_POST['numero'];
+		$complementoAluno=$_POST['complemento'];
+		$bairroAluno=utf8_decode($_POST['bairro']);
+		$cidadeAluno=utf8_decode($_POST['cidade']);
 		$ufAluno=$_POST['uf'];
-                $cepAluno=$_POST['cep'];
-                $referenciaAluno=utf8_decode($_POST['referencia']);
+		$cepAluno=$_POST['cep'];
+		$referenciaAluno=utf8_decode($_POST['referencia']);
                 
-                $enderecoResp=$_POST['enderecoResp'];
-                $numeroResp=$_POST['numeroResp'];
-                $complementoResp=$_POST['complementoResp'];
-                $bairroResp=utf8_decode($_POST['bairroResp']);
-                $cidadeResp=utf8_decode($_POST['cidadeResp']);
+		$enderecoResp=$_POST['enderecoResp'];
+		$numeroResp=$_POST['numeroResp'];
+		$complementoResp=$_POST['complementoResp'];
+		$bairroResp=utf8_decode($_POST['bairroResp']);
+		$cidadeResp=utf8_decode($_POST['cidadeResp']);
 		$ufResp=$_POST['ufResp'];
-                $cepResp=$_POST['cepResp'];
-                $referenciaResp=$_POST['referenciaResp'];
-                
-                $idPessoaAluno = 19;
-                
-                $AlunoCtrl->instanciarAlunoAlterar($idPessoaAluno,$nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
-                        $nomeResp, $parentesco, $cpfResp,$emailResp, $telResp, $sexoResp, $dataResp,$telCelularResp,$telTrabResp,
-                        $mesmoEnd,$enderecoAluno,$numeroAluno,$complementoAluno,$bairroAluno,$cidadeAluno,$ufAluno,$cepAluno,$referenciaAluno,
-                        $enderecoResp, $numeroResp, $complementoResp, $bairroResp,$cidadeResp,$ufResp,$cepResp,$referenciaResp);
-                
-                $res = "<font color=green><b>Aluno Alterado com sucesso!</b></font>";
+		$cepResp=$_POST['cepResp'];
+		$referenciaResp=$_POST['referenciaResp'];
+		
+		$idPessoaAluno = 19;
+		
+		$AlunoCtrl->instanciarAlunoAlterar($idPessoaAluno,$nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
+				$nomeResp, $parentesco, $cpfResp,$emailResp, $telResp, $sexoResp, $dataResp,$telCelularResp,$telTrabResp,
+				$mesmoEnd,$enderecoAluno,$numeroAluno,$complementoAluno,$bairroAluno,$cidadeAluno,$ufAluno,$cepAluno,$referenciaAluno,
+				$enderecoResp, $numeroResp, $complementoResp, $bairroResp,$cidadeResp,$ufResp,$cepResp,$referenciaResp);
+		
+		$res = "<font color=green><b>Aluno Alterado com sucesso!</b></font>";
 	}
 ?>
 
@@ -76,24 +77,24 @@
   <meta name="viewport" content="width=device-width; initial-scale=1.0" />
 
   <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-  <link rel="shortcut icon" href="img/favicon.ico" />
+  <link rel="shortcut icon" href="../img/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-  <link href="css/estilo.css" rel="stylesheet" media="screen">
-  <script src="js/jquery-latest.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.valid8.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/jquery.maskedinput-1.3.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/base.js"></script>
+  <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="../css/estilo.css" rel="stylesheet" media="screen">
+  <script src="../js/jquery-latest.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.valid8.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/jquery.maskedinput-1.3.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/base.js"></script>
 </head>
 <body>
         <div class="container">
-            <a href="telaPrincipal.php"><img src="img/logo.png" vspace="50"/></a>
-            <p class="status">Logado como:<b> <?php echo $ObjSessao->getUsuario();?> | <a href= "logoff.php" >Sair</b></a></p>
+            <a href="../TelaPrincipal.php"><img src="../img/logo.png" vspace="50"/></a>
+            <p class="status">Logado como:<b> <?php echo $ObjSessao->getUsuario();?> | <a href= "../Logoff.php" >Sair</b></a></p>
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="pesquisaAluno.php"><span class="normal">Pesquisar Alunos</span></a>
+                    <a href="PesquisaAluno.php"><span class="normal">Pesquisar Alunos</span></a>
                     <div class="content">
                         <div>                           
                             <form name="form1" action="AlterarAluno.php" method="post">

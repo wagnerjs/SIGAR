@@ -53,7 +53,7 @@ class Login
 		//metodo para destruir a sessao
 		session_destroy();
 		//envia o usuaria para a pagina de login
-		header("location: login.php");
+		header("location: Login.php");
 	}
 	
 	//Métodos SETS atribuindo valor a uma variável

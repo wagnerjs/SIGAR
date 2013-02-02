@@ -11,6 +11,10 @@ abstract class Pessoa
 	private $_endereco;
         private $_cpf;
         
+        public function setCpf($_cpf){
+            $this->_cpf = $_cpf;
+        }
+        
         public function getCpf() {
             return $this->_cpf;
         }

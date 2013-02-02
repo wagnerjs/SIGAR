@@ -1,5 +1,7 @@
 <?php
 
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/ValidacaoDAO.php';
+
 class validacaoPessoa {
         protected $_res_nome;
         protected $_res_email;
@@ -29,7 +31,7 @@ class validacaoPessoa {
             $this->_res_email = "<b><font color=red> * </font>Email já cadastrado";
             $this->arrayErro[] = $this->_res_email;
             $erro = 1;
-        } elseif (( strlen($this->_email) < 8 ) || strstr($this->_email, '@') == false || (strstr($this->_email, '.') == false)) {
+        } elseif (( strlen($email) < 8 ) || strstr($email, '@') == false || (strstr($email, '.') == false)) {
             $this->_res_email = "<b><font color=red> * </font>Favor digitar o seu e-mail corretamente.";
             $this->arrayErro[] = $this->_res_email;
             $erro = 1;
@@ -39,16 +41,7 @@ class validacaoPessoa {
         return $erro;                        
     }
     
-        function valida_telefone($_telefone) {
-        if (is_numeric($_telefone) == false) {
-            $this->_res_telefone = "<b><font color=red> * </font>Favor digitar o seu Telefone corretamente.";
-            $this->arrayErro[] = $this->_res_telefone;
-            $erro = 1;
-        }else{
-            $erro = 0;
-        }
-        return $erro;
-    }
+
     
         function valida_telefone_resid($_telefone_resid) {
         if (empty($_telefone_resid)) {
