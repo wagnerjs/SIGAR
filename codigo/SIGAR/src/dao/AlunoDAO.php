@@ -123,7 +123,7 @@ class AlunoDAO  {
             if(mysql_num_rows($res)==0)
                 $res="Nada encontrado!";
             else
-                $res = mysql_fetch_array($res);
+                $res = mysql_fetch_array ($res);
 
             $obj_conecta->fechaConexao();
 
