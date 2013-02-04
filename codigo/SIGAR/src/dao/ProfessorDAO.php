@@ -58,9 +58,7 @@ class ProfessorDAO {
     }
 
     public function deletarProfessor($idPessoaProfessor) {
-        $obj_conecta = new bd();
-        $obj_conecta->conecta();
-        $obj_conecta->seleciona_bd();
+        $this->criarConexao();
 
         $sql = "SELECT  `professor`.`idProfessor` FROM  `usuario`, `professor` WHERE  `usuario`.`idUsuario` = `professor`.`idProfessor` AND `usuario`.`idPessoa`= " . $idPessoaProfessor . " ;";
 
@@ -105,6 +103,9 @@ class ProfessorDAO {
 
     public function salvarPessoa(Professor $professor) {
         $idPessoaProfessor = 0;
+        
+        $this->criarConexao();
+        
         $sql = "INSERT INTO `pessoa` (`idPessoa`, `nome`, `email`, `telefoneResidencial`, `telefoneCelular`, `sexo`, `dataNascimento`, `cpf`) VALUES
             (NULL,  '" . $professor->getNome() . "', '" . $professor->getEmail() . "', '" . $professor->getTelefoneResidencial() . "', '" . $professor->getCelular() . "', '" . $professor->getSexo() . "', '" . $professor->getNascimento() . "', '" . $professor->getCpf() . "');";
 
@@ -119,6 +120,9 @@ class ProfessorDAO {
 
     public function salvarUsuario($idPessoaProfessor, User $user) {
         $idPessoaUsuario = 0;
+        
+        $this->criarConexao();
+        
         $sql = "INSERT INTO `usuario` (`idUsuario`, `login`, `senha`, `idPessoa`) VALUES
                   (NULL, '" . $user->getLogin() . "', '" . $user->getSenha() . "', '.$idPessoaProfessor.');";
 
@@ -133,6 +137,9 @@ class ProfessorDAO {
 
     public function salvarProfessor($idPessoaUsuario, Professor $professor) {
         $idPessoaProfessor = 0;
+        
+        $this->criarConexao();
+        
         $sql = "INSERT INTO `sigar`.`professor` (`idProfessor`, `meioTransporte`, `idUsuario`) VALUES 
                     (NULL, '" . $professor->getMeioTransporte() . "', '.$idPessoaUsuario.');";
 
