@@ -233,7 +233,7 @@ class AlunoDAO  {
         }
         
         public function alterarPessoaAluno($idPessoaAluno,Aluno $aluno){
-            $retorno = 0;
+            $retorno=0;
             $this->criarConexao();
             
             $sql = "UPDATE  `pessoa` SET  `nome` =  '".$aluno->getNome()."', `email` =  '".$aluno->getEmail()."', 
