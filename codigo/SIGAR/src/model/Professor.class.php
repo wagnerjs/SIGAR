@@ -22,15 +22,19 @@ class Professor extends Pessoa{
         $this->setSexo($sexo);
         $this->setCpf($cpf);
         $this->setEndereco($endereco_obj);
-        $this->meioDeTransporte($meioDeTransporte);
-        $this->usuario($user_obj);
+        $this->meioDeTransporte = $meioDeTransporte;
+        $this->usuario= $user_obj;
         
    }
       
     public function getMeioDeTransporte(){
-        return $meioDeTransporte;
+        return $this->meioDeTransporte;
     }
     
+    public function getUsuario(){
+        return $this->usuario;
+    }
+            
     
     
 }
