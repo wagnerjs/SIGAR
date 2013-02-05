@@ -4,12 +4,12 @@
  *
  * @author Matheus
  */
-
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/ProfessorDAO.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Pessoa.class.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/User.class.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Professor.class.php';
+require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/dao/ProfessorDAO.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Pessoa.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/User.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Professor.class.php';
 
 class DAOSalvarProfessor_TEst extends PHPUnit_Framework_TestCase{
     
@@ -17,9 +17,10 @@ class DAOSalvarProfessor_TEst extends PHPUnit_Framework_TestCase{
     protected $endereco_obj;
     protected $user_obj;
     protected $idEndProfessor;
-    protected $idProfPessoa;
+    protected $idPessoaProf;
     protected $idPessoaUser;
     protected $idProfessor;
+    protected $professorDao;
     
     public function setUp()
     {
@@ -41,28 +42,13 @@ class DAOSalvarProfessor_TEst extends PHPUnit_Framework_TestCase{
         $ufProfessor = 'DF';
         $referenciaProfessor = 'Mercado';
         
-        
-        $this->user_obj = new User();
         $this->endereco_obj = new Endereco($logradouroProfessor, $cepProfessor, $bairoProfessor, $cidadeProfessor,
                                             $complementoProf, $numeroCasaProfessor, $ufProfessor, $referenciaProfessor);
-
-                
+        $this->user_obj = new User();
         $this->professor_obj = new Professor(utf8_decode($nomeProfessor),$sexoProfessor, $nascProfessor, $emailProfessor,
                                               $telResProfessor, $celularProfessor, $cpfProfessor,$meioDeTransporte,
                                            $this->endereco_obj, $this->user_obj);
-
-            $this->professor_obj = new Professor();
-        $professorDao = new ProfessorDAO();
-        $idPessoaProf = $professorDao->salvarPessoa($this->professor_obj);
-        $idPessoaUser = $professorDao->salvarUsuario($idPessoaProf, $this->user_obj);
-        $idProfessor = $professorDao->salvarProfessor($idPessoaUser, $this->professor_obj);
-        $idEndProfessor = $professorDao->salvarProfessorEndereco($this->professor_obj);
-        
-        
-        $professorDao->salvarProfessor($idPessoaUser, $this->professor_obj);
-        $professorDao->salvarEnderecoAssociativa($idEndProfessor, $idPessoaProf);
     }
-    
     
     /**
      * @test
@@ -71,13 +57,19 @@ class DAOSalvarProfessor_TEst extends PHPUnit_Framework_TestCase{
     
     public function TestSalvarProfessor()
     {
-   
-        $this->assertEquals('1',$this->idProfPessoa);
-        $this->assertEquals('1',$this->idPessoaUser);
-        $this->assertEquals('1', $this->idProfessor);
-        $this->assertEquals('1',$this->idEndProfessor);
+        $professorDao = new ProfessorDAO();
         
-         
+        $this->idPessoaProf = $professorDao->salvarPessoa($this->professor_obj);
+        $this->idPessoaUser = $professorDao->salvarUsuario($this->idPessoaProf, $this->user_obj);
+        $this->idProfessor = $professorDao->salvarProfessor($this->idPessoaUser, $this->professor_obj);
+        $this->idEndProfessor = $professorDao->salvarProfessorEndereco($this->professor_obj);
+        $professorDao->salvarEnderecoAssociativa($this->idEndProfessor, $this->idPessoaProf);
+        
+        $this->assertNotNull($this->idPessoaProf);
+        $this->assertNotNull($this->idPessoaUser);
+        $this->assertNotNull($this->idProfessor);
+        $this->assertNotNull($this->idEndProfessor);
+       
     }
 }
 
