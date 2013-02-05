@@ -19,6 +19,7 @@ class DAOSalvarProfessor_TEst extends PHPUnit_Framework_TestCase{
     protected $idEndProfessor;
     protected $idProfPessoa;
     protected $idPessoaUser;
+    protected $idProfessor;
     
     public function setUp()
     {
@@ -46,17 +47,20 @@ class DAOSalvarProfessor_TEst extends PHPUnit_Framework_TestCase{
                                             $complementoProf, $numeroCasaProfessor, $ufProfessor, $referenciaProfessor);
 
                 
-        $this->professor_obj = new Professor($nomeProfessor,$sexoProfessor, $nascProfessor, $emailProfessor,
+        $this->professor_obj = new Professor(utf8_decode($nomeProfessor),$sexoProfessor, $nascProfessor, $emailProfessor,
                                               $telResProfessor, $celularProfessor, $cpfProfessor,$meioDeTransporte,
                                            $this->endereco_obj, $this->user_obj);
 
             $this->professor_obj = new Professor();
         $professorDao = new ProfessorDAO();
+        $idPessoaProf = $professorDao->salvarPessoa($this->professor_obj);
+        $idPessoaUser = $professorDao->salvarUsuario($idPessoaProf, $this->user_obj);
+        $idProfessor = $professorDao->salvarProfessor($idPessoaUser, $this->professor_obj);
         $idEndProfessor = $professorDao->salvarProfessorEndereco($this->professor_obj);
-        $idProfPessoa = $professorDao->salvarPessoa($this->professor_obj);
-        $idPessoaUser = $professorDao->salvarUsuario($idProfPessoa, $this->user_obj);
+        
+        
         $professorDao->salvarProfessor($idPessoaUser, $this->professor_obj);
-        $professorDao->salvarEnderecoAssociativa($idEndProfessor, $idProfPessoa);
+        $professorDao->salvarEnderecoAssociativa($idEndProfessor, $idPessoaProf);
     }
     
     
@@ -68,10 +72,11 @@ class DAOSalvarProfessor_TEst extends PHPUnit_Framework_TestCase{
     public function TestSalvarProfessor()
     {
    
-        
-        $this->assertEquals('1',$this->idEndProfessor);
         $this->assertEquals('1',$this->idProfPessoa);
         $this->assertEquals('1',$this->idPessoaUser);
+        $this->assertEquals('1', $this->idProfessor);
+        $this->assertEquals('1',$this->idEndProfessor);
+        
          
     }
 }
