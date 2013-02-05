@@ -1,70 +1,83 @@
 <?php
+
 /**
  * author Matheus 
  */
 class ProfessorCtrl {
-    
-      public function instanciarProfessor($nomeProfessor, $sexoProfessor,
-            $nascProfessor, $emailProfessor, $telResProfessor,
-            $celularProfessor, $enderecoProfessor, $cpfProfessor, $meioDeTransporte,
-            $cepProfessor,$logradouroProfessor,$numeroCasaProfessor,$complementoProf, $bairoProfessor,
-            $cidadeProfessor, $ufProfessor, $referenciaProfessor)
-    {
-     
-        $objEndProfessor = new Endereco($cepProfessor,$logradouroProfessor,$numeroCasaProfessor,$complementoProf, $bairoProfessor,
-            $cidadeProfessor, $ufProfessor, $referenciaProfessor);
-        
+
+    public function validaProfessor($nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $enderecoProfessor, $cpfProfessor, $meioDeTransporte, $cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor, $cidadeProfessor, $ufProfessor, $referenciaProfessor) {
+
+        $res = 0;
+
+        $validaProfessor = new validacaoProfessor();
+        $res = $res + $validaProfessor->valida_meio_transporte($meioDeTransporte);
+
+        $validaEndereco = new validacaoEndereco();
+        $res = $res + $validaEndereco->valida_logradouro($logradouroProfessor);
+        $res = $res + $validaEndereco->valida_numero_casa($numeroCasaProfessor);
+        $res = $res + $validaEndereco->valida_bairro($bairoProfessor);
+        $res = $res + $validaEndereco->valida_cidade($cidadeProfessor);
+        $res = $res + $validaEndereco->valida_cep($cepProfessor);
+
+        $validaPessoa = new validacaoPessoa();
+        $res = $res + $validaPessoa->valida_nome($nomeProfessor);
+        $res = $res + $validaPessoa->valida_email($emailProfessor);
+        $res = $res + $validaPessoa->valida_telefone_resid($telResProfessor);
+        $res = $res + $validaPessoa->validacpf($cpfProfessor);
+        $res = $res + $validaPessoa->cpf_repetido($cpfProfessor);
+
+        if ($res == 0) {
+            $this->instanciarProfessor($nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $enderecoProfessor, $cpfProfessor, $meioDeTransporte, $cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor, $cidadeProfessor, $ufProfessor, $referenciaProfessor);
+
+            $mensagem = "<font color=green><b>Professor Cadastrado com sucesso!</b></font>";
+        } else {
+            $mensagem = "<font color=red><b>Insira os dados corretamente!</b></font>";
+        }
+        return $mensagem;
+    }
+
+    public function instanciarProfessor($nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $enderecoProfessor, $cpfProfessor, $meioDeTransporte, $cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor, $cidadeProfessor, $ufProfessor, $referenciaProfessor) {
+
+        $objEndProfessor = new Endereco($cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor,
+                        $cidadeProfessor, $ufProfessor, $referenciaProfessor);
+
         $userObj = new User();
         $userObj->cria_Usuario_Padrao($nomeProfessor, $nascProfessor);
-        
-        $professor = new Professor($nomeProfessor, $sexoProfessor,$nascProfessor, $emailProfessor, $telResProfessor,
-                                   $celularProfessor, $enderecoProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor,$userObj);
-        
+
+        $professor = new Professor($nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor,
+                        $celularProfessor, $enderecoProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj);
+
         $professorDao = new ProfessorDAO();
         $idProfPessoa = $professorDao->salvarPessoa($professor);
         $idPessoaUser = $professorDao->salvarUsuario($idProfPessoa, $userObj);
         $professorDao->salvarProfessor($idPessoaUser, $professor);
-         if($idProfPessoa == 1 && $idPessoaUser == 1)
-        {
-            return 'Cadastro de Professor com Sucesso';
-        }
         
-        else{
+        if ($idProfPessoa == 1 && $idPessoaUser == 1) {
+            return 'Cadastro de Professor com Sucesso';
+        } else {
             return 'Cadastrado não Efetuado';
         }
-        
-       
-        }
-     
-     public function instanciarAlterarProfessor($idPessoaProfessor,$nomeProfessor, $sexoProfessor,
-            $nascProfessor, $emailProfessor, $telResProfessor,
-            $celularProfessor, $enderecoProfessor, $cpfProfessor,
-            $cepProfessor,$logradouroProfessor,$numeroCasaProfessor,$complementoProf, $bairoProfessor,
-            $cidadeProfessor, $ufProfessor, $referenciaProfessor)
-     {
-         
-     }
-     
-     public function listarProfessor()
-     {
-         $professorDao = new ProfessorDAO();
-         $professorDao->listarProfessor($idPessoaProfessor);
-         
-     }
+    }
 
-     
-     public function listarMaterias($idPessoaProfessor)
-     {
-         $professorDao = new ProfessorDAO();
-         $professorDao->selecionarMateriasProfessor($idPessoaProfessor);
-         
-     }
-     
-     public function apagarProfessor($idPessoaProfessor)
-     {
-         $professorDao = new ProfessorDAO();
-         $professorDao->deletarProfessor($idPessoaProfessor);
-     } 
+    public function instanciarAlterarProfessor($idPessoaProfessor, $nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $enderecoProfessor, $cpfProfessor, $cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor, $cidadeProfessor, $ufProfessor, $referenciaProfessor) {
+        
+    }
+
+    public function listarProfessor() {
+        $professorDao = new ProfessorDAO();
+        $professorDao->listarProfessor($idPessoaProfessor);
+    }
+
+    public function listarMaterias($idPessoaProfessor) {
+        $professorDao = new ProfessorDAO();
+        $professorDao->selecionarMateriasProfessor($idPessoaProfessor);
+    }
+
+    public function apagarProfessor($idPessoaProfessor) {
+        $professorDao = new ProfessorDAO();
+        $professorDao->deletarProfessor($idPessoaProfessor);
+    }
+
 }
 
 ?>

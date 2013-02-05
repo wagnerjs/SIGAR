@@ -46,9 +46,8 @@ class AlunoCrtl {
             $res = $res + $validaPessoa->valida_email($_emailResp);
             $res = $res + $validaPessoa->valida_telefone_resid($_telResResp);
             
-            $validaResp = new validacaoResponsavel();
-            $res = $res + $validaResp->validacpf($_cpfResp);
-            $res = $res + $validaResp->cpf_repetido($_cpfResp);
+            $res = $res + $validaPessoa->validacpf($_cpfResp);
+            $res = $res + $validaPessoa->cpf_repetido($_cpfResp);
           
             if($res==0){
                 $this->instanciarAluno($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
