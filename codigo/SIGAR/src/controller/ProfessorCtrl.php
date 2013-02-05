@@ -44,9 +44,9 @@ class ProfessorCtrl {
         $userObj = new User();
         $userObj->cria_Usuario_Padrao($nomeProfessor, $nascProfessor);
 
-        $professor = new Professor($nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor,
-                        $celularProfessor, $enderecoProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj);
-
+        $professor = new Professor($nomeProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $sexoProfessor,
+                                    $nascProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj);
+        
         $professorDao = new ProfessorDAO();
         $idProfPessoa = $professorDao->salvarPessoa($professor);
         $idPessoaUser = $professorDao->salvarUsuario($idProfPessoa, $userObj);
