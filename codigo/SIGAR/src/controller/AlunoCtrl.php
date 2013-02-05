@@ -8,7 +8,6 @@ require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/User.class.php';
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/exception/ValidacaoAluno.php';
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/exception/ValidacaoEndereco.php';
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/exception/ValidacaoPessoa.php';
-require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/exception/ValidacaoResponsavel.php';
        
 class AlunoCrtl {
 
