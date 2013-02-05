@@ -10,7 +10,7 @@ class Professor extends Pessoa{
     private $meioDeTransporte = null;
     private $usuario;
     
-    public function __construct($nome="", $email="",$telefoneResidencial="",$celular="",$sexo="",$dataNascimento="",
+    public function constructPessoa($nome="", $email="",$telefoneResidencial="",$celular="",$sexo="",$dataNascimento="",
                               $cpf="", $meioDeTransporte="", $endereco_obj="", $user_obj="")
     {
         

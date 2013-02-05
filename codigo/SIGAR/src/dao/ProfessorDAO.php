@@ -1,8 +1,5 @@
 <?php
 
-require_once "F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
-require_once "F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
-
 class ProfessorDAO {
 
     protected $_obj_conecta;
@@ -144,7 +141,7 @@ class ProfessorDAO {
         $this->criarConexao();
         
         $sql = "INSERT INTO `sigar`.`professor` (`idProfessor`, `meioTransporte`, `idUsuario`) VALUES 
-                    (NULL, '" . $professor->getMeioDeTransporte(). "', '.$idPessoaUsuario.');";
+                    (NULL, '" . $professor->getMeioTransporte() . "', '.$idPessoaUsuario.');";
 
         if (!mysql_query($sql)) {
             echo "Erro na inserção do Professor";
@@ -174,11 +171,12 @@ class ProfessorDAO {
     public function salvarProfessorEndereco(Professor $professor) {
         $idEnderecoProfessor = 0;
         $enderecoProfessor = $professor->getEndereco();
-        
-         $sql = "INSERT INTO `endereco` (`idendereco`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `referencia`, `uf`) VALUES 
-        (NULL, '".$enderecoProfessor->getCep()."', '".$enderecoProfessor->getLogradouro()."', 
-            ".$enderecoProfessor->getNumeroCasa().", '".$enderecoProfessor->getComplemento()."', '".$enderecoProfessor->getBairro()."', '".$enderecoProfessor->getCidade()."', '".$enderecoProfessor->getReferencia()."', '".$enderecoProfessor->getUf()."');";
-        mysql_query($sql);
+
+        $sql = "INSERT INTO `endereco` (`idendereco`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `referencia`, `uf`) VALUES 
+                (NULL, '" . $enderecoProfessor->getCep() . "', '" . $enderecoProfessor->getLogradouro() . "', 
+                " . $enderecoProfessor->getNumeroCasa() . ", '" . $enderecoProfessor->getComplemento() . "',
+                '" . $enderecoProfessor->getBairro() . "', '" . $enderecoProfessor->getCidade() . "',
+                '" . $enderecoProfessor->getReferencia() . "', '" . $enderecoProfessor->getUf() . "');";
 
         if (!mysql_query($sql)) {
             echo "Erro na inserção do Professor";
@@ -187,8 +185,6 @@ class ProfessorDAO {
         }
 
         return $idEnderecoProfessor;
-        
-       
     }
 
     public function salvarEnderecoAssociativa($idEnderecoProfessor, $idPessoaProfessor) {

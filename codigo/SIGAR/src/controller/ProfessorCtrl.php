@@ -44,15 +44,15 @@ class ProfessorCtrl {
         $userObj = new User();
         $userObj->cria_Usuario_Padrao($nomeProfessor, $nascProfessor);
 
-       $professor = new Professor($nomeProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $sexoProfessor,
-                                    $nascProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj);
-        
+        $professor = new Professor($nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor,
+                        $celularProfessor, $enderecoProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj);
+
         $professorDao = new ProfessorDAO();
-        $idProfPessoa = $professorDao->salvarPessoa($this->professor);
-        $idPessoaUser = $professorDao->salvarUsuario($this->idProfPessoa, $this->userObj);
-        $professorDao->salvarProfessor($this>idPessoaUser, $this->professor);
+        $idProfPessoa = $professorDao->salvarPessoa($professor);
+        $idPessoaUser = $professorDao->salvarUsuario($idProfPessoa, $userObj);
+        $professorDao->salvarProfessor($idPessoaUser, $professor);
         
-        if ($idProfPessoa && $idPessoaUser) {
+        if ($idProfPessoa == 1 && $idPessoaUser == 1) {
             return 'Cadastro de Professor com Sucesso';
         } else {
             return 'Cadastrado não Efetuado';
