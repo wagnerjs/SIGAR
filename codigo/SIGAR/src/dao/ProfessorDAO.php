@@ -205,6 +205,10 @@ class ProfessorDAO {
     
     public function alterarProfessor($idProfessor, Professor $professor) {
         $retorno = 0;
+        
+        if($idProfessor <= 0){
+            return 0;
+        }
         $this->criarConexao();
 
         $sql = "UPDATE `sigar`.`professor` SET `meioTransporte` = '" . $professor->getMeioDeTransporte() . "' WHERE `professor`.`idProfessor` =" . $idProfessor . ";";
@@ -221,8 +225,13 @@ class ProfessorDAO {
 
     public function alterarUsuario($idPessoaProfessor, User $user) {
         $retorno = 0;
+        
+        if($idPessoaProfessor <= 0){
+            return 0;
+        }
+        
         $this->criarConexao();
-
+      
         $sql = "UPDATE `usuario` SET  `login` =  '" . $user->getLogin() . "', `senha` = '" . $user->getSenha() . "' WHERE  `usuario`.`idPessoa` = " . $idPessoaProfessor . ";";
 
         $alteraTabUsuario = mysql_query($sql);
@@ -240,6 +249,10 @@ class ProfessorDAO {
     public function alterarPessoaProfessor($idPessoaProfessor, Professor $professor) {
         $retorno = 0;
         $this->criarConexao();
+        
+        if($idPessoaProfessor <= 0){
+            return 0;
+        }
 
         $sql = "UPDATE  `pessoa` SET  `nome` =  '" . $professor->getNome() . "', `email` =  '" . $professor->getEmail() . "', 
                         `telefoneResidencial` =  '" . $professor->getTelefoneResidencial() . "', `telefoneCelular` =  '" . $professor->getCelular() . "',
@@ -260,6 +273,10 @@ class ProfessorDAO {
     public function selecionarIdEndereco($idPessoaProfessor) {
         //Cria a conexão com o banco de dados
         $this->criarConexao();
+        
+        if($idPessoaProfessor <= 0){
+            return 0;
+        }
 
         $sql = "SELECT `endereco_pessoa`.`idEndereco` FROM `endereco_pessoa` 
                 WHERE `endereco_pessoa`.`idPessoa` = " . $idPessoaProfessor . ";";
@@ -281,6 +298,10 @@ class ProfessorDAO {
     public function alterarEndereco($idPessoaProfessor, Professor $professor) {
         $retorno = 0;
         $this->criarConexao();
+        
+        if($idPessoaProfessor <= 0){
+            return 0;
+        }
 
         $idEndereco = $this->selecionarIdEndereco($idPessoaProfessor);
 

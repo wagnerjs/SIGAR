@@ -33,23 +33,23 @@ class DAOAlterarProfessor_Test extends PHPUnit_Framework_TestCase {
 
     public function setUp() {
                
-        $nomeProfessor = 'Ajax';
-        $sexoProfessor = 'm';
+        $nomeProfessor = 'Professor Altera';
+        $sexoProfessor = 'Masculino';
         $nascProfessor = '1995-02-19';
-        $emailProfessor = 'matheus@gmail.com';
+        $emailProfessor = 'professor@altera.com';
         $telResProfessor = '(61)3333-1111';
         $celularProfessor = '(61)8109-8502';
         $cpfProfessor = '012.202.033-21';
-        $meioDeTransporte = 'carro';
+        $meioDeTransporte = 'onibus';
 
         $cepProfessor = '72215096';
-        $logradouroProfessor = 'QNM 09 CONJUNTO F';
+        $logradouroProfessor = 'QNM 39 CONJUNTO 4';
         $numeroCasaProfessor = '10';
         $complementoProf = 'Casa';
-        $bairoProfessor = 'Ceilandia Sul';
-        $cidadeProfessor = 'Ceilandia';
-        $ufProfessor = 'DF';
-        $referenciaProfessor = 'Mercado';
+        $bairoProfessor = 'Taguatinga Sul';
+        $cidadeProfessor = 'Taguatinga Norte';
+        $ufProfessor = 'AC';
+        $referenciaProfessor = 'Pizzaria';
 
         $this->endereco_obj = new Endereco($logradouroProfessor, $cepProfessor, $bairoProfessor, $cidadeProfessor,
                         $complementoProf, $numeroCasaProfessor, $ufProfessor, $referenciaProfessor);
@@ -57,6 +57,7 @@ class DAOAlterarProfessor_Test extends PHPUnit_Framework_TestCase {
         $this->professor_obj = new Professor(utf8_decode($nomeProfessor), $sexoProfessor, $nascProfessor, $emailProfessor,
                         $telResProfessor, $celularProfessor, $cpfProfessor, $meioDeTransporte,
                         $this->endereco_obj, $this->user_obj);
+        $this->professor_objVazio = new Professor();
     }
 
     /**
@@ -64,13 +65,21 @@ class DAOAlterarProfessor_Test extends PHPUnit_Framework_TestCase {
      */
     public function TestAlterarProfessor() {
         $professorDao = new ProfessorDAO();
+        
         $this->idPessoaProf = 6;
         $this->idProfessor = 1;
         
         $this->assertEquals('1',$professorDao->alterarPessoaProfessor($this->idPessoaProf, $this->professor_obj));
+        $this->assertEquals('0',$professorDao->alterarPessoaProfessor('0', $this->professor_obj));
+                        
         $this->assertEquals('1',$professorDao->alterarUsuario($this->idPessoaProf, $this->user_obj));
+        $this->assertEquals('0',$professorDao->alterarUsuario('-1', $this->user_obj));
+        
         $this->assertEquals('1',$professorDao->alterarProfessor($this->idProfessor, $this->professor_obj));
+        $this->assertEquals('0',$professorDao->alterarProfessor('-1', $this->professor_obj));
+        
         $this->assertEquals('1',$professorDao->alterarEndereco($this->idProfessor, $this->professor_obj));
+        $this->assertEquals('0',$professorDao->alterarEndereco('0', $this->professor_obj));
         
     }
 
