@@ -1,4 +1,5 @@
 <?php
+require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
 
 class validacaoDAO {
     //put your code here
@@ -30,17 +31,14 @@ class validacaoDAO {
         	function cpf_repetidoDAO($cpf)
 	{
 		$obj_bd = new bd;
-			$obj_bd->conecta();
-			$obj_bd->seleciona_bd();
+		$obj_bd->conecta();
+		$obj_bd->seleciona_bd();
 
-		$sql = "
-			SELECT
-				cpf
-			FROM
-				`usuario`
-			WHERE
-				cpf = '$cpf'";
+		$sql = " SELECT `pessoa`.`cpf` FROM `pessoa`
+			WHERE `pessoa`.`cpf` = '".$cpf."';";
+                
 		mysql_query( $sql );
+                
                 
                 $linhas_afetadas = mysql_affected_rows();
                 $obj_bd->fechaConexao();
@@ -54,13 +52,9 @@ class validacaoDAO {
 			$obj_bd->conecta();
 			$obj_bd->seleciona_bd();
 
-		$sql = "
-			SELECT
-				`nomeusuario`
-			FROM
-				`usuario`
-			WHERE
-				`nomeusuario` = '$this->$nome_usuario'";
+		$sql = "SELECT `usuario`.`login` FROM `usuario`
+			WHERE `login` = '".$nome_usuario."';";
+                echo $sql;
 		mysql_query( $sql );
                 
                 $linhas_afetadas = mysql_affected_rows();
