@@ -1,5 +1,8 @@
 <?php
 
+require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
+require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
+
 class ProfessorDAO {
 
     protected $_obj_conecta;
@@ -141,7 +144,7 @@ class ProfessorDAO {
         $this->criarConexao();
         
         $sql = "INSERT INTO `sigar`.`professor` (`idProfessor`, `meioTransporte`, `idUsuario`) VALUES 
-                    (NULL, '" . $professor->getMeioTransporte() . "', '.$idPessoaUsuario.');";
+                    (NULL, '" . $professor->getMeioDeTransporte() . "', '.$idPessoaUsuario.');";
 
         if (!mysql_query($sql)) {
             echo "Erro na inserção do Professor";
@@ -234,7 +237,7 @@ class ProfessorDAO {
         return $retorno;
     }
 
-    public function alterarPessoaProfessor($idPessoaProfessor, Aluno $professor) {
+    public function alterarPessoaProfessor($idPessoaProfessor, Professor $professor) {
         $retorno = 0;
         $this->criarConexao();
 
@@ -276,7 +279,7 @@ class ProfessorDAO {
     }
 
     public function alterarEndereco($idPessoaProfessor, Professor $professor) {
-
+        $retorno = 0;
         $this->criarConexao();
 
         $idEndereco = $this->selecionarIdEndereco($idPessoaProfessor);
@@ -288,10 +291,11 @@ class ProfessorDAO {
         $alteraTabEndereco = mysql_query($sql);
 
         if ($alteraTabEndereco) {
-            //Tabela endereço professor alterada com sucesso
+            $retorno++;//Tabela endereço professor alterada com sucesso
         } else {
             echo "ERRO no metodo [alterarEndereco] ";
         }
+        return $retorno;
         
     }
 

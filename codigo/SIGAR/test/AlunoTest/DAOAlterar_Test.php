@@ -60,16 +60,6 @@ class DAOAlterar_Test extends PHPUnit_Framework_TestCase{
     }
     
     
-    /**
-     * @test
-     *
-     */
-    
-    public function TestSelcionarAlunoDAO(){
-         $aluno_dao = new AlunoDAO();
-         $this->assertEquals('10',$aluno_dao->selecionarIdUsuario($this->idPessoaAluno));
-    }
-    
      /**
      * @test
      *

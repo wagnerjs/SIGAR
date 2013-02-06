@@ -20,7 +20,7 @@ class DAODeletar_Test extends PHPUnit_Framework_TestCase{
 
     public function TestDeletarAlunoDAO(){
         $aluno_dao = new AlunoDAO();
-        $this->assertEquals('1',$aluno_dao->deletarAluno(3));
+        $this->assertEquals('1',$aluno_dao->deletarAluno(24));
  
     }
 }
