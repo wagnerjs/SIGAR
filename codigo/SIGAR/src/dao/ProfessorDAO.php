@@ -70,7 +70,7 @@ class ProfessorDAO {
             $idProfessor = $aux['idProfessor'];
         }
 
-        $sql = "DELETE FROM `sigar`.`aluno` WHERE `aluno`.`idAluno` = " . $idProfessor . ";";
+        $sql = "DELETE FROM `sigar`.`professor` WHERE `professor`.`idProfessor` = " . $idPessoarofessor . ";";
 
 
         $sql = "DELETE FROM `sigar`.`usuario` WHERE `usuario`.`idPessoa` = " . $idPessoaProfessor . ";";
