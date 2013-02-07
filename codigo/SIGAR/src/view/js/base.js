@@ -10,7 +10,6 @@ function abrirModal(id) {
     })
 }
 
-
 $(document).ready(function(){
     
     $('#login input').focus(function(){ 
@@ -30,8 +29,8 @@ $(document).ready(function(){
      });
     
     $('#inputDataNasc,#inputDataNascResp').mask("99/99/9999");
-    $('#inputTelRes,#inputTelResp').mask("(99)9999-9999");
-    $('.tel').mask("(99)9999-9999");
+    $('#inputTelRes,#inputTelResp').mask("(99) 9999-9999");
+    $('.tel').mask("(99) 9999-9999");
     $('#inputN').mask("?99999");
     $('#inputNResp').mask("?99999");
     $('#inputCep').mask("99999-999");

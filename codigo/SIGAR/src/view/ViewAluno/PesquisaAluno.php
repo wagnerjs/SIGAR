@@ -65,6 +65,7 @@
                                         <th>Data Nascimento</th>
                                         <th>Sexo</th>
                                         <th>Telefone Residencial</th>
+                                        <th colspan='2'>Opções</th>
                                     </tr>
                                 </thead>
                                     <tbody>
@@ -72,24 +73,34 @@
                                     $AlunoCtrl = new AlunoCrtl();
                                         $AlunoCtrl->listarAluno();
 
-                                    if(mysql_num_rows($AlunoCtrl->getResposta())>0){
+                                    if(@mysql_num_rows($AlunoCtrl->getResposta())>0){
                                         for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
                                     ?>
                                     <tr>
-                                        <td>
-											<a href="#" onClick="abrirModal(<?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'idAluno'));?>)">
-											<?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a>
-										</td>
+                                        <td><a href="#" onClick="abrirModal(<?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'idAluno'));?>)">
+                                        <?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'email')); ?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'escola'));?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'anoEscolar'));?></td>
-                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'dataNascimento'));?></td>
+                                        <td><?php $dataAlunoRecebida=utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'dataNascimento'));
+                                                  $dataAluno = implode("/",array_reverse(explode("-",$dataAlunoRecebida)));
+                                                  echo $dataAluno;
+                                                    ?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'sexo')); ?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'telefoneResidencial'));?></td>
+                                        <td style='cursor: pointer'><img src='../img/edit.png' onClick=""></td>
+                                        <td style='cursor: pointer'><img src='../img/del.png' onClick=""></td>
                                     </tr>
                                     <?php
                                         }
                                     }
+                                    else{ ?>
+                                        <tr>
+                                             <td colspan="7"><?php echo "<center>Nenhum registro encontrado!</center>" ?></td>   
+                                        </tr>
+                                    <?php
+                                    }
+                                        
                                     ?>
                                 </tbody>
                             </table>

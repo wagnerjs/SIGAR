@@ -10,68 +10,94 @@ require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php';
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Responsavel.class.php';
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/controller/AlunoCtrl.php';
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of CTRLValidaAluno_Test
- *
- * @author Alex
- */
 class CTRLValidaAluno_Test extends PHPUnit_Framework_TestCase {
+    protected $retorno=0; 
     
-     /**
+    public function setUp(){
+        $endereco = 'SMPW 21 Conjunto 3';
+        $cep = '72151-832';
+        $bairro = 'Park Way';
+        $cidade = 'Brasília';
+        $complemento = 'Casa';
+        $numero = '19';
+        $uf = 'DF';
+        $referencia = 'Brasilia';
+
+        $mesmoEnd = 'sim';
+        $nomeResp = 'João da Silva';
+        $sexoResp = 'm';
+        $cpf = '036.969.331-04';
+        $telResResp='(61) 3301-3239'; 
+        $telefoneTrabalho = '(61) 3301-3239';
+        $telCelResp = '(61) 3301-3239';
+        $categoria = 'pai';
+        $nascimentoResp = '1990-11-12';
+        $emailResp = 'joao_silva@gmail.com';
+
+        $nome = 'Rafael Ferreira';
+        $sexo = 'm';
+        $email = 'rafaelferreira@gmail.com';
+        $nascimento = '1995-11-24';
+        $anoEscolar = '2em';
+        $telResidencial = '(61) 3321-3030';
+        $telCelular = '(61) 9999-8699';
+        $escola = 'FGA';
+
+        $enderecoResp = "";
+        $numeroResp = "";
+        $complementoResp = "";
+        $bairroResp = "";
+        $cidadeResp = "";
+        $ufResp = "";
+        $cepResp = "";
+        $referenciaResp = "";
+
+        $validaAluno = new AlunoCrtl();
+
+        $this->retorno = $validaAluno->validaAluno(utf8_decode($nome), 
+                                                    $sexo, 
+                                                    $nascimento, 
+                                                    utf8_decode($email), 
+                                                    $telResidencial, 
+                                                    $telCelular, 
+                                                    $anoEscolar, 
+                                                    utf8_decode($escola), 
+                                                    utf8_decode($nomeResp), 
+                                                    $categoria, 
+                                                    $cpf, 
+                                                    utf8_decode($emailResp), 
+                                                    $telResResp, 
+                                                    $sexoResp, 
+                                                    $nascimentoResp, 
+                                                    $telCelResp, 
+                                                    $telefoneTrabalho, 
+                                                    $mesmoEnd, 
+                                                    utf8_decode($endereco), 
+                                                    $numero, 
+                                                    utf8_decode($complemento), 
+                                                    utf8_decode($bairro), 
+                                                    utf8_decode($cidade), 
+                                                    $uf, 
+                                                    $cep, 
+                                                    utf8_decode($referencia), 
+                                                    utf8_decode($enderecoResp), 
+                                                    $numeroResp, 
+                                                    utf8_decode($complementoResp), 
+                                                    utf8_decode($bairroResp), 
+                                                    utf8_decode($cidadeResp), 
+                                                    $ufResp, 
+                                                    $cepResp, 
+                                                    utf8_decode($referenciaResp));
+
+    }
+    
+    /**
      * @test
      *
      */
     
     public function TestValidarAluno(){
-        $endereco = 'SMPW 21 CONJUNTO 3';
-        $cep = '710283832';
-        $bairro = 'PARK WWAY';
-        $cidade = 'Brasilia';
-        $complemento = 'casa';
-        $numero = '19';
-        $uf = 'DF';
-        $referencia = 'Brasilia';
-        
-       
-       $mesmoEnd = 'sim';
-       $nomeResp = 'JOAOOOOO';
-       $sexoResp = 'm';
-       $cpf = '24445312134';
-       $telResResp='6133013239'; 
-       $telefoneTrabalho = '6133013239';
-       $telCelResp = '6133013239';
-       $categoria = 'pai';
-       $nascimentoResp = '19901112';
-       $emailResp = 'EDSONSALVER@email.com.br';
-       
-       $nome = 'Hilmer';
-       $sexo = 'm';
-       $email = 'HILMER@GMAILl.COM';
-       $nascimento = '19951124';
-       $anoEscolar = '2 ano';
-       $telResidencial = '6133213030';
-       $telCelular = '6199998699';
-       $escola = 'FGA';
-       
-       $enderecoResp = "";
-       $numeroResp = "";
-       $complementoResp = "";
-       $bairroResp = "";
-       $cidadeResp = "";
-       $ufResp = "";
-       $cepResp = "";
-       $referenciaResp = "";
-       
-       
-       $validaAluno = new AlunoCrtl();
-       $retorno = $validaAluno->validaAluno($nome, $sexo, $nascimento, $email, $telResidencial, $telCelular, $anoEscolar, $escola, $nomeResp, $categoria, $cpf, $emailResp, $telResResp, $sexoResp, $nascimentoResp, $telCelResp, $telefoneTrabalho, $mesmoEnd, $endereco, $numero, $complemento, $bairro, $cidade, $uf, $cep, $referencia, $enderecoResp, $numeroResp, $complementoResp, $bairroResp, $cidadeResp, $ufResp, $cepResp, $referenciaResp);
-       echo $retorno;
-       
+       $this->assertEquals('<font color=green><b>Aluno Cadastrado com sucesso!</b></font>',$this->retorno);   
     }
 }
 
