@@ -131,8 +131,9 @@ class AlunoDAO  {
         }
         
         public function listarResponsavel($alunoID){
-            //Cria a conexão com o banco de dados
-            $this->criarConexao();
+             $obj_conecta = new bd();
+                $obj_conecta->conecta();
+                $obj_conecta->seleciona_bd();
                             
             $sql = "SELECT `pessoa`.*, `responsavel`.*, `endereco`.* 
                     FROM `aluno`,`pessoa`,`responsavel`,`endereco`  
@@ -141,7 +142,7 @@ class AlunoDAO  {
                     AND `endereco`.`idEndereco` IN 
                     (SELECT `idEndereco` FROM `endereco_pessoa` 
                     WHERE `endereco_pessoa`.`idPessoa` = `pessoa`.`idPessoa`)
-                    AND `aluno`.`idAluno` = ".$alunoID.";"; 
+                    AND `aluno`.`idAluno` = $alunoID "; 
                       
             $res= mysql_query($sql);
 
@@ -153,7 +154,7 @@ class AlunoDAO  {
                 $res = mysql_fetch_array ($res);
             }
                 
-            $this->fechaConexao();
+            $obj_conecta->fechaConexao();
 
             return $res;
         }      

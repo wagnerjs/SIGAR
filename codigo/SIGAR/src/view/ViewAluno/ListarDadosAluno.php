@@ -4,7 +4,8 @@
     require_once $url.'/controller/AlunoCtrl.php';
         
     $AlunoCtrl = new AlunoCrtl();
-    $res = $AlunoCtrl->listarAlunoAjax($_GET["alunoID"]); 
+    $res = $AlunoCtrl->listarAlunoAjax($_GET["alunoID"]);
+    $dadosResponsavel = $AlunoCtrl->listarResponsavel($_GET["alunoID"]);
 ?>
 
 <!DOCTYPE html>
@@ -50,18 +51,18 @@
                                     <hr/>
                                     <div class="row-fluid show-grid">
                                         <div class="span6">
-                                    Nome:<br/> <span><input type="text" name="txtNome" size="10" maxlength="50" id="inputNome" class="necessary" value="<?php echo $res['nome'] ?>" disabled></span><br>
+                                    Nome:<br/> <span><input type="text" name="txtNome" size="10" maxlength="50" id="inputNome" class="necessary" value="<?php echo utf8_encode($res['nome']); ?>" disabled></span><br>
                                     Sexo: <?php if($res['sexo']=='m'){ ?>
-                                        <input type="radio" name="sexo" value="m" class="necessary" checked disabled> Masculino
-                                        <input type="radio" name="sexo" value="f" class="necessary" disabled> Feminino<br/><br/>
+                                           <input type="radio" name="sexo" value="m" class="necessary" disabled checked> Masculino
+                                           <input type="radio" name="sexo" value="f" class="necessary" disabled> Feminino<br/><br/>
                                         <?php }else{?>
-                                        <input type="radio" name="sexo" value="m" class="necessary" disabled> Masculino
-                                        <input type="radio" name="sexo" value="f" class="necessary" checked disabled> Feminino<br/><br/>
+                                            <input type="radio" name="sexo" value="m" class="necessary" disabled> Masculino
+                                            <input type="radio" name="sexo" value="f" class="necessary" disabled checked> Feminino<br/><br/>
                                         <?php }?>
                                     Data de Nascimento:<br/> <span><input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);" class="necessary" id="inputDataNascResp" value="<?php echo $res['dataNascimento'] ?>" disabled></span><br>
-                                    Email:<br/> <span><input type="text" name="email" size="10" maxlength="50" id="inputEmail" class="necessary"></span><br>
-                                    Telefone Residecial:<br/> <span><input type="text"  name="telResidencial" size="10" maxlength="14" onkeypress="mascara(this, mtel );" id="inputTelRes" class="necessary"></span><br>
-                                    Telefone Celular:<br/> <span><input type="text"  name="telCelular" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"></span><br>
+                                    Email:<br/> <span><input type="text" name="email" size="10" maxlength="50" id="inputEmail" class="necessary" value="<?php echo utf8_encode($res['email']); ?>" disabled></span><br>
+                                    Telefone Residecial:<br/> <span><input type="text"  name="telResidencial" size="10" maxlength="14" onkeypress="mascara(this, mtel );" id="inputTelRes" class="necessary" value="<?php echo $res['telefoneResidencial'] ?>" disabled></span><br>
+                                    Telefone Celular:<br/> <span><input type="text"  name="telCelular" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel" value="<?php echo $res['telefoneCelular'] ?>" disabled></span><br>
                                     Ano Escolar:
                                     <select name="anoEscolar" disabled>
                                     <?php if($res['anoEscolar']=='1ef'){ ?>
@@ -92,104 +93,172 @@
                                     <option value= "outros"> Outros</option>
                                     <?php } ?>
                                     </select><br/>
-                                    Escola:<br/> <span><input type="text" name="escola" size="8" maxlength="100" id="inputEscola" class="necessary" >
-                                        </div>
-                                        <div class="span6">
-                                        Logradouro:<br/> <span><input type="text" name="endereco" id="inputEndereco" class="necessary"></span><br/>
-                                        Nº:<br/> <span><input type="text" name="numero" id="inputN" class="necessary"></span><br/>
-                                        Complemento:<br/> <span><input type="text" name="complemento"></span><br/>
-                                        Bairro:<br/> <span><input type="text" name="bairro" id="inputBairro" class="necessary"></span><br/>
-                                        Cidade:<br/> <span><input type="text" name="cidade" id="inputCidade" class="necessary" ></span><br/>
-                                        UF: <span><select id="inputUf" name="uf" class="necessary">
-                                                <option value=""></option>
-                                                <option value="AC">AC</option>
-                                                <option value="AL">AL</option>
-                                                <option value="AM">AM</option>
-                                                <option value="AP">AP</option>
-                                                <option value="BA">BA</option>
-                                                <option value="CE">CE</option>
-                                                <option value="DF">DF</option>
-                                                <option value="ES">ES</option>
-                                                <option value="GO">GO</option>
-                                                <option value="MA">MA</option>
-                                                <option value="MG">MG</option>
-                                                <option value="MS">MS</option>
-                                                <option value="MT">MT</option>
-                                                <option value="PA">PA</option>
-                                                <option value="PB">PB</option>
-                                                <option value="PE">PE</option>
-                                                <option value="PI">PI</option>
-                                                <option value="PR">PR</option>
-                                                <option value="RJ">RJ</option>
-                                                <option value="RN">RN</option>
-                                                <option value="RS">RS</option>
-                                                <option value="RO">RO</option>
-                                                <option value="RR">RR</option>
-                                                <option value="SC">SC</option>
-                                                <option value="SE">SE</option>
-                                                <option value="SP">SP</option>
-                                                <option value="TO">TO</option>
+                                    Escola:<br/> <span><input type="text" name="escola" size="8" maxlength="100" id="inputEscola" class="necessary" value="<?php echo utf8_encode($res['escola']); ?>" disabled>
+                                    </div>
+                                    <div class="span6">
+                                    Logradouro:<br/> <span><input type="text" name="endereco" id="inputEndereco" class="necessary" value="<?php echo utf8_encode($res['logradouro']); ?>" disabled></span><br/>
+                                    Nº:<br/> <span><input type="text" name="numero" id="inputN" class="necessary" value="<?php echo $res['numero'] ?>" disabled></span><br/>
+                                    Complemento:<br/> <span><input type="text" name="complemento" value="<?php echo utf8_encode($res['complemento']); ?>" disabled></span><br/>
+                                    Bairro:<br/> <span><input type="text" name="bairro" id="inputBairro" class="necessary" value="<?php echo utf8_encode($res['bairro']); ?>" disabled></span><br/>
+                                    Cidade:<br/> <span><input type="text" name="cidade" id="inputCidade" class="necessary" value="<?php echo utf8_encode($res['cidade']); ?>" disabled></span><br/>
+                                    UF: <span><select id="inputUf" name="uf" class="necessary" disabled>
+                                             <?php if($res['uf']=='AC'){ ?>
+                                            <option value="AC" selected>AC</option>
+                                            <?php }else if($res['uf']=='AL'){ ?>
+                                            <option value="AL" selected>AL</option>
+                                            <?php }else if($res['uf']=='AM'){ ?>
+                                            <option value="AM" selected>AM</option>
+                                            <?php }else if($res['uf']=='AP'){ ?>
+                                            <option value="AP" selected>AP</option>
+                                            <?php }else if($res['uf']=='BA'){ ?>
+                                            <option value="BA" selected>BA</option>
+                                            <?php }else if($res['uf']=='CE'){ ?>
+                                            <option value="CE" selected>CE</option>
+                                            <?php }else if($res['uf']=='DF'){ ?>
+                                            <option value="DF" selected>DF</option>
+                                            <?php }else if($res['uf']=='ES'){ ?>
+                                            <option value="ES" selected>ES</option>
+                                            <?php }else if($res['uf']=='GO'){ ?>
+                                            <option value="GO" selected>GO</option>
+                                            <?php }else if($res['uf']=='MA'){ ?>
+                                            <option value="MA" selected>MA</option>
+                                            <?php }else if($res['uf']=='MG'){ ?>
+                                            <option value="MG" selected>MG</option>
+                                            <?php }else if($res['uf']=='MS'){ ?>
+                                            <option value="MS" selected>MS</option>
+                                            <?php }else if($res['uf']=='MT'){ ?>
+                                            <option value="MT" selected>MT</option>
+                                            <?php }else if($res['uf']=='PA'){ ?>
+                                            <option value="PA" selected>PA</option>
+                                            <?php }else if($res['uf']=='PB'){ ?>
+                                            <option value="PB" selected>PB</option>
+                                            <?php }else if($res['uf']=='PE'){ ?>
+                                            <option value="PE" selected>PE</option>
+                                            <?php }else if($res['uf']=='PI'){ ?>
+                                            <option value="PI" selected>PI</option>
+                                            <?php }else if($res['uf']=='PR'){ ?>
+                                            <option value="PR" selected>PR</option>
+                                            <?php }else if($res['uf']=='RJ'){ ?>
+                                            <option value="RJ" selected>RJ</option>
+                                            <?php }else if($res['uf']=='RN'){ ?>
+                                            <option value="RN" selected>RN</option>
+                                            <?php }else if($res['uf']=='RS'){ ?>
+                                            <option value="RS" selected>RS</option>
+                                            <?php }else if($res['uf']=='RO'){ ?>
+                                            <option value="RO" selected>RO</option>
+                                            <?php }else if($res['uf']=='RR'){ ?>
+                                            <option value="RR" selected>RR</option>
+                                            <?php }else if($res['uf']=='SC'){ ?>
+                                            <option value="SC" selected>SC</option>
+                                            <?php }else if($res['uf']=='SE'){ ?>
+                                            <option value="SE" selected>SE</option>
+                                            <?php }else if($res['uf']=='SP'){ ?>
+                                            <option value="SP" selected>SP</option>
+                                            <?php }else{ ?>
+                                            <option value="TO" selected>TO</option>
+                                             <?php } ?>
                                          </select></span><br/>
-                                         CEP:<br/> <span><input type="text" name="cep" id="inputCep" class="necessary"></span><br/>
-                                         Referência:<br/> <input type="text" name="referencia"><br/><br/></div>
+                                         CEP:<br/> <span><input type="text" name="cep" id="inputCep" class="necessary" value="<?php echo $res['cep'] ?>" disabled></span><br/>
+                                         Referência:<br/> <input type="text" name="referencia" value="<?php echo utf8_encode($res['referencia']); ?>" disabled><br/><br/></div>
                                          </div>
                                          <b>Dados do Responsável</b>
                                          <hr/>
                                          <div class="row-fluid show-grid">
                                             <div class="span6">
-                                            Nome:<br/> <span><input type="text" name="txtNomeResp" size="10" maxlength="50" id="inputNomeResp" class="necessary"></span><br/>
-                                            Data de Nascimento:<br/> <span><input type="text" name="dataNascResp" size="10" maxlength="10" class="necessary" id="inputDataNascResp"></span><br/>
-                                            Sexo: <input type="radio" name="sexoResp" value="m" class="necessary"> Masculino
-                                                  <input type="radio" name="sexoResp" value="f" class="necessary"> Feminino<br/><br/>
-                                            Parentesco: <input type="radio" name="parentesco" value="pai" class="necessary"> Pai
-                                            <input type="radio" name="parentesco" value="mae" class="necessary"> Mae
-                                            <input type="radio" name="parentesco" value="outro" class="necessary"> Outro<br/><br/>
-                                            CPF:<br/> <span><input type="text" name="cpfResp" size="15" maxlength="15" id="inputCpf" class="necessary"></span><br/>
-                                            Email:<br/> <span><input type="text" name="emailResp" size="10" maxlength="50" id="inputEmailResp" class="necessary"></span><br/>
-                                            Telefone Residencial:<br/> <span><input type="text" name="telResResp" size="10" maxlength="14" class="necessary" onkeypress="mascara(this, mtel );" id="inputTelResp"></span><br>
-                                            Telefone Celular:<br/> <input type="text"  name="telCelResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"><br>
-                                            Telefone Trabalho:<br/> <input type="text" name="telTrabResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel"><br>
-                                            Mesmo endereço do Aluno?: <input type="radio" name="mesmoEnd" value="sim" id="closeEndResp" class="necessary"> Sim
-                                            <input type="radio" name="mesmoEnd" value="nao" id="openEndResp" class="necessary"> Não<br/><br/>
+                                            Nome:<br/> <span><input type="text" name="txtNomeResp" size="10" maxlength="50" id="inputNomeResp" class="necessary" value="<?php echo utf8_encode($dadosResponsavel['nome']); ?>" disabled></span><br/>
+                                            Data de Nascimento:<br/> <span><input type="text" name="dataNascResp" size="10" maxlength="10" class="necessary" id="inputDataNascResp" value="<?php echo $dadosResponsavel['dataNascimento'] ?>" disabled></span><br/>
+                                            Sexo: <?php if($dadosResponsavel['sexo']=='m'){ ?>
+                                            <input type="radio" name="sexoResp" value="m" class="necessary" checked disabled> Masculino
+                                            <input type="radio" name="sexoResp" value="f" class="necessary" disabled> Feminino<br/><br/>
+                                            <?php }else{?>
+                                            <input type="radio" name="sexo" value="m" class="necessary" disabled> Masculino
+                                            <input type="radio" name="sexo" value="f" class="necessary" checked disabled> Feminino<br/><br/>
+                                            <?php }?>
+                                            Parentesco:<?php if($dadosResponsavel['categoria']=='pai'){ ?>
+                                            <input type="radio" name="parentesco" value="pai" class="necessary" checked disabled> Pai
+                                            <input type="radio" name="parentesco" value="mae" class="necessary" disabled> Mae
+                                            <input type="radio" name="parentesco" value="outro" class="necessary" disabled> Outro<br/><br/>
+                                            <?php }else if($dadosResponsavel['categoria']=='mae'){?>
+                                            <input type="radio" name="parentesco" value="pai" class="necessary" disabled> Pai
+                                            <input type="radio" name="parentesco" value="mae" class="necessary" checked disabled> Mae
+                                            <input type="radio" name="parentesco" value="outro" class="necessary" disabled> Outro<br/><br/>
+                                            <?php }else{?>
+                                            <input type="radio" name="parentesco" value="pai" class="necessary" disabled> Pai
+                                            <input type="radio" name="parentesco" value="mae" class="necessary" disabled> Mae
+                                            <input type="radio" name="parentesco" value="outro" class="necessary" disabled checked> Outro<br/><br/>
+                                            <?php }?>
+                                            CPF:<br/> <span><input type="text" name="cpfResp" size="15" maxlength="15" id="inputCpf" class="necessary" value="<?php echo $dadosResponsavel['cpf'] ?>" disabled></span><br/>
+                                            Email:<br/> <span><input type="text" name="emailResp" size="10" maxlength="50" id="inputEmailResp" class="necessary" value="<?php echo utf8_encode($dadosResponsavel['email']); ?>" disabled></span><br/>
+                                            Telefone Residencial:<br/> <span><input type="text" name="telResResp" size="10" maxlength="14" class="necessary" onkeypress="mascara(this, mtel );" id="inputTelResp" value="<?php echo $dadosResponsavel['telefoneResidencial'] ?>" disabled></span><br>
+                                            Telefone Celular:<br/> <input type="text"  name="telCelResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel" value="<?php echo $dadosResponsavel['telefoneCelular'] ?>" disabled><br>
+                                            Telefone Trabalho:<br/> <input type="text" name="telTrabResp" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel" value="<?php echo $dadosResponsavel['telefoneTrabalho'] ?>" disabled><br>
                                             </div>
-                                            <div class="span6" id="endResp">    
-                                            Logradouro: <br/><span><input type="text" name="enderecoResp" id="inputEndereco" class="necessary" ></span><br/>
-                                            Nº:<br/> <span><input type="text" name="numeroResp" id="inputNResp" class="necessary"></span><br/>
-                                            Complemento: <br/><span><input type="text" name="complementoResp"></span><br/>
-                                            Bairro: <br/><span><input type="text" name="bairroResp" id="inputBairro" class="necessary"></span><br/>
-                                            Cidade: <br/><span><input type="text" name="cidadeResp" id="inputCidade" class="necessary"></span><br/>
-                                            UF: <span><select id="inputUf" name="ufResp" id="uf" class="necessary">
-                                                <option value=""></option>
-                                                <option value="AC">AC</option>
-                                                <option value="AL">AL</option>
-                                                <option value="AM">AM</option>
-                                                <option value="AP">AP</option>
-                                                <option value="BA">BA</option>
-                                                <option value="CE">CE</option>
-                                                <option value="DF">DF</option>
-                                                <option value="ES">ES</option>
-                                                <option value="GO">GO</option>
-                                                <option value="MA">MA</option>
-                                                <option value="MG">MG</option>
-                                                <option value="MS">MS</option>
-                                                <option value="MT">MT</option>
-                                                <option value="PA">PA</option>
-                                                <option value="PB">PB</option>
-                                                <option value="PE">PE</option>
-                                                <option value="PI">PI</option>
-                                                <option value="PR">PR</option>
-                                                <option value="RJ">RJ</option>
-                                                <option value="RN">RN</option>
-                                                <option value="RS">RS</option>
-                                                <option value="RO">RO</option>
-                                                <option value="RR">RR</option>
-                                                <option value="SC">SC</option>
-                                                <option value="SE">SE</option>
-                                                <option value="SP">SP</option>
-                                                <option value="TO">TO</option>
+                                            <div class="span6">    
+                                            Logradouro: <br/><span><input type="text" name="enderecoResp" id="inputEndereco" class="necessary" value="<?php echo utf8_encode($dadosResponsavel['logradouro']); ?>" disabled></span><br/>
+                                            Nº:<br/> <span><input type="text" name="numeroResp" id="inputNResp" class="necessary" value="<?php echo $dadosResponsavel['numero'] ?>" disabled></span><br/>
+                                            Complemento: <br/><span><input type="text" name="complementoResp" value="<?php echo utf8_encode($dadosResponsavel['complemento']); ?>" disabled></span><br/>
+                                            Bairro: <br/><span><input type="text" name="bairroResp" id="inputBairro" class="necessary" value="<?php echo utf8_encode($dadosResponsavel['bairro']); ?>" disabled></span><br/>
+                                            Cidade: <br/><span><input type="text" name="cidadeResp" id="inputCidade" class="necessary" value="<?php echo utf8_encode($dadosResponsavel['cidade']); ?>" disabled></span><br/>
+                                            
+                                            UF: <span><select id="inputUf" name="ufResp" id="uf" class="necessary" disabled>
+                                                <?php if($res['uf']=='AC'){ ?>
+                                            <option value="AC" selected>AC</option>
+                                            <?php }else if($res['uf']=='AL'){ ?>
+                                            <option value="AL" selected>AL</option>
+                                            <?php }else if($res['uf']=='AM'){ ?>
+                                            <option value="AM" selected>AM</option>
+                                            <?php }else if($res['uf']=='AP'){ ?>
+                                            <option value="AP" selected>AP</option>
+                                            <?php }else if($res['uf']=='BA'){ ?>
+                                            <option value="BA" selected>BA</option>
+                                            <?php }else if($res['uf']=='CE'){ ?>
+                                            <option value="CE" selected>CE</option>
+                                            <?php }else if($res['uf']=='DF'){ ?>
+                                            <option value="DF" selected>DF</option>
+                                            <?php }else if($res['uf']=='ES'){ ?>
+                                            <option value="ES" selected>ES</option>
+                                            <?php }else if($res['uf']=='GO'){ ?>
+                                            <option value="GO" selected>GO</option>
+                                            <?php }else if($res['uf']=='MA'){ ?>
+                                            <option value="MA" selected>MA</option>
+                                            <?php }else if($res['uf']=='MG'){ ?>
+                                            <option value="MG" selected>MG</option>
+                                            <?php }else if($res['uf']=='MS'){ ?>
+                                            <option value="MS" selected>MS</option>
+                                            <?php }else if($res['uf']=='MT'){ ?>
+                                            <option value="MT" selected>MT</option>
+                                            <?php }else if($res['uf']=='PA'){ ?>
+                                            <option value="PA" selected>PA</option>
+                                            <?php }else if($res['uf']=='PB'){ ?>
+                                            <option value="PB" selected>PB</option>
+                                            <?php }else if($res['uf']=='PE'){ ?>
+                                            <option value="PE" selected>PE</option>
+                                            <?php }else if($res['uf']=='PI'){ ?>
+                                            <option value="PI" selected>PI</option>
+                                            <?php }else if($res['uf']=='PR'){ ?>
+                                            <option value="PR" selected>PR</option>
+                                            <?php }else if($res['uf']=='RJ'){ ?>
+                                            <option value="RJ" selected>RJ</option>
+                                            <?php }else if($res['uf']=='RN'){ ?>
+                                            <option value="RN" selected>RN</option>
+                                            <?php }else if($res['uf']=='RS'){ ?>
+                                            <option value="RS" selected>RS</option>
+                                            <?php }else if($res['uf']=='RO'){ ?>
+                                            <option value="RO" selected>RO</option>
+                                            <?php }else if($res['uf']=='RR'){ ?>
+                                            <option value="RR" selected>RR</option>
+                                            <?php }else if($res['uf']=='SC'){ ?>
+                                            <option value="SC" selected>SC</option>
+                                            <?php }else if($res['uf']=='SE'){ ?>
+                                            <option value="SE" selected>SE</option>
+                                            <?php }else if($res['uf']=='SP'){ ?>
+                                            <option value="SP" selected>SP</option>
+                                            <?php }else{ ?>
+                                            <option value="TO" selected>TO</option>
+                                             <?php } ?>
                                          </select></span><br/>
-                                        CEP:<br/> <span><input type="text" name="cepResp" id="inputCepResp" class="necessary"></span><br/>
-                                        Referência: <br/><input type="text" name="referenciaResp"><br/><br/></div>
+                                        CEP:<br/> <span><input type="text" name="cepResp" id="inputCepResp" class="necessary" value="<?php echo $dadosResponsavel['cep'] ?>" disabled></span><br/>
+                                        Referência: <br/><input type="text" name="referenciaResp" value="<?php echo utf8_encode($dadosResponsavel['referencia']); ?>" disabled><br/><br/></div>
                                         </div>
                                     </div>
                                     <div class="submits">
@@ -203,78 +272,5 @@
             </div>
             
         </div>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-
-  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
-       Remove this if you use the .htaccess -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-  <title>Pesquisar Aluno</title>
-  <meta name="description" content="" />
-  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-  </head>
-
-<body>
-    <form name="form1" action="ListarAlunoAjax.php" method="post">
-        <b>Nome:</b> <span id="consNome"> <?php echo $res['nome'] ?> </span> 
-        <br/>
-        <b>Sexo:</b> <span id="consSex"> <?php echo $res['sexo'] ?> </span>
-        <br/>
-        <b>Data de nascimento:</b> <span id="consData"> <?php echo $res['dataNascimento'] ?> </span>
-        <br/>
-        <b>Email:</b> <span id="consMail"> <?php echo $res['dataNascimento'] ?> </span>
-        <br/>
-        <b>Tel. Residencial:</b> <span id="consTelRes"> <?php echo $res['telefoneResidencial'] ?> </span>
-        <br/>
-        <b>Tel. Celular:</b> <span id="consTelCel"> <?php echo $res['telefoneCelular'] ?> </span>
-        <br/>
-        <b>Ano Escolar:</b> <span id="consAno"> <?php echo $res['anoEscolar'] ?> </span>
-        <br/>
-        <b>Escola:</b> <span id="consEscola"> <?php echo $res['escola'] ?> </span>
-        <br/>
-        <b>Logradouro:</b> <span id="consLogradouro"> <?php echo $res['logradouro'] ?> </span>
-        <br/>
-        <b>Nº:</b> <span id="consN"> <?php echo $res['numero'] ?> </span>
-        <br/>
-        <b>Complemento:</b> <span id="consComp"> <?php echo $res['complemento'] ?> </span>
-        <br/>
-        <b>Bairro:</b> <span id="consBairro"> <?php echo $res['bairro'] ?> </span>
-        <br/>
-        <b>Cidade:</b> <span id="consCidade"> <?php echo $res['cidade'] ?> </span>
-        <br/>
-        <b>UF:</b><span id="consUF"> <?php echo $res['uf'] ?> </span> <b>CEP:</b> <span id="consCEP"> <?php echo $res['cep'] ?> </span>
-        <br/>
-        <b>Referência:</b> <span id="consRef"> <?php echo $res['referencia'] ?> </span>
-        <br/><br/>
-        <b>Dados do responsável</b>
-        <hr/>
-        <b>Nome:</b> <span id="consNomeRes"> Jose </span> 
-        <br/>
-        <b>Sexo:</b> <span id="consSexRes"> M </span>
-        <br/>
-        <b>Data de nascimento:</b> <span id="consDataRes"> Teste </span>
-        <br/>
-        <b>Parentesco:</b> <span id="consParent"> Teste </span>
-        <br/>
-        <b>CPF:</b> <span id="consCPF"> Teste </span>
-        <br/>
-        <b>Email:</b> <span id="consMailRes"> jose@gmail.com </span>
-        <br/>
-        <b>Tel. Residencial:</b> <span id="consTelResRes"> (61)3458-8796 </span>
-        <br/>
-        <b>Tel. Celular:</b> <span id="consTelCelRes"> (61)3458-8796 </span>
-        <br/>
-        <b>Tel. Trabalho:</b> <span id="consTelTrab"> (61)3458-8796 </span>
-        <br/>
-        <br/>
-        <input type="button" name="editar" id="editar" value="Editar" />
-        <input type="button" name="excluir" id="excluir" value="Excluir" />
-    </form>
 </body>
 </html>
