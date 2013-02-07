@@ -19,17 +19,14 @@ class validacaoAluno {
     
         function valida_ano_escolar($_ano_escolar) {
         if (empty($_ano_escolar)) {
-            $this->_res_ano_escolar = "<b><font color=red> * </font>Favor informar ano escolar";
+            $this->_res_ano_escolar = "<b><font color=red> * </font>Favor informar o ano escolar";
             $this->arrayErro[] = $this->_res_ano_escolar;
             $erro = 1;
         }else{
             $erro = 0;
         }
-        
         return $erro;
     }
-
-
 }
 
 ?>

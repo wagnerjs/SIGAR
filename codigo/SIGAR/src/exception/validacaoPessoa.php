@@ -98,7 +98,7 @@ class validacaoPessoa {
                         $end = 11;
                     }
                     if ($controle != $cpf2) {
-                        $this->_res_valida_cpf = "<b><font color=red> * </font>CPF inv�lido!";
+                        $this->_res_valida_cpf = "<b><font color=red> * </font>CPF inválido!";
                         $this->arrayErro[] = $this->_res_valida_cpf;
                         $erro = 1;
                     }

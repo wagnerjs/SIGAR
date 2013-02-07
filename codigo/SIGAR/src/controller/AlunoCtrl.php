@@ -17,46 +17,41 @@ class AlunoCrtl {
                                         $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
                                         $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
                                         $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp){
-            $res = 0;
             
             $validaAluno = new validacaoAluno();
-            $res = $res + $validaAluno->valida_escola($_escola);
-            $res = $res + $validaAluno->valida_ano_escolar($_anoEscolar);
+                $this->_res += $validaAluno->valida_escola($_escola);
+                $this->_res += $validaAluno->valida_ano_escolar($_anoEscolar);
             
             $validaEndereco = new validacaoEndereco();
-            $res = $res + $validaEndereco->valida_logradouro($_endereco);
-            $res = $res + $validaEndereco->valida_numero_casa($_numero);
-            $res = $res + $validaEndereco->valida_bairro($_bairro);
-            $res = $res + $validaEndereco->valida_cidade($_cidade);
-            $res = $res +$validaEndereco->valida_cep($_cep);
-            
-            $res = $res + $validaEndereco->valida_logradouro_resp($_enderecoResp, $_mesmoEnd);
-            $res = $res + $validaEndereco->valida_numero_casa_resp($_numeroResp, $_mesmoEnd);
-            $res = $res + $validaEndereco->valida_bairro_resp($_bairroResp, $_mesmoEnd);
-            $res = $res + $validaEndereco->valida_cidade_resp($_cidadeResp, $_mesmoEnd);
-            $res = $res +$validaEndereco->valida_cep_resp($_cepResp, $_mesmoEnd);
+                $this->_res += $validaEndereco->valida_logradouro($_endereco);
+                $this->_res += $validaEndereco->valida_numero_casa($_numero);
+                $this->_res += $validaEndereco->valida_bairro($_bairro);
+                $this->_res += $validaEndereco->valida_cidade($_cidade);
+                $this->_res +=$validaEndereco->valida_cep($_cep);       
+                $this->_res += $validaEndereco->valida_logradouro_resp($_enderecoResp, $_mesmoEnd);
+                $this->_res += $validaEndereco->valida_numero_casa_resp($_numeroResp, $_mesmoEnd);
+                $this->_res += $validaEndereco->valida_bairro_resp($_bairroResp, $_mesmoEnd);
+                $this->_res += $validaEndereco->valida_cidade_resp($_cidadeResp, $_mesmoEnd);
+                $this->_res += $validaEndereco->valida_cep_resp($_cepResp, $_mesmoEnd);
             
             $validaPessoa = new validacaoPessoa();
-            $res = $res + $validaPessoa->valida_nome($_nomeAluno);
-            $res = $res + $validaPessoa->valida_email($_emailAluno);
-            $res = $res + $validaPessoa->valida_telefone_resid($_telResidencial);
-            
-            $res = $res + $validaPessoa->valida_nome($_nomeResp);
-            $res = $res + $validaPessoa->valida_email($_emailResp);
-            $res = $res + $validaPessoa->valida_telefone_resid($_telResResp);
-            
-            $res = $res + $validaPessoa->validacpf($_cpfResp);
-            $res = $res + $validaPessoa->cpf_repetido($_cpfResp);
+                $this->_res += $validaPessoa->valida_nome($_nomeAluno);
+                $this->_res += $validaPessoa->valida_email($_emailAluno);
+                $this->_res += $validaPessoa->valida_telefone_resid($_telResidencial);
+                $this->_res += $validaPessoa->valida_nome($_nomeResp);
+                $this->_res += $validaPessoa->valida_email($_emailResp);
+                $this->_res += $validaPessoa->valida_telefone_resid($_telResResp); 
+                $this->_res += $validaPessoa->validacpf($_cpfResp);
+                $this->_res += $validaPessoa->cpf_repetido($_cpfResp);
           
-            if($res==0){
+            if($this->_res == 0){
                 $this->instanciarAluno($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
                                         $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
                                         $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
-                                        $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp);
-            
+                                        $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp);   
                 $mensagem = "<font color=green><b>Aluno Cadastrado com sucesso!</b></font>";
             }else{
-                $mensagem = "<font color=red><b>Insira os dados corretamente!</b></font>";
+                $mensagem = "<font color=red><b>Erro no cadastro! Insira os dados corretamente!</b></font>";
             }
             return $mensagem;            
         }
