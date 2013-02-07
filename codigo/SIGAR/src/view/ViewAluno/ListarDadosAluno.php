@@ -53,11 +53,11 @@
                                         <div class="span6">
                                     Nome:<br/> <span><input type="text" name="txtNome" size="10" maxlength="50" id="inputNome" class="necessary" value="<?php echo utf8_encode($res['nome']); ?>" disabled></span><br>
                                     Sexo: <?php if($res['sexo']=='m'){ ?>
-                                        <input type="radio" name="sexo" value="m" class="necessary" checked disabled> Masculino
-                                        <input type="radio" name="sexo" value="f" class="necessary" disabled> Feminino<br/><br/>
+                                           <input type="radio" name="sexo" value="m" class="necessary" disabled checked> Masculino
+                                           <input type="radio" name="sexo" value="f" class="necessary" disabled> Feminino<br/><br/>
                                         <?php }else{?>
-                                        <input type="radio" name="sexo" value="m" class="necessary" disabled> Masculino
-                                        <input type="radio" name="sexo" value="f" class="necessary" checked disabled> Feminino<br/><br/>
+                                            <input type="radio" name="sexo" value="m" class="necessary" disabled> Masculino
+                                            <input type="radio" name="sexo" value="f" class="necessary" disabled checked> Feminino<br/><br/>
                                         <?php }?>
                                     Data de Nascimento:<br/> <span><input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);" class="necessary" id="inputDataNascResp" value="<?php echo $res['dataNascimento'] ?>" disabled></span><br>
                                     Email:<br/> <span><input type="text" name="email" size="10" maxlength="50" id="inputEmail" class="necessary" value="<?php echo utf8_encode($res['email']); ?>" disabled></span><br>
@@ -168,8 +168,8 @@
                                             Nome:<br/> <span><input type="text" name="txtNomeResp" size="10" maxlength="50" id="inputNomeResp" class="necessary" value="<?php echo utf8_encode($dadosResponsavel['nome']); ?>" disabled></span><br/>
                                             Data de Nascimento:<br/> <span><input type="text" name="dataNascResp" size="10" maxlength="10" class="necessary" id="inputDataNascResp" value="<?php echo $dadosResponsavel['dataNascimento'] ?>" disabled></span><br/>
                                             Sexo: <?php if($dadosResponsavel['sexo']=='m'){ ?>
-                                            <input type="radio" name="sexo" value="m" class="necessary" checked disabled> Masculino
-                                            <input type="radio" name="sexo" value="f" class="necessary" disabled> Feminino<br/><br/>
+                                            <input type="radio" name="sexoResp" value="m" class="necessary" checked disabled> Masculino
+                                            <input type="radio" name="sexoResp" value="f" class="necessary" disabled> Feminino<br/><br/>
                                             <?php }else{?>
                                             <input type="radio" name="sexo" value="m" class="necessary" disabled> Masculino
                                             <input type="radio" name="sexo" value="f" class="necessary" checked disabled> Feminino<br/><br/>
