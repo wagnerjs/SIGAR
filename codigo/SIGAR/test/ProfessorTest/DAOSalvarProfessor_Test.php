@@ -71,6 +71,10 @@ class DAOSalvarProfessor_TEst extends PHPUnit_Framework_TestCase{
         $this->assertNotNull($this->idEndProfessor);
        
     }
+    
+    public function tearDown(){
+        //deletar o professor que foi inserido para não mexer na integridade do banco
+    }
 }
 
 ?>

@@ -44,7 +44,7 @@ class DAOSalvar_Test extends PHPUnit_Framework_TestCase{
        $sexo = 'm';
        $email = 'HILMER@GMAIL.COM';
        $nascimento = '1995-11-24';
-       $anoEscolar = '2 ano';
+       $anoEscolar = '2ef';
        $telResidencial = '(61)3321-3030';
        $telCelular = '(61)9999-8699';
        $escola = 'FGA';
@@ -69,6 +69,8 @@ class DAOSalvar_Test extends PHPUnit_Framework_TestCase{
       // $this->assertEquals('1', $aluno_dao->listarAlunos());    
        
     }
+    
+    
     /*
        public function TestListarAlunoDAO()
     {
