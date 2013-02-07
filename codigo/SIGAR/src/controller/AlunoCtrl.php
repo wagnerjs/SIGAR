@@ -134,7 +134,7 @@ class AlunoCrtl {
         public function listarResponsavel($alunoID)
         {
             $alunoDAO = new AlunoDAO();
-            $this->_res = $alunoDAO->listarResponsavel($alunoID);
+            return $alunoDAO->listarResponsavel($alunoID);
         }
         
         public function apagarAluno($idPessoaAluno){

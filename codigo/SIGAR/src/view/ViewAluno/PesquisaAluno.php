@@ -77,7 +77,7 @@
                                         for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
                                     ?>
                                     <tr>
-                                        <td><a href="#" onClick="abrirModal(<?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'idAluno'));?>)">
+                                        <td><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAluno/ListarDadosAluno.php?alunoID=<?php echo mysql_result($AlunoCtrl->getResposta(),$i,'idAluno');?>">
                                         <?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'email')); ?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'escola'));?></td>
