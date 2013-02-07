@@ -59,8 +59,29 @@ class ProfessorCtrl {
         }
     }
 
-    public function instanciarAlterarProfessor($idPessoaProfessor, $nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $enderecoProfessor, $cpfProfessor, $cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor, $cidadeProfessor, $ufProfessor, $referenciaProfessor) {
+    public function instanciarAlterarProfessor($idPessoaProfessor, $idProfessor, $nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $cpfProfessor, $cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor, $cidadeProfessor, $ufProfessor, $referenciaProfessor,$meioDeTransporte) {
+        $objEndProfessor = new Endereco($cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor,
+                        $cidadeProfessor, $ufProfessor, $referenciaProfessor);
+
+        $userObj = new User();
+        $userObj->cria_Usuario_Padrao($nomeProfessor, $nascProfessor);
+
+        $professor = new Professor($nomeProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $sexoProfessor,
+                                    $nascProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj);
         
+        $professorDao = new ProfessorDAO();
+        
+    
+        $retorno = $professorDao->alterarPessoaProfessor($idPessoaProfessor, $professor);
+        $retorno = $retorno + $professorDao->alterarProfessor($idProfessor, $professor);
+        $retorno = $retorno + $professorDao->alterarEndereco($idPessoaProfessor, $professor);
+        
+             
+        if ($retorno == 3) {
+            return 'Professor alterado com Sucesso';
+        } else {
+            return 'Falha na ateração de Professor';
+        }
     }
 
     public function listarProfessor() {
