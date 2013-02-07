@@ -10,7 +10,6 @@ function abrirModal(id) {
     })
 }
 
-
 $(document).ready(function(){
     
     $('#login input').focus(function(){ 

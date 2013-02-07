@@ -65,6 +65,7 @@
                                         <th>Data Nascimento</th>
                                         <th>Sexo</th>
                                         <th>Telefone Residencial</th>
+                                        <th colspan='2'>Opções</th>
                                     </tr>
                                 </thead>
                                     <tbody>
@@ -87,6 +88,8 @@
                                                     ?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'sexo')); ?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'telefoneResidencial'));?></td>
+                                        <td style='cursor: pointer'><img src='../img/edit.png' onClick=""></td>
+                                        <td style='cursor: pointer'><img src='../img/del.png' onClick=""></td>
                                     </tr>
                                     <?php
                                         }
