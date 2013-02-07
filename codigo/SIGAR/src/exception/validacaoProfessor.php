@@ -12,8 +12,11 @@
  */
 class validacaoProfessor {
     
-    function valida_meio_transporte($meioDeTransporte){
-        if(empty($meioDeTrasporte)){
+    protected $_meioDeTransporte;
+
+
+    function valida_meio_transporte($_meioDeTransporte){
+        if(empty($_meioDeTransporte)){
             $erro = 1;
         }else{
             $erro = 0;
