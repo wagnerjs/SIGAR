@@ -4,52 +4,57 @@
     require_once $url.'/controller/AlunoCtrl.php';
 
 	if(isset($_POST['enviar'])){
-		$AlunoCtrl = new AlunoCrtl();
-		$nomeAluno=utf8_decode($_POST['txtNome']);
-		$sexoAluno=$_POST['sexo'];
-		$dataAlunoRecebida = $_POST['dataNasc'];
-		$dataAluno = implode("-",array_reverse(explode("/",$dataAlunoRecebida)));
-		$emailAluno = $_POST['email'];
-		$telResidencialAluno=$_POST['telResidencial'];
-		$telCelularAluno=$_POST['telCelular'];
-		$anoEscolar=$_POST['anoEscolar'];
-		$escola=$_POST['escola'];
+		@$AlunoCtrl = new AlunoCrtl();
+		@$nomeAluno=utf8_decode($_POST['txtNome']);
+		@$sexoAluno=$_POST['sexo'];
+		@$dataAlunoRecebida = $_POST['dataNasc'];
+		@$dataAluno = implode("-",array_reverse(explode("/",$dataAlunoRecebida)));
+		@$emailAluno = utf8_decode($_POST['email']);
+		@$telResidencialAluno=$_POST['telResidencial'];
+		@$telCelularAluno=$_POST['telCelular'];
+		@$anoEscolar=$_POST['anoEscolar'];
+		@$escola=$_POST['escola'];
 
-		$nomeResp=utf8_decode($_POST['txtNomeResp']);
-		$parentesco=$_POST['parentesco'];
-		$cpfResp=$_POST['cpfResp'];
-		$emailResp=$_POST['emailResp'];
-		$telResp=$_POST['telResResp'];
-		$sexoResp=$_POST['sexoResp'];
-		$dataRespRecebida = $_POST['dataNascResp'];
-		$dataResp = implode("-",array_reverse(explode("/",$dataRespRecebida)));
-		$telCelularResp=$_POST['telCelResp'];
-		$telTrabResp=$_POST['telTrabResp'];
+		@$nomeResp=utf8_decode($_POST['txtNomeResp']);
+		@$parentesco=$_POST['parentesco'];
+		@$cpfResp=$_POST['cpfResp'];
+		@$emailResp=utf8_decode($_POST['emailResp']);
+		@$telResp=$_POST['telResResp'];
+		@$sexoResp=$_POST['sexoResp'];
+		@$dataRespRecebida = $_POST['dataNascResp'];
+		@$dataResp = implode("-",array_reverse(explode("/",$dataRespRecebida)));
+		@$telCelularResp=$_POST['telCelResp'];
+		@$telTrabResp=$_POST['telTrabResp'];
 		
-		$mesmoEnd=$_POST['mesmoEnd'];
+		@$mesmoEnd=$_POST['mesmoEnd'];
 		
-		$enderecoAluno=$_POST['endereco'];
-		$numeroAluno=$_POST['numero'];
-		$complementoAluno=$_POST['complemento'];
-		$bairroAluno=utf8_decode($_POST['bairro']);
-		$cidadeAluno=utf8_decode($_POST['cidade']);
-		$ufAluno=$_POST['uf'];
-		$cepAluno=$_POST['cep'];
-		$referenciaAluno=utf8_decode($_POST['referencia']);
+		@$enderecoAluno=utf8_decode($_POST['endereco']);
+		@$numeroAluno=$_POST['numero'];
+		@$complementoAluno=utf8_decode($_POST['complemento']);
+		@$bairroAluno=utf8_decode($_POST['bairro']);
+		@$cidadeAluno=utf8_decode($_POST['cidade']);
+		@$ufAluno=$_POST['uf'];
+		@$cepAluno=$_POST['cep'];
+		@$referenciaAluno=utf8_decode($_POST['referencia']);
 		
-		$enderecoResp=$_POST['enderecoResp'];
-		$numeroResp=$_POST['numeroResp'];
-		$complementoResp=$_POST['complementoResp'];
-		$bairroResp=utf8_decode($_POST['bairroResp']);
-		$cidadeResp=utf8_decode($_POST['cidadeResp']);
-		$ufResp=$_POST['ufResp'];
-		$cepResp=$_POST['cepResp'];
-		$referenciaResp=$_POST['referenciaResp'];
+		@$enderecoResp=utf8_decode($_POST['enderecoResp']);
+		@$numeroResp=$_POST['numeroResp'];
+		@$complementoResp=utf8_decode($_POST['complementoResp']);
+		@$bairroResp=utf8_decode($_POST['bairroResp']);
+		@$cidadeResp=utf8_decode($_POST['cidadeResp']);
+		@$ufResp=$_POST['ufResp'];
+		@$cepResp=$_POST['cepResp'];
+		@$referenciaResp=$_POST['referenciaResp'];
 					
 		$res =  $AlunoCtrl->validaAluno($nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
 				$nomeResp, $parentesco, $cpfResp,$emailResp, $telResp, $sexoResp, $dataResp,$telCelularResp,$telTrabResp,
 				$mesmoEnd,$enderecoAluno,$numeroAluno,$complementoAluno,$bairroAluno,$cidadeAluno,$ufAluno,$cepAluno,$referenciaAluno,
 				$enderecoResp, $numeroResp, $complementoResp, $bairroResp,$cidadeResp,$ufResp,$cepResp,$referenciaResp);
+               
+                if($res == "<font color=green><b>Aluno Cadastrado com sucesso!</b></font>")
+                    echo "<script type='text/javascript'>alert('Cadastro realizado com sucesso!');</script>";
+                else
+                    echo "<script type='text/javascript'>alert('Erro na realização do cadastro!');</script>";
 	}
 ?>
 
@@ -78,6 +83,7 @@
   <script src="../js/jquery.valid8.js" type="text/javascript" charset="utf-8"></script>
   <script src="../js/jquery.maskedinput-1.3.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="../js/base.js"></script>
+  <script src="../js/formCadastroAluno.js"></script>
 </head>
 <body>
         <div class="container">
@@ -90,7 +96,7 @@
                     <a href="PesquisaAluno.php"><span class="normal">Pesquisar Alunos</span></a>
                     <div class="content">
                         <div>                           
-                            <form name="form1" action="CadastroAluno.php" method="post">
+                            <form name="form1" action="CadastroAluno.php" method="post" onSubmit="return verificaDados()">
                                     <?php echo @$res; ?><br/><br/>
                                     <b>Dados do Aluno</b>
                                     <hr/>

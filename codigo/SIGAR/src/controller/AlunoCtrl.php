@@ -27,7 +27,7 @@ class AlunoCrtl {
                 $this->_res += $validaEndereco->valida_numero_casa($_numero);
                 $this->_res += $validaEndereco->valida_bairro($_bairro);
                 $this->_res += $validaEndereco->valida_cidade($_cidade);
-                $this->_res +=$validaEndereco->valida_cep($_cep);       
+                $this->_res += $validaEndereco->valida_cep($_cep);       
                 $this->_res += $validaEndereco->valida_logradouro_resp($_enderecoResp, $_mesmoEnd);
                 $this->_res += $validaEndereco->valida_numero_casa_resp($_numeroResp, $_mesmoEnd);
                 $this->_res += $validaEndereco->valida_bairro_resp($_bairroResp, $_mesmoEnd);

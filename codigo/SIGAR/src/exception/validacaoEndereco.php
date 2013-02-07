@@ -13,7 +13,7 @@ class validacaoEndereco {
 
         if (empty($_logradouro)) {
             $this->_res_logradouro = "<b><font color=red> * </font>Favor digitar o logradouro.";
-            $this->arrayErro[] = $this->_res_logradouro;
+            $this->arrayErro[0] = $this->_res_logradouro;
             $erro = 1;
         } else {
             $erro = 0;
@@ -24,7 +24,7 @@ class validacaoEndereco {
     function valida_numero_casa($_numero) {
         if (empty($_numero)) {
             $this->_res_numero = "<b><font color=red> * </font>Favor digitar o numero da casa.";
-            $this->arrayErro[] = $this->_res_numero;
+            $this->arrayErro[1] = $this->_res_numero;
             $erro = 1;
         } else {
             $erro = 0;
@@ -35,7 +35,7 @@ class validacaoEndereco {
     function valida_bairro($_bairro) {
         if (empty($_bairro)) {
             $this->_res_bairro = "<b><font color=red> * </font>Favor digitar o seu Bairro corretamente.";
-            $this->arrayErro[] = $this->_res_bairro;
+            $this->arrayErro[2] = $this->_res_bairro;
             $erro = 1;
         } else {
             $erro = 0;
@@ -46,7 +46,7 @@ class validacaoEndereco {
     function valida_cidade($_cidade) {
         if (empty($_cidade)) {
             $this->_res_cidade = "<b><font color=red> * </font>Favor digitar o seu Cidade corretamente.";
-            $this->arrayErro[] = $this->_res_cidade;
+            $this->arrayErro[3] = $this->_res_cidade;
             $erro = 1;
         } else {
             $erro = 0;
@@ -57,7 +57,7 @@ class validacaoEndereco {
     function valida_cep($_cep) {
         if (empty($_cep)) {
             $this->_res_cep = "<b><font color=red> * </font>Favor digitar o seu CEP";
-            $this->arrayErro[] = $this->_res_cep;
+            $this->arrayErro[4] = $this->_res_cep;
             $erro = 1;
         } else {
             $erro = 0;
@@ -69,7 +69,7 @@ class validacaoEndereco {
         if ($_mesmoEnd == 'nao') {
             if (empty($_logradouro)) {
                 $this->_res_logradouro = "<b><font color=red> * </font>Favor digitar o logradouro.";
-                $this->arrayErro[] = $this->_res_logradouro;
+                $this->arrayErro[5] = $this->_res_logradouro;
                 $erro = 1;
             } else {
                 $erro = 0;
@@ -78,7 +78,6 @@ class validacaoEndereco {
             $erro = 0;
         }
 
-
         return $erro;
     }
 
@@ -86,7 +85,7 @@ class validacaoEndereco {
         if ($_mesmoEnd == 'nao') {
             if (empty($_numero)) {
                 $this->_res_numero = "<b><font color=red> * </font>Favor digitar o numero da casa.";
-                $this->arrayErro[] = $this->_res_numero;
+                $this->arrayErro[6] = $this->_res_numero;
                 $erro = 1;
             } else {
                 $erro = 0;
@@ -101,7 +100,7 @@ class validacaoEndereco {
         if ($_mesmoEnd == 'nao') {
             if (empty($_bairro)) {
                 $this->_res_bairro = "<b><font color=red> * </font>Favor digitar o seu Bairro corretamente.";
-                $this->arrayErro[] = $this->_res_bairro;
+                $this->arrayErro[7] = $this->_res_bairro;
                 $erro = 1;
             } else {
                 $erro = 0;
@@ -116,7 +115,7 @@ class validacaoEndereco {
         if ($_mesmoEnd == 'nao') {
             if (empty($_cidade)) {
                 $this->_res_cidade = "<b><font color=red> * </font>Favor digitar o seu Cidade corretamente.";
-                $this->arrayErro[] = $this->_res_cidade;
+                $this->arrayErro[8] = $this->_res_cidade;
                 $erro = 1;
             } else {
                 $erro = 0;
@@ -131,7 +130,7 @@ class validacaoEndereco {
         if ($_mesmoEnd == 'nao') {
             if (empty($_cep)) {
                 $this->_res_cep = "<b><font color=red> * </font>Favor digitar o seu CEP";
-                $this->arrayErro[] = $this->_res_cep;
+                $this->arrayErro[9] = $this->_res_cep;
                 $erro = 1;
             } else {
                 $erro = 0;
