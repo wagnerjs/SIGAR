@@ -66,7 +66,7 @@ class AlunoDAO  {
         
         $linha = mysql_affected_rows();
 
-        return $linha;
+        return $idPessoaAluno;
     }
     
         public function listarAlunos(){
