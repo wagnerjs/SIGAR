@@ -65,11 +65,18 @@ class DAOSalvar_Test extends PHPUnit_Framework_TestCase{
        
         $this->id_pessoa_aluno = $aluno_dao->salvarAluno($this->aluno_obj,$this->responsavel_obj,$this->user_obj);
         $this->assertNotNull($this->id_pessoa_aluno);
-          
-       
+     }
+    
+     
+    public function tearDown()
+    {
+        $this->id_pessoa_aluno = mysql_insert_id();
+        $alunoDao = new AlunoDAO();
+        $res = $alunoDao->deletarAluno($this->id_pessoa_aluno-1);
+        echo 'SAIDA AQUIIIIIIIIIIII CARALHO----->'.$res;
     }
-    
-    
+
+
     /*
        public function TestListarAlunoDAO()
     {
