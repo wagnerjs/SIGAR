@@ -55,9 +55,7 @@ class AlunoCrtl {
             }
             return $mensagem;            
         }
-        
-        
-        
+
         public function instanciarAluno($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
                                         $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
                                         $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
@@ -131,10 +129,22 @@ class AlunoCrtl {
             $this->_res = $alunoDAO->listarAlunos();
         }
         
+        public function listarPessoaAluno()
+        {
+            $alunoDAO = new AlunoDAO();
+            $this->_res = $alunoDAO->listarPessoaAlunos();
+        }
+        
         public function listarResponsavel($alunoID)
         {
             $alunoDAO = new AlunoDAO();
             return $alunoDAO->listarResponsavel($alunoID);
+        }
+        
+        public function listaPessoaResponsavel($alunoID)
+        {
+            $alunoDAO = new AlunoDAO();
+            return $alunoDAO->listarPessoaResponsavel($alunoID);
         }
         
         public function apagarAluno($idPessoaAluno){
