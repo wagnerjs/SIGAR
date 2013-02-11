@@ -73,7 +73,7 @@ class DAOSalvar_Test extends PHPUnit_Framework_TestCase{
         $this->id_pessoa_aluno = mysql_insert_id();
         $alunoDao = new AlunoDAO();
         $res = $alunoDao->deletarAluno($this->id_pessoa_aluno-1);
-        echo 'SAIDA AQUIIIIIIIIIIII CARALHO----->'.$res;
+        echo 'SAIDA-->'.$res;
     }
 
 
@@ -87,4 +87,4 @@ class DAOSalvar_Test extends PHPUnit_Framework_TestCase{
      */
 
 }
-?>
+?>  

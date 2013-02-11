@@ -102,13 +102,6 @@ class AlunoDAO  {
             $obj_conecta = new bd();
                 $obj_conecta->conecta();
                 $obj_conecta->seleciona_bd();
-                
-            /*
-            $sql = "SELECT  `pessoa`.`nome` ,  `pessoa`.`email` ,  `aluno`.`escola` ,`pessoa`.`dataNascimento`, `pessoa`.`sexo`, `pessoa`.`telefoneResidencial` , `aluno`.`anoEscolar` 
-            FROM  `pessoa` ,  `aluno` ,  `usuario` 
-            WHERE  `aluno`.`idUsuario` =  `usuario`.`idUsuario` 
-            AND  `usuario`.`idPessoa` =  `pessoa`.`idPessoa` "; 
-            */
              
             $sql = "SELECT `pessoa`.* , `aluno`.* , `endereco`.*, `responsavel`.*
                     FROM `pessoa` , `aluno` , `usuario` , `endereco`, `responsavel`
@@ -117,6 +110,32 @@ class AlunoDAO  {
                     AND `aluno`.`idResponsavel` = `responsavel`.`idResponsavel` 
                     AND `endereco`.`idEndereco` IN (SELECT `idEndereco` FROM `endereco_pessoa` WHERE `endereco_pessoa`.`idPessoa` = `pessoa`.`idPessoa`)
                     AND `aluno`.`idAluno` = $alunoID "; 
+                      
+            $res= mysql_query($sql);
+
+            if(mysql_num_rows($res)==0)
+                $res="Nada encontrado!";
+            else
+                $res = mysql_fetch_array ($res);
+
+            $obj_conecta->fechaConexao();
+
+            return $res;
+        }
+        
+        public function listarPessoaAlunos($alunoID){
+            //Cria a conexão com o banco de dados
+            $obj_conecta = new bd();
+                $obj_conecta->conecta();
+                $obj_conecta->seleciona_bd();
+             
+            $sql = "SELECT `pessoa`.* , `aluno`.* , `endereco`.*, `responsavel`.*
+                    FROM `pessoa` , `aluno` , `usuario` , `endereco`, `responsavel`
+                    WHERE `aluno`.`idUsuario` = `usuario`.`idUsuario` 
+                    AND `usuario`.`idPessoa` = `pessoa`.`idPessoa` 
+                    AND `aluno`.`idResponsavel` = `responsavel`.`idResponsavel` 
+                    AND `endereco`.`idEndereco` IN (SELECT `idEndereco` FROM `endereco_pessoa` WHERE `endereco_pessoa`.`idPessoa` = `pessoa`.`idPessoa`)
+                    AND `pessoa`.`idPessoa` = $alunoID "; 
                       
             $res= mysql_query($sql);
 
@@ -157,7 +176,42 @@ class AlunoDAO  {
             $obj_conecta->fechaConexao();
 
             return $res;
-        }      
+        }     
+        
+        public function listarPessoaResponsavel($alunoID){
+             $obj_conecta = new bd();
+                $obj_conecta->conecta();
+                $obj_conecta->seleciona_bd();
+                            
+            $sql = "SELECT DISTINCT * 
+                    FROM
+                    (SELECT  `pessoa`. * ,  `responsavel`.idResponsavel as idResponsavelResp,`responsavel`.categoria,`responsavel`.telefoneTrabalho ,  `endereco`. * ,  `usuario`.idPessoa AS idPessoaAluno,  `aluno`. * 
+                    FROM  `aluno` ,  `pessoa` ,  `responsavel` ,  `endereco` ,  `usuario` 
+                    WHERE  `aluno`.`idResponsavel` =  `responsavel`.`idResponsavel` 
+                    AND  `aluno`.`idUsuario` =  `usuario`.`idUsuario` 
+                    AND  `responsavel`.`idPessoa` =  `pessoa`.`idPessoa` 
+                    AND  `endereco`.`idEndereco` 
+                    IN (
+                    SELECT  `idEndereco` 
+                    FROM  `endereco_pessoa` 
+                    WHERE  `endereco_pessoa`.`idPessoa` =  `pessoa`.`idPessoa`
+                    )) AS idPessoaAlunoResponsavel
+                    WHERE idPessoaAlunoResponsavel.idPessoaAluno = $alunoID "; 
+                      
+            $res= mysql_query($sql);
+
+            if(mysql_num_rows($res)==0)
+            {
+                $res="Nada encontrado!";
+            }                
+            else{
+                $res = mysql_fetch_array ($res);
+            }
+                
+            $obj_conecta->fechaConexao();
+
+            return $res;
+        }
                 
         public function selecionarIdPessoaAluno($idAluno)    {
             $this->criarConexao();
