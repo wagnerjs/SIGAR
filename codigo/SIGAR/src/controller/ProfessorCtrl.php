@@ -67,15 +67,10 @@ class ProfessorCtrl {
         
     }
 
-    public function listarProfessor() {
+    public function listarProfessor($idProfessor) {
         $professorDao = new ProfessorDAO();
-        $professorDao->listarProfessor($idPessoaProfessor);
-    }
-
-    public function listarMaterias($idPessoaProfessor) {
-        $professorDao = new ProfessorDAO();
-        $professorDao->selecionarMateriasProfessor($idPessoaProfessor);
-    }
+        $professorDao->listarProfessor($idProfessor);
+     }
 
     public function apagarProfessor($idPessoaProfessor) {
         $professorDao = new ProfessorDAO();
