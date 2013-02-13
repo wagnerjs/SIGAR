@@ -129,10 +129,10 @@ class AlunoCrtl {
             $this->_res = $alunoDAO->listarAlunos();
         }
         
-        public function listarPessoaAluno()
+        public function listarPessoaAluno($alunoID)
         {
             $alunoDAO = new AlunoDAO();
-            $this->_res = $alunoDAO->listarPessoaAlunos();
+            return $alunoDAO->listarPessoaAlunos($alunoID);
         }
         
         public function listarResponsavel($alunoID)

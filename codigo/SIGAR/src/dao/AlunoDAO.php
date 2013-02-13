@@ -124,33 +124,36 @@ class AlunoDAO  {
         }
         
         public function listarPessoaAlunos($alunoID){
-            //Cria a conexão com o banco de dados
-            $obj_conecta = new bd();
+           //Cria a conexão com o banco de dados
+           $obj_conecta = new bd();
                 $obj_conecta->conecta();
                 $obj_conecta->seleciona_bd();
              
-            $sql = "SELECT `pessoa`.* , `aluno`.* , `endereco`.*, `responsavel`.*
+           $sql = "SELECT `pessoa`.* , `aluno`.* , `endereco`.*, `responsavel`.*
                     FROM `pessoa` , `aluno` , `usuario` , `endereco`, `responsavel`
                     WHERE `aluno`.`idUsuario` = `usuario`.`idUsuario` 
                     AND `usuario`.`idPessoa` = `pessoa`.`idPessoa` 
                     AND `aluno`.`idResponsavel` = `responsavel`.`idResponsavel` 
                     AND `endereco`.`idEndereco` IN (SELECT `idEndereco` FROM `endereco_pessoa` WHERE `endereco_pessoa`.`idPessoa` = `pessoa`.`idPessoa`)
                     AND `pessoa`.`idPessoa` = $alunoID "; 
-                      
+            
             $res= mysql_query($sql);
 
             if(mysql_num_rows($res)==0)
+            {
                 $res="Nada encontrado!";
-            else
+            }                
+            else{
                 $res = mysql_fetch_array ($res);
-
+            }
+                
             $obj_conecta->fechaConexao();
 
             return $res;
         }
         
         public function listarResponsavel($alunoID){
-             $obj_conecta = new bd();
+           $obj_conecta = new bd();
                 $obj_conecta->conecta();
                 $obj_conecta->seleciona_bd();
                             
@@ -205,7 +208,7 @@ class AlunoDAO  {
                 $res="Nada encontrado!";
             }                
             else{
-                $res = mysql_fetch_array ($res);
+                $res = mysql_fetch_array($res);
             }
                 
             $obj_conecta->fechaConexao();

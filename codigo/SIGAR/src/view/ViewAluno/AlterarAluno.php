@@ -1,11 +1,11 @@
-<?php
+<?php   
     $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
     require $url.'/view/ValidaSession.php';
     require_once $url.'/controller/AlunoCtrl.php';
         
     $AlunoCtrl = new AlunoCrtl();
     $res = $AlunoCtrl->listarPessoaAluno($_GET["alunoID"]);
-    $dadosResponsavel = $AlunoCtrl->listarPessoaResponsavel($_GET["alunoID"]);
+    $dadosResponsavel = $AlunoCtrl->listaPessoaResponsavel($_GET["alunoID"]);
     
     if(isset($_POST['enviar'])){
 		@$AlunoCtrl = new AlunoCrtl();
@@ -230,17 +230,17 @@
                                             <input type="radio" name="sexo" value="f" class="necessary" checked  > Feminino<br/><br/>
                                             <?php }?>
                                             Parentesco:<?php if($dadosResponsavel['categoria']=='pai'){ ?>
-                                            <input type="radio" name="parentesco" value="pai" class="necessary" checked  > Pai
+                                            <input type="radio" name="parentesco" value="pai" class="necessary" checked> Pai
                                             <input type="radio" name="parentesco" value="mae" class="necessary"  > Mae
                                             <input type="radio" name="parentesco" value="outro" class="necessary"  > Outro<br/><br/>
                                             <?php }else if($dadosResponsavel['categoria']=='mae'){?>
                                             <input type="radio" name="parentesco" value="pai" class="necessary"  > Pai
-                                            <input type="radio" name="parentesco" value="mae" class="necessary" checked  > Mae
+                                            <input type="radio" name="parentesco" value="mae" class="necessary" checked> Mae
                                             <input type="radio" name="parentesco" value="outro" class="necessary"  > Outro<br/><br/>
                                             <?php }else{?>
                                             <input type="radio" name="parentesco" value="pai" class="necessary"  > Pai
                                             <input type="radio" name="parentesco" value="mae" class="necessary"  > Mae
-                                            <input type="radio" name="parentesco" value="outro" class="necessary"   checked> Outro<br/><br/>
+                                            <input type="radio" name="parentesco" value="outro" class="necessary" checked> Outro<br/><br/>
                                             <?php }?>
                                             CPF:<br/> <span><input type="text" name="cpfResp" size="15" maxlength="15" id="inputCpf" class="necessary" value="<?php echo $dadosResponsavel['cpf'] ?>"  ></span><br/>
                                             Email:<br/> <span><input type="text" name="emailResp" size="10" maxlength="50" id="inputEmailResp" class="necessary" value="<?php echo utf8_encode($dadosResponsavel['email']); ?>"  ></span><br/>
