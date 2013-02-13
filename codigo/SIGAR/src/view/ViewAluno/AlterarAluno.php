@@ -4,11 +4,13 @@
     require_once $url.'/controller/AlunoCtrl.php';
         
     $AlunoCtrl = new AlunoCrtl();
-    $res = $AlunoCtrl->listarPessoaAluno($_GET["alunoID"]);
-    $dadosResponsavel = $AlunoCtrl->listaPessoaResponsavel($_GET["alunoID"]);
+    $idPessoaAluno = $_GET["alunoID"];
+    $res = $AlunoCtrl->listarPessoaAluno($idPessoaAluno);
+    $dadosResponsavel = $AlunoCtrl->listaPessoaResponsavel($idPessoaAluno);
     
     if(isset($_POST['enviar'])){
 		@$AlunoCtrl = new AlunoCrtl();
+                
 		@$nomeAluno=utf8_decode($_POST['txtNome']);
 		@$sexoAluno=$_POST['sexo'];
 		@$dataAlunoRecebida = $_POST['dataNasc'];
@@ -30,7 +32,7 @@
 		@$telCelularResp=$_POST['telCelResp'];
 		@$telTrabResp=$_POST['telTrabResp'];
 		
-		@$mesmoEnd=$_POST['mesmoEnd'];
+		$mesmoEnd="nao";
 		
 		@$enderecoAluno=utf8_decode($_POST['endereco']);
 		@$numeroAluno=$_POST['numero'];
@@ -50,12 +52,12 @@
 		@$cepResp=$_POST['cepResp'];
 		@$referenciaResp=$_POST['referenciaResp'];
 					
-		/*$resposta =  $AlunoCtrl->validaAluno($nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
+		$resposta =  $AlunoCtrl->validaAluno($nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
 				$nomeResp, $parentesco, $cpfResp,$emailResp, $telResp, $sexoResp, $dataResp,$telCelularResp,$telTrabResp,
 				$mesmoEnd,$enderecoAluno,$numeroAluno,$complementoAluno,$bairroAluno,$cidadeAluno,$ufAluno,$cepAluno,$referenciaAluno,
-				$enderecoResp, $numeroResp, $complementoResp, $bairroResp,$cidadeResp,$ufResp,$cepResp,$referenciaResp);*/
+				$enderecoResp, $numeroResp, $complementoResp, $bairroResp,$cidadeResp,$ufResp,$cepResp,$referenciaResp,2);
                
-                if($resposta == "<font color=green><b>Aluno Cadastrado com sucesso!</b></font>")
+                if($resposta == "<font color=green><b>Aluno alterado com sucesso!</b></font>")
                     echo "<script type='text/javascript'>alert('Alteração realizado com sucesso!');</script>";
                 else
                     echo "<script type='text/javascript'>alert('Erro na realização da alteração!');</script>";
@@ -100,7 +102,7 @@
                     <a href="PesquisaAluno.php"><span class="selected">Pesquisar Alunos</span></a>
                     <div class="content">
                         <div>                           
-                            <form name="form1" action="CadastroAluno.php" method="post">
+                            <form name="form1" action="AlterarAluno.php?alunoID=<?php echo $idPessoaAluno; ?>" method="post">
                                     <?php echo @$resposta; ?><br/><br/>
                                     <b>Dados do Aluno</b>
                                     <hr/>
