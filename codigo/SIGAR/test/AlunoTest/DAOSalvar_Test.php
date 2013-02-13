@@ -17,7 +17,8 @@ class DAOSalvar_Test extends PHPUnit_Framework_TestCase{
     protected $endereco_obj;
     protected $reponsavel_obj;
     protected $user_obj;
-    
+    protected $id_pessoa_aluno;
+
     public function setUp()
     {
         $logradouro = 'SMPW 21 CONJUNTO 3';
@@ -28,34 +29,31 @@ class DAOSalvar_Test extends PHPUnit_Framework_TestCase{
         $numero = '19';
         $uf = 'DF';
         $referencia = 'Brasilia';
-        
-        
-       $nomeResp = 'EDSON ALVES';
-       $sexoResp = 'm';
-       $cpf = '012.202.033-21';
-       $telResResp='(61)3301-3239'; 
-       $telefoneTrabalho = '(61)3301-3239';
-       $telCelResp = '(61)3301-3239';
-       $categoria = 'pai';
-       $nascimentoResp = '1990-11-12';
-       $emailResp = 'EDSONSALVER@emai.com.br';
-       
-       $nome = 'hilmer';
-       $sexo = 'm';
-       $email = 'HILMER@GMAIL.COM';
-       $nascimento = '1995-11-24';
-       $anoEscolar = '2 ano';
-       $telResidencial = '(61)3321-3030';
-       $telCelular = '(61)9999-8699';
-       $escola = 'FGA';
-       
-       $this->endereco_obj=new Endereco($logradouro,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
-       $this->user_obj = new User();
-       $this->responsavel_obj = new Responsavel(utf8_decode($nomeResp),$emailResp,$telResResp, $telCelResp, $sexoResp ,$nascimentoResp, $cpf, $categoria, $telefoneTrabalho, $this->endereco_obj);
-       $this->aluno_obj=new Aluno (utf8_decode($nome),$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,  $this->endereco_obj,$this->responsavel_obj,$this->user_obj);
-       
+
+        $nomeResp = 'EDSON ALVES';
+        $sexoResp = 'm';
+        $cpf = '012.202.033-21';
+        $telResResp='(61)3301-3239'; 
+        $telefoneTrabalho = '(61)3301-3239';
+        $telCelResp = '(61)3301-3239';
+        $categoria = 'pai';
+        $nascimentoResp = '1990-11-12';
+        $emailResp = 'EDSONSALVER@emai.com.br';
+
+        $nome = 'hilmer';
+        $sexo = 'm';
+        $email = 'HILMER@GMAIL.COM';
+        $nascimento = '1995-11-24';
+        $anoEscolar = '2ef';
+        $telResidencial = '(61)3321-3030';
+        $telCelular = '(61)9999-8699';
+        $escola = 'FGA';
+
+        $this->endereco_obj=new Endereco($logradouro,$cep,$bairro,$cidade,$complemento,$numero,$uf,$referencia);
+        $this->user_obj = new User();
+        $this->responsavel_obj = new Responsavel(utf8_decode($nomeResp),$emailResp,$telResResp, $telCelResp, $sexoResp ,$nascimentoResp, $cpf, $categoria, $telefoneTrabalho, $this->endereco_obj);
+        $this->aluno_obj=new Aluno (utf8_decode($nome),$sexo,$nascimento,$email,$anoEscolar,$telResidencial,$telCelular,$escola,  $this->endereco_obj,$this->responsavel_obj,$this->user_obj);
     }
-    
     
     /**
      * @test
@@ -65,10 +63,20 @@ class DAOSalvar_Test extends PHPUnit_Framework_TestCase{
     {
         $aluno_dao = new AlunoDao();
        
-       $this->assertEquals('1', $aluno_dao->salvarAluno($this->aluno_obj,$this->responsavel_obj,$this->user_obj));
-      // $this->assertEquals('1', $aluno_dao->listarAlunos());    
-       
+        $this->id_pessoa_aluno = $aluno_dao->salvarAluno($this->aluno_obj,$this->responsavel_obj,$this->user_obj);
+        $this->assertNotNull($this->id_pessoa_aluno);
+     }
+    
+     
+    public function tearDown()
+    {
+        $this->id_pessoa_aluno = mysql_insert_id();
+        $alunoDao = new AlunoDAO();
+        $res = $alunoDao->deletarAluno($this->id_pessoa_aluno-1);
+        echo 'SAIDA-->'.$res;
     }
+
+
     /*
        public function TestListarAlunoDAO()
     {
@@ -79,4 +87,4 @@ class DAOSalvar_Test extends PHPUnit_Framework_TestCase{
      */
 
 }
-?>
+?>  

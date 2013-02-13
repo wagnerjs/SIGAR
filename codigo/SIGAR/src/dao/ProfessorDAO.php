@@ -1,7 +1,7 @@
 <?php
 
-require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
-require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
+require_once "F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
+require_once "F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
 
 class ProfessorDAO {
 
@@ -26,13 +26,14 @@ class ProfessorDAO {
                     (SELECT `idEndereco` FROM `endereco_pessoa` 
                     WHERE `endereco_pessoa`.`idPessoa` = `pessoa`.`idPessoa`)
                     AND `professor`.`idProfessor` =" . $idProfessor . ";";
-
+                
         $res = mysql_query($sql);
 
         if (mysql_num_rows($res) == 0) {
             $res = "Nada encontrado!";
         } else {
             $res = mysql_fetch_array($res);
+            $this->selecionarMateriasProfessor($idProfessor);
         }
 
         return $res;

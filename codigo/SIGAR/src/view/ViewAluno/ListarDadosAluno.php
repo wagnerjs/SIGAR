@@ -261,10 +261,7 @@
                                         Referência: <br/><input type="text" name="referenciaResp" value="<?php echo utf8_encode($dadosResponsavel['referencia']); ?>" disabled><br/><br/></div>
                                         </div>
                                     </div>
-                                    <div class="submits">
-                                        <input type="submit" name="enviar" value="Enviar" id="cadEnv" />
-                                        <input type="reset" name="limpar" value="Limpar" id="limpar" />
-                                    </div>
+                                    
                             </form>
                         </div>
                     </div>

@@ -88,8 +88,8 @@
                                                     ?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'sexo')); ?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'telefoneResidencial'));?></td>
-                                        <td style='cursor: pointer'><img src='../img/edit.png' onClick=""></td>
-                                        <td style='cursor: pointer'><img src='../img/del.png' onClick=""></td>
+                                        <td style='cursor: pointer'><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAluno/AlterarAluno.php?alunoID=<?php echo mysql_result($AlunoCtrl->getResposta(),$i,'idPessoa');?>"><img src='../img/edit.png' onClick="" alt="Editar"></a></td>
+                                        <td style='cursor: pointer'><a href="#"><img src='../img/del.png' onClick="" alt="Deletar"></a></td>
                                     </tr>
                                     <?php
                                         }

@@ -36,7 +36,7 @@ class ProfessorCtrl {
         return $mensagem;
     }
 
-    public function instanciarProfessor($nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $enderecoProfessor, $cpfProfessor, $meioDeTransporte, $cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor, $cidadeProfessor, $ufProfessor, $referenciaProfessor) {
+    public function instanciarProfessor($nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $cpfProfessor, $meioDeTransporte, $cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor, $cidadeProfessor, $ufProfessor, $referenciaProfessor) {
 
         $objEndProfessor = new Endereco($cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor,
                         $cidadeProfessor, $ufProfessor, $referenciaProfessor);
@@ -48,12 +48,16 @@ class ProfessorCtrl {
                                     $nascProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj);
         
         $professorDao = new ProfessorDAO();
-        $idProfPessoa = $professorDao->salvarPessoa($professor);
-        $idPessoaUser = $professorDao->salvarUsuario($idProfPessoa, $userObj);
-        $professorDao->salvarProfessor($idPessoaUser, $professor);
+        $idPessoaProf = $professorDao->salvarPessoa($professor);
+        $idPessoaUser = $professorDao->salvarUsuario($idPessoaProf, $userObj);
+        $idProfessor = $professorDao->salvarProfessor($idPessoaUser, $professor);
+        $idEndProfessor = $professorDao->salvarProfessorEndereco($professor);
+        $professorDao->salvarEnderecoAssociativa($idEndProfessor, $idPessoaProf);
         
-        if ($idProfPessoa == 1 && $idPessoaUser == 1) {
-            return 'Cadastro de Professor com Sucesso';
+        
+        
+        if ($idProfessor) {
+            return 'Cadastro de Professor Efetuado com Sucesso';
         } else {
             return 'Cadastrado não Efetuado';
         }
@@ -84,15 +88,10 @@ class ProfessorCtrl {
         }
     }
 
-    public function listarProfessor() {
+    public function listarProfessor($idProfessor) {
         $professorDao = new ProfessorDAO();
-        $professorDao->listarProfessor($idPessoaProfessor);
-    }
-
-    public function listarMaterias($idPessoaProfessor) {
-        $professorDao = new ProfessorDAO();
-        $professorDao->selecionarMateriasProfessor($idPessoaProfessor);
-    }
+        $professorDao->listarProfessor($idProfessor);
+     }
 
     public function apagarProfessor($idPessoaProfessor) {
         $professorDao = new ProfessorDAO();
