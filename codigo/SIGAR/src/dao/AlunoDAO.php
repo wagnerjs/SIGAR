@@ -241,6 +241,7 @@ class AlunoDAO  {
                 $sql = "SELECT  `usuario`.`idUsuario` FROM  `usuario`,  `pessoa` WHERE  `usuario`.`idPessoa` = `pessoa`.`idPessoa` AND `pessoa`.`idPessoa`= ".$idPessoaAluno." ;";
                 $resultadoIdUsuario = mysql_query($sql);
                 $idUsuario = 0;
+                
                 while($aux = mysql_fetch_array($resultadoIdUsuario)){
                     $idUsuario = $aux['idUsuario'];
                 }
@@ -278,7 +279,7 @@ class AlunoDAO  {
             $sql = "UPDATE `usuario` SET  `login` =  '".$user->getLogin()."', `senha` = '".$user->getSenha()."' WHERE  `usuario`.`idPessoa` = ".$idPessoaAluno.";";
 
             $alteraTabUsuario = mysql_query($sql);
-            echo "<alteraTAB>".$alteraTabUsuario."<alteraTAB>";
+            //echo "<alteraTAB>".$alteraTabUsuario."<alteraTAB>";
    
             if($alteraTabUsuario){
                 $retorno++;
@@ -324,28 +325,26 @@ class AlunoDAO  {
                 $this->criarConexao();
                 
                 $idUsuario = $this->selecionarIdUsuario($idPessoaAluno);
-                              
                 $retorno = $this->alterarAlunoBanco($idUsuario,$aluno);
-               
-                $retorno = $retorno + $this->alterarUsuario($idPessoaAluno,$user);
-                                   
-                $retorno = $retorno + $this->alterarPessoaAluno($idPessoaAluno,$aluno);
+                $retorno += $this->alterarUsuario($idPessoaAluno,$user);     
+                $retorno += $this->alterarPessoaAluno($idPessoaAluno,$aluno);
                                    
                 $this->alterarEndereco($idPessoaAluno, $aluno); 
                 
                 $sql ="SELECT  `aluno`.`idAluno` FROM  `usuario`, `aluno` WHERE  `usuario`.`idUsuario` = `aluno`.`idUsuario` AND `usuario`.`idPessoa`= ".$idPessoaAluno." ;";
                 $resultadoAluno = mysql_query($sql);
                 $idAluno = 0;
+                
                 while($aux = mysql_fetch_array($resultadoAluno)){
                     $idAluno = $aux['idAluno'];
                 }
                 
                 if(mysql_num_rows($resultadoAluno)==0)
                 {
-                      echo "<br> NENHUM ALUNO encontrado! <br>";
+                      //echo "<br> NENHUM ALUNO encontrado! <br>";
                 }
                 else{
-                    echo "<br> IDALUNO=".$idAluno." <br>";
+                    //echo "<br> IDALUNO=".$idAluno." <br>";
                 }
                 $sql = "SELECT  `pessoa`.`idPessoa` FROM  `responsavel`,  `pessoa`, aluno WHERE  `responsavel`.`idPessoa` = `pessoa`.`idPessoa` AND `responsavel`.`idResponsavel`= `aluno`.`idResponsavel` AND `aluno`.`idAluno`= ".$idAluno." ;";
                 $resultadoResponsavel = mysql_query($sql);
@@ -354,7 +353,7 @@ class AlunoDAO  {
                     $idPessoaResponsavel = $aux['idPessoa'];
                 }
                 
-                echo "<br> IdPessoaResponsavel = [".$idPessoaResponsavel."] <br><br>";
+                //echo "<br> IdPessoaResponsavel = [".$idPessoaResponsavel."] <br><br>";
                 
                 $this->alterarResponsavel($idPessoaResponsavel,$responsavel);
 
@@ -370,7 +369,7 @@ class AlunoDAO  {
                 $obj_conecta->conecta();
                 $obj_conecta->seleciona_bd();
                 
-                echo "<br> Chegou no metodo IdPessoaAluno = [".$idPessoaAluno."] <br><br>";
+                //echo "<br> Chegou no metodo IdPessoaAluno = [".$idPessoaAluno."] <br><br>";
                 
                 $sql = "SELECT `endereco_pessoa`.`idEndereco` FROM `endereco_pessoa` WHERE `endereco_pessoa`.`idPessoa` = ".$idPessoaAluno.";";
                 $resulltadoEndereco = mysql_query($sql);
@@ -381,23 +380,23 @@ class AlunoDAO  {
                 
                 if(mysql_num_rows($resulltadoEndereco)==0)
                 {
-                      echo "<br> NENHUM ENDERECO encontrado! POSSIVELIDENDERECO=".$idEndereco." <br>";
+                      //echo "<br> NENHUM ENDERECO encontrado! POSSIVELIDENDERECO=".$idEndereco." <br>";
                 }
                 else{
-                    echo "<br> IDENDERECO=".$idEndereco." <br> ";
+                    //echo "<br> IDENDERECO=".$idEndereco." <br> ";
                 }
                 
                 $enderecoAluno = $aluno->getEndereco();
 
                 $sql = "UPDATE `sigar`.`endereco` SET `cep` = '".$enderecoAluno->getCep()."',`logradouro` = '".$enderecoAluno->getLogradouro()."',`numero` = ".$enderecoAluno->getNumeroCasa().",`complemento` = '".$enderecoAluno->getComplemento()."',`bairro` = '".$enderecoAluno->getBairro()."',`cidade` = '".$enderecoAluno->getCidade()."',`referencia` = '".$enderecoAluno->getReferencia()."',`uf` = '".$enderecoAluno->getUf()."' WHERE `endereco`.`idendereco` = ".$idEndereco.";"; 
                 
-                echo "<br>Comando ALTERA SQL: ".$sql." <br><br>";
+                //echo "<br>Comando ALTERA SQL: ".$sql." <br><br>";
                 $alteraTabEndereco = mysql_query($sql);
                 if($alteraTabEndereco){
-                     echo "<br> Tabela ENDERECO alterado com sucesso <br>";
+                     //echo "<br> Tabela ENDERECO alterado com sucesso <br>";
                 }
                 else {
-                      echo "<br> ERRO alteração tabela ENDERECO <br>";         
+                      //echo "<br> ERRO alteração tabela ENDERECO <br>";         
                 }
 
 
@@ -418,16 +417,16 @@ class AlunoDAO  {
                 $obj_conecta->conecta();
                 $obj_conecta->seleciona_bd();
                 
-                echo "<br> Chegou no metodo IdPessoaResponsavel = [".$idPessoaResponsavel."] <br><br>";
+                //echo "<br> Chegou no metodo IdPessoaResponsavel = [".$idPessoaResponsavel."] <br><br>";
 
                 $sql = "UPDATE  `sigar`.`responsavel` SET  `categoria` =  '".$responsavel->getCategoria()."', `telefoneTrabalho` =  '".$responsavel->getTelTrabalho()."' WHERE  `responsavel`.`idPessoa` =".$idPessoaResponsavel.";";
 
                 $alteraTabResponsavel = mysql_query($sql);
                 if($alteraTabResponsavel){
-                     echo "<br> Tabela RESPONSAVEL alterado com sucesso <br>";
+                     //echo "<br> Tabela RESPONSAVEL alterado com sucesso <br>";
                 }
                 else {
-                      echo "<br> ERRO alteração tabela RESPONSAVEL <br>";         
+                      //echo "<br> ERRO alteração tabela RESPONSAVEL <br>";         
                 }
 
 
@@ -436,10 +435,10 @@ class AlunoDAO  {
 
                 $alteraTabPessoaResp = mysql_query($sql);
                 if($alteraTabPessoaResp){
-                     echo " <br> Tabela PESSOARESPONSAVEL alterado com sucesso <br>";
+                     //echo " <br> Tabela PESSOARESPONSAVEL alterado com sucesso <br>";
                 }
                 else {
-                      echo "<br> EROO alteração tabela PESSOARESPONSAVEL <br>";         
+                      //echo "<br> EROO alteração tabela PESSOARESPONSAVEL <br>";         
                 }                
              
         }
@@ -553,11 +552,5 @@ class AlunoDAO  {
                                 echo "Dados tabela PESSOA deletado com sucesso";
                         }
         }
-
-
-
-
-
-
         }
 ?>

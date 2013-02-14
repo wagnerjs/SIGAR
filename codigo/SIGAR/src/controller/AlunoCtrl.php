@@ -13,7 +13,7 @@ class AlunoCrtl {
 
         protected $_res = 0;
         
-        public function validaAluno($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
+        public function validaAluno($idPessoaAluno,$_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
                                         $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
                                         $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
                                         $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp,$_op){
@@ -42,21 +42,29 @@ class AlunoCrtl {
             
             $validaPessoa = new validacaoPessoa();
                 $this->_res += $validaPessoa->valida_nome($_nomeAluno);
-                 //$mensagem = "Validacao nome -> $this->_res";
+                //$mensagem = "Validacao nome -> $this->_res";
                 $this->_res += $validaPessoa->valida_email($_emailAluno);
-                 $mensagem .= "\nValidacao email -> $this->_res";
+                if($_op == 1){
+                    $this->_res += $validaPessoa->email_repetido($_emailAluno);
+                }
+                //$mensagem .= "\nValidacao email -> $this->_res";
                 $this->_res += $validaPessoa->valida_telefone_resid($_telResidencial);
-                 $mensagem .= "\nValidacao tel resid -> $this->_res";
+                //$mensagem .= "\nValidacao tel resid -> $this->_res";
                 $this->_res += $validaPessoa->valida_nome($_nomeResp);
-                 $mensagem .= "\nValidacao nome resp -> $this->_res";
+                //$mensagem .= "\nValidacao nome resp -> $this->_res";
                 $this->_res += $validaPessoa->valida_email($_emailResp);
-                 $mensagem .= "\nValidacao email resp -> $this->_res";
+                //$mensagem .= "\nValidacao email resp -> $this->_res";
+                if($_op == 1){
+                    $this->_res += $validaPessoa->email_repetido($_emailResp);
+                }
                 $this->_res += $validaPessoa->valida_telefone_resid($_telResResp); 
-                 $mensagem .= "\nValidacao tel resid resp -> $this->_res";
+                //$mensagem .= "\nValidacao tel resid resp -> $this->_res";
                 $this->_res += $validaPessoa->validacpf($_cpfResp);
-                 $mensagem .= "\nValidacao cpf -> $this->_res";
-                $this->_res += $validaPessoa->cpf_repetido($_cpfResp);
-                 $mensagem .= "\nValidacao cpf repetido -> $this->_res";
+                //$mensagem .= "\nValidacao cpf -> $this->_res";
+                if($_op == 1){
+                    $this->_res += $validaPessoa->cpf_repetido($_cpfResp);
+                }
+                //$mensagem .= "\nValidacao cpf repetido -> $this->_res";
           
              //$mensagem .= "Validacao de Pessoa -> $this->_res";
              
@@ -66,14 +74,14 @@ class AlunoCrtl {
                                         $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
                                         $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
                                         $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp);   
-                                        $mensagem .= "<font color=green><b>Aluno Cadastrado com sucesso!</b></font>";
+                                        $mensagem = "<font color=green><b>Aluno Cadastrado com sucesso!</b></font>";
                 }
-                else{
-                    $this->instanciarAlunoAlterar($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
+                else{       
+                    $this->instanciarAlunoAlterar($idPessoaAluno,$_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_telResidencial,$_telCelular,$_anoEscolar,$_escola,
                                         $_nomeResp,$_categoria,$_cpfResp,$_emailResp,$_telResResp,$_sexoResp,$_nascimentoResp,$_telCelResp,$_telTrabResp,
                                         $_mesmoEnd,$_endereco,$_numero,$_complemento,$_bairro,$_cidade,$_uf,$_cep,$_referencia,
                                         $_enderecoResp,$_numeroResp,$_complementoResp,$_bairroResp,$_cidadeResp,$_ufResp,$_cepResp,$_referenciaResp);
-                                        $mensagem .= "<font color=green><b>Aluno alterado com sucesso!</b></font>";
+                                        $mensagem = "<font color=green><b>Aluno alterado com sucesso!</b></font>";
                 }
             }else{
                 $mensagem .= "<font color=red><b>Erro! Insira os dados corretamente!</b></font>";
@@ -131,10 +139,9 @@ class AlunoCrtl {
 
             $alunoDAO = new AlunoDAO();
             
-            $alunoDAO->alterarAlunoBanco($idPessoaAluno,$aluno_obj);
+            /*$alunoDAO->alterarAlunoBanco($idPessoaAluno,$aluno_obj);
             $alunoDAO->alterarUsuario($idPessoaAluno, $user_obj);
-            $alunoDAO->alterarPessoaAluno($idPessoaAluno, $aluno_obj);
-            
+            $alunoDAO->alterarPessoaAluno($idPessoaAluno, $aluno_obj);*/
                     
             if($alunoDAO->alterarAluno($idPessoaAluno,$aluno_obj,$user_obj,$responsavel_obj) == 2)
             {
