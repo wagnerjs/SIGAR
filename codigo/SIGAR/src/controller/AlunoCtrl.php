@@ -84,7 +84,7 @@ class AlunoCrtl {
                                         $mensagem = "<font color=green><b>Aluno alterado com sucesso!</b></font>";
                 }
             }else{
-                $mensagem .= "<font color=red><b>Erro! Insira os dados corretamente!</b></font>";
+                $mensagem = "<font color=red><b>Erro! Insira os dados corretamente!</b></font>";
             }
             
             return $mensagem;            

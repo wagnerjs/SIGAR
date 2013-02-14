@@ -72,7 +72,7 @@ class DAODeletarProfessor_Test extends PHPUnit_Framework_TestCase {
         $this->idEndProfessor = $professorDao->salvarProfessorEndereco($this->professor_obj);
         $professorDao->salvarEnderecoAssociativa($this->idEndProfessor, $this->idPessoaProf);
         
-        assertEquals('1', $professorDao->deletarProfessor($idPessoaProfessor));
+        $this->assertEquals('1', $professorDao->deletarProfessor($this->idPessoaProf));
         
     }
 

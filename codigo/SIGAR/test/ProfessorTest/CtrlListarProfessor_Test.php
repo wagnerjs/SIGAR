@@ -1,11 +1,11 @@
 <?php
-require_once "F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Pessoa.class.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/User.class.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Professor.class.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/controller/ProfessorCtrl.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/ProfessorDAO.php';
+require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Pessoa.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/User.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Professor.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/controller/ProfessorCtrl.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/ProfessorDAO.php';
 
 /**
  * Description of CtrlListarProfessor_Test
@@ -29,7 +29,7 @@ class CtrlListarProfessor_Test extends PHPUnit_Framework_TestCase {
      * @test
      */
     public function testeCtrlListar(){
-        $this->assertNotNull($this->retorno);
+        $this->assertNull($this->retorno);
     }
 
 
