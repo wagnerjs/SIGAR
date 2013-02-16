@@ -3,14 +3,14 @@
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/ValidacaoDAO.php';
 
 class validacaoPessoa {
-        protected $_res_nome;
-        protected $_res_email;
-        protected $_res_telefone;
-        protected $_res_telefone_resid;
-        public $arrayErro = array();
+    protected $_res_nome;
+    protected $_res_email;
+    protected $_res_telefone;
+    protected $_res_telefone_resid;
+    public $arrayErro = array();
         
         
-        function valida_nome($_nome) {
+    function valida_nome($_nome) {
         if (empty($_nome)) {
             $this->_res_nome = "<b><font color=red> * </font>Favor digitar seu nome</b>";
             $this->arrayErro[0] = $this->_res_nome;
@@ -22,14 +22,9 @@ class validacaoPessoa {
     }
     
     function valida_email($email) {
-        $obj_validacaoDAO = new validacaoDAO;
         if (empty($email)) {
             $this->_res_email = "<b><font color=red> * </font>Favor digitar um email";
             $this->arrayErro[1] = $this->_res_email;
-            $erro = 1;
-        } elseif ($obj_validacaoDAO->email_repetido($email) > 0) {
-            $this->_res_email = "<b><font color=red> * </font>Email já cadastrado";
-            $this->arrayErro[2] = $this->_res_email;
             $erro = 1;
         } elseif (( strlen($email) < 8 ) || strstr($email, '@') == false || (strstr($email, '.') == false)) {
             $this->_res_email = "<b><font color=red> * </font>Favor digitar o seu e-mail corretamente.";
@@ -42,17 +37,30 @@ class validacaoPessoa {
     }
     
     function valida_telefone_resid($_telefone_resid) {
-    if (empty($_telefone_resid)) {
-        $this->_res_telefone_resid = "<b><font color=red> * </font>Favor digitar o seu Telefone residencial.";
-        $this->arrayErro[4] = $this->_res_telefone_resid;
-        $erro = 1;            
-    }else{
-        $erro = 0;
+        if (empty($_telefone_resid)) {
+            $this->_res_telefone_resid = "<b><font color=red> * </font>Favor digitar o seu Telefone residencial.";
+            $this->arrayErro[4] = $this->_res_telefone_resid;
+            $erro = 1;            
+        }else{
+            $erro = 0;
+        }
+            return $erro;
     }
+    
+    function email_repetido($email){
+        $obj_validacaoDAO = new validacaoDAO;
+
+        if ($obj_validacaoDAO->email_repetido($email) > 0) {
+            $this->_res_email = "<b><font color=red> * </font>Email já cadastrado";
+            $this->arrayErro[2] = $this->_res_email;
+            $erro = 1;
+        }else{
+            $erro = 0;
+        }
         return $erro;
     }
     
-        function validacpf($cpf) {
+    function validacpf($cpf) {
         $erro = 0;
 
         $cpfTiraPonto = str_replace('.', '', $cpf);
@@ -103,18 +111,13 @@ class validacaoPessoa {
                 }
             }
         }
-        
         return $erro;
     }
 
     function cpf_repetido($cpf) {
         $obj_validacaoDAO = new validacaoDAO;
-        
-        $cpfTiraPonto = str_replace('.', '', $cpf);
-        $cpfTiraTraço = str_replace('-', '', $cpfTiraPonto);
-        $_cpf = $cpfTiraTraço;
 
-        if ($obj_validacaoDAO->cpf_repetidoDAO($_cpf) > 0) {
+        if ($obj_validacaoDAO->cpf_repetidoDAO($cpf) > 0) {
             $this->_res_cpf_repetido = "<b><font color=red> * </font>CPF já cadastrado!";
             $this->arrayErro[8] = $this->_res_cpf_repetido;
             $erro = 1;

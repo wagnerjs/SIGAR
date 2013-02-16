@@ -52,7 +52,7 @@
 		@$cepResp=$_POST['cepResp'];
 		@$referenciaResp=$_POST['referenciaResp'];
 					
-		$resposta =  $AlunoCtrl->validaAluno($nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
+		$resposta =  $AlunoCtrl->validaAluno($idPessoaAluno,$nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
 				$nomeResp, $parentesco, $cpfResp,$emailResp, $telResp, $sexoResp, $dataResp,$telCelularResp,$telTrabResp,
 				$mesmoEnd,$enderecoAluno,$numeroAluno,$complementoAluno,$bairroAluno,$cidadeAluno,$ufAluno,$cepAluno,$referenciaAluno,
 				$enderecoResp, $numeroResp, $complementoResp, $bairroResp,$cidadeResp,$ufResp,$cepResp,$referenciaResp,2);
@@ -116,7 +116,10 @@
                                             <input type="radio" name="sexo" value="m" class="necessary"  > Masculino
                                             <input type="radio" name="sexo" value="f" class="necessary"   checked> Feminino<br/><br/>
                                         <?php }?>
-                                    Data de Nascimento:<br/> <span><input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);" class="necessary" id="inputDataNascResp" value="<?php echo $res['dataNascimento'] ?>"  ></span><br>
+                                    Data de Nascimento:<br/> <span><input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);" class="necessary" id="inputDataNascResp" value="<?php 
+                                    $dataBanco = $res['dataNascimento'];
+                                    $dataNascimento = implode("/",array_reverse(explode("-",$dataBanco)));
+                                    echo $dataNascimento; ?>"></span><br>
                                     Email:<br/> <span><input type="text" name="email" size="10" maxlength="50" id="inputEmail" class="necessary" value="<?php echo utf8_encode($res['email']); ?>"  ></span><br>
                                     Telefone Residecial:<br/> <span><input type="text"  name="telResidencial" size="10" maxlength="14" onkeypress="mascara(this, mtel );" id="inputTelRes" class="necessary" value="<?php echo $res['telefoneResidencial'] ?>"  ></span><br>
                                     Telefone Celular:<br/> <span><input type="text"  name="telCelular" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel" value="<?php echo $res['telefoneCelular'] ?>"  ></span><br>
@@ -223,7 +226,10 @@
                                          <div class="row-fluid show-grid">
                                             <div class="span6">
                                             Nome:<br/> <span><input type="text" name="txtNomeResp" size="10" maxlength="50" id="inputNomeResp" class="necessary" value="<?php echo utf8_encode($dadosResponsavel['nome']); ?>"  ></span><br/>
-                                            Data de Nascimento:<br/> <span><input type="text" name="dataNascResp" size="10" maxlength="10" class="necessary" id="inputDataNascResp" value="<?php echo $dadosResponsavel['dataNascimento'] ?>"  ></span><br/>
+                                            Data de Nascimento:<br/> <span><input type="text" name="dataNascResp" size="10" maxlength="10" onkeyup="mascaraData(this);" class="necessary" id="inputDataNascResp" value="<?php 
+                                            $dataBancoResp = $dadosResponsavel['dataNascimento'];
+                                            $dataNascimentoResp = implode("/",array_reverse(explode("-",$dataBancoResp)));
+                                            echo $dataNascimentoResp; ?>"></span><br>
                                             Sexo: <?php if($dadosResponsavel['sexo']=='m'){ ?>
                                             <input type="radio" name="sexoResp" value="m" class="necessary" checked  > Masculino
                                             <input type="radio" name="sexoResp" value="f" class="necessary"  > Feminino<br/><br/>

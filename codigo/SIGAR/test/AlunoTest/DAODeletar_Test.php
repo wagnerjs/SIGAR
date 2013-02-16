@@ -17,10 +17,12 @@ class DAODeletar_Test extends PHPUnit_Framework_TestCase{
      * @test
      *
      */
+    
+    protected $idAluno = 3;
 
     public function TestDeletarAlunoDAO(){
         $aluno_dao = new AlunoDAO();
-        $this->assertEquals('1',$aluno_dao->deletarAluno(24));
+        $this->assertEquals('1',$aluno_dao->deletarAluno($this->idAluno));
  
     }
 }

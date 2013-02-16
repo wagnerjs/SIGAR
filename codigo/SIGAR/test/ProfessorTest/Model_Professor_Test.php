@@ -11,12 +11,12 @@
  * @author Matheus
  */
 
-require_once "F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/dao/ProfessorDAO.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Pessoa.class.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/User.class.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php';
-require_once 'F:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Professor.class.php';
+require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php";
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/dao/ProfessorDAO.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Pessoa.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/User.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Professor.class.php';
 
 class Model_Professor_Test extends PHPUnit_Framework_TestCase {
    
@@ -44,14 +44,14 @@ class Model_Professor_Test extends PHPUnit_Framework_TestCase {
    
     
     public function setUp(){
-        $this->nomeProfessor = 'Ajax';
-        $this->sexoProfessor = 'm';
-        $this->nascProfessor = '1995-02-19';
-        $this->emailProfessor = 'matheus@gmail.com';
-        $this->telResProfessor ='(61)3333-1111';
-        $this->celularProfessor = '(61)8109-8502';  
-        $this->cpfProfessor = '012.202.033-21';
-        $this->meioDeTransporte = 'carro';
+        $this->nomeProfessor = "Ajax";
+        $this->sexoProfessor = 'f';
+        $this->nascProfessor = "1995-02-19";
+        $this->emailProfessor = "matheus@gmail.com";
+        $this->telResProfessor ="(61) 3333-1111";
+        $this->celularProfessor = "(61) 8109-8502";  
+        $this->cpfProfessor = "012.202.033-21";
+        $this->meioDeTransporte = "carro";
         
         $this->cepProfessor = '72215096';
         $this->logradouroProfessor = 'QNM 09 CONJUNTO F';
@@ -65,9 +65,12 @@ class Model_Professor_Test extends PHPUnit_Framework_TestCase {
         $this->endereco_obj = new Endereco($this->logradouroProfessor, $this->cepProfessor, $this->bairoProfessor, $this->cidadeProfessor,
                                             $this->complementoProf, $this->numeroCasaProfessor, $this->ufProfessor, $this->referenciaProfessor);
         $this->user_obj = new User();
-        $this->professor_obj = new Professor(utf8_decode($this->nomeProfessor),  $this->sexoProfessor, $this->nascProfessor, $this->emailProfessor,
+        $this->professor_obj = new Professor($this->nomeProfessor, $this->emailProfessor,
+                                                $this->telResProfessor, $this->celularProfessor, $this->sexoProfessor,
+                                                $this->nascProfessor, $this->cpfProfessor, $this->meioDeTransporte, $this->endereco_obj, $this->user_obj);
+                /*Professor(utf8_decode($this->nomeProfessor),  $this->sexoProfessor, $this->nascProfessor, $this->emailProfessor,
                                             $this->telResProfessor, $this->celularProfessor, $this->cpfProfessor,  $this->meioDeTransporte,
-                                           $this->endereco_obj, $this->user_obj);
+                                           $this->endereco_obj, $this->user_obj);*/
     }
     
     /*
@@ -76,12 +79,13 @@ class Model_Professor_Test extends PHPUnit_Framework_TestCase {
     
     public function testCriarProfessor(){
         $this->assertEquals($this->nomeProfessor, $this->professor_obj->getNome());
-        $this->assertEquals($this->sexoProfessor, $this->professor_obj->getSexo());
-        $this->assertEquals($this->nascProfessor, $this->professor_obj->getNascimento());
         $this->assertEquals($this->emailProfessor, $this->professor_obj->getEmail());
         $this->assertEquals($this->telResProfessor, $this->professor_obj->getTelefoneResidencial());
         $this->assertEquals($this->celularProfessor, $this->professor_obj->getCelular());
+        $this->assertEquals($this->sexoProfessor, $this->professor_obj->getSexo());
+        $this->assertEquals($this->nascProfessor, $this->professor_obj->getNascimento());
         $this->assertEquals($this->cpfProfessor, $this->professor_obj->getCpf());
+        $this->assertEquals($this->endereco_obj, $this->professor_obj->getEndereco());
         $this->assertEquals($this->user_obj, $this->professor_obj->getUsuario());
     }
     
