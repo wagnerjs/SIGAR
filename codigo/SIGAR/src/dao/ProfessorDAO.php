@@ -14,6 +14,47 @@ class ProfessorDAO {
     }
 
     //Função retorna dados do Professor
+    public function listarTodosProfessores() {
+        //Cria a conexão com o banco de dados
+        $this->criarConexao();
+
+        $sql = "SELECT `pessoa`.*, `professor`.*, `endereco`.* 
+                    FROM `professor`,`pessoa`,`endereco`,`usuario`  
+                    WHERE `professor`.`idUsuario` = `usuario`.`idUsuario` 
+                    AND `usuario`.`idPessoa` = `pessoa`.`idPessoa`  
+                    AND `endereco`.`idEndereco` IN 
+                    (SELECT `idEndereco` FROM `endereco_pessoa` 
+                    WHERE `endereco_pessoa`.`idPessoa` = `pessoa`.`idPessoa`);";
+
+        $res = mysql_query($sql);
+
+        if (mysql_num_rows($res) == 0) {
+            $res = "Nada encontrado!";
+        }
+
+        return $res;
+    }
+
+    public function selecionarIdPessoaProfessor($idProfessor) {
+        $this->criarConexao();
+
+        $sql = "SELECT `usuario`.`idPessoa` FROM `usuario`,`professor` 
+                    WHERE `usuario`.`idUsuario` = `professor`.`idUsuario` AND
+                    `professor`.`idProfessor` =" . $idProfessor . ";";
+
+        $resultadoIdProfessor = mysql_query($sql);
+        $idProfessor = 0;
+        while ($aux = mysql_fetch_array($resultadoIdProfessor)) {
+            $idProfessor = $aux['idPessoa'];
+        }
+        if (mysql_num_rows($resultadoIdProfessor) == 0) {
+            $idProfessor = "Nada encontrado! "; //Nenhum IdAluno encontrado
+        }
+
+        return $idProfessor;
+    }
+
+    //Função retorna dados do Professor
     public function listarProfessor($idProfessor) {
         //Cria a conexão com o banco de dados
         $this->criarConexao();
@@ -26,7 +67,7 @@ class ProfessorDAO {
                     (SELECT `idEndereco` FROM `endereco_pessoa` 
                     WHERE `endereco_pessoa`.`idPessoa` = `pessoa`.`idPessoa`)
                     AND `professor`.`idProfessor` =" . $idProfessor . ";";
-                
+
         $res = mysql_query($sql);
 
         if (mysql_num_rows($res) == 0) {
@@ -107,9 +148,9 @@ class ProfessorDAO {
 
     public function salvarPessoa(Professor $professor) {
         $idPessoaProfessor = 0;
-        
+
         $this->criarConexao();
-        
+
         $sql = "INSERT INTO `pessoa` (`idPessoa`, `nome`, `email`, `telefoneResidencial`, `telefoneCelular`, `sexo`, `dataNascimento`, `cpf`) VALUES
             (NULL,  '" . $professor->getNome() . "', '" . $professor->getEmail() . "', '" . $professor->getTelefoneResidencial() . "', '" . $professor->getCelular() . "', '" . $professor->getSexo() . "', '" . $professor->getNascimento() . "', '" . $professor->getCpf() . "');";
 
@@ -124,9 +165,9 @@ class ProfessorDAO {
 
     public function salvarUsuario($idPessoaProfessor, User $user) {
         $idPessoaUsuario = 0;
-        
+
         $this->criarConexao();
-        
+
         $sql = "INSERT INTO `usuario` (`idUsuario`, `login`, `senha`, `idPessoa`) VALUES
                   (NULL, '" . $user->getLogin() . "', '" . $user->getSenha() . "', '.$idPessoaProfessor.');";
 
@@ -141,9 +182,9 @@ class ProfessorDAO {
 
     public function salvarProfessor($idPessoaUsuario, Professor $professor) {
         $idPessoaProfessor = 0;
-        
+
         $this->criarConexao();
-        
+
         $sql = "INSERT INTO `sigar`.`professor` (`idProfessor`, `meioTransporte`, `idUsuario`) VALUES 
                     (NULL, '" . $professor->getMeioDeTransporte() . "', '.$idPessoaUsuario.');";
 
@@ -203,11 +244,11 @@ class ProfessorDAO {
 
         return 1;
     }
-    
+
     public function alterarProfessor($idProfessor, Professor $professor) {
         $retorno = 0;
-        
-        if($idProfessor <= 0){
+
+        if ($idProfessor <= 0) {
             return 0;
         }
         $this->criarConexao();
@@ -226,13 +267,13 @@ class ProfessorDAO {
 
     public function alterarUsuario($idPessoaProfessor, User $user) {
         $retorno = 0;
-        
-        if($idPessoaProfessor <= 0){
+
+        if ($idPessoaProfessor <= 0) {
             return 0;
         }
-        
+
         $this->criarConexao();
-      
+
         $sql = "UPDATE `usuario` SET  `login` =  '" . $user->getLogin() . "', `senha` = '" . $user->getSenha() . "' WHERE  `usuario`.`idPessoa` = " . $idPessoaProfessor . ";";
 
         $alteraTabUsuario = mysql_query($sql);
@@ -250,8 +291,8 @@ class ProfessorDAO {
     public function alterarPessoaProfessor($idPessoaProfessor, Professor $professor) {
         $retorno = 0;
         $this->criarConexao();
-        
-        if($idPessoaProfessor <= 0){
+
+        if ($idPessoaProfessor <= 0) {
             return 0;
         }
 
@@ -274,8 +315,8 @@ class ProfessorDAO {
     public function selecionarIdEndereco($idPessoaProfessor) {
         //Cria a conexão com o banco de dados
         $this->criarConexao();
-        
-        if($idPessoaProfessor <= 0){
+
+        if ($idPessoaProfessor <= 0) {
             return 0;
         }
 
@@ -299,8 +340,8 @@ class ProfessorDAO {
     public function alterarEndereco($idPessoaProfessor, Professor $professor) {
         $retorno = 0;
         $this->criarConexao();
-        
-        if($idPessoaProfessor <= 0){
+
+        if ($idPessoaProfessor <= 0) {
             return 0;
         }
 
@@ -313,12 +354,11 @@ class ProfessorDAO {
         $alteraTabEndereco = mysql_query($sql);
 
         if ($alteraTabEndereco) {
-            $retorno++;//Tabela endereço professor alterada com sucesso
+            $retorno++; //Tabela endereço professor alterada com sucesso
         } else {
             echo "ERRO no metodo [alterarEndereco] ";
         }
         return $retorno;
-        
     }
 
 }

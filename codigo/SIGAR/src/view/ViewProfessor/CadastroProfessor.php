@@ -29,11 +29,11 @@ if (isset($_POST['enviar'])) {
 
     @$referenciaProfessor = utf8_decode($_POST['referencia']);
 
-     $res = $professorCtrl->validaProfessor($nomeProfessor, $sexoProfessor, $nascProfessor,
+     $res = $professorCtrl->validaProfessor(0,0, $nomeProfessor, $sexoProfessor, $nascProfessor,
                 $emailProfessor, $telResProfessor, $celularProfessor, $enderecoProfessor,
                 $cpfProfessor, $meioDeTransporte, $cepProfessor, $logradouroProfessor, 
                 $numeroCasaProfessor, $complementoProf, $bairroProfessor, $cidadeProfessor,
-                $ufProfessor, $referenciaProfessor);
+                $ufProfessor, $referenciaProfessor, 1);
 
     echo 'Chamou validaProfessor';
 

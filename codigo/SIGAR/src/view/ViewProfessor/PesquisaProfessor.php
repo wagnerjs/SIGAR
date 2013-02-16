@@ -31,6 +31,88 @@
   <link href="../css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
-<!-- Pesquisar professor -->
+    <div id="boxes">
+    <div id="dialog" class="window">
+        <a href="#" class="close" />Fechar</a>
+        <div id="ajaxContainer">
+        </div>
+    </div>
+<div id="mask"></div>
+</div>
+        <div class="container">
+            <a href="../TelaPrincipal.php"><img src="../img/logo.png" vspace="50"/></a>
+            <p class="status">Logado como:<b> <?php echo $ObjSessao->getUsuario();?> | <a href= "../Logoff.php" >Sair</b></a></p>
+            <div id="sysBox">
+                <div class="inner">
+                    <br/>
+                    <a href="CadastroProfessor.php"><span class="normal">Cadastrar Professor</span></a>
+                    <a href="#"><span class="selected">Pesquisar Professor</span></a>
+                    <div class="content">
+                        <div>
+                            Pesquisar professor: 
+                            <form action="#">
+                                <fieldset>
+                                    <input type="text" name="search" value="" id="id_search" placeholder="Search" autofocus />
+                                </fieldset>
+                            </form>
+                            <table border="1" id="table_example">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Cpf</th>
+                                        
+                                        <th>Email</th>
+                                        <th>Meio de Transporte</th>
+
+                                        <th>Data Nascimento</th>
+                                        <th>Sexo</th>
+                                        <th>Telefone Residencial</th>
+                                        <th colspan='2'>Opções</th>
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                    <?php
+                                    $professorCtrl = new ProfessorCtrl();
+                                    $professorCtrl->listarTodosProfessores();
+                                        
+
+                                    if(@mysql_num_rows($professorCtrl->getResposta())>0){
+                                        for($i=0; $i<mysql_num_rows($professorCtrl->getResposta());$i++){
+
+                                    ?>
+                                    <tr>
+                                        <td><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAluno/ListarDadosProfessor.php?professorID=<?php echo mysql_result($professorCtrl->getResposta(),$i,'idProfessor');?>">
+                                        <?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'nome'));?></a></td>
+                                        <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'cpf')); ?></td>
+                                        <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'email')); ?></td>
+                                        <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'meioTransporte'));?></td>
+                                        <td><?php $dataProfessorRecebida=utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'dataNascimento'));
+                                                  $dataProfessor = implode("/",array_reverse(explode("-",$dataProfessorRecebida)));
+                                                  echo $dataProfessor;
+                                                    ?></td>
+                                        <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'sexo')); ?></td>
+                                        <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'telefoneResidencial'));?></td>
+                                        <td style='cursor: pointer'><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewProfessor/AlterarProfessor.php?professorID=<?php echo mysql_result($professorCtrl->getResposta(),$i,'idProfessor');?>"><img src='../img/edit.png' onClick="" alt="Editar"></a></td>
+                                        <td style='cursor: pointer'><a href="#"><img src='../img/del.png' onClick="" alt="Deletar"></a></td>
+                                    </tr>
+                                    <?php
+                                        }
+                                    }
+                                    else{ ?>
+                                        <tr>
+                                             <td colspan="7"><?php echo "<center>Nenhum registro encontrado!</center>" ?></td>   
+                                        </tr>
+                                    <?php
+                                    }
+                                        
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
 </body>
 </html>
