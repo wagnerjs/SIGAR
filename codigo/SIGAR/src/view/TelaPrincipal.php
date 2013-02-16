@@ -55,8 +55,8 @@
         </div>
         <div class="span6">
             <div class="boxMenu">
-                <a href="#"><div><img src="img/icon-man.png" />  Cadastrar Professores</div></a>
-                <a href="#"><div><img src="img/icon-rh.png" />  Gerenciar Professores</div></a>
+                <a href="ViewProfessor/CadastroProfessor.php"><div><img src="img/icon-man.png" />  Cadastrar Professores</div></a>
+                <a href="ViewProfessor/PesquisaProfessor.php"><div><img src="img/icon-rh.png" />  Gerenciar Professores</div></a>
             </div>
         </div>
     </div>
