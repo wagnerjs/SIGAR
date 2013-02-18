@@ -356,6 +356,8 @@ class AlunoDAO  {
                 //echo "<br> IdPessoaResponsavel = [".$idPessoaResponsavel."] <br><br>";
                 
                 $this->alterarResponsavel($idPessoaResponsavel,$responsavel);
+                $aluno->setEndereco($responsavel->getEndereco());
+                $this->alterarEndereco($idPessoaResponsavel, $aluno); 
 
                 return $retorno;
 
