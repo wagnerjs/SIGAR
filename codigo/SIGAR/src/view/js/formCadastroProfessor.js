@@ -66,3 +66,11 @@ function verificaDadosProfessor(){
     return true;
 }
 
+function confirmarDeletar(idProfessor) {
+     var resposta = confirm("Deseja remover esse registro?");
+ 
+     if (resposta == true) {
+         
+          window.location.href = "http://localhost/SIGAR/codigo/SIGAR/src/view/ViewProfessor/ExcluirProfessor.php?professorID="+idProfessor;
+     }
+}

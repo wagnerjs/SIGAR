@@ -28,6 +28,7 @@
   <script src="../js/jquery.maskedinput-1.3.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="../js/jquery.quicksearch.js"></script>
   <script src="../js/base.js"></script>
+  <script src="../js/formCadastroProfessor.js"></script>
   <link href="../css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
@@ -93,7 +94,7 @@
                                         <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'sexo')); ?></td>
                                         <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'telefoneResidencial'));?></td>
                                         <td style='cursor: pointer'><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewProfessor/AlterarProfessor.php?professorID=<?php echo mysql_result($professorCtrl->getResposta(),$i,'idProfessor');?>"><img src='../img/edit.png' onClick="" alt="Editar"></a></td>
-                                        <td style='cursor: pointer'><a href="#"><img src='../img/del.png' onClick="" alt="Deletar"></a></td>
+                                        <td style='cursor: pointer'><a href="javascript: confirmarDeletar('<?php echo mysql_result($professorCtrl->getResposta(),$i,'idProfessor');?>') "><img src='../img/del.png' onClick="" alt="Deletar"></a></td>
                                     </tr>
                                     <?php
                                         }

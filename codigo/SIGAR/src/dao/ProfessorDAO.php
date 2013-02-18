@@ -98,29 +98,36 @@ class ProfessorDAO {
 
     public function deletarProfessor($idProfessor) {
         $this->criarConexao();
-
-        $this->deletarMateriasProfessor($idProfessor);
+    
+        $res = $this->deletarMateriasProfessor($idProfessor);
+        if($res == 1){
+              //DAdos deletados da asociativa com sucesso
+          }else{
+              echo "Falha ao deletar os dados da tabela associativa materiasProfessor para alterar";
+              return 0;
+          }
         
         $idPessoaProfessor = $this->selecionarIdPessoaProfessor($idProfessor);
         
         $sql = "DELETE FROM `sigar`.`professor` WHERE `professor`.`idProfessor` = " . $idProfessor . ";";
         mysql_query($sql);
-
+      
         $sql = "DELETE FROM `sigar`.`usuario` WHERE `usuario`.`idPessoa` = " . $idPessoaProfessor . ";";
         mysql_query($sql);
-
+        
         $idEndereco = $this->selecionarIdEndereco($idPessoaProfessor);
-
-        $sql = "DELETE FROM `sigar`.`endereco_pessoa` WHERE `endereco_pessoa`.`idEndereco_Pessoa` = " . $idEndereco . " ;";
+       
+        $sql = "DELETE FROM `sigar`.`endereco_pessoa` WHERE `endereco_pessoa`.`idEndereco` = " . $idEndereco . " ;";
         mysql_query($sql);
+        
          
-        $sql = "DELETE FROM 'sigar'.'endereco' WHERE 'endereco'.'idEndereco' = " . $idEndereco . " ;";
+        $sql = "DELETE FROM `sigar`.`endereco` WHERE `endereco`.`idEndereco` = " . $idEndereco . " ;";
         mysql_query($sql);
-
+        
 
         $sql = "DELETE FROM `sigar`.`pessoa` WHERE `pessoa`.`idPessoa` = " . $idPessoaProfessor . " ;";
         mysql_query($sql);
-
+       
         $retorno = mysql_affected_rows();
 
 
@@ -187,7 +194,6 @@ class ProfessorDAO {
 
     public function salvarMateriasProfessor($idProfessor, Professor $professor) {
         $arrayMaterias = $professor->getMateria();
-        echo "arrayMaterias[0] = ".$arrayMaterias[0];  
         $count = count($arrayMaterias);
         for ($i = 0; $i < $count; $i++) {
             $sql = "INSERT INTO `sigar`.`professormateria` (`idProfessor`, `idMateria`) 

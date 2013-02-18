@@ -132,9 +132,9 @@ class ProfessorCtrl {
         $this->_resMaterias = $professorDao->selecionarMateriasProfessor($idProfessor);
     }
 
-    public function apagarProfessor($idPessoaProfessor) {
+    public function apagarProfessor($idProfessor) {
         $professorDao = new ProfessorDAO();
-        $professorDao->deletarProfessor($idPessoaProfessor);
+        $professorDao->deletarProfessor($idProfessor);
     }
 
     public function getResposta() {
