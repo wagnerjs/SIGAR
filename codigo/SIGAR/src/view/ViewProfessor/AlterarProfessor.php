@@ -6,14 +6,15 @@
     $professorCtrl = new ProfessorCtrl();
     $idProfessor = $_GET["professorID"];
     $res = $professorCtrl->listarProfessor($idProfessor);
-    
+        
     if (isset($_POST['enviar'])) {
-    @$professorCtrl = new ProfessorCrtl();
+        
+    @$professorCtrl = new ProfessorCtrl();
 
     @$nomeProfessor = utf8_decode($_POST['txtNome']);
     @$sexoProfessor = $_POST['sexo'];
     @$dataRecebida = $_POST['dataNasc'];
-    $nascProfessor = implode("-", array_reverse(explode("/", $dataRecebida)));
+    @$nascProfessor = implode("-", array_reverse(explode("/", $dataRecebida)));
 
     @$emailProfessor = utf8_decode($_POST['email']);
 
@@ -32,17 +33,31 @@
     @$ufProfessor = $_POST['uf'];
 
     @$referenciaProfessor = utf8_decode($_POST['referencia']);
-
-     $res = $professorCtrl->validaProfessor($idProfessor,$nomeProfessor, $sexoProfessor, $nascProfessor,
+    
+     if(isset($_POST['materias'])){
+        for($i = 0; $i < count($_POST['materias']); $i++) {
+            $materias[$i] =  $_POST['materias'][$i];                 
+        }
+    }else{
+        $materias = "";        
+    }
+    
+    $opcao = 2;//Numero que define opçAo de cadastro para controladora
+    
+    @$resposta = $professorCtrl->validaProfessor($idProfessor,$nomeProfessor, $sexoProfessor, $nascProfessor,
                 $emailProfessor, $telResProfessor, $celularProfessor, $enderecoProfessor,
                 $cpfProfessor, $meioDeTransporte, $cepProfessor, $logradouroProfessor, 
                 $numeroCasaProfessor, $complementoProf, $bairroProfessor, $cidadeProfessor,
-                $ufProfessor, $referenciaProfessor, 2);
+                $ufProfessor, $referenciaProfessor, $materias, $opcao);
+    echo "<script type='text/javascript'>alert('Passou da validação!');</script>";
 
-     if ($res == "<font color=green><b>Professor Cadastrado com sucesso!</b></font>")
-        echo "<script type='text/javascript'>alert('Cadastro realizado com sucesso!');</script>";
-    else
-        echo "<script type='text/javascript'>alert('Erro na realização do cadastro!');</script>";
+     if ($resposta == "<font color=green><b>Professor Alterado com sucesso!</b></font>"){
+         echo "<script type='text/javascript'>alert('Alteração realizada com sucesso!');</script>";
+     }        
+     else{
+        echo "<script type='text/javascript'>alert('Erro na realização da alteração !');</script>";
+     }
+        
 }
 
 ?>
@@ -85,8 +100,8 @@
                     <a href="PesquisaProfessor.php"><span class="normal">Pesquisar Professores</span></a>
                     <div class="content">
                          <div>                           
-                             <form name="form" action="AlterarProfessor.php?professorID=<?php echo $idProfessor; ?>" method="post" onSubmit="return verificaDados()">
-                            
+                             <form name="form1" action="AlterarProfessor.php?professorID=<?php echo $idProfessor; ?>" method="post">
+                                <?php echo @$resposta; ?><br/><br/>
                                 <br/><br/>
                                 <b>Dados do Professor</b>
                                 <hr/>
@@ -119,6 +134,49 @@
                                             
                                         </select><br/>
                                     </div>
+                                    <div class="span6">
+                                <?php 
+                                 $professorCtrl->criarCheckMaterias();
+                                 $professorCtrl->selecionarMateriasProfessor($idProfessor);
+                                 
+                                 
+                                 if($professorCtrl->getMaterias() == 0){
+                                     $arrayMateria[0] = 0;
+                                 }  else {
+                                      for($j=0; $j<mysql_num_rows($professorCtrl->getMaterias());$j++){
+                                            if(mysql_result($professorCtrl->getMaterias(),$j,'idMateria')){
+                                                $arrayMateria[$j] = mysql_result($professorCtrl->getMaterias(),$j,'idMateria');
+                                            }else{
+                                                $arrayMateria[$j] = 0;
+                                            }
+                                      }
+                                     
+                                 }
+                                
+                                 $tamanhoArray = count($arrayMateria);
+                            
+                                 if(@mysql_num_rows($professorCtrl->getResposta())>0){
+                                      for($i=0; $i<mysql_num_rows($professorCtrl->getResposta());$i++){
+                                          $confere =0;//váriavel que controla os check box já marcados
+                                          for($j=0; $j<$tamanhoArray;$j++){
+                                             if ($arrayMateria[$j] == mysql_result($professorCtrl->getResposta(),$i,'idMateria')  ){ 
+                                                 $confere = 1 ;?>
+                                                
+                                                <input name="materias[]" type="checkbox" checked value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br><?php
+                                             }                                         
+                                          }
+                                      if($confere!=1){    
+                                          ?>
+                                    
+                                    <input name="materias[]" type="checkbox" value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br><?php
+                                      }
+                                    
+                                    }
+                                     }
+                               ?>
+                                
+                            </div>
+                                    
                                     <div class="span6">
                                     Logradouro:<br/> <span><input type="text" name="endereco" id="inputEndereco" class="necessary" value="<?php echo utf8_encode($res['logradouro']); ?>"  ></span><br/>
                                     Nº:<br/> <span><input type="text" name="numero" id="inputN" class="necessary" value="<?php echo $res['numero'] ?>"  ></span><br/>

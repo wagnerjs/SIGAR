@@ -34,7 +34,7 @@ class ProfessorDAO {
 
         return $res;
     }
-
+       
     public function selecionarIdPessoaProfessor($idProfessor) {
         $this->criarConexao();
 
@@ -43,15 +43,15 @@ class ProfessorDAO {
                     `professor`.`idProfessor` =" . $idProfessor . ";";
 
         $resultadoIdProfessor = mysql_query($sql);
-        $idProfessor = 0;
+        $idPessoaProfessor = 0;
         while ($aux = mysql_fetch_array($resultadoIdProfessor)) {
-            $idProfessor = $aux['idPessoa'];
+            $idPessoaProfessor = $aux['idPessoa'];
         }
         if (mysql_num_rows($resultadoIdProfessor) == 0) {
-            $idProfessor = "Nada encontrado! "; //Nenhum IdAluno encontrado
+            $idPessoaProfessor = "Nada encontrado! "; //Nenhum IdAluno encontrado
         }
 
-        return $idProfessor;
+        return $idPessoaProfessor;
     }
 
     //Função retorna dados do Professor
@@ -74,7 +74,6 @@ class ProfessorDAO {
             $res = "Nada encontrado!";
         } else {
             $res = mysql_fetch_array($res);
-            $this->selecionarMateriasProfessor($idProfessor);
         }
 
         return $res;
@@ -85,65 +84,54 @@ class ProfessorDAO {
         //Cria a conexão com o banco de dados
         $this->criarConexao();
 
-        $sql = "SELECT `materia`.`descricaoMateria` FROM `materia` , `professorMateria` , `professor`
+        $sql = "SELECT `materia`.`descricaoMateria`,`materia`.`idMateria` FROM `materia` , `professorMateria` , `professor`
                 WHERE `professorMateria`.`idProfessor` = `professor`.`idProfessor`
                 AND `materia`.`idMateria` = `professorMateria`.`idMateria`
                 AND `professor`.`idProfessor` = " . $idProfessor . ";";
-        $resultadoBusca = mysql_query($sql);
+        $res = mysql_query($sql);
 
-        while ($aux = mysql_fetch_array($resultadoBusca)) {
-            $listaMateria = $aux['descricaoMateria'];
-        }
-        if (mysql_num_rows($resultadoBusca) == 0) {
-            $listaMateria = "Nada encontrado! "; //Nenhum materia encontrada
-        }
-
-
-        return $listaMateria;
+        if (mysql_num_rows($res) == 0) {
+            return 0; //"Nada encontrado!"
+        } 
+        return $res;
     }
 
-    public function deletarProfessor($idPessoaProfessor) {
+    public function deletarProfessor($idProfessor) {
         $this->criarConexao();
 
-        $sql = "SELECT  `professor`.`idProfessor` FROM  `usuario`, `professor` WHERE  `usuario`.`idUsuario` = `professor`.`idProfessor` AND `usuario`.`idPessoa`= " . $idPessoaProfessor . " ;";
-
-        $resultadoProfessor = mysql_query($sql);
-        while ($aux = mysql_fetch_array($resultadoProfessor)) {
-            $idProfessor = $aux['idProfessor'];
-        }
-
-        $sql = "DELETE FROM `sigar`.`professor` WHERE `professor`.`idProfessor` = " . $idPessoaProfessor . ";";
-
+        $this->deletarMateriasProfessor($idProfessor);
+        
+        $idPessoaProfessor = $this->selecionarIdPessoaProfessor($idProfessor);
+        
+        $sql = "DELETE FROM `sigar`.`professor` WHERE `professor`.`idProfessor` = " . $idProfessor . ";";
+        mysql_query($sql);
 
         $sql = "DELETE FROM `sigar`.`usuario` WHERE `usuario`.`idPessoa` = " . $idPessoaProfessor . ";";
+        mysql_query($sql);
 
+        $idEndereco = $this->selecionarIdEndereco($idPessoaProfessor);
 
-        $sql = "SELECT  `endereco_pessoa`.`idEndereco_Pessoa` FROM  `sigar`.`endereco_pessoa` WHERE  `endereco_pessoa`.`idPessoa` =" . $idPessoaProfessor . ";";
-
-        $resultadoEnderecoPessoa = mysql_query($sql);
-
-        while ($aux = mysql_fetch_array($resultadoEnderecoPessoa)) {
-            $idEndereco_Pessoa = $aux['idEndereco_Pessoa'];
-        }
-
-        $sql = "DELETE FROM `sigar`.`endereco_pessoa` WHERE `endereco_pessoa`.`idEndereco_Pessoa` = " . $idEndereco_Pessoa . " ;";
-
-        $sql = "SELECT  `endereco_pessoa`.`idEndereco` FROM  `sigar`.`endereco_pessoa` WHERE  `endereco_pessoa`.`idPessoa` =" . $idPessoaProfessor . ";";
-
-        $resultadoEndereco = mysql_query($sql);
-        while ($aux = mysql_fetch_array($resultadoEndereco)) {
-            $idEndereco = $aux['idEndereco'];
-        }
-
+        $sql = "DELETE FROM `sigar`.`endereco_pessoa` WHERE `endereco_pessoa`.`idEndereco_Pessoa` = " . $idEndereco . " ;";
+        mysql_query($sql);
+         
         $sql = "DELETE FROM 'sigar'.'endereco' WHERE 'endereco'.'idEndereco' = " . $idEndereco . " ;";
+        mysql_query($sql);
 
 
         $sql = "DELETE FROM `sigar`.`pessoa` WHERE `pessoa`.`idPessoa` = " . $idPessoaProfessor . " ;";
+        mysql_query($sql);
 
         $retorno = mysql_affected_rows();
 
 
         return $retorno;
+    }
+    public function deletarMateriasProfessor($idProfessor){
+        
+        $sql = "DELETE FROM  `sigar`.`professormateria` WHERE  `professormateria`.`idProfessor` =".$idProfessor.";";
+        mysql_query($sql);
+        
+        return 1;
     }
 
     public function salvarPessoa(Professor $professor) {
@@ -197,12 +185,13 @@ class ProfessorDAO {
         return $idPessoaProfessor;
     }
 
-    public function salvarMateriasProfessor($idPessoaProfessor, Professor $professor) {
+    public function salvarMateriasProfessor($idProfessor, Professor $professor) {
         $arrayMaterias = $professor->getMateria();
-
-        foreach ($arrayMaterias as $materia) {
+        echo "arrayMaterias[0] = ".$arrayMaterias[0];  
+        $count = count($arrayMaterias);
+        for ($i = 0; $i < $count; $i++) {
             $sql = "INSERT INTO `sigar`.`professormateria` (`idProfessor`, `idMateria`) 
-                        VALUES (" . $idPessoaProfessor . ", " . $materia . ");";
+                        VALUES (" . $idProfessor . ", " . $arrayMaterias[$i] . ");";
             if (!mysql_query($sql)) {
                 echo "Erro na inserção das materias Professor";
                 return 0;
@@ -264,6 +253,29 @@ class ProfessorDAO {
 
         return $retorno;
     }
+    
+    public function alterarMateriasProfessor($idProfessor, Professor $professor){
+          $res = $this->deletarMateriasProfessor($idProfessor);
+          if($res == 1){
+              //DAdos deletados da asociativa com sucesso
+          }else{
+              echo "Falha ao deletar os dados da tabela associativa materiasProfessor para alterar";
+              return 0;
+          }
+          
+          $retorno = $this->salvarMateriasProfessor($idProfessor, $professor);
+          if($retorno == 1){
+              //Tabela associativa de materias alterada com sucesso
+              
+          }else{
+              echo "Falha na alteração da tabela associativa materiasProfessor";
+              return 0;
+          }
+          return $retorno;
+    }
+   
+        
+      
 
     public function alterarUsuario($idPessoaProfessor, User $user) {
         $retorno = 0;
@@ -357,8 +369,21 @@ class ProfessorDAO {
             $retorno++; //Tabela endereço professor alterada com sucesso
         } else {
             echo "ERRO no metodo [alterarEndereco] ";
-        }
+        }        
         return $retorno;
+    }
+    
+    function criarCheckMaterias() {
+        $this->criarConexao();
+        
+        $sql = "SELECT * FROM `materia`;";          
+        $res = mysql_query($sql);
+
+        if (mysql_num_rows($res) == 0) {
+            $res = "Nada encontrado!";
+        }
+
+        return $res;
     }
 
 }

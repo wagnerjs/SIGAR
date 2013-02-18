@@ -9,9 +9,10 @@ class Professor extends Pessoa{
         
     private $meioDeTransporte = null;
     private $usuario;
+    private $materias;
     
     public function __construct($nome="", $email="",$telefoneResidencial="",$celular="",$sexo="",$dataNascimento="",
-                              $cpf="", $meioDeTransporte="", $endereco_obj="", $user_obj="")
+                              $cpf="", $meioDeTransporte="", $endereco_obj="", $user_obj="", $materias="")
     {
         
         $this->setNome($nome);
@@ -24,6 +25,7 @@ class Professor extends Pessoa{
         $this->setEndereco($endereco_obj);
         $this->meioDeTransporte = $meioDeTransporte;
         $this->usuario= $user_obj;
+        $this->materias = $materias;
         
    }
       
@@ -34,9 +36,16 @@ class Professor extends Pessoa{
     public function getUsuario(){
         return $this->usuario;
     }
-            
     
-    
+    public function getMateria(){
+      return $this->materias;  
+    }
+
+
+
+
+
+
 }
 
 ?>

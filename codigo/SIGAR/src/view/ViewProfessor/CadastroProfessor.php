@@ -1,10 +1,10 @@
 <?php
 $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
-require $url . '/view/ValidaSession.php';
-require_once $url . '/controller/ProfessorCtrl.php';
+require $url.'/view/ValidaSession.php';
+require_once $url.'/controller/ProfessorCtrl.php';
 
-if (isset($_POST['enviar'])) {
-    @$professorCtrl = new ProfessorCrtl();
+if (isset($_POST['btnEnviar'])) {
+    @$professorCtrl = new ProfessorCtrl();
 
     @$nomeProfessor = utf8_decode($_POST['txtNome']);
     @$sexoProfessor = $_POST['sexo'];
@@ -28,14 +28,22 @@ if (isset($_POST['enviar'])) {
     @$ufProfessor = $_POST['uf'];
 
     @$referenciaProfessor = utf8_decode($_POST['referencia']);
+    
+    if(isset($_POST['materias'])){
+        for($i = 0; $i < count($_POST['materias']); $i++) {
+            $materias[$i] =  $_POST['materias'][$i];                 
+        }
+    }else{
+        $materias = "";        
+    }
+    
+    $opcao = 1;//Numero que define opçAo de cadastro para controladora
 
-     $res = $professorCtrl->validaProfessor(0,0, $nomeProfessor, $sexoProfessor, $nascProfessor,
+    $res = $professorCtrl->validaProfessor(0, $nomeProfessor, $sexoProfessor, $nascProfessor,
                 $emailProfessor, $telResProfessor, $celularProfessor, $enderecoProfessor,
                 $cpfProfessor, $meioDeTransporte, $cepProfessor, $logradouroProfessor, 
                 $numeroCasaProfessor, $complementoProf, $bairroProfessor, $cidadeProfessor,
-                $ufProfessor, $referenciaProfessor, 1);
-
-    echo 'Chamou validaProfessor';
+                $ufProfessor, $referenciaProfessor, $materias, $opcao);
 
     echo $res;
 
@@ -57,7 +65,7 @@ if (isset($_POST['enviar'])) {
 
         <title>Cadastrar Professor</title>
         <meta name="description" content="" />
-        <meta name="author" content="Fellype" />
+        <meta name="author" content="Hebert" />
 
         <meta name="viewport" content="width=device-width; initial-scale=1.0" />
 
@@ -84,8 +92,7 @@ if (isset($_POST['enviar'])) {
                     <a href="PesquisaProfessor.php"><span class="normal">Pesquisar Professores</span></a>
                     <div class="content">
                          <div>                           
-                             <form name="form" action="CadastroProfessor.php" method="post" onSubmit="return verificaDados()">
-                            
+                             <form name="form1" action="CadastroProfessor.php" method="post" onSubmit="return verificaDadosProfessor()">
                                 <?php echo @$res; ?><br/><br/>
                                 <b>Dados do Professor</b>
                                 <hr/>
@@ -105,6 +112,21 @@ if (isset($_POST['enviar'])) {
                                             <option value="Onibus">Onibus</option>
                                         </select><br/>
                                     </div>
+                                    <div class="span6">
+                                <?php 
+                                 $professorCtrl = new ProfessorCtrl();
+                                 $professorCtrl->criarCheckMaterias();
+                                 if(@mysql_num_rows($professorCtrl->getResposta())>0){
+                                        for($i=0; $i<mysql_num_rows($professorCtrl->getResposta());$i++){
+                                ?>
+                                <input name="materias[]" type="checkbox" value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br>
+                                
+                                <?php   }
+                                
+                                }?>
+                                
+                            </div>
+                                  
                                     <div class="span6">
                                         Logradouro:<br/> <span><input type="text" name="endereco" id="inputEndereco" class="necessary"></span><br/>
                                         Nº:<br/> <span><input type="text" name="numero" id="inputN" class="necessary"></span><br/>
@@ -144,12 +166,13 @@ if (isset($_POST['enviar'])) {
                                         CEP:<br/> <span><input type="text" name="cep" id="inputCep" class="necessary"></span><br/>
                                         Referência:<br/> <input type="text" name="referencia"><br/><br/></div>
                                 </div>
-
+                              
                                 <hr/>
 
                         </div>
+                          
                             <div class="submits">
-                                <input type="submit" name="enviar" value="Enviar" id="cadEnv" />
+                                <input type="submit" name="btnEnviar" value="Enviar" id="cadEnv" />
                                 <input type="reset" name="limpar" value="Limpar" id="limpar" />
                             </div>
                         </form>

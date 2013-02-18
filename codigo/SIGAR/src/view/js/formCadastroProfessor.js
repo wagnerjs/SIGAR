@@ -1,4 +1,4 @@
-function verificaDados(){
+function verificaDadosProfessor(){
     frm=document.form1;
     
     if(frm.txtNome.value == "")
