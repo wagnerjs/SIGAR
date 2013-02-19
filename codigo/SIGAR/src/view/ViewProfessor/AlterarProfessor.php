@@ -49,8 +49,7 @@
                 $cpfProfessor, $meioDeTransporte, $cepProfessor, $logradouroProfessor, 
                 $numeroCasaProfessor, $complementoProf, $bairroProfessor, $cidadeProfessor,
                 $ufProfessor, $referenciaProfessor, $materias, $opcao);
-    echo "<script type='text/javascript'>alert('Passou da validação!');</script>";
-
+    //echo "<script type='text/javascript'>alert('Passou da validação!');</script>";
      if ($resposta == "<font color=green><b>Professor Alterado com sucesso!</b></font>"){
          echo "<script type='text/javascript'>alert('Alteração realizada com sucesso!');</script>";
      }        
@@ -133,8 +132,7 @@
                                             <?php } ?>
                                             
                                         </select><br/>
-                                    </div>
-                                    <div class="span6">
+                                    Materias: <br>
                                 <?php 
                                  $professorCtrl->criarCheckMaterias();
                                  $professorCtrl->selecionarMateriasProfessor($idProfessor);
@@ -162,13 +160,13 @@
                                              if ($arrayMateria[$j] == mysql_result($professorCtrl->getResposta(),$i,'idMateria')  ){ 
                                                  $confere = 1 ;?>
                                                 
-                                                <input name="materias[]" type="checkbox" checked value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br><?php
+                                                <input name="materias[]" type="checkbox" checked value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /> <?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br><?php
                                              }                                         
                                           }
                                       if($confere!=1){    
                                           ?>
                                     
-                                    <input name="materias[]" type="checkbox" value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br><?php
+                                    <input name="materias[]" type="checkbox" value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /> <?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br><?php
                                       }
                                     
                                     }

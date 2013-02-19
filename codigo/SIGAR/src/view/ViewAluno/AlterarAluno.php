@@ -124,7 +124,8 @@
                                     Telefone Residecial:<br/> <span><input type="text"  name="telResidencial" size="10" maxlength="14" onkeypress="mascara(this, mtel );" id="inputTelRes" class="necessary" value="<?php echo $res['telefoneResidencial'] ?>"  ></span><br>
                                     Telefone Celular:<br/> <span><input type="text"  name="telCelular" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel" value="<?php echo $res['telefoneCelular'] ?>"  ></span><br>
                                     Ano Escolar:
-                                    <select name="anoEscolar"  >
+                                    <select name="anoEscolar" >
+                                    
                                     <?php if($res['anoEscolar']=='1ef'){ ?>
                                         <option value="1ef" selected>1º ano do Ensino Fundamental</option>
                                     <?php }else if($res['anoEscolar']=='2ef'){ ?>
@@ -149,9 +150,22 @@
                                     <option value="2em" selected>2ºano do Ensino Médio</option>
                                     <?php }else if($res['anoEscolar']=='3em'){ ?>
                                     <option value="3em" selected>3º ano do Ensino Médio</option>
-                                    <?php }else{ ?>
-                                    <option value= "outros"> Outros</option>
+                                    <?php }else if($res['anoEscolar']=='outros'){ ?>
+                                    <option value="outros"> Outros</option>
                                     <?php } ?>
+                                    <option value="1ef">1º ano do Ensino Fundamental</option>
+                                    <option value="2ef">2º ano do Ensino Fundamental</option>
+                                    <option value="3ef">3º ano do Ensino Fundamental</option>
+                                    <option value="4ef">4º ano do Ensino Fundamental</option>
+                                    <option value="5ef">5º ano do Ensino Fundamental</option>
+                                    <option value="6ef">6º ano do Ensino Fundamental</option>
+                                    <option value="7ef">7º ano do Ensino Fundamental</option>
+                                    <option value="8ef">8º ano do Ensino Fundamental</option>
+                                    <option value="9ef">9º ano do Ensino Fundamental</option>
+                                    <option value="1em">1º ano do Ensino Médio</option>
+                                    <option value="2em">2º ano do Ensino Médio</option>
+                                    <option value="3em">3º ano do Ensino Médio</option>
+                                    <option value= "outros"> Outros</option>
                                     </select><br/>
                                     Escola:<br/> <span><input type="text" name="escola" size="8" maxlength="100" id="inputEscola" class="necessary" value="<?php echo utf8_encode($res['escola']); ?>"  >
                                     </div>
@@ -162,7 +176,34 @@
                                     Bairro:<br/> <span><input type="text" name="bairro" id="inputBairro" class="necessary" value="<?php echo utf8_encode($res['bairro']); ?>"  ></span><br/>
                                     Cidade:<br/> <span><input type="text" name="cidade" id="inputCidade" class="necessary" value="<?php echo utf8_encode($res['cidade']); ?>"  ></span><br/>
                                     UF: <span><select id="inputUf" name="uf" class="necessary"  >
-                                             <?php if($res['uf']=='AC'){ ?>
+                                            <option value="AC">AC</option>
+                                            <option value="AL">AL</option>
+                                            <option value="AM">AM</option>
+                                            <option value="AP">AP</option>
+                                            <option value="BA">BA</option>
+                                            <option value="CE">CE</option>
+                                            <option value="DF">DF</option>
+                                            <option value="ES">ES</option>
+                                            <option value="GO">GO</option>
+                                            <option value="MA">MA</option>
+                                            <option value="MG">MG</option>
+                                            <option value="MS">MS</option>
+                                            <option value="MT">MT</option>
+                                            <option value="PA">PA</option>
+                                            <option value="PB">PB</option>
+                                            <option value="PE">PE</option>
+                                            <option value="PI">PI</option>
+                                            <option value="PR">PR</option>
+                                            <option value="RJ">RJ</option>
+                                            <option value="RN">RN</option>
+                                            <option value="RS">RS</option>
+                                            <option value="RO">RO</option>
+                                            <option value="RR">RR</option>
+                                            <option value="SC">SC</option>
+                                            <option value="SE">SE</option>
+                                            <option value="SP">SP</option>
+                                            <option value="TO">TO</option>
+                                            <?php if($res['uf']=='AC'){ ?>
                                             <option value="AC" selected>AC</option>
                                             <?php }else if($res['uf']=='AL'){ ?>
                                             <option value="AL" selected>AL</option>
@@ -319,6 +360,33 @@
                                             <?php }else{ ?>
                                             <option value="TO" selected>TO</option>
                                              <?php } ?>
+                                             <option value="AC">AC</option>
+                                            <option value="AL">AL</option>
+                                            <option value="AM">AM</option>
+                                            <option value="AP">AP</option>
+                                            <option value="BA">BA</option>
+                                            <option value="CE">CE</option>
+                                            <option value="DF">DF</option>
+                                            <option value="ES">ES</option>
+                                            <option value="GO">GO</option>
+                                            <option value="MA">MA</option>
+                                            <option value="MG">MG</option>
+                                            <option value="MS">MS</option>
+                                            <option value="MT">MT</option>
+                                            <option value="PA">PA</option>
+                                            <option value="PB">PB</option>
+                                            <option value="PE">PE</option>
+                                            <option value="PI">PI</option>
+                                            <option value="PR">PR</option>
+                                            <option value="RJ">RJ</option>
+                                            <option value="RN">RN</option>
+                                            <option value="RS">RS</option>
+                                            <option value="RO">RO</option>
+                                            <option value="RR">RR</option>
+                                            <option value="SC">SC</option>
+                                            <option value="SE">SE</option>
+                                            <option value="SP">SP</option>
+                                            <option value="TO">TO</option>
                                          </select></span><br/>
                                         CEP:<br/> <span><input type="text" name="cepResp" id="inputCepResp" class="necessary" value="<?php echo $dadosResponsavel['cep'] ?>"  ></span><br/>
                                         Referência: <br/><input type="text" name="referenciaResp" value="<?php echo utf8_encode($dadosResponsavel['referencia']); ?>"  ><br/><br/></div>

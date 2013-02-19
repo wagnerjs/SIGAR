@@ -84,9 +84,9 @@ class ProfessorDAO {
         //Cria a conexão com o banco de dados
         $this->criarConexao();
 
-        $sql = "SELECT `materia`.`descricaoMateria`,`materia`.`idMateria` FROM `materia` , `professorMateria` , `professor`
-                WHERE `professorMateria`.`idProfessor` = `professor`.`idProfessor`
-                AND `materia`.`idMateria` = `professorMateria`.`idMateria`
+        $sql = "SELECT `materia`.`descricaoMateria`,`materia`.`idMateria` FROM `materia` , `professor_Materia` , `professor`
+                WHERE `professor_Materia`.`idProfessor` = `professor`.`idProfessor`
+                AND `materia`.`idMateria` = `professor_Materia`.`idMateria`
                 AND `professor`.`idProfessor` = " . $idProfessor . ";";
         $res = mysql_query($sql);
 
@@ -135,7 +135,7 @@ class ProfessorDAO {
     }
     public function deletarMateriasProfessor($idProfessor){
         
-        $sql = "DELETE FROM  `sigar`.`professormateria` WHERE  `professormateria`.`idProfessor` =".$idProfessor.";";
+        $sql = "DELETE FROM  `sigar`.`professor_materia` WHERE  `professor_materia`.`idProfessor` =".$idProfessor.";";
         mysql_query($sql);
         
         return 1;
@@ -196,7 +196,7 @@ class ProfessorDAO {
         $arrayMaterias = $professor->getMateria();
         $count = count($arrayMaterias);
         for ($i = 0; $i < $count; $i++) {
-            $sql = "INSERT INTO `sigar`.`professormateria` (`idProfessor`, `idMateria`) 
+            $sql = "INSERT INTO `sigar`.`professor_materia` (`idProfessor`, `idMateria`) 
                         VALUES (" . $idProfessor . ", " . $arrayMaterias[$i] . ");";
             if (!mysql_query($sql)) {
                 echo "Erro na inserção das materias Professor";

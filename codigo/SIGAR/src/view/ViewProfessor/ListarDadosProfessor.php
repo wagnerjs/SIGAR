@@ -6,11 +6,6 @@
     $professorCtrl = new ProfessorCtrl();
     $idProfessor = $_GET["professorID"];
     $res = $professorCtrl->listarProfessor($idProfessor);
-    
-    if(isset($_POST['voltar'])){
-        header("location: http://localhost/SIGAR/codigo/SIGAR/src/view/ViewProfessor/PesquisaProfessor.php");
-    }
-        
 ?>
 
 <!DOCTYPE html>
@@ -47,13 +42,11 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="#"><span class="selected">Cadastrar Professor</span></a>
+                    <a href="CadastroProfessor.php"><span class="selected">Cadastrar Professor</span></a>
                     <a href="PesquisaProfessor.php"><span class="normal">Pesquisar Professores</span></a>
                     <div class="content">
                          <div>                           
                              <form name="form1" action="PesquisaProfessor.php" method="post">
-                                <?php echo @$resposta; ?><br/><br/>
-                                <br/><br/>
                                 <b>Dados do Professor</b>
                                 <hr/>
                                 <div class="row-fluid show-grid">
@@ -84,8 +77,7 @@
                                             <?php } ?>
                                             
                                         </select><br/>
-                                    </div>
-                                    <div class="span6">
+                                    Materias: <br>
                                 <?php 
                                  $professorCtrl->criarCheckMaterias();
                                  $professorCtrl->selecionarMateriasProfessor($idProfessor);
@@ -113,13 +105,13 @@
                                              if ($arrayMateria[$j] == mysql_result($professorCtrl->getResposta(),$i,'idMateria')  ){ 
                                                  $confere = 1 ;?>
                                                 
-                                                <input name="materias[]" type="checkbox" disabled checked value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br><?php
+                                                <input name="materias[]" type="checkbox" disabled checked value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /> <?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br><?php
                                              }                                         
                                           }
                                       if($confere!=1){    
                                           ?>
                                     
-                                    <input name="materias[]" type="checkbox" disabled value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br><?php
+                                    <input name="materias[]" type="checkbox" disabled value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /> <?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br><?php
                                       }
                                     
                                     }
@@ -198,11 +190,7 @@
                                 <hr/>
 
                         </div>
-                            <div class="submits">
-                                <input type="submit" name="voltar" value="Voltar" />
-
-                            </div>
-                        </form>
+                            </form>
                     </div>
                 </div>
             </div>

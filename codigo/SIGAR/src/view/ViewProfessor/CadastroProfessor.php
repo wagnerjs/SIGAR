@@ -111,22 +111,19 @@ if (isset($_POST['btnEnviar'])) {
                                             <option value="Moto">Moto</option>
                                             <option value="Onibus">Onibus</option>
                                         </select><br/>
+                                    Materias:<br>
+                                    <?php 
+                                     $professorCtrl = new ProfessorCtrl();
+                                     $professorCtrl->criarCheckMaterias();
+                                     if(@mysql_num_rows($professorCtrl->getResposta())>0){
+                                            for($i=0; $i<mysql_num_rows($professorCtrl->getResposta());$i++){
+                                    ?>
+                                    <input name="materias[]" type="checkbox" value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /> <?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br>
+
+                                    <?php   }
+
+                                    }?>
                                     </div>
-                                    <div class="span6">
-                                <?php 
-                                 $professorCtrl = new ProfessorCtrl();
-                                 $professorCtrl->criarCheckMaterias();
-                                 if(@mysql_num_rows($professorCtrl->getResposta())>0){
-                                        for($i=0; $i<mysql_num_rows($professorCtrl->getResposta());$i++){
-                                ?>
-                                <input name="materias[]" type="checkbox" value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br>
-                                
-                                <?php   }
-                                
-                                }?>
-                                
-                            </div>
-                                  
                                     <div class="span6">
                                         Logradouro:<br/> <span><input type="text" name="endereco" id="inputEndereco" class="necessary"></span><br/>
                                         Nº:<br/> <span><input type="text" name="numero" id="inputN" class="necessary"></span><br/>
