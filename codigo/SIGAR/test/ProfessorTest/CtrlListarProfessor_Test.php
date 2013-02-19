@@ -29,7 +29,8 @@ class CtrlListarProfessor_Test extends PHPUnit_Framework_TestCase {
      * @test
      */
     public function testeCtrlListar(){
-        $this->assertNull($this->retorno);
+        $this->assertNotNull($this->retorno);
+        //$this->assertNull($this->retorno);
     }
 
 

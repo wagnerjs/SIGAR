@@ -110,27 +110,64 @@ class ProfessorDAO {
         $idPessoaProfessor = $this->selecionarIdPessoaProfessor($idProfessor);
         
         $sql = "DELETE FROM `sigar`.`professor` WHERE `professor`.`idProfessor` = " . $idProfessor . ";";
-        mysql_query($sql);
+        $res = mysql_query($sql);
+        if($res){
+            //deletedo com sucesso
+            $retorno = 1;
+        }else{
+            //erro ao deletar
+            $retorno = 0;
+            
+        }
       
         $sql = "DELETE FROM `sigar`.`usuario` WHERE `usuario`.`idPessoa` = " . $idPessoaProfessor . ";";
-        mysql_query($sql);
+        $res = mysql_query($sql);
+        if($res){
+            //deletedo com sucesso
+            $retorno = 1;
+        }else{
+            //erro ao deletar
+            $retorno = 0;
+            
+        }
         
         $idEndereco = $this->selecionarIdEndereco($idPessoaProfessor);
        
         $sql = "DELETE FROM `sigar`.`endereco_pessoa` WHERE `endereco_pessoa`.`idEndereco` = " . $idEndereco . " ;";
-        mysql_query($sql);
+        $res = mysql_query($sql);
+        if($res){
+            //deletedo com sucesso
+            $retorno = 1;
+        }else{
+            //erro ao deletar
+            $retorno = 0;
+            
+        }
         
          
         $sql = "DELETE FROM `sigar`.`endereco` WHERE `endereco`.`idEndereco` = " . $idEndereco . " ;";
-        mysql_query($sql);
+        $res = mysql_query($sql);
+        if($res){
+            //deletedo com sucesso
+            $retorno = 1;
+        }else{
+            //erro ao deletar
+            $retorno = 0;
+            
+        }
         
 
         $sql = "DELETE FROM `sigar`.`pessoa` WHERE `pessoa`.`idPessoa` = " . $idPessoaProfessor . " ;";
-        mysql_query($sql);
+        $res = mysql_query($sql);
+        if($res){
+            //deletedo com sucesso
+            $retorno = 1;
+        }else{
+            //erro ao deletar
+            $retorno = 0;
+            
+        }
        
-        $retorno = mysql_affected_rows();
-
-
         return $retorno;
     }
     public function deletarMateriasProfessor($idProfessor){
