@@ -82,7 +82,7 @@
 
                                     ?>
                                     <tr>
-                                        <td><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAluno/ListarDadosProfessor.php?professorID=<?php echo mysql_result($professorCtrl->getResposta(),$i,'idProfessor');?>">
+                                        <td><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewProfessor/ListarDadosProfessor.php?professorID=<?php echo mysql_result($professorCtrl->getResposta(),$i,'idProfessor');?>">
                                         <?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'nome'));?></a></td>
                                         <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'cpf')); ?></td>
                                         <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'email')); ?></td>

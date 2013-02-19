@@ -101,3 +101,11 @@ function verificaDados(){
     return true;
 }
 
+function confirmarDeletar(idPessoaAluno) {
+     var resposta = confirm("Deseja remover esse registro?");
+ 
+     if (resposta == true) {
+         
+          window.location.href = "http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAluno/ExcluirAluno.php?alunoPessoaID="+idPessoaAluno;
+     }
+}

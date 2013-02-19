@@ -36,14 +36,14 @@ class CtrlSalvarProfessor_Test extends PHPUnit_Framework_TestCase {
         $cidadeProfessor = 'Ceilandia';
         $ufProfessor = 'DF';
         $referenciaProfessor = 'Igreja';
-        
-        
+        $materias[0] = 'Fisica';
+                
         $professorCtrl = new ProfessorCtrl();
         $this->retorno = $professorCtrl->instanciarProfessor(utf8_decode($nomeProfessor), $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor,
                                                             $celularProfessor, $cpfProfessor, $meioDeTransporte,
                                                             $cepProfessor, $logradouroProfessor, $numeroCasaProfessor,
                                                             $complementoProf, $bairoProfessor, $cidadeProfessor,
-                                                             $ufProfessor, $referenciaProfessor);
+                                                             $ufProfessor, $referenciaProfessor,$materias);
     }
     
     

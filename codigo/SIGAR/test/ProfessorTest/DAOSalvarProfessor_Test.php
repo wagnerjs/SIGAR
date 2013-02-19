@@ -31,7 +31,7 @@ class DAOSalvarProfessor_TEst extends PHPUnit_Framework_TestCase{
         $telResProfessor ='(61)3333-1111';
         $celularProfessor = '(61)8109-8502';  
         $cpfProfessor = '012.202.033-21';
-        $meioDeTransporte = 'carro';
+        $meioDeTransporte = 'Carro';
         
         $cepProfessor = '72215096';
         $logradouroProfessor = 'QNM 09 CONJUNTO F';
@@ -41,13 +41,16 @@ class DAOSalvarProfessor_TEst extends PHPUnit_Framework_TestCase{
         $cidadeProfessor = 'Ceilandia';
         $ufProfessor = 'DF';
         $referenciaProfessor = 'Mercado';
+        $materias[0] = 'Física';
+        $materias[1] = 'Física';
         
         $this->endereco_obj = new Endereco($logradouroProfessor, $cepProfessor, $bairoProfessor, $cidadeProfessor,
                                             $complementoProf, $numeroCasaProfessor, $ufProfessor, $referenciaProfessor);
         $this->user_obj = new User();
-        $this->professor_obj = new Professor(utf8_decode($nomeProfessor),$sexoProfessor, $nascProfessor, $emailProfessor,
-                                              $telResProfessor, $celularProfessor, $cpfProfessor,$meioDeTransporte,
-                                           $this->endereco_obj, $this->user_obj);
+        
+        $this->professor_obj = new Professor(utf8_decode($nomeProfessor),$emailProfessor,
+                $telResProfessor,$celularProfessor,$sexoProfessor,$nascProfessor,$cpfProfessor,
+                $meioDeTransporte,$this->endereco_obj, $this->user_obj,$materias);
     }
     
     /**
