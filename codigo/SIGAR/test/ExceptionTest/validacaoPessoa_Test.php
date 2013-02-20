@@ -36,7 +36,7 @@ class validacaoPessoa_Test extends PHPUnit_Framework_TestCase {
         $this->cpf = "03704004103";
         $this->cpfErro = "11111111111";
         $this->cpfErro1 = "03104004103";
-        $this->cpfRepetido = "036.625.241-04";
+        $this->cpfRepetido = "469.784.171-90";
         
 
         $this->validaPessoa_obj = new validacaoPessoa();

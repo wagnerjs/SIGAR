@@ -8,6 +8,7 @@ require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php';
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Responsavel.class.php';
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/controller/AlunoCtrl.php';
 require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
+require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/GeradorCpf.php";
 
 class CTRLValidaAluno_Test extends PHPUnit_Framework_TestCase {
     
@@ -27,17 +28,19 @@ class CTRLValidaAluno_Test extends PHPUnit_Framework_TestCase {
         
         $nomeResp = 'João da Silva';
         $sexoResp = 'm';
-        $cpf = '036.969.331-04';
+        $gera = new GeradorCpf();
+        $cpf = $gera->cpf(1);
+        //$cpf = '037.040.041.03';
         $telResResp='(61) 3301-3239'; 
         $telefoneTrabalho = '(61) 3301-3239';
         $telCelResp = '(61) 3301-3239';
         $categoria = 'pai';
         $nascimentoResp = '1990-11-12';
-        $emailResp = 'joao_silva@gmail.com';
+        $emailResp = $gera->cpf(0).'@gmail.com';
 
         $nome = 'Rafael Ferreira';
         $sexo = 'm';
-        $email = 'rafaelferreira@gmail.com';
+        $email = $gera->cpf(0).'1@gmail.com';
         $nascimento = '1995-11-24';
         $anoEscolar = '2em';
         $telResidencial = '(61) 3321-3030';
@@ -99,7 +102,7 @@ class CTRLValidaAluno_Test extends PHPUnit_Framework_TestCase {
      */
     
     public function TestValidarAluno(){
-       $this->assertEquals('<font color=red><b>Erro! Insira os dados corretamente!</b></font>',$this->retorno);   
+       $this->assertEquals('<font color=green><b>Aluno Cadastrado com sucesso!</b></font>',$this->retorno);   
     }
 }
 
