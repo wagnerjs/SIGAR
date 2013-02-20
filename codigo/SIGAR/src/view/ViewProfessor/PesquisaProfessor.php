@@ -46,10 +46,10 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="CadastroProfessor.php"><span class="normal">Cadastrar Professor</span></a>
-                    <a href="#"><span class="selected">Pesquisar Professor</span></a>
+                    <a href="CadastroProfessor.php"><span class="normal"> Cadastrar Professor</span></a>
+                    <a href="#"><span class="selected"> Pesquisar Professor</span></a>
                     <div class="content">
-                        <div>
+                        <div class="spaces">
                             Pesquisar professor: 
                             <form action="#">
                                 <fieldset>

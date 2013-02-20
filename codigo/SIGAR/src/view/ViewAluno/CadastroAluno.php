@@ -93,12 +93,12 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="#"><span class="selected">Cadastrar Alunos</span></a>
-                    <a href="PesquisaAluno.php"><span class="normal">Pesquisar Alunos</span></a>
+                    <a href="#"><span class="selected">    Cadastrar Aluno  </span></a>
+                    <a href="PesquisaAluno.php"><span class="normal">    Pesquisar Aluno  </span></a>
                     <div class="content">
                         <div>                           
-                            <form name="form1" action="CadastroAluno.php" method="post" onSubmit="return verificaDados()">
-                                    <?php echo @$res; ?><br/><br/>
+                            <form class="spaces" name="form1" action="CadastroAluno.php" method="post" onSubmit="return verificaDados()">
+                                    <?php echo @$res; ?>
                                     <b>Dados do Aluno</b>
                                     <hr/>
                                     <div class="row-fluid show-grid">

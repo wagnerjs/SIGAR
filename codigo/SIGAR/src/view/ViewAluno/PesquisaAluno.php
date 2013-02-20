@@ -46,10 +46,10 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="CadastroAluno.php"><span class="normal">Cadastrar Alunos</span></a>
-                    <a href="#"><span class="selected">Pesquisar Alunos</span></a>
+                    <a href="CadastroAluno.php"><span class="normal">    Cadastrar Aluno  </span></a>
+                    <a href="#"><span class="selected">    Pesquisar Aluno  </span></a>
                     <div class="content">
-                        <div>
+                        <div class="spaces">
                             Pesquisar aluno: 
                             <form action="#">
                                 <fieldset>

@@ -88,12 +88,12 @@ if (isset($_POST['btnEnviar'])) {
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="#"><span class="selected">Cadastrar Professor</span></a>
-                    <a href="PesquisaProfessor.php"><span class="normal">Pesquisar Professores</span></a>
+                    <a href="#"><span class="selected"> Cadastrar Professor</span></a>
+                    <a href="PesquisaProfessor.php"><span class="normal"> Pesquisar Professor</span></a>
                     <div class="content">
                          <div>                           
-                             <form name="form1" action="CadastroProfessor.php" method="post" onSubmit="return verificaDadosProfessor()">
-                                <?php echo @$res; ?><br/><br/>
+                             <form class="spaces" name="form1" action="CadastroProfessor.php" method="post" onSubmit="return verificaDadosProfessor()">
+                                <?php echo @$res; ?>
                                 <b>Dados do Professor</b>
                                 <hr/>
                                 <div class="row-fluid show-grid">
@@ -111,7 +111,10 @@ if (isset($_POST['btnEnviar'])) {
                                             <option value="Moto">Moto</option>
                                             <option value="Onibus">Onibus</option>
                                         </select><br/>
-                                    Materias:<br>
+                                        <div class="materias">
+                                            <br/>
+                                            <div>
+                                                <b>Materias:</b><br>
                                     <?php 
                                      $professorCtrl = new ProfessorCtrl();
                                      $professorCtrl->criarCheckMaterias();
@@ -123,6 +126,9 @@ if (isset($_POST['btnEnviar'])) {
                                     <?php   }
 
                                     }?>
+                                    <br/>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="span6">
                                         Logradouro:<br/> <span><input type="text" name="endereco" id="inputEndereco" class="necessary"></span><br/>
