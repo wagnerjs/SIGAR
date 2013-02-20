@@ -35,12 +35,28 @@ class DAOListar_Test extends PHPUnit_Framework_TestCase{
     
     public function TestSelecionarAlunoDAO(){
         $aluno_dao = new AlunoDAO();
-                //$this->assertEquals('10',$aluno_dao->listarAluno($this->idAluno));
-        //$this->assertEquals('10',$aluno_dao->listarResponsavel($this->idAluno));
 
         $this->assertEquals('1',$aluno_dao->selecionarIdPessoaAluno($this->idAluno));
-        $this->assertEquals('1',$aluno_dao->selecionarIdUsuario($this->idPessoaAluno)); 
-        //$this->assertEquals('Física,Filosofia',$aluno_dao->selecionarIdUsuario($this->idPessoaAluno)); 
+        $this->assertEquals('1',$aluno_dao->selecionarIdUsuario($this->idPessoaAluno));
+        
+        $this->assertNotNull($aluno_dao->selecionarIdEndereco($this->idPessoaAluno));
+        $this->assertEquals('0',$aluno_dao->selecionarIdEndereco(0));
+        
+        $this->assertNotNull($aluno_dao->listarAluno($this->idAluno));
+        $this->assertEquals('Nada encontrado!',$aluno_dao->listarAluno(0));
+        
+        $this->assertNotNull($aluno_dao->listarAlunos());
+        
+        $this->assertNotNull($aluno_dao->listarPessoaAlunos($this->idAluno));
+        $this->assertEquals('Nada encontrado!',$aluno_dao->listarPessoaAlunos(0));
+        
+        $this->assertNotNull($aluno_dao->listarPessoaResponsavel($this->idAluno));
+        $this->assertEquals('Nada encontrado!',$aluno_dao->listarPessoaResponsavel(0));
+        
+        $this->assertNotNull($aluno_dao->listarResponsavel($this->idAluno));
+        $this->assertEquals('Nada encontrado!',$aluno_dao->listarResponsavel(0));
+         
+        
     }
     
     /**

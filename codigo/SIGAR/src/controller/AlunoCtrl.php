@@ -110,7 +110,7 @@ class AlunoCrtl {
 
             $alunoDAO = new AlunoDAO();
 
-            if ($alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_objeto) == '1')
+            if ($alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_objeto) != NULL)
             {
                 return 'Cadastro efetuado com sucesso!';
             }
