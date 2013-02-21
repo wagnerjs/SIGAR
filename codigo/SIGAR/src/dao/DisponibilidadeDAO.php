@@ -180,17 +180,18 @@ class DisponibilidadeDAO {
     }
 
     /*
+     * Antes de deletar utilize o metodo selecionaIdDia
      * Deletar horário
      */
 
-    public function deletarHorario($idHorario) {
+    public function deletarHorario($idDia) {
         $this->criarConexao();
-        $sql = "DELETE FROM `sigar`.`horario` WHERE `horario`.`idHorario` = " . $idHorario . ";";
+        $sql = "DELETE FROM `sigar`.`horario` WHERE `horario`.`idDia` = " . $idDia . ";";
 
         if (mysql_query($sql)) {
             return 1; //deletado com sucesso
         } else {
-            return 0; //Erro a deletat horario
+            return 0; //Erro a deletar horario
         }
         $this->fecharConexao();
     }
@@ -210,7 +211,73 @@ class DisponibilidadeDAO {
         }
         $this->fecharConexao();
     }
+
+    /*
+     * Selecionar idDisponibilidade de acordo com o professor
+     */
+
+    public function selecionarIdDisponibilidade($idProfessor) {
+        $this->criarConexao();
+
+        $sql = "SELECT `disponibilidade`.`idDisponibilidade` FROM `disponibilidade` WHERE `disponibilidade`.`idProfessor` = " . $idProfessor . ";";
+        $res = mysql_query($sql);
+        $idDisponibilidade = 0;
+        if (mysql_num_rows($res) == 0) {
+            $idDisponibilidade = 0; //Falha a selecionar o idDisponibilidade do professor
+        } else {
+            while ($aux = mysql_fetch_array($res)) {
+                $idDisponibilidade = $aux['idDisponibilidade'];
+            }
+        }
+        $this->fecharConexao();
+
+        return $idDisponibilidade;
+    }
+
+    /*
+     * Busca todos os idDia com o idDisponibilidade
+     */
+
+    public function selecionarArrayIdDia($idDisponibilidade) {
+        $this->criarConexao();
+        $retorno = 0;
+        $sql = "SELECT `dia`.`idDia` FROM `dia` WHERE `dia`.`idDisponibilidade` = " . $idDisponibilidade . ";";
+
+        $resultadoIdDia = mysql_query($sql);
+
+        if (mysql_num_rows($resultadoIdDia) == 0) {
+            $retorno = "Nada encontrado! "; //Nenhum IdAluno encontrado
+        } else {
+            $retorno = $resultadoIdDia;
+        }
+        $this->fecharConexao();
+        return $retorno;
+    }
     
+    /*
+     * Busca todos os idDia com o idDisponibilidade
+     */
+
+    public function selecionarIdDia($idDisponibilidade,$diaDaSemana) {
+        $this->criarConexao();
+
+        $sql = "SELECT `dia`.`idDia` FROM `dia` WHERE `dia`.`idDisponibilidade` = " . $idDisponibilidade . " 
+            AND `dia`.`diaDaSemana` = '".$diaDaSemana."';";
+
+        $res = mysql_query($sql);
+        $idDia = 0;
+        if (mysql_num_rows($res) == 0) {
+            $idDia = 0; //Falha a selecionar o idDisponibilidade do professor
+        } else {
+            while ($aux = mysql_fetch_array($res)) {
+                $idDia = $aux['idDia'];
+            }
+        }
+        $this->fecharConexao();
+
+        return $idDia;
+    }  
+
 }
 
 ?>
