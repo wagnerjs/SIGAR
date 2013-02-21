@@ -359,3 +359,26 @@ hr {
 .materias div {
     margin-left: 30px;
 }
+
+.calendario {
+    margin: 10px;
+}
+
+#dispCalendar {
+    color: #4d67a6;
+    margin-left: 10%;
+}
+
+#dispCalendar th {
+    text-align: center;
+    padding: 15px;
+    /*background-color: #acccff;
+    /*border: 2px solid #d2edf6;*/
+    border: 2px solid #acccff;
+}
+
+#dispCalendar td {
+    text-align: center;
+    padding: 15px;
+    border: 2px solid #acccff;
+}
