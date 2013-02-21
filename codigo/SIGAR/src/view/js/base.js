@@ -13,6 +13,18 @@ function abrirModal(id) {
 
 $(document).ready(function(){
     
+    $('#dispCalendar td').click(function(){
+        if ($(this).attr('class') == "selection") {
+            //alert("cacete!");
+            $(this).css('background-color','#fff');
+            $(this).attr('class','');
+        }
+        else {
+            $(this).css('background-color','#ffa79a');
+            $(this).attr('class','selection');
+        }
+    });
+    
     $('#login input').focus(function(){ 
     if (this.value==this.defaultValue) {
             this.value='';

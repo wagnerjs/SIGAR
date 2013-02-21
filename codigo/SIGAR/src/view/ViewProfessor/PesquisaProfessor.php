@@ -60,15 +60,16 @@
                                 <thead>
                                     <tr>
                                         <th>Nome</th>
-                                        <th>Cpf</th>
+                                        <!--<th>Cpf</th>-->
                                         
                                         <th>Email</th>
-                                        <th>Meio de Transporte</th>
+                                        <th>Transporte</th>
 
                                         <th>Data Nascimento</th>
                                         <th>Sexo</th>
                                         <th>Telefone Residencial</th>
                                         <th colspan='2'>Opções</th>
+                                        <th style="background: #ff963a;">Disponibilidade</th>
                                     </tr>
                                 </thead>
                                     <tbody>
@@ -84,7 +85,7 @@
                                     <tr>
                                         <td><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewProfessor/ListarDadosProfessor.php?professorID=<?php echo mysql_result($professorCtrl->getResposta(),$i,'idProfessor');?>">
                                         <?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'nome'));?></a></td>
-                                        <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'cpf')); ?></td>
+                                        <!--<td><?php// echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'cpf')); ?></td>-->
                                         <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'email')); ?></td>
                                         <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'meioTransporte'));?></td>
                                         <td><?php $dataProfessorRecebida=utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'dataNascimento'));
@@ -95,6 +96,7 @@
                                         <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'telefoneResidencial'));?></td>
                                         <td style='cursor: pointer'><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewProfessor/AlterarProfessor.php?professorID=<?php echo mysql_result($professorCtrl->getResposta(),$i,'idProfessor');?>"><img src='../img/edit.png' onClick="" alt="Editar"></a></td>
                                         <td style='cursor: pointer'><a href="javascript: confirmarDeletar('<?php echo mysql_result($professorCtrl->getResposta(),$i,'idProfessor');?>') "><img src='../img/del.png' onClick="" alt="Deletar"></a></td>
+                                        <td style='cursor: pointer; text-align: center;'><a href="DisponibilidadeProfessor.php"><img src='../img/icon-calendar.png' onClick="" alt="Deletar"></a></td>
                                     </tr>
                                     <?php
                                         }
