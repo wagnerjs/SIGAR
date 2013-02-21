@@ -211,13 +211,6 @@ class DisponibilidadeDAO {
         $this->fecharConexao();
     }
     
-    /*
-     * Alterar status do agendamento
-     * UPDATE  `sigar`.`agendamento` SET  `status` =  'Sob avaliação.' WHERE  `agendamento`.`idAgendamento` =1;
-     */
-    
-    
-
 }
 
 ?>
