@@ -1,0 +1,9 @@
+Data: 14/02/2013
+Hora: 12h00
+Tipo: Presencial
+Presentes: Alex, Guilherme, Hebert, Matheus, Rafael, Wagner
+
+Objetivo
+- Manter integrantes informados sobre o projeto e remover impedimentos
+
+Fim: 13h40
