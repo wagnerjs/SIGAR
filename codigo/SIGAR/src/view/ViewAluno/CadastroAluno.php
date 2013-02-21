@@ -1,6 +1,6 @@
 <?php
-	$url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
-	require $url.'/view/ValidaSession.php';
+    $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
+    require $url.'/view/ValidaSession.php';
     require_once $url.'/controller/AlunoCtrl.php';
 
 	if(isset($_POST['enviar'])){
@@ -46,11 +46,12 @@
 		@$cepResp=$_POST['cepResp'];
 		@$referenciaResp=$_POST['referenciaResp'];
 					
-		$res =  $AlunoCtrl->validaAluno($nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
+		$res =  $AlunoCtrl->validaAluno(0,$nomeAluno, $sexoAluno, $dataAluno, $emailAluno, $telResidencialAluno, $telCelularAluno, $anoEscolar, $escola,
 				$nomeResp, $parentesco, $cpfResp,$emailResp, $telResp, $sexoResp, $dataResp,$telCelularResp,$telTrabResp,
 				$mesmoEnd,$enderecoAluno,$numeroAluno,$complementoAluno,$bairroAluno,$cidadeAluno,$ufAluno,$cepAluno,$referenciaAluno,
-				$enderecoResp, $numeroResp, $complementoResp, $bairroResp,$cidadeResp,$ufResp,$cepResp,$referenciaResp);
-               
+				$enderecoResp, $numeroResp, $complementoResp, $bairroResp,$cidadeResp,$ufResp,$cepResp,$referenciaResp,1);
+                echo $res;
+                
                 if($res == "<font color=green><b>Aluno Cadastrado com sucesso!</b></font>")
                     echo "<script type='text/javascript'>alert('Cadastro realizado com sucesso!');</script>";
                 else
@@ -92,12 +93,12 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="#"><span class="selected">Cadastrar Alunos</span></a>
-                    <a href="PesquisaAluno.php"><span class="normal">Pesquisar Alunos</span></a>
+                    <a href="#"><span class="selected">    Cadastrar Aluno  </span></a>
+                    <a href="PesquisaAluno.php"><span class="normal">    Pesquisar Aluno  </span></a>
                     <div class="content">
                         <div>                           
-                            <form name="form1" action="CadastroAluno.php" method="post" onSubmit="return verificaDados()">
-                                    <?php echo @$res; ?><br/><br/>
+                            <form class="spaces" name="form1" action="CadastroAluno.php" method="post" onSubmit="return verificaDados()">
+                                    <?php echo @$res; ?>
                                     <b>Dados do Aluno</b>
                                     <hr/>
                                     <div class="row-fluid show-grid">

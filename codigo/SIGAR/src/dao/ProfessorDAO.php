@@ -14,6 +14,47 @@ class ProfessorDAO {
     }
 
     //Função retorna dados do Professor
+    public function listarTodosProfessores() {
+        //Cria a conexão com o banco de dados
+        $this->criarConexao();
+
+        $sql = "SELECT `pessoa`.*, `professor`.*, `endereco`.* 
+                    FROM `professor`,`pessoa`,`endereco`,`usuario`  
+                    WHERE `professor`.`idUsuario` = `usuario`.`idUsuario` 
+                    AND `usuario`.`idPessoa` = `pessoa`.`idPessoa`  
+                    AND `endereco`.`idEndereco` IN 
+                    (SELECT `idEndereco` FROM `endereco_pessoa` 
+                    WHERE `endereco_pessoa`.`idPessoa` = `pessoa`.`idPessoa`);";
+
+        $res = mysql_query($sql);
+
+        if (mysql_num_rows($res) == 0) {
+            $res = "Nada encontrado!";
+        }
+
+        return $res;
+    }
+       
+    public function selecionarIdPessoaProfessor($idProfessor) {
+        $this->criarConexao();
+
+        $sql = "SELECT `usuario`.`idPessoa` FROM `usuario`,`professor` 
+                    WHERE `usuario`.`idUsuario` = `professor`.`idUsuario` AND
+                    `professor`.`idProfessor` =" . $idProfessor . ";";
+
+        $resultadoIdProfessor = mysql_query($sql);
+        $idPessoaProfessor = 0;
+        while ($aux = mysql_fetch_array($resultadoIdProfessor)) {
+            $idPessoaProfessor = $aux['idPessoa'];
+        }
+        if (mysql_num_rows($resultadoIdProfessor) == 0) {
+            $idPessoaProfessor = "Nada encontrado! "; //Nenhum IdAluno encontrado
+        }
+
+        return $idPessoaProfessor;
+    }
+
+    //Função retorna dados do Professor
     public function listarProfessor($idProfessor) {
         //Cria a conexão com o banco de dados
         $this->criarConexao();
@@ -43,72 +84,105 @@ class ProfessorDAO {
         //Cria a conexão com o banco de dados
         $this->criarConexao();
 
-        $sql = "SELECT `materia`.`descricaoMateria` FROM `materia` , `professorMateria` , `professor`
-                WHERE `professorMateria`.`idProfessor` = `professor`.`idProfessor`
-                AND `materia`.`idMateria` = `professorMateria`.`idMateria`
+        $sql = "SELECT `materia`.`descricaoMateria`,`materia`.`idMateria` FROM `materia` , `professor_Materia` , `professor`
+                WHERE `professor_Materia`.`idProfessor` = `professor`.`idProfessor`
+                AND `materia`.`idMateria` = `professor_Materia`.`idMateria`
                 AND `professor`.`idProfessor` = " . $idProfessor . ";";
-        $resultadoBusca = mysql_query($sql);
+        $res = mysql_query($sql);
 
-        while ($aux = mysql_fetch_array($resultadoBusca)) {
-            $listaMateria = $aux['descricaoMateria'];
-        }
-        if (mysql_num_rows($resultadoBusca) == 0) {
-            $listaMateria = "Nada encontrado! "; //Nenhum materia encontrada
-        }
-
-
-        return $listaMateria;
+        if (mysql_num_rows($res) == 0) {
+            return 0; //"Nada encontrado!"
+        } 
+        return $res;
     }
 
-    public function deletarProfessor($idPessoaProfessor) {
+    public function deletarProfessor($idProfessor) {
         $this->criarConexao();
-
-        $sql = "SELECT  `professor`.`idProfessor` FROM  `usuario`, `professor` WHERE  `usuario`.`idUsuario` = `professor`.`idProfessor` AND `usuario`.`idPessoa`= " . $idPessoaProfessor . " ;";
-
-        $resultadoProfessor = mysql_query($sql);
-        while ($aux = mysql_fetch_array($resultadoProfessor)) {
-            $idProfessor = $aux['idProfessor'];
+    
+        $res = $this->deletarMateriasProfessor($idProfessor);
+        if($res == 1){
+              //DAdos deletados da asociativa com sucesso
+          }else{
+              echo "Falha ao deletar os dados da tabela associativa materiasProfessor para alterar";
+              return 0;
+          }
+        
+        $idPessoaProfessor = $this->selecionarIdPessoaProfessor($idProfessor);
+        
+        $sql = "DELETE FROM `sigar`.`professor` WHERE `professor`.`idProfessor` = " . $idProfessor . ";";
+        $res = mysql_query($sql);
+        if($res){
+            //deletedo com sucesso
+            $retorno = 1;
+        }else{
+            //erro ao deletar
+            $retorno = 0;
+            
         }
-
-        $sql = "DELETE FROM `sigar`.`professor` WHERE `professor`.`idProfessor` = " . $idPessoarofessor . ";";
-
-
+      
         $sql = "DELETE FROM `sigar`.`usuario` WHERE `usuario`.`idPessoa` = " . $idPessoaProfessor . ";";
-
-
-        $sql = "SELECT  `endereco_pessoa`.`idEndereco_Pessoa` FROM  `sigar`.`endereco_pessoa` WHERE  `endereco_pessoa`.`idPessoa` =" . $idPessoaProfessor . ";";
-
-        $resultadoEnderecoPessoa = mysql_query($sql);
-
-        while ($aux = mysql_fetch_array($resultadoEnderecoPessoa)) {
-            $idEndereco_Pessoa = $aux['idEndereco_Pessoa'];
+        $res = mysql_query($sql);
+        if($res){
+            //deletedo com sucesso
+            $retorno = 1;
+        }else{
+            //erro ao deletar
+            $retorno = 0;
+            
         }
-
-        $sql = "DELETE FROM `sigar`.`endereco_pessoa` WHERE `endereco_pessoa`.`idEndereco_Pessoa` = " . $idEndereco_Pessoa . " ;";
-
-        $sql = "SELECT  `endereco_pessoa`.`idEndereco` FROM  `sigar`.`endereco_pessoa` WHERE  `endereco_pessoa`.`idPessoa` =" . $idPessoaProfessor . ";";
-
-        $resultadoEndereco = mysql_query($sql);
-        while ($aux = mysql_fetch_array($resultadoEndereco)) {
-            $idEndereco = $aux['idEndereco'];
+        
+        $idEndereco = $this->selecionarIdEndereco($idPessoaProfessor);
+       
+        $sql = "DELETE FROM `sigar`.`endereco_pessoa` WHERE `endereco_pessoa`.`idEndereco` = " . $idEndereco . " ;";
+        $res = mysql_query($sql);
+        if($res){
+            //deletedo com sucesso
+            $retorno = 1;
+        }else{
+            //erro ao deletar
+            $retorno = 0;
+            
         }
-
-        $sql = "DELETE FROM 'sigar'.'endereco' WHERE 'endereco'.'idEndereco' = " . $idEndereco . " ;";
-
+        
+         
+        $sql = "DELETE FROM `sigar`.`endereco` WHERE `endereco`.`idEndereco` = " . $idEndereco . " ;";
+        $res = mysql_query($sql);
+        if($res){
+            //deletedo com sucesso
+            $retorno = 1;
+        }else{
+            //erro ao deletar
+            $retorno = 0;
+            
+        }
+        
 
         $sql = "DELETE FROM `sigar`.`pessoa` WHERE `pessoa`.`idPessoa` = " . $idPessoaProfessor . " ;";
-
-        $retorno = mysql_affected_rows();
-
-
+        $res = mysql_query($sql);
+        if($res){
+            //deletedo com sucesso
+            $retorno = 1;
+        }else{
+            //erro ao deletar
+            $retorno = 0;
+            
+        }
+       
         return $retorno;
+    }
+    public function deletarMateriasProfessor($idProfessor){
+        
+        $sql = "DELETE FROM  `sigar`.`professor_materia` WHERE  `professor_materia`.`idProfessor` =".$idProfessor.";";
+        mysql_query($sql);
+        
+        return 1;
     }
 
     public function salvarPessoa(Professor $professor) {
         $idPessoaProfessor = 0;
-        
+
         $this->criarConexao();
-        
+
         $sql = "INSERT INTO `pessoa` (`idPessoa`, `nome`, `email`, `telefoneResidencial`, `telefoneCelular`, `sexo`, `dataNascimento`, `cpf`) VALUES
             (NULL,  '" . $professor->getNome() . "', '" . $professor->getEmail() . "', '" . $professor->getTelefoneResidencial() . "', '" . $professor->getCelular() . "', '" . $professor->getSexo() . "', '" . $professor->getNascimento() . "', '" . $professor->getCpf() . "');";
 
@@ -123,9 +197,9 @@ class ProfessorDAO {
 
     public function salvarUsuario($idPessoaProfessor, User $user) {
         $idPessoaUsuario = 0;
-        
+
         $this->criarConexao();
-        
+
         $sql = "INSERT INTO `usuario` (`idUsuario`, `login`, `senha`, `idPessoa`) VALUES
                   (NULL, '" . $user->getLogin() . "', '" . $user->getSenha() . "', '.$idPessoaProfessor.');";
 
@@ -140,9 +214,9 @@ class ProfessorDAO {
 
     public function salvarProfessor($idPessoaUsuario, Professor $professor) {
         $idPessoaProfessor = 0;
-        
+
         $this->criarConexao();
-        
+
         $sql = "INSERT INTO `sigar`.`professor` (`idProfessor`, `meioTransporte`, `idUsuario`) VALUES 
                     (NULL, '" . $professor->getMeioDeTransporte() . "', '.$idPessoaUsuario.');";
 
@@ -155,12 +229,12 @@ class ProfessorDAO {
         return $idPessoaProfessor;
     }
 
-    public function salvarMateriasProfessor($idPessoaProfessor, Professor $professor) {
+    public function salvarMateriasProfessor($idProfessor, Professor $professor) {
         $arrayMaterias = $professor->getMateria();
-
-        foreach ($arrayMaterias as $materia) {
-            $sql = "INSERT INTO `sigar`.`professormateria` (`idProfessor`, `idMateria`) 
-                        VALUES (" . $idPessoaProfessor . ", " . $materia . ");";
+        $count = count($arrayMaterias);
+        for ($i = 0; $i < $count; $i++) {
+            $sql = "INSERT INTO `sigar`.`professor_materia` (`idProfessor`, `idMateria`) 
+                        VALUES (" . $idProfessor . ", " . $arrayMaterias[$i] . ");";
             if (!mysql_query($sql)) {
                 echo "Erro na inserção das materias Professor";
                 return 0;
@@ -202,11 +276,11 @@ class ProfessorDAO {
 
         return 1;
     }
-    
+
     public function alterarProfessor($idProfessor, Professor $professor) {
         $retorno = 0;
-        
-        if($idProfessor <= 0){
+
+        if ($idProfessor <= 0) {
             return 0;
         }
         $this->criarConexao();
@@ -222,16 +296,39 @@ class ProfessorDAO {
 
         return $retorno;
     }
+    
+    public function alterarMateriasProfessor($idProfessor, Professor $professor){
+          $res = $this->deletarMateriasProfessor($idProfessor);
+          if($res == 1){
+              //DAdos deletados da asociativa com sucesso
+          }else{
+              echo "Falha ao deletar os dados da tabela associativa materiasProfessor para alterar";
+              return 0;
+          }
+          
+          $retorno = $this->salvarMateriasProfessor($idProfessor, $professor);
+          if($retorno == 1){
+              //Tabela associativa de materias alterada com sucesso
+              
+          }else{
+              echo "Falha na alteração da tabela associativa materiasProfessor";
+              return 0;
+          }
+          return $retorno;
+    }
+   
+        
+      
 
     public function alterarUsuario($idPessoaProfessor, User $user) {
         $retorno = 0;
-        
-        if($idPessoaProfessor <= 0){
+
+        if ($idPessoaProfessor <= 0) {
             return 0;
         }
-        
+
         $this->criarConexao();
-      
+
         $sql = "UPDATE `usuario` SET  `login` =  '" . $user->getLogin() . "', `senha` = '" . $user->getSenha() . "' WHERE  `usuario`.`idPessoa` = " . $idPessoaProfessor . ";";
 
         $alteraTabUsuario = mysql_query($sql);
@@ -249,8 +346,8 @@ class ProfessorDAO {
     public function alterarPessoaProfessor($idPessoaProfessor, Professor $professor) {
         $retorno = 0;
         $this->criarConexao();
-        
-        if($idPessoaProfessor <= 0){
+
+        if ($idPessoaProfessor <= 0) {
             return 0;
         }
 
@@ -273,8 +370,8 @@ class ProfessorDAO {
     public function selecionarIdEndereco($idPessoaProfessor) {
         //Cria a conexão com o banco de dados
         $this->criarConexao();
-        
-        if($idPessoaProfessor <= 0){
+
+        if ($idPessoaProfessor <= 0) {
             return 0;
         }
 
@@ -298,8 +395,8 @@ class ProfessorDAO {
     public function alterarEndereco($idPessoaProfessor, Professor $professor) {
         $retorno = 0;
         $this->criarConexao();
-        
-        if($idPessoaProfessor <= 0){
+
+        if ($idPessoaProfessor <= 0) {
             return 0;
         }
 
@@ -312,12 +409,24 @@ class ProfessorDAO {
         $alteraTabEndereco = mysql_query($sql);
 
         if ($alteraTabEndereco) {
-            $retorno++;//Tabela endereço professor alterada com sucesso
+            $retorno++; //Tabela endereço professor alterada com sucesso
         } else {
             echo "ERRO no metodo [alterarEndereco] ";
-        }
+        }        
         return $retorno;
+    }
+    
+    function criarCheckMaterias() {
+        $this->criarConexao();
         
+        $sql = "SELECT * FROM `materia`;";          
+        $res = mysql_query($sql);
+
+        if (mysql_num_rows($res) == 0) {
+            $res = "Nada encontrado!";
+        }
+
+        return $res;
     }
 
 }

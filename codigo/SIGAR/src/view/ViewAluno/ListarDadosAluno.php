@@ -59,7 +59,10 @@
                                             <input type="radio" name="sexo" value="m" class="necessary" disabled> Masculino
                                             <input type="radio" name="sexo" value="f" class="necessary" disabled checked> Feminino<br/><br/>
                                         <?php }?>
-                                    Data de Nascimento:<br/> <span><input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);" class="necessary" id="inputDataNascResp" value="<?php echo $res['dataNascimento'] ?>" disabled></span><br>
+                                    Data de Nascimento:<br/> <span><input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);" class="necessary" id="inputDataNascResp" value="<?php 
+                                    $dataBanco = $res['dataNascimento'];
+                                    $dataNascimento = implode("/",array_reverse(explode("-",$dataBanco)));
+                                    echo $dataNascimento; ?>" disabled></span><br>
                                     Email:<br/> <span><input type="text" name="email" size="10" maxlength="50" id="inputEmail" class="necessary" value="<?php echo utf8_encode($res['email']); ?>" disabled></span><br>
                                     Telefone Residecial:<br/> <span><input type="text"  name="telResidencial" size="10" maxlength="14" onkeypress="mascara(this, mtel );" id="inputTelRes" class="necessary" value="<?php echo $res['telefoneResidencial'] ?>" disabled></span><br>
                                     Telefone Celular:<br/> <span><input type="text"  name="telCelular" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel" value="<?php echo $res['telefoneCelular'] ?>" disabled></span><br>
@@ -166,7 +169,10 @@
                                          <div class="row-fluid show-grid">
                                             <div class="span6">
                                             Nome:<br/> <span><input type="text" name="txtNomeResp" size="10" maxlength="50" id="inputNomeResp" class="necessary" value="<?php echo utf8_encode($dadosResponsavel['nome']); ?>" disabled></span><br/>
-                                            Data de Nascimento:<br/> <span><input type="text" name="dataNascResp" size="10" maxlength="10" class="necessary" id="inputDataNascResp" value="<?php echo $dadosResponsavel['dataNascimento'] ?>" disabled></span><br/>
+                                            Data de Nascimento:<br/> <span><input type="text" name="dataNasc" size="10" maxlength="10" onkeyup="mascaraData(this);" class="necessary" id="inputDataNascResp" value="<?php 
+                                            $dataBancoRes = $dadosResponsavel['dataNascimento'];
+                                            $dataNascimentoRes = implode("/",array_reverse(explode("-",$dataBancoRes)));
+                                            echo $dataNascimentoRes; ?>" disabled></span><br>
                                             Sexo: <?php if($dadosResponsavel['sexo']=='m'){ ?>
                                             <input type="radio" name="sexoResp" value="m" class="necessary" checked disabled> Masculino
                                             <input type="radio" name="sexoResp" value="f" class="necessary" disabled> Feminino<br/><br/>

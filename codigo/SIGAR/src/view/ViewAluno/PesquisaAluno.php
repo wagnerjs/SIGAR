@@ -28,6 +28,7 @@
   <script src="../js/jquery.maskedinput-1.3.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="../js/jquery.quicksearch.js"></script>
   <script src="../js/base.js"></script>
+  <script src="../js/formCadastroAluno.js"></script>
   <link href="../css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
@@ -45,10 +46,10 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="CadastroAluno.php"><span class="normal">Cadastrar Alunos</span></a>
-                    <a href="#"><span class="selected">Pesquisar Alunos</span></a>
+                    <a href="CadastroAluno.php"><span class="normal">    Cadastrar Aluno  </span></a>
+                    <a href="#"><span class="selected">    Pesquisar Aluno  </span></a>
                     <div class="content">
-                        <div>
+                        <div class="spaces">
                             Pesquisar aluno: 
                             <form action="#">
                                 <fieldset>
@@ -88,8 +89,8 @@
                                                     ?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'sexo')); ?></td>
                                         <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'telefoneResidencial'));?></td>
-                                        <td style='cursor: pointer'><a href="#"><img src='../img/edit.png' onClick="" alt="Editar"></a></td>
-                                        <td style='cursor: pointer'><a href="#"><img src='../img/del.png' onClick="" alt="Deletar"></a></td>
+                                        <td style='cursor: pointer'><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAluno/AlterarAluno.php?alunoID=<?php echo mysql_result($AlunoCtrl->getResposta(),$i,'idPessoa');?>"><img src='../img/edit.png' onClick="" alt="Editar"></a></td>
+                                        <td style='cursor: pointer'><a href="javascript: confirmarDeletar('<?php echo mysql_result($AlunoCtrl->getResposta(),$i,'idPessoa');?>') "><img src='../img/del.png' onClick="" alt="Deletar"></a></td>
                                     </tr>
                                     <?php
                                         }

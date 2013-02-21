@@ -36,7 +36,7 @@ class validacaoPessoa_Test extends PHPUnit_Framework_TestCase {
         $this->cpf = "03704004103";
         $this->cpfErro = "11111111111";
         $this->cpfErro1 = "03104004103";
-        $this->cpfRepetido = "12345678910";
+        $this->cpfRepetido = "469.784.171-90";
         
 
         $this->validaPessoa_obj = new validacaoPessoa();
@@ -59,7 +59,7 @@ class validacaoPessoa_Test extends PHPUnit_Framework_TestCase {
 
         $this->assertEquals('1', $this->validaPessoa_obj->valida_email(''));
         $this->assertEquals('0', $this->validaPessoa_obj->valida_email($this->email));
-        $this->assertEquals('1', $this->validaPessoa_obj->valida_email($this->emailFga));
+        $this->assertEquals('0', $this->validaPessoa_obj->valida_email($this->emailFga));
         $this->assertEquals('1', $this->validaPessoa_obj->valida_email($this->emailErrado));
     }
 

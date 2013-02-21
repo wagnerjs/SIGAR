@@ -13,6 +13,18 @@ function abrirModal(id) {
 
 $(document).ready(function(){
     
+    $('#dispCalendar td').click(function(){
+        if ($(this).attr('class') == "selection") {
+            //alert("cacete!");
+            $(this).css('background-color','#fff');
+            $(this).attr('class','');
+        }
+        else {
+            $(this).css('background-color','#ffa79a');
+            $(this).attr('class','selection');
+        }
+    });
+    
     $('#login input').focus(function(){ 
     if (this.value==this.defaultValue) {
             this.value='';
@@ -30,8 +42,8 @@ $(document).ready(function(){
      });
     
     $('#inputDataNasc,#inputDataNascResp').mask("99/99/9999");
-    $('#inputTelRes,#inputTelResp').mask("(99)9999-9999");
-    $('.tel').mask("(99)9999-9999");
+    $('#inputTelRes,#inputTelResp').mask("(99) 9999-9999");
+    $('.tel').mask("(99) 9999-9999");
     $('#inputN').mask("?99999");
     $('#inputNResp').mask("?99999");
     $('#inputCep').mask("99999-999");

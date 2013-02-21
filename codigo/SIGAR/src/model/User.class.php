@@ -39,17 +39,14 @@ class User {
         $senha_array = explode("-", $nascimentoAluno);
         $senha = "*".$nome_array[0].$senha_array[0];
     */
-        $usuario="";
-        $senha="";
-        
+        $usuario=$nome_aluno;
+        $senha=$nascimentoAluno;
         
         $user_obj = new User();
         $user_obj->setLogin($usuario);
         $user_obj->setSenha($senha);
-
-
+        
         return $user_obj;
-
     }
     
 }
