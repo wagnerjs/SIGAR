@@ -45,9 +45,9 @@ if (isset($_POST['btnEnviar'])) {
                 $numeroCasaProfessor, $complementoProf, $bairroProfessor, $cidadeProfessor,
                 $ufProfessor, $referenciaProfessor, $materias, $opcao);
 
-    echo $res;
+    //echo $res;
 
-    if ($res == "<font color=green><b>Professor Cadastrado com sucesso!</b></font>")
+    if ($res == "<font color=green><b>Professor Cadastrado com sucesso!</b></font><br>")
         echo "<script type='text/javascript'>alert('Cadastro realizado com sucesso!');</script>";
     else
         echo "<script type='text/javascript'>alert('Erro na realização do cadastro!');</script>";
