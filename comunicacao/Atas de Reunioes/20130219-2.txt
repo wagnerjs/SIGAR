@@ -1,0 +1,12 @@
+Data: 19/02/2013
+Hora: 12h00
+Tipo: Presencial
+Presentes: Alex, Hebert, Matheus, Rafael, Wagner, Fellype
+
+Objetivo
+- Resolver problemas técnicos
+- Definir mudanças no banco de dados
+
+Marcada reunião para Sprint Review e Sprint Plannig no mesmo dia as 20h
+
+Fim: 13h40
