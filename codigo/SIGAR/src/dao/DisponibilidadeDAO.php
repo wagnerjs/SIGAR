@@ -57,7 +57,7 @@ class DisponibilidadeDAO {
         } else {
             $res = mysql_fetch_array($res);
         }
-        $this->fecharConexao();
+        //$this->fecharConexao();
 
         return $res;
     }

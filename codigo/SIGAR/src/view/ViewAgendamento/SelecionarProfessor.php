@@ -2,13 +2,39 @@
     $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
     require $url.'/view/ValidaSession.php';
     require_once $url.'/controller/AgendamentoCtrl.php';
+    require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/RemoveAssentos.php';
+    
+ 
+   function removeAssentos($var) {
+
+        $array1 = array( "á", "à", "â", "ã", "ä", "é", "è", "ê", "ë", "í", "ì", "î", "ï", "ó", "ò", "ô", "õ", "ö", "ú", "ù", "û", "ü", "ç" 
+        , "Á", "À", "Â", "Ã", "Ä", "É", "È", "Ê", "Ë", "Í", "Ì", "Î", "Ï", "Ó", "Ò", "Ô", "Õ", "Ö", "Ú", "Ù", "Û", "Ü", "Ç" ); 
+        $array2 = array( "a", "a", "a", "a", "a", "e", "e", "e", "e", "i", "i", "i", "i", "o", "o", "o", "o", "o", "u", "u", "u", "u", "c" 
+        , "A", "A", "A", "A", "A", "E", "E", "E", "E", "I", "I", "I", "I", "O", "O", "O", "O", "O", "U", "U", "U", "U", "C" ); 
+    return str_replace( $array1, $array2, $var);
+
+        return $var;
+    }
+
+
     
     $agendamentoCtrl = new AgendamentoCtrl();
+    
     $diaDaSemana = "Segunda";
     $horario = "13:00 as 14:00";
-    $materia = "Matematica";
-    $data = "2013-03-04";
+    //$materia = "Matematica";
+    $data = "2013-03-07";
     $idProfessor = 1;
+    $materia = $_POST['materia'];
+    $horario = "13:00 as 14:00";
+    $materia = removeAssentos($materia);
+    
+    echo $materia;
+    //echo $_POST['materia'];
+    echo $_POST['user_date'];
+    if (isset($_POST['btnEnviar'])) {
+     
+    }
     
     ?>
 <!DOCTYPE html>
@@ -112,12 +138,14 @@
                                     }
                                 }
                                 if(mysql_num_rows($agendamentoCtrl->getResposta())== $j){ ?>
+                                <input name="professor" type="radio" value="" id="esconder">
                                     <b>Nenhum Professor encontrado </b><br/> 
                                 <?php
                                 
                                 }
                             }else{
                                 ?>
+                             <input name="professor" type="radio" value="" id="esconder">
                             <b>Nenhum Professor encontrado </b><br/>    
                             <?php
                             }
@@ -144,5 +172,8 @@
             </div>
             
         </div>
+    
 </body>
+
 </html>
+
