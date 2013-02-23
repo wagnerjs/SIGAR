@@ -2,13 +2,13 @@
 //Classe login
 class Login
 {
-	// Declaração de variáveis da classes
+	// Declaraï¿½ï¿½o de variï¿½veis da classes
 	protected $_idUsuario;
 	protected $_login;
 	protected $_senha;
 	protected $_resposta;
 
-	// Método construtor - executado sempre e antes de tudo.
+	// Mï¿½todo construtor - executado sempre e antes de tudo.
 	public function __construct()
 	{
 		$this->_idUsuario  = 0;
@@ -17,7 +17,7 @@ class Login
 		$this->_resposta = null;
 	}
 
-	//Método para autenticar/verificar login do usuário no sistema
+	//Mï¿½todo para autenticar/verificar login do usuï¿½rio no sistema
 	public function autentica()
 	{
 		//Verificando os valores no banco
@@ -28,7 +28,7 @@ class Login
 
 		$linha = mysql_num_rows( $resultado );
 
-		//Limpando variáveis
+		//Limpando variï¿½veis
 		$this->_idUsuario = 0;
 		$this->_resposta = NULL;
 
@@ -40,14 +40,16 @@ class Login
 			if($this->_senha != mysql_result($resultado,0,"Senha")){
 				$this->_resposta="<b>Usuario/Senha nao encontrado(s)</b>";
 			}
-			else // usuário e senha corretos,captura id do usuario
+			else // usuï¿½rio e senha corretos,captura id do usuario
 			{
 				$this->_idUsuario = mysql_result($resultado,0,"idUsuario");
+                                //$this->_resposta="<b>Usuario/Senha encontrado(s)</b>";
 			}
 		}
+            
 	}
 	
-	//Método para sair/efetuar logoff do sistema
+	//Mï¿½todo para sair/efetuar logoff do sistema
 	public function logoff(){
 		session_start();
 		//metodo para destruir a sessao
@@ -56,7 +58,7 @@ class Login
 		header("location: Login.php");
 	}
 	
-	//Métodos SETS atribuindo valor a uma variável
+	//Mï¿½todos SETS atribuindo valor a uma variï¿½vel
 	public function setUsuario($login){
 		$this->_login=$login;
 	}
@@ -73,7 +75,7 @@ class Login
 		$this->_idUsuario=$idUsuario;
 	}
 
-	//Métodos GETS enviando valores para página
+	//Mï¿½todos GETS enviando valores para pï¿½gina
 	public function getResposta(){
 		return $this->_resposta;
 	}
@@ -87,7 +89,7 @@ class Login
 		return $this->_idUsuario;
 	}
 
-	//Método para verificar se o usuário esta logado no sistema
+	//Mï¿½todo para verificar se o usuï¿½rio esta logado no sistema
 	public function estaLogado()
 	{
 		return ($this->_idUsuario > 0);
