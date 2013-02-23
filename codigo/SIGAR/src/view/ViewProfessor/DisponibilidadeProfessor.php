@@ -2,6 +2,9 @@
     $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
     require $url.'/view/ValidaSession.php';
     require_once $url.'/controller/ProfessorCtrl.php';
+    $dia = array();
+    $horarios = array();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +33,37 @@
   <script src="../js/base.js"></script>
   <script src="../js/formCadastroProfessor.js"></script>
   <link href="../css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
+  <script>
+      $(document).ready(function(){
+          $('#cadEnvDisp').click(function(){
+            var dia = new Array();
+            var horarios = new Array();
+            var i = -1;
+            $('.selection').each(function(){
+                i = i + 1;
+                horarios[i] = $(this).attr('name');
+                dia[i] = $(this).html();           
+            });
+
+            for (var e = 0; e <= i; e++) {
+                var x = dia[e];
+                var y = horarios[e];
+                <?php
+                if (isset($_POST['btnEnviar'])) {
+                $dia[e] = "<script>
+                            document.write(screen.width+'x'+screen.height);
+                            </script>"; ?>
+                
+                <?php  
+                $horarios[e] = "<script>document.write(y)</script>";; }?>
+                                
+                //$('#DispTest').append("<p>"+dia[e]+" "+horarios[e]+"</p>");
+                
+            } 
+
+         });
+      });
+  </script>
 </head>
 <body>
     <div id="boxes">
@@ -139,7 +173,13 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <input type="submit" name="btnEnviar" value="Enviar" id="cadEnv" />
+                            <input type="submit" name="btnEnviar" value="Enviar" id="cadEnvDisp" />
+                            <b>Disponibilidade</b>
+                            <div id="DispTest">
+                                <?php 
+                                    print_r($dia);
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>
