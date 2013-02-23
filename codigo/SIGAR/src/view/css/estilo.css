@@ -97,6 +97,17 @@ hr {
 	text-indent:		-999em;
 }
 
+#cadEnvDisp {
+	background-image: url("../img/enviar.png");
+        background-size: 130px 50px;
+	width: 130px;
+	height: 50px;
+        background-repeat:	no-repeat;
+	background-color:	transparent;
+	border:			none;
+	text-indent:		-999em;
+}
+
 #limpar {
 	background-image: url("../img/limpar.png");
         background-size: 130px 50px;
@@ -366,7 +377,6 @@ hr {
 
 #dispCalendar {
     color: #4d67a6;
-    margin-left: 10%;
 }
 
 #dispCalendar th {
