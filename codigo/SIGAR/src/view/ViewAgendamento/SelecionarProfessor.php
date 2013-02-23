@@ -84,76 +84,29 @@
                     <!--<a href="#"><span class="selected"> Pesquisar Professor</span></a>-->
                     <div class="content">
                         <div class="spaces">
-                            <b>Selecione a matéria desejada:</b>
+                            <b>Selecionar professor:</b>
                             <div class="row-fluid show-grid">
                             <div class="span6">
                             <div class="materias">
-                                            <br/>
-                                            <div>
-                                                <b>Materias:</b><br>
-                                    <?php 
-                                     $professorCtrl = new ProfessorCtrl();
-                                     $professorCtrl->criarCheckMaterias();
-                                     if(@mysql_num_rows($professorCtrl->getResposta())>0){
-                                            for($i=0; $i<mysql_num_rows($professorCtrl->getResposta());$i++){
-                                    ?>
-                                    <input name="materias[]" type="radio" value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /> <?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br>
-
-                                    <?php   }
-
-                                    }?>
                                     <br/>
-                                            </div>
-                                        </div>
-                            <br/><br/>
-                            <b>Selecione a data da aula:</b>
-                            <br/><br/>
-                            <input type="date" name="user_date" />
-                            <br/><br/>
-                            <b>Selecione os horários desejados:</b>
-                            <div class="calendario2">
-                                <table id="dispCalendar">
-                                    <tbody>
-                                        <tr>
-                                            <td>08:00 às 09:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>09:00 às 10:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10:00 às 11:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>11:00 às 12:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>14:00 às 15:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>15:00 às 16:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>16:00 às 17:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>17:00 às 18:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>18:00 às 19:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>19:00 às 20:00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            </div>
+                                    <div>
+                                        <b>Professores:</b><br>
+                            <input name="professores[]" type="radio" value="Tião" />Tião<br/>
+                            <input name="professores[]" type="radio" value="João" />João<br/>
+                            <input name="professores[]" type="radio" value="Pião" />Pião<br/>
+                            <input name="professores[]" type="radio" value="Zezão" />Zezão<br/>
                             <br/>
-                            <div class="span6">
+                                    </div>
+                                </div>
+                            <br/><br/>
+                            <b>Conteúdo:</b>
+                            <br/><br/>
+                            <textarea rows="5" cols="50">
+                            </textarea>
+                            <br/><br/>
                             </div>
-                           
-                        </div>
-                             <input type="submit" name="btnEnviar" value="Enviar" id="cadEnvDisp" />
+                            </div>
+                            <input type="submit" name="btnEnviar" value="Enviar" id="cadEnvDisp" />
                         </div>
                     </div>
                 </div>

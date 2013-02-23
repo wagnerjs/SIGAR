@@ -25,21 +25,23 @@ $(document).ready(function(){
         }
     });
     
-    /*$('#cadEnvDisp').click(function(){
+    $('#cadEnvDisp').click(function(){
        var dia = new Array();
-       var horarios = new Array();
+       var horario = new Array();
        var i = -1;
        $('.selection').each(function(){
            i = i + 1;
-           horarios[i] = $(this).attr('name');
-           dia[i] = $(this).html();           
+           dia[i] = $(this).attr('name');
+           horario[i] = $(this).html();       
        });
        
+       $('#DispTest').append("<br>");
        for (var e = 0; e <= i; e++) {
-           $('#DispTest').append("<p>"+dia[e]+" "+horarios[e]+"</p>");
+           $('#DispTest').append("<input name='dia[]' type='text' value="+dia[e]+" id='esconder'/> <input name='horario[]' type='text' value="+horario[e]+" id='esconder'/><br>");
        } 
        
-    });*/
+       
+    });
     
     $('#login input').focus(function(){ 
     if (this.value==this.defaultValue) {
