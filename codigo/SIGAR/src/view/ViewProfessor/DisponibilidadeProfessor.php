@@ -151,10 +151,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                            
-                            <b>Disponibilidade</b>
-                            
+                            </div>                            
                                 <input id="cadEnvDisp" type="submit" name="btnEnviar" value="Enviar" />
                             </form>
                         </div>
