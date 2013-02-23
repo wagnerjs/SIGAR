@@ -83,6 +83,7 @@
                     <a href="AgendarAula.php"><span class="selected">      Agendar Aula      </span></a>
                     <!--<a href="#"><span class="selected"> Pesquisar Professor</span></a>-->
                     <div class="content">
+                        <form class="spaces" name="form1" action="SelecionarProfessor.php" method="post">
                         <div class="spaces">
                             <b>Selecionar professor:</b>
                             <div class="row-fluid show-grid">
@@ -108,6 +109,7 @@
                             </div>
                             <input type="submit" name="btnEnviar" value="Enviar" id="cadEnvDisp" />
                         </div>
+                            </form>
                     </div>
                 </div>
             </div>

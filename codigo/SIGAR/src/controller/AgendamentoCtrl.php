@@ -2,6 +2,7 @@
 
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Agendamento.class.php';
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/AgendamentoDAO.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/DisponibilidadeDAO.php';
 
 /*
  * To change this template, choose Tools | Templates
@@ -29,8 +30,7 @@ class AgendamentoCtrl {
         $agendamento_obj = new AgendamentoDAO();
         $agendamento_obj->alterarStatus($idProfessor, $idAluno, $data, $status);
     }
-
-    public function listarProfessoresDisponiveis($diaDaSemana, $horario, $materia, $data) {
+      public function listarProfesffsoresDisponiveis($diaDaSemana, $horario, $materia, $data) {
         $disponibilidade_obj = new DisponibilidadeDAO();
         $agendamento_obj = new AgendamentoDAO();
         //listar todos os professores disponiveis naquele dia e horario
@@ -47,6 +47,39 @@ class AgendamentoCtrl {
                 }
             }
         }
+    }
+
+    public function listarProfessoresDisponiveis($diaDaSemana, $horario, $materia) {
+        $agendamento_obj = new AgendamentoDAO();
+        //listar todos os professores disponiveis naquele dia e horario
+        echo "Dia da Semana: ".$diaDaSemana." Horário: ".$horario." Matéria: ".$materia;
+        $arrayProfessores = $agendamento_obj->selecionaProfessoresDisponiveis($diaDaSemana, $horario, $materia);
+        $this->resProfessoresDisponiveis = $arrayProfessores;
+    }
+    /*
+    if (mysql_num_rows($arrayProfessores) > 0) {
+            for ($i = 0; $i < mysql_num_rows($arrayProfessores); $i++) {
+                $idProfessor = mysql_result($arrayProfessores, $i, 'idProfessor');
+                //Verificar se o professor já tem aula marcada naquele dia
+                if ($disponibilidade_obj->verificaAulaMarcada($idProfessor, $data) == 0) {
+                    //Se o professor não tem aula marcada então ele é retornado
+                    $this->resProfessoresDisponiveis[$j] = mysql_result($arrayProfessores, $i);
+                    $j++;
+                }
+            }
+        }
+     * 
+     */
+    public function verificaAulaMarcada($idProfessor, $data){
+        $disponibilidade_obj = new DisponibilidadeDAO();
+        $retorno = 0;
+        if($disponibilidade_obj->verificaAulaMarcada($idProfessor, $data).  isNull()){
+            $retorno = 0;    
+        }else{
+            $retorno = 1;
+        }
+        return $retorno;
+        
     }
 
     public function getResposta() {
