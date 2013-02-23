@@ -108,7 +108,7 @@
                                             $criou1 = 0;
                                             
                                             if($criou1==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="segunda" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="08:00-09:00"){
                                                             echo "<td name='segunda' class='selection'>08:00-09:00</td>";
@@ -124,7 +124,7 @@
                                             $criou2 = 0;
                                             
                                             if($criou2==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="terça" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="08:00-09:00"){
                                                             echo "<td name='terça' class='selection'>08:00-09:00</td>";
@@ -140,7 +140,7 @@
                                             $criou3 = 0;
                                             
                                             if($criou3==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quarta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="08:00-09:00"){
                                                             echo "<td name='quarta' class='selection'>08:00-09:00</td>";
@@ -156,7 +156,7 @@
                                             $criou4 = 0;
                                             
                                             if($criou4==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quinta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="08:00-09:00"){
                                                             echo "<td name='quinta' class='selection'>08:00-09:00</td>";
@@ -172,7 +172,7 @@
                                             $criou5 = 0;
                                             
                                             if($criou5==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="sexta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="08:00-09:00"){
                                                             echo "<td name='sexta' class='selection'>08:00-09:00</td>";
@@ -190,7 +190,7 @@
                                             $criou6 = 0;
                                             
                                             if($criou6==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="segunda" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="09:00-10:00"){
                                                             echo "<td name='segunda' class='selection'>09:00-10:00</td>";
@@ -206,7 +206,7 @@
                                             $criou7 = 0;
                                             
                                             if($criou7==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="terça" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="09:00-10:00"){
                                                             echo "<td name='terça' class='selection'>09:00-10:00</td>";
@@ -222,7 +222,7 @@
                                             $criou8 = 0;
                                             
                                             if($criou8==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quarta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="09:00-10:00"){
                                                             echo "<td name='quarta' class='selection'>09:00-10:00</td>";
@@ -238,7 +238,7 @@
                                             $criou9 = 0;
                                             
                                             if($criou9==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quinta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="09:00-10:00"){
                                                             echo "<td name='quinta' class='selection'>09:00-10:00</td>";
@@ -254,7 +254,7 @@
                                             $criou10 = 0;
                                             
                                             if($criou10==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="sexta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="09:00-10:00"){
                                                             echo "<td name='sexta' class='selection'>09:00-10:00</td>";
@@ -271,7 +271,7 @@
                                             $criou11 = 0;
                                             
                                             if($criou11==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="segunda" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="10:00-11:00"){
                                                             echo "<td name='segunda' class='selection'>10:00-11:00</td>";
@@ -287,7 +287,7 @@
                                             $criou12 = 0;
                                             
                                             if($criou12==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="terça" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="10:00-11:00"){
                                                             echo "<td name='terça' class='selection'>10:00-11:00</td>";
@@ -303,7 +303,7 @@
                                             $criou13 = 0;
                                             
                                             if($criou13==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quarta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="10:00-11:00"){
                                                             echo "<td name='quarta' class='selection'>10:00-11:00</td>";
@@ -319,7 +319,7 @@
                                             $criou14 = 0;
                                             
                                             if($criou14==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quinta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="10:00-11:00"){
                                                             echo "<td name='quinta' class='selection'>10:00-11:00</td>";
@@ -335,7 +335,7 @@
                                             $criou15 = 0;
                                             
                                             if($criou15==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="sexta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="10:00-11:00"){
                                                             echo "<td name='sexta' class='selection'>10:00-11:00</td>";
@@ -352,7 +352,7 @@
                                             $criou16 = 0;
                                             
                                             if($criou16==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="segunda" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="11:00-12:00"){
                                                             echo "<td name='segunda' class='selection'>11:00-12:00</td>";
@@ -368,7 +368,7 @@
                                             $criou17 = 0;
                                             
                                             if($criou17==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="terça" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="11:00-12:00"){
                                                             echo "<td name='terça' class='selection'>11:00-12:00</td>";
@@ -384,7 +384,7 @@
                                             $criou18 = 0;
                                             
                                             if($criou18==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quarta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="11:00-12:00"){
                                                             echo "<td name='quarta' class='selection'>11:00-12:00</td>";
@@ -400,7 +400,7 @@
                                             $criou19 = 0;
                                             
                                             if($criou19==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quinta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="11:00-12:00"){
                                                             echo "<td name='quinta' class='selection'>11:00-12:00</td>";
@@ -416,7 +416,7 @@
                                             $criou20 = 0;
                                             
                                             if($criou20==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="sexta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="11:00-12:00"){
                                                             echo "<td name='sexta' class='selection'>11:00-12:00</td>";
@@ -433,7 +433,7 @@
                                             $criou21 = 0;
                                             
                                             if($criou21==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="segunda" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="14:00-15:00"){
                                                             echo "<td name='segunda' class='selection'>14:00-15:00</td>";
@@ -449,7 +449,7 @@
                                             $criou22 = 0;
                                             
                                             if($criou22==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="terça" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="14:00-15:00"){
                                                             echo "<td name='terça' class='selection'>14:00-15:00</td>";
@@ -465,7 +465,7 @@
                                             $criou23 = 0;
                                             
                                             if($criou23==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quarta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="14:00-15:00"){
                                                             echo "<td name='quarta' class='selection'>14:00-15:00</td>";
@@ -481,7 +481,7 @@
                                             $criou24 = 0;
                                             
                                             if($criou24==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quinta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="14:00-15:00"){
                                                             echo "<td name='quinta' class='selection'>14:00-15:00</td>";
@@ -497,7 +497,7 @@
                                             $criou25 = 0;
                                             
                                             if($criou25==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="sexta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="14:00-15:00"){
                                                             echo "<td name='sexta' class='selection'>14:00-15:00</td>";
@@ -514,7 +514,7 @@
                                             $criou26 = 0;
                                             
                                             if($criou26==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="segunda" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="15:00-16:00"){
                                                             echo "<td name='segunda' class='selection'>15:00-16:00</td>";
@@ -530,7 +530,7 @@
                                             $criou27 = 0;
                                             
                                             if($criou27==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="terça" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="15:00-16:00"){
                                                             echo "<td name='terça' class='selection'>15:00-16:00</td>";
@@ -546,7 +546,7 @@
                                             $criou28 = 0;
                                             
                                             if($criou28==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quarta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="15:00-16:00"){
                                                             echo "<td name='quarta' class='selection'>15:00-16:00</td>";
@@ -562,7 +562,7 @@
                                             $criou29 = 0;
                                             
                                             if($criou29==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quinta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="15:00-16:00"){
                                                             echo "<td name='quinta' class='selection'>15:00-16:00</td>";
@@ -578,7 +578,7 @@
                                             $criou30 = 0;
                                             
                                             if($criou30==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="sexta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="15:00-16:00"){
                                                             echo "<td name='sexta' class='selection'>15:00-16:00</td>";
@@ -595,7 +595,7 @@
                                             $criou31 = 0;
                                             
                                             if($criou31==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="segunda" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="16:00-17:00"){
                                                             echo "<td name='segunda' class='selection'>16:00-17:00</td>";
@@ -611,7 +611,7 @@
                                             $criou32 = 0;
                                             
                                             if($criou32==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="terça" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="16:00-17:00"){
                                                             echo "<td name='terça' class='selection'>16:00-17:00</td>";
@@ -627,7 +627,7 @@
                                             $criou33 = 0;
                                             
                                             if($criou33==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quarta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="16:00-17:00"){
                                                             echo "<td name='quarta' class='selection'>16:00-17:00</td>";
@@ -643,7 +643,7 @@
                                             $criou34 = 0;
                                             
                                             if($criou34==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quinta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="16:00-17:00"){
                                                             echo "<td name='quinta' class='selection'>16:00-17:00</td>";
@@ -659,7 +659,7 @@
                                             $criou35 = 0;
                                             
                                             if($criou35==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="sexta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="16:00-17:00"){
                                                             echo "<td name='sexta' class='selection'>16:00-17:00</td>";
@@ -676,7 +676,7 @@
                                             $criou36 = 0;
                                             
                                             if($criou36==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="segunda" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="17:00-18:00"){
                                                             echo "<td name='segunda' class='selection'>17:00-18:00</td>";
@@ -692,7 +692,7 @@
                                             $criou37 = 0;
                                             
                                             if($criou37==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="terça" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="17:00-18:00"){
                                                             echo "<td name='terça' class='selection'>17:00-18:00</td>";
@@ -708,7 +708,7 @@
                                             $criou38 = 0;
                                             
                                             if($criou38==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quarta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="17:00-18:00"){
                                                             echo "<td name='quarta' class='selection'>17:00-18:00</td>";
@@ -724,7 +724,7 @@
                                             $criou39 = 0;
                                             
                                             if($criou39==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quinta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="17:00-18:00"){
                                                             echo "<td name='quinta' class='selection'>17:00-18:00</td>";
@@ -740,7 +740,7 @@
                                             $criou40 = 0;
                                             
                                             if($criou40==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="sexta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="17:00-18:00"){
                                                             echo "<td name='sexta' class='selection'>17:00-18:00</td>";
@@ -757,7 +757,7 @@
                                             $criou41 = 0;
                                             
                                             if($criou41==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="segunda" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="18:00-19:00"){
                                                             echo "<td name='segunda' class='selection'>18:00-19:00</td>";
@@ -773,7 +773,7 @@
                                             $criou42 = 0;
                                             
                                             if($criou42==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="terça" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="18:00-19:00"){
                                                             echo "<td name='terça' class='selection'>18:00-19:00</td>";
@@ -789,7 +789,7 @@
                                             $criou43 = 0;
                                             
                                             if($criou43==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quarta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="18:00-19:00"){
                                                             echo "<td name='quarta' class='selection'>18:00-19:00</td>";
@@ -805,7 +805,7 @@
                                             $criou44 = 0;
                                             
                                             if($criou44==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quinta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="18:00-19:00"){
                                                             echo "<td name='quinta' class='selection'>18:00-19:00</td>";
@@ -821,7 +821,7 @@
                                             $criou45 = 0;
                                             
                                             if($criou45==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="sexta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="18:00-19:00"){
                                                             echo "<td name='sexta' class='selection'>18:00-19:00</td>";
@@ -838,7 +838,7 @@
                                             $criou46 = 0;
                                             
                                             if($criou46==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="segunda" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="19:00-20:00"){
                                                             echo "<td name='segunda' class='selection'>19:00-20:00</td>";
@@ -854,7 +854,7 @@
                                             $criou47 = 0;
                                             
                                             if($criou47==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="terça" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="19:00-20:00"){
                                                             echo "<td name='terça' class='selection'>19:00-20:00</td>";
@@ -870,7 +870,7 @@
                                             $criou48 = 0;
                                             
                                             if($criou48==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quarta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="19:00-20:00"){
                                                             echo "<td name='quarta' class='selection'>19:00-20:00</td>";
@@ -886,7 +886,7 @@
                                             $criou49 = 0;
                                             
                                             if($criou49==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="quinta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="19:00-20:00"){
                                                             echo "<td name='quinta' class='selection'>19:00-20:00</td>";
@@ -902,7 +902,7 @@
                                             $criou50 = 0;
                                             
                                             if($criou50==0){
-                                                for($i=0; $i<mysql_num_rows($objCtrlDisp->getResposta());$i++){
+                                                for($i=0; $i<@mysql_num_rows($objCtrlDisp->getResposta());$i++){
                                                     if(utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'diaDaSemana'))=="sexta" && 
                                                         utf8_encode(mysql_result($objCtrlDisp->getResposta(),$i,'descricao'))=="19:00-20:00"){
                                                             echo "<td name='sexta' class='selection'>19:00-20:00</td>";
