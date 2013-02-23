@@ -411,3 +411,7 @@ hr {
 #esconder{
     display: none;
 }
+
+.selection {
+    background-color: #ffa79a;
+}

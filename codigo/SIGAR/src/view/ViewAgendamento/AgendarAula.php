@@ -128,7 +128,7 @@
                             </div>
                            
                         </div>
-                             <input type="submit" name="btnEnviar" value="Enviar" id="cadEnvDisp2" />
+                             <input id="cadEnvDisp2" type="submit" name="btnEnviar" value="Enviar" />
                         </div>
                             </form>
                     </div>

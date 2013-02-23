@@ -16,11 +16,9 @@ $(document).ready(function(){
     $('#dispCalendar td').click(function(){
         if ($(this).attr('class') == "selection") {
             //alert("cacete!");
-            $(this).css('background-color','#e5f1f4');
             $(this).attr('class','');
         }
         else {
-            $(this).css('background-color','#ffa79a');
             $(this).attr('class','selection');
         }
     });

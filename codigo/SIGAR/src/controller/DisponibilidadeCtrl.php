@@ -8,6 +8,8 @@ require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/DisponibilidadeDAO.php'
  * @author Hebert
  */
 class DisponibilidadeCtrl {
+    
+    protected $_res;
 
     public function adicionarDisponibilidade($idProfessor, $diaDaSemana, $descricaoHorario) {
         $disponibilidade_obj = new DisponibilidadeDAO();
@@ -65,8 +67,12 @@ class DisponibilidadeCtrl {
     public function listarHorariosDisponiveis($idProfessor){
         $disponibilidade_obj = new DisponibilidadeDAO();
         
-        $disponibilidade_obj->listarDiasHorariosDisponiveis($idProfessor);
+        $this->_res = $disponibilidade_obj->listarDiasHorariosDisponiveis($idProfessor);
         
+    }
+    
+    public function getResposta() {
+        return $this->_res;
     }
 
 }
