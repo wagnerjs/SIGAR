@@ -62,6 +62,12 @@ class DisponibilidadeCtrl {
             return 1;
         }
     }
+    public function listarHorariosDisponiveis($idProfessor){
+        $disponibilidade_obj = new DisponibilidadeDAO();
+        
+        $disponibilidade_obj->listarDiasHorariosDisponiveis($idProfessor);
+        
+    }
 
 }
 

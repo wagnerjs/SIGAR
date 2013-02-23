@@ -1,11 +1,16 @@
 <?php
     $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
     require $url.'/view/ValidaSession.php';
-    require_once $url.'/controller/ProfessorCtrl.php';
-    $dia = array();
-    $horarios = array();
+    require_once $url.'/controller/AgendamentoCtrl.php';
     
-?>
+    $agendamentoCtrl = new AgendamentoCtrl();
+    $diaDaSemana = "Segunda";
+    $horario = "13:00 as 14:00";
+    $materia = "Matematica";
+    $data = "2013-03-04";
+    $idProfessor = 1;
+    
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,10 +97,26 @@
                                     <br/>
                                     <div>
                                         <b>Professores:</b><br>
-                            <input name="professores[]" type="radio" value="Tião" />Tião<br/>
-                            <input name="professores[]" type="radio" value="João" />João<br/>
-                            <input name="professores[]" type="radio" value="Pião" />Pião<br/>
-                            <input name="professores[]" type="radio" value="Zezão" />Zezão<br/>
+                            <?php
+                            //echo "Dia da Semana: ".$diaDaSemana." Horário: ".$horario." Matéria: ".$materia;
+                            $agendamentoCtrl->listarProfessoresDisponiveis($diaDaSemana, $horario, $materia);
+                            if(@mysql_num_rows($agendamentoCtrl->getResposta())>0){
+                                for($i=0; $i<mysql_num_rows($agendamentoCtrl->getResposta());$i++){
+                                    if($agendamentoCtrl->verificaAulaMarcada($idProfessor, $data) == 0){
+                            ?>
+                            <input name="professor" type="radio" value="<?php echo utf8_encode(mysql_result($agendamentoCtrl->getResposta(),$i,'idProfessor'));?>" /><?php echo utf8_encode(mysql_result($agendamentoCtrl->getResposta(),$i,'nome'));?><br/>
+                           <?php
+                                    }
+                                }
+                            }else{
+                                ?>
+                            <input name="professor" type="radio" value="Tião" />Nenhum Registro encontrado<br/>    
+                            <?php
+                            }
+                           ?>
+                            
+                            
+                            
                             <br/>
                                     </div>
                                 </div>

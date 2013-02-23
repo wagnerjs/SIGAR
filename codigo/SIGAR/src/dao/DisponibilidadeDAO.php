@@ -45,7 +45,9 @@ class DisponibilidadeDAO {
      */
 
     public function selecionaMaterias($idProfessor) {
-        $this->criarConexao();
+        $obj_conecta = new bd();
+        $obj_conecta->conecta();
+        $obj_conecta->seleciona_bd();
 
         $sql = "SELECT `professor`.`idProfessor`,`materia`.`descricaoMateria`  FROM `materia`,`professor_materia`, `professor` WHERE `materia`.`idMateria`=`professor_materia`.`idMateria` AND `professor`.`idProfessor`=`professor_materia`.`idProfessor` AND `professor`.`idProfessor` = " . $idProfessor . ";";
         $res = mysql_query($sql);
@@ -110,6 +112,7 @@ class DisponibilidadeDAO {
         $sql = "SELECT `disponibilidade`.`idProfessor`,`pessoa`.`nome`,`dia`.`diaDaSemana`, `horario`.`descricao` FROM `disponibilidade`,`dia`,`horario`,`pessoa`,`usuario`,`professor`
 	WHERE `usuario`.`idPessoa` = `pessoa`.`idPessoa` 
 	AND `professor`.`idUsuario` = `usuario`.`idUsuario` 
+        AND `professor`.`idProfessor` = `disponibilidade`.`idProfessor`
 	AND `disponibilidade`.`idDisponibilidade`=`dia`.`idDisponibilidade` 
 	AND `dia`.`idDia`=`horario`.`idDia` 
 	AND `disponibilidade`.`idProfessor` = " . $idProfessor . ";";

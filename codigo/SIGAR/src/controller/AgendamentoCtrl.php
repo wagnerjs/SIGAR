@@ -53,8 +53,9 @@ class AgendamentoCtrl {
         $agendamento_obj = new AgendamentoDAO();
         //listar todos os professores disponiveis naquele dia e horario
         echo "Dia da Semana: ".$diaDaSemana." Horário: ".$horario." Matéria: ".$materia;
-        $arrayProfessores = $agendamento_obj->selecionaProfessoresDisponiveis($diaDaSemana, $horario, $materia);
-        $this->resProfessoresDisponiveis = $arrayProfessores;
+        $this->resProfessoresDisponiveis = $agendamento_obj->selecionaProfessoresDisponiveis($diaDaSemana, $horario, $materia);
+        echo "Resposta dentro CTRL".$this->resProfessoresDisponiveis."</br>";
+        
     }
     /*
     if (mysql_num_rows($arrayProfessores) > 0) {
@@ -73,7 +74,9 @@ class AgendamentoCtrl {
     public function verificaAulaMarcada($idProfessor, $data){
         $disponibilidade_obj = new DisponibilidadeDAO();
         $retorno = 0;
-        if($disponibilidade_obj->verificaAulaMarcada($idProfessor, $data).  isNull()){
+        echo "idProfessor: ".$idProfessor;
+        echo "Data: ".$data;
+        if($disponibilidade_obj->verificaAulaMarcada($idProfessor, $data) == NULL){
             $retorno = 0;    
         }else{
             $retorno = 1;
