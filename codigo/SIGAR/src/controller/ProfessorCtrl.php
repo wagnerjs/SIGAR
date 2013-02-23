@@ -1,6 +1,7 @@
 <?php
 
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/ProfessorDAO.php';
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/DisponibilidadeDAO.php';
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Endereco.class.php';
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Pessoa.class.php';
 require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/model/Responsavel.class.php';
@@ -79,6 +80,8 @@ class ProfessorCtrl {
         $idEndProfessor = $professorDao->salvarProfessorEndereco($professor);
         $erro = $professorDao->salvarMateriasProfessor($idProfessor, $professor);
         $professorDao->salvarEnderecoAssociativa($idEndProfessor, $idPessoaProf);
+        $disponibilidadeDAO = new DisponibilidadeDAO();
+        $disponibilidadeDAO->salvarDisponibilidade($idProfessor);
 
 
 

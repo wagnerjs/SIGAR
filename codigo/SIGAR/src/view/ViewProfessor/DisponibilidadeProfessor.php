@@ -29,6 +29,7 @@
   <script src="../js/jquery.quicksearch.js"></script>
   <script src="../js/base.js"></script>
   <script src="../js/formCadastroProfessor.js"></script>
+  <link href="../css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
     <div id="boxes">
@@ -66,74 +67,74 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>08:00 às 09:00</td>
-                                            <td>08:00 às 09:00</td>
-                                            <td>08:00 às 09:00</td>
-                                            <td>08:00 às 09:00</td>
-                                            <td>08:00 às 09:00</td>
+                                            <td name="segunda">08:00 às 09:00</td>
+                                            <td name="terça">08:00 às 09:00</td>
+                                            <td name="quarta">08:00 às 09:00</td>
+                                            <td name="quinta">08:00 às 09:00</td>
+                                            <td name="sexta">08:00 às 09:00</td>
                                         </tr>
                                         <tr>
-                                            <td>09:00 às 10:00</td>
-                                            <td>09:00 às 10:00</td>
-                                            <td>09:00 às 10:00</td>
-                                            <td>09:00 às 10:00</td>
-                                            <td>09:00 às 10:00</td>
+                                            <td name="segunda">09:00 às 10:00</td>
+                                            <td name="terça">09:00 às 10:00</td>
+                                            <td name="quarta">09:00 às 10:00</td>
+                                            <td name="quinta">09:00 às 10:00</td>
+                                            <td name="sexta">09:00 às 10:00</td>
                                         </tr>
                                         <tr>
-                                            <td>10:00 às 11:00</td>
-                                            <td>10:00 às 11:00</td>
-                                            <td>10:00 às 11:00</td>
-                                            <td>10:00 às 11:00</td>
-                                            <td>10:00 às 11:00</td>
+                                            <td name="segunda">10:00 às 11:00</td>
+                                            <td name="terça">10:00 às 11:00</td>
+                                            <td name="quarta">10:00 às 11:00</td>
+                                            <td name="quinta">10:00 às 11:00</td>
+                                            <td name="sexta">10:00 às 11:00</td>
                                         </tr>
                                         <tr>
-                                            <td>11:00 às 12:00</td>
-                                            <td>11:00 às 12:00</td>
-                                            <td>11:00 às 12:00</td>
-                                            <td>11:00 às 12:00</td>
-                                            <td>11:00 às 12:00</td>
+                                            <td name="segunda">11:00 às 12:00</td>
+                                            <td name="terça">11:00 às 12:00</td>
+                                            <td name="quarta">11:00 às 12:00</td>
+                                            <td name="quinta">11:00 às 12:00</td>
+                                            <td name="sexta">11:00 às 12:00</td>
                                         </tr>
                                         <tr>
-                                            <td>14:00 às 15:00</td>
-                                            <td>14:00 às 15:00</td>
-                                            <td>14:00 às 15:00</td>
-                                            <td>14:00 às 15:00</td>
-                                            <td>14:00 às 15:00</td>
+                                            <td name="segunda">14:00 às 15:00</td>
+                                            <td name="terça">14:00 às 15:00</td>
+                                            <td name="quarta">14:00 às 15:00</td>
+                                            <td name="quinta">14:00 às 15:00</td>
+                                            <td name="sexta">14:00 às 15:00</td>
                                         </tr>
                                         <tr>
-                                            <td>15:00 às 16:00</td>
-                                            <td>15:00 às 16:00</td>
-                                            <td>15:00 às 16:00</td>
-                                            <td>15:00 às 16:00</td>
-                                            <td>15:00 às 16:00</td>
+                                            <td name="segunda">15:00 às 16:00</td>
+                                            <td name="terça">15:00 às 16:00</td>
+                                            <td name="quarta">15:00 às 16:00</td>
+                                            <td name="quinta">15:00 às 16:00</td>
+                                            <td name="sexta">15:00 às 16:00</td>
                                         </tr>
                                         <tr>
-                                            <td>16:00 às 17:00</td>
-                                            <td>16:00 às 17:00</td>
-                                            <td>16:00 às 17:00</td>
-                                            <td>16:00 às 17:00</td>
-                                            <td>16:00 às 17:00</td>
+                                            <td name="segunda">16:00 às 17:00</td>
+                                            <td name="terça">16:00 às 17:00</td>
+                                            <td name="quarta">16:00 às 17:00</td>
+                                            <td name="quinta">16:00 às 17:00</td>
+                                            <td name="sexta">16:00 às 17:00</td>
                                         </tr>
                                         <tr>
-                                            <td>17:00 às 18:00</td>
-                                            <td>17:00 às 18:00</td>
-                                            <td>17:00 às 18:00</td>
-                                            <td>17:00 às 18:00</td>
-                                            <td>17:00 às 18:00</td>
+                                            <td name="segunda">17:00 às 18:00</td>
+                                            <td name="terça">17:00 às 18:00</td>
+                                            <td name="quarta">17:00 às 18:00</td>
+                                            <td name="quinta">17:00 às 18:00</td>
+                                            <td name="sexta">17:00 às 18:00</td>
                                         </tr>
                                         <tr>
-                                            <td>18:00 às 19:00</td>
-                                            <td>18:00 às 19:00</td>
-                                            <td>18:00 às 19:00</td>
-                                            <td>18:00 às 19:00</td>
-                                            <td>18:00 às 19:00</td>
+                                            <td name="segunda">18:00 às 19:00</td>
+                                            <td name="terça">18:00 às 19:00</td>
+                                            <td name="quarta">18:00 às 19:00</td>
+                                            <td name="quinta">18:00 às 19:00</td>
+                                            <td name="sexta">18:00 às 19:00</td>
                                         </tr>
                                         <tr>
-                                            <td>19:00 às 20:00</td>
-                                            <td>19:00 às 20:00</td>
-                                            <td>19:00 às 20:00</td>
-                                            <td>19:00 às 20:00</td>
-                                            <td>19:00 às 20:00</td>
+                                            <td name="segunda">19:00 às 20:00</td>
+                                            <td name="terça">19:00 às 20:00</td>
+                                            <td name="quarta">19:00 às 20:00</td>
+                                            <td name="quinta">19:00 às 20:00</td>
+                                            <td name="sexta">19:00 às 20:00</td>
                                         </tr>
                                     </tbody>
                                 </table>
