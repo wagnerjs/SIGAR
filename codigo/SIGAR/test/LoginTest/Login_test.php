@@ -4,8 +4,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-$url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
-require_once $url.'/utils/Login.class.php';
+//$url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
+//require_once $url.'/utils/Login.class.php';
+
+require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Login.class.php';
 
 /**
  * Description of Login_test
@@ -18,22 +20,23 @@ class Login_test extends PHPUnit_Framework_TestCase{
     protected $senha = 12345;
     protected $objLog;
     
-    /*
-     * @test
-     */
+    
     
     public function setUp() {
-           
+        $this->objLog = new Login();  
         $this->objLog->setUsuario($this->login);
         $this->objLog->setSenha($this->senha);
                 
     }
     
+    /*
+     * @test
+     * 
+     */
+    
     public function testAutentica(){
-        $login = new Login();
-        $login->setUsuario($this->login);
-        $login->setSenha($senha);
-        $this->assertNotNull($login->getIdLogin());
+       // $this->assertEquals(1,$this->objLog->autentica());
+        $this->assertNotNull($this->objLog->getIdLogin());
         
         
     }
