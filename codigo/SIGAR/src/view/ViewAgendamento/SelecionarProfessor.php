@@ -4,38 +4,61 @@
     require_once $url.'/controller/AgendamentoCtrl.php';
     require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/RemoveAssentos.php';
     
- 
-   function removeAssentos($var) {
+    function removeAssentos($var) {
 
         $array1 = array( "á", "à", "â", "ã", "ä", "é", "è", "ê", "ë", "í", "ì", "î", "ï", "ó", "ò", "ô", "õ", "ö", "ú", "ù", "û", "ü", "ç" 
         , "Á", "À", "Â", "Ã", "Ä", "É", "È", "Ê", "Ë", "Í", "Ì", "Î", "Ï", "Ó", "Ò", "Ô", "Õ", "Ö", "Ú", "Ù", "Û", "Ü", "Ç" ); 
         $array2 = array( "a", "a", "a", "a", "a", "e", "e", "e", "e", "i", "i", "i", "i", "o", "o", "o", "o", "o", "u", "u", "u", "u", "c" 
         , "A", "A", "A", "A", "A", "E", "E", "E", "E", "I", "I", "I", "I", "O", "O", "O", "O", "O", "U", "U", "U", "U", "C" ); 
-    return str_replace( $array1, $array2, $var);
-
+        
+        return str_replace( $array1, $array2, $var);
         return $var;
     }
-
-
     
+    function diaSemana($data) {
+        $ano = substr("$data", 0, 4);
+        $mes = substr("$data", 5, -3);
+        $dia = substr("$data", 8, 9);
+        $diasemana = date("w", mktime(0, 0, 0, $mes, $dia, $ano));
+        switch ($diasemana) {
+            case"0": $diasemana = "Domingo";
+                break;
+            case"1": $diasemana = "Segunda";
+                break;
+            case"2": $diasemana = "Terça";
+                break;
+            case"3": $diasemana = "Quarta";
+                break;
+            case"4": $diasemana = "Quinta";
+                break;
+            case"5": $diasemana = "Sexta";
+                break;
+            case"6": $diasemana = "Sábado";
+                break;
+        }
+        return $diasemana;
+    }
     $agendamentoCtrl = new AgendamentoCtrl();
     
-    $diaDaSemana = "Segunda";
-    $horario = "13:00 as 14:00";
-    //$materia = "Matematica";
-    $data = "2013-03-07";
-    $idProfessor = 1;
-    $materia = $_POST['materia'];
-    $horario = "13:00 as 14:00";
+    $data = $_POST['user_date'];   
+    $diaDaSemana = diaSemana($data);
+    $materia = $_POST['materia'];   
     $materia = removeAssentos($materia);
-    
+    $idProfessor = 1;
+    @$_horario = $_POST['horario'];
+    $idAluno = 1;
+    print_r($_horario);
     echo $materia;
-    //echo $_POST['materia'];
-    echo $_POST['user_date'];
-    if (isset($_POST['btnEnviar'])) {
-     
-    }
+    echo $diaDaSemana;
     
+    if (isset($_POST['btEnviar'])) {
+        $conteudo = $_POST['conteudo'];
+        $idProfessor = $_POST['professor'];
+        $horario = $_POST['horario'];
+        $status = "Aula agendada";
+        $agendamentoCtrl->salvarAgendamento($idAluno, $idProfessor, $data, $horario,$status, $materia, utf8_decode($conteudo));
+        header("location: http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAgendamento/AgendarAula.php");
+    }
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,12 +68,9 @@
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
   <title>Pesquisar Professor</title>
   <meta name="description" content="" />
-
   <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-
   <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
   <link rel="shortcut icon" href="../img/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -64,37 +84,6 @@
   <script src="../js/base.js"></script>
   <script src="../js/formCadastroProfessor.js"></script>
   <link href="../css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
-  <script>
-      $(document).ready(function(){
-          $('#cadEnvDisp').click(function(){
-            var dia = new Array();
-            var horarios = new Array();
-            var i = -1;
-            $('.selection').each(function(){
-                i = i + 1;
-                horarios[i] = $(this).attr('name');
-                dia[i] = $(this).html();           
-            });
-
-            for (var e = 0; e <= i; e++) {
-                var x = dia[e];
-                var y = horarios[e];
-                <?php
-                if (isset($_POST['btnEnviar'])) {
-                $dia[e] = "<script>
-                            document.write(screen.width+'x'+screen.height);
-                            </script>"; ?>
-                
-                <?php  
-                $horarios[e] = "<script>document.write(y)</script>";; }?>
-                                
-                //$('#DispTest').append("<p>"+dia[e]+" "+horarios[e]+"</p>");
-                
-            } 
-
-         });
-      });
-  </script>
 </head>
 <body>
     <div id="boxes">
@@ -124,8 +113,14 @@
                                     <div>
                                         <b>Professores:</b><br>
                             <?php
+                              //$tam = count($_horario);
+                            //for($i=0;$i<$tam;$i++){
+                                //echo $tam;
+            
+        
                             //echo "Dia da Semana: ".$diaDaSemana." Horário: ".$horario." Matéria: ".$materia;
-                            $agendamentoCtrl->listarProfessoresDisponiveis($diaDaSemana, $horario, $materia);
+                               // echo $_horario[$i];
+                            $agendamentoCtrl->listarProfessoresDisponiveis($diaDaSemana, $_horario[0], $materia);
                             if(@mysql_num_rows($agendamentoCtrl->getResposta())>0){
                                 for($i=0; $i<mysql_num_rows($agendamentoCtrl->getResposta());$i++){
                                     $j=0;
@@ -149,22 +144,24 @@
                             <b>Nenhum Professor encontrado </b><br/>    
                             <?php
                             }
+                            //}
                            ?>
                             
+                           <input name="materia" type="hidden" value="<?php echo $materia;?>" /> <br>
+                           <input name="user_date" type="hidden" value="<?php echo $data;?>" /> <br>
+                           <input name="horario" type="hidden" value="<?php echo $_horario[0];?>" /> <br>
                             
-                            
-                            <br/>
-                                    </div>
-                                </div>
+                           <br/>
+                            </div>
+                            </div>
                             <br/><br/>
                             <b>Conteúdo:</b>
                             <br/><br/>
-                            <textarea rows="5" cols="50">
-                            </textarea>
+                            <input type="text" name="conteudo" value="">
                             <br/><br/>
                             </div>
                             </div>
-                            <input type="submit" name="btnEnviar" value="Enviar" id="cadEnvDisp" />
+                            <input type="submit" name="btEnviar" value="Enviar" id="cadEnvDisp" />
                         </div>
                             </form>
                     </div>
