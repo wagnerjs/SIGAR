@@ -121,7 +121,7 @@ class DisponibilidadeDAO {
         if (mysql_num_rows($res) == 0) {
             $res = NULL; // "Nenhum dia disponível!"
         } else {
-            $res = mysql_fetch_array($res);
+            //$res = mysql_fetch_array($res);
         }
 
         $this->fecharConexao();
