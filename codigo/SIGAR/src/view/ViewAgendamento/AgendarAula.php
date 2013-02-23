@@ -4,6 +4,10 @@
     require_once $url.'/controller/ProfessorCtrl.php';
     $dia = array();
     $horarios = array();
+    if (isset($_POST['btnEnviar'])) {
+        $_POST['materia'];
+        $_POST['user_date'];        
+    }
     
 ?>
 <!DOCTYPE html>
@@ -83,6 +87,7 @@
                     <a href="AgendarAula.php"><span class="selected">      Agendar Aula      </span></a>
                     <!--<a href="#"><span class="selected"> Pesquisar Professor</span></a>-->
                     <div class="content">
+                        <form class="spaces" name="form1" action="SelecionarProfessor.php" method="post">
                         <div class="spaces">
                             <b>Selecione a matéria desejada:</b>
                             <div class="row-fluid show-grid">
@@ -97,7 +102,7 @@
                                      if(@mysql_num_rows($professorCtrl->getResposta())>0){
                                             for($i=0; $i<mysql_num_rows($professorCtrl->getResposta());$i++){
                                     ?>
-                                    <input name="materias[]" type="radio" value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'idMateria'));?>" /> <?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br>
+                                    <input name="materia" type="radio" value="<?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?>" /> <?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'descricaoMateria'));?><br>
 
                                     <?php   }
 
@@ -155,6 +160,7 @@
                         </div>
                              <input type="submit" name="btnEnviar" value="Enviar" id="cadEnvDisp" />
                         </div>
+                            </form>
                     </div>
                 </div>
             </div>

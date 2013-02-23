@@ -16,7 +16,7 @@ class DisponibilidadeCtrl {
         $idDia = $disponibilidade_obj->selecionarIdDia($idDisponibilidade, $diaDaSemana);
         
         //Verifica se o dia da semana já existe com aquele idDisponibilidade
-        if($idDia != 0){
+        if($idDia != NULL){
             //O idDia já existe, não é necessário cadastrar novo IdDia
         }else{
             //O idDia não existe cadastrar novo DIA
@@ -24,7 +24,7 @@ class DisponibilidadeCtrl {
         }
         
 
-        if ($idDia == 0) {
+        if ($idDia == NULL) {
             echo "Erro ao salvar na tabela dia";
         } else {
             $idHorario = $disponibilidade_obj->salvarHorario($idDia, $descricaoHorario);
