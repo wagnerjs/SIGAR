@@ -218,6 +218,7 @@ class AlunoDAO {
                 AND `aluno`.`idAluno` =" . $idAluno . ";";
         $resultadoIdAluno = mysql_query($sql);
         $idAluno = 0;
+        echo $resultadoIdAluno;
         while ($aux = mysql_fetch_array($resultadoIdAluno)) {
             $idAluno = $aux['idPessoa'];
         }
