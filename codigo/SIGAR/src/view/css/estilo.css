@@ -361,7 +361,7 @@ hr {
 
 .materias {
     margin-top: 20px;
-    width: 500px;
+    width: 220px;
     height: auto;
     background-color: #fff;
     box-shadow: 1px 1px 5px #000;
@@ -373,6 +373,10 @@ hr {
 
 .calendario {
     margin: 10px;
+}
+
+.calendario2 {
+    width: 220px;
 }
 
 #dispCalendar {
