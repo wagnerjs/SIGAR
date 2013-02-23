@@ -136,6 +136,7 @@ class DisponibilidadeDAO {
 
         if (!mysql_query($sql)) {
             echo "Erro na inserção da tabela disponibilidade";
+            $idDisponibilidade = NULL;
         } else {
             $idDisponibilidade = mysql_insert_id();
         }
@@ -154,6 +155,7 @@ class DisponibilidadeDAO {
 
         if (!mysql_query($sql)) {
             echo "Erro na inserção da tabela dia";
+            $idDia = NULL;
         } else {
             $idDia = mysql_insert_id();
         }
@@ -171,7 +173,7 @@ class DisponibilidadeDAO {
         $sql = "INSERT INTO `sigar`.`horario` (`idHorario`, `idDia`, `descricao`) VALUES (NULL, '" . $idDia . "', '" . $descricaoHorario . "');";
 
         if (!mysql_query($sql)) {
-            $idHorario = 0; //"Erro na inserção da tabela Horario"
+            $idHorario = NULL; //"Erro na inserção da tabela Horario"
         } else {
             $idHorario = mysql_insert_id();
         }
@@ -185,15 +187,17 @@ class DisponibilidadeDAO {
      */
 
     public function deletarHorario($idDia) {
+        $retorno = 0;
         $this->criarConexao();
         $sql = "DELETE FROM `sigar`.`horario` WHERE `horario`.`idDia` = " . $idDia . ";";
 
         if (mysql_query($sql)) {
-            return 1; //deletado com sucesso
+            $retorno = 1; //deletado com sucesso
         } else {
-            return 0; //Erro a deletar horario
+            $retorno = 0; //Erro a deletar horario
         }
         $this->fecharConexao();
+        return $retorno;
     }
 
     /*
@@ -201,15 +205,17 @@ class DisponibilidadeDAO {
      */
 
     public function deletarDia($idDisponibilidade) {
+        $retorno = 0;
         $this->criarConexao();
         $sql = "DELETE FROM `sigar`.`dia` WHERE `dia`.`idDisponibilidade` = " . $idDisponibilidade . ";";
 
         if (mysql_query($sql)) {
-            return 1; //deletado com sucesso
+            $retorno = 1; //deletado com sucesso
         } else {
-            return 0; //Erro a deletar dia
+            $retorno = 0; //Erro a deletar dia
         }
         $this->fecharConexao();
+        return $retorno;
     }
 
     /*
@@ -253,16 +259,16 @@ class DisponibilidadeDAO {
         $this->fecharConexao();
         return $retorno;
     }
-    
+
     /*
      * Busca todos os idDia com o idDisponibilidade
      */
 
-    public function selecionarIdDia($idDisponibilidade,$diaDaSemana) {
+    public function selecionarIdDia($idDisponibilidade, $diaDaSemana) {
         $this->criarConexao();
 
         $sql = "SELECT `dia`.`idDia` FROM `dia` WHERE `dia`.`idDisponibilidade` = " . $idDisponibilidade . " 
-            AND `dia`.`diaDaSemana` = '".$diaDaSemana."';";
+            AND `dia`.`diaDaSemana` = '" . $diaDaSemana . "';";
 
         $res = mysql_query($sql);
         $idDia = 0;
@@ -276,7 +282,7 @@ class DisponibilidadeDAO {
         $this->fecharConexao();
 
         return $idDia;
-    }  
+    }
 
 }
 
