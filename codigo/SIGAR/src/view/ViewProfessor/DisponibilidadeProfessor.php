@@ -29,6 +29,7 @@
   <script src="../js/jquery.quicksearch.js"></script>
   <script src="../js/base.js"></script>
   <script src="../js/formCadastroProfessor.js"></script>
+  <link href="../css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
     <div id="boxes">
