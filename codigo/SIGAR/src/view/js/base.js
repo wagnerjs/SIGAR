@@ -43,6 +43,22 @@ $(document).ready(function(){
        
     });
     
+    $('#cadEnvDisp2').click(function(){
+       var horario = new Array();
+       var i = -1;
+       $('.selection').each(function(){
+           i = i + 1;
+           horario[i] = $(this).html();       
+       });
+       
+       $('#DispTest').append("<br>");
+       for (var e = 0; e <= i; e++) {
+           $('#DispTest').append("<input name='horario[]' type='text' value="+horario[e]+" id='esconder' /><br>");
+       } 
+       
+       
+    });
+    
     $('#login input').focus(function(){ 
     if (this.value==this.defaultValue) {
             this.value='';
