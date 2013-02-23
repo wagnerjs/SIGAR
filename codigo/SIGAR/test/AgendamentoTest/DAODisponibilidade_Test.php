@@ -1,6 +1,7 @@
 <?php
 
 require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/DisponibilidadeDAO.php";
+require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -11,6 +12,9 @@ require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/DisponibilidadeDAO.php"
  *
  * @author Alex
  */
+
+    
+
 class DAOAtualizaDisponibilidade_Test extends PHPUnit_Framework_TestCase {
 
     protected $idProfessor = 1;
@@ -25,6 +29,40 @@ class DAOAtualizaDisponibilidade_Test extends PHPUnit_Framework_TestCase {
     protected $materiaErro = "erro";
     protected $dispObj;
     protected $data;
+    protected $obj_conecta;
+    protected $idAgendamento;
+           
+
+
+    public function criarConexao() {
+        $this->obj_conecta = new bd();
+        $this->obj_conecta->conecta();
+        $this->obj_conecta->seleciona_bd();
+    }
+
+    public function fecharConexao() {
+        $this->obj_conecta->fechaConexao();
+    }
+
+    public function popula_bd(){
+        $this->criarConexao();
+        
+        $query = "INSERT INTO `sigar`.`agendamento` (`idAgendamento`, `idAluno`, `idProfessor`, `data`, `horario`, `status`, `materia`, `conteudo`) VALUES ('1', '2', '1', '2013-02-01', '14', 'marcada', 'matematica', 'xpto')";
+        mysql_query($query);
+        $this->idAgendamento = mysql_insert_id();
+        $this->fecharConexao();
+        
+        
+    }
+    
+    public function limpa_bd(){
+        $this->criarConexao();
+        
+        $query = "DELETE FROM `agendamento` WHERE `idAgendamento` = $this->idAgendamento";
+        mysql_query($query);
+        $this->fecharConexao();
+    }
+
 
     public function setUp() {
         $this->data = 2013-02-02;
@@ -38,6 +76,7 @@ class DAOAtualizaDisponibilidade_Test extends PHPUnit_Framework_TestCase {
      *
      */
     public function TestGravarProfessor() {
+        $this->popula_bd();
         $disponibilidade_DAO = new DisponibilidadeDAO();
 
         //Teste do método salvarDisponibilidade da classe DAO
@@ -51,8 +90,6 @@ class DAOAtualizaDisponibilidade_Test extends PHPUnit_Framework_TestCase {
         //Teste do método salvarHorario da classe DAO
         $this->assertNotNUll($disponibilidade_DAO->salvarHorario($this->idDia, $this->descricaoHorario));
         $this->assertNUll($disponibilidade_DAO->salvarHorario($this->idDiaErro, $this->descricaoHorario));
-
-        
 
         //Teste do método verificaDisponibilidade da classe DAO
         $this->assertNotNull($disponibilidade_DAO->verificaDisponibilidade($this->idProfessor, $this->diaSemana, $this->descricaoHorario));
@@ -69,8 +106,6 @@ class DAOAtualizaDisponibilidade_Test extends PHPUnit_Framework_TestCase {
         //Teste do método selecionarArrayIdDia da classe DAO
         $this->assertNotNull($disponibilidade_DAO->selecionarArrayIdDia($this->disp));
         $this->assertNull($disponibilidade_DAO->selecionarArrayIdDia($this->dispErro));
-
-        
         
         //Teste do método selecionaProfessor da classe DAO
         $this->assertNotNull($disponibilidade_DAO->selecionaProfessor($this->materia));
@@ -87,8 +122,6 @@ class DAOAtualizaDisponibilidade_Test extends PHPUnit_Framework_TestCase {
         //Teste do método selecionarDia da classe DAO
         $this->assertNotNull($disponibilidade_DAO->selecionarIdDia($this->disp, $this->diaSemana));
         $this->assertNull($disponibilidade_DAO->selecionarIdDia($this->dispErro, $this->diaSemana));
-        
-        
             
         //Teste do método deletarHorario da classe DAO
         $this->assertEquals('1', $disponibilidade_DAO->deletarHorario($this->idDia));
@@ -97,6 +130,8 @@ class DAOAtualizaDisponibilidade_Test extends PHPUnit_Framework_TestCase {
         //Teste do método deletarDia da classe DAO
         $this->assertEquals(1, $disponibilidade_DAO->deletarDia($this->disp));
         $this->assertEquals(0, $disponibilidade_DAO->deletarDia("erro"));
+        
+        $this->limpa_bd();
     }
 
 }
