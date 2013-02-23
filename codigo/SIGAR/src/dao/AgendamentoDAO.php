@@ -49,7 +49,7 @@ class AgendamentoDAO {
     public function agendarAula($idAluno, $idProfessor, Agendamento $agendamento) {
         $this->criarConexao();
         $idAgendamento = 0;
-        $sql = "INSERT INTO `sigar`.`agendamento` (`idAgendamento`, `idAluno`, `idProfessor`, `data`, `horario`, `status`, `materia`, `conteudo`) VALUES (NULL, '" . $idAluno . "', '" . $idProfessor . "', '" . $agendamento->getData() . "', '" . $agendamento->getHorario() . "', '" . $agendamento->getStatus() . "', '" . $agendamento->getMateria() . "', '" . $agendamento->getConteudo() . "');";
+        $sql = "INSERT INTO `sigar`.`agendamento` (`idAgendamento`, `idAluno`, `idProfessor`, `data`, `horarioInicio`, `duracaoMarcada`, `duracaoReal`, `status`, `materia`, `conteudo`) VALUES (NULL, '" . $idAluno . "', '" . $idProfessor . "', '" . $agendamento->getData() . "', '" . $agendamento->getHorarioInicio() . "', '" . $agendamento->getDuracaoMarcada() . "', '" . $agendamento->getDuracaoReal() . "', '" . $agendamento->getStatus() . "', '" . $agendamento->getMateria() . "', '" . $agendamento->getConteudo() . "');";
 
         if (!mysql_query($sql)) {
             $idAgendamento = 0; //"Erro ao inserir agendamento"
@@ -70,7 +70,9 @@ class AgendamentoDAO {
         $sql = "UPDATE  `sigar`.`agendamento` SET  `idAluno` =  '" . $agendamento->getIdAluno() . "',
                        `idProfessor` =  '" . $agendamento->getIdProfessor() . "',
                        `data` =  '" . $agendamento->getData() . "',
-                       `horario` =  '" . $agendamento->getHorario() . "',
+                       `horarioInicio` =  '" . $agendamento->getHorarioInicio() . "',
+                       `duracaoMarcada` =  '" . $agendamento->getDuracaoMarcada() . "',
+                       `duracaoReal` =  '" . $agendamento->getDuracaoReal() . "',
                        `status` =  '" . $agendamento->getStatus() . "',
                        `materia` =  '" . $agendamento->getMateria() . "',
                        `conteudo` =  '" . $agendamento->getConteudo() . "' 
@@ -114,7 +116,7 @@ class AgendamentoDAO {
         $sql = "SELECT * FROM  `agendamento` WHERE  `idAluno` =".$agendamento->getIdAluno()." 
                                              AND  `idProfessor` =".$agendamento->getIdProfessor()."
                                              AND  `data` =  '".$agendamento->getData()."'
-                                             AND  `horario` =  '".$agendamento->getHorario()."';";
+                                             AND  `horarioInicio` =  '".$agendamento->getHorarioInicio()."';";
         $res = mysql_query($sql);
 
         if (mysql_num_rows($res) == 0) {
@@ -127,32 +129,6 @@ class AgendamentoDAO {
         return $res;
         
     }
-    
-    /*
-     * Seleciona professores que tem disponibilidade em um determinado dia e horário 
-     */
-
-    public function selecionaProfessoresDisponiveis($data,$horario) {
-        $this->criarConexao();
-        $sql = "SELECT `disponibilidade`.`idProfessor`,`pessoa`.`nome`,`dia`.`diaDaSemana`, `horario`.`descricao` 
-                FROM `disponibilidade`,`dia`,`horario`,`pessoa` ,`usuario`,`professor`
-                WHERE `usuario`.`idPessoa` = `pessoa`.`idPessoa` 
-                AND `professor`.`idUsuario` = `usuario`.`idUsuario` 
-                AND `professor`.`idProfessor` = `disponibilidade`.`idProfessor` 
-                AND `disponibilidade`.`idDisponibilidade`=`dia`.`idDisponibilidade` 
-                AND `dia`.`idDia`=`horario`.`idDia` 
-                AND `dia`.`diaDaSemana`='".$data."' 
-                AND `horario`.`descricao`='".$horario."';";
-        $res = mysql_query($sql);
-
-        if (mysql_num_rows($res) == 0) {
-            $res = 0; // "Nenhuma aula marcada!"
-        } 
-        $this->fecharConexao();
-        return $res;
-    }
-
-    
 }
 
 ?>
