@@ -34,8 +34,8 @@
     <div class="row-fluid show-grid">
         <div class="span6">
             <div class="boxMenu">
-                <a href="#"><div><img src="img/icon-calendar.png" />  Agendar Aula</div></a>
-                <a href="#"><div><img src="img/icon-time.png" />  Gerenciar Aulas Marcadas</div></a>
+                <a href="ViewAgendamento/AgendarAula.php"><div><img src="img/icon-calendar.png" />  Agendar Aula</div></a>
+                <a href="ViewAgendamento/GerenciarAulasMarcadas.php"><div><img src="img/icon-time.png" />  Gerenciar Aulas Marcadas</div></a>
             </div>
         </div>
         <div class="span6">

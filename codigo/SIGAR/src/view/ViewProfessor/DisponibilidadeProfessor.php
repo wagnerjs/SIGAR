@@ -2,8 +2,17 @@
     $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
     require $url.'/view/ValidaSession.php';
     require_once $url.'/controller/ProfessorCtrl.php';
-    $dia = array();
-    $horarios = array();
+    
+    if (isset($_POST['btnEnviar'])) {
+        @$_dia = $_POST['dia'];
+        @$_horario = $_POST['horario'];
+        
+        print_r($_horario);
+        
+        print_r($_dia);
+        
+        echo "FUNFOU!!!";
+    }
     
 ?>
 <!DOCTYPE html>
@@ -33,37 +42,6 @@
   <script src="../js/base.js"></script>
   <script src="../js/formCadastroProfessor.js"></script>
   <link href="../css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
-  <script>
-      $(document).ready(function(){
-          $('#cadEnvDisp').click(function(){
-            var dia = new Array();
-            var horarios = new Array();
-            var i = -1;
-            $('.selection').each(function(){
-                i = i + 1;
-                horarios[i] = $(this).attr('name');
-                dia[i] = $(this).html();           
-            });
-
-            for (var e = 0; e <= i; e++) {
-                var x = dia[e];
-                var y = horarios[e];
-                <?php
-                if (isset($_POST['btnEnviar'])) {
-                $dia[e] = "<script>
-                            document.write(screen.width+'x'+screen.height);
-                            </script>"; ?>
-                
-                <?php  
-                $horarios[e] = "<script>document.write(y)</script>";; }?>
-                                
-                //$('#DispTest').append("<p>"+dia[e]+" "+horarios[e]+"</p>");
-                
-            } 
-
-         });
-      });
-  </script>
 </head>
 <body>
     <div id="boxes">
@@ -84,6 +62,7 @@
                     <a href="#"><span class="selected"> Pesquisar Professor</span></a>
                     <div class="content">
                         <div class="spaces">
+                            <form id="DispTest" name="form1" action="DisponibilidadeProfessor.php" method="post">
                             <b>Disponibilidade do professor <span id="profName"></span></b><br/>
                             Clique nos horários disponíveis deste professor.
                             Para desmarcar basta clicar novamente.
@@ -101,85 +80,80 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td name="segunda">08:00 às 09:00</td>
-                                            <td name="terça">08:00 às 09:00</td>
-                                            <td name="quarta">08:00 às 09:00</td>
-                                            <td name="quinta">08:00 às 09:00</td>
-                                            <td name="sexta">08:00 às 09:00</td>
+                                            <td name="segunda">08:00-09:00</td>
+                                            <td name="terça">08:00-09:00</td>
+                                            <td name="quarta">08:00-09:00</td>
+                                            <td name="quinta">08:00-09:00</td>
+                                            <td name="sexta">08:00-09:00</td>
                                         </tr>
                                         <tr>
-                                            <td name="segunda">09:00 às 10:00</td>
-                                            <td name="terça">09:00 às 10:00</td>
-                                            <td name="quarta">09:00 às 10:00</td>
-                                            <td name="quinta">09:00 às 10:00</td>
-                                            <td name="sexta">09:00 às 10:00</td>
+                                            <td name="segunda">09:00-10:00</td>
+                                            <td name="terça">09:00-10:00</td>
+                                            <td name="quarta">09:00-10:00</td>
+                                            <td name="quinta">09:00-10:00</td>
+                                            <td name="sexta">09:00-10:00</td>
                                         </tr>
                                         <tr>
-                                            <td name="segunda">10:00 às 11:00</td>
-                                            <td name="terça">10:00 às 11:00</td>
-                                            <td name="quarta">10:00 às 11:00</td>
-                                            <td name="quinta">10:00 às 11:00</td>
-                                            <td name="sexta">10:00 às 11:00</td>
+                                            <td name="segunda">10:00-11:00</td>
+                                            <td name="terça">10:00-11:00</td>
+                                            <td name="quarta">10:00-11:00</td>
+                                            <td name="quinta">10:00-11:00</td>
+                                            <td name="sexta">10:00-11:00</td>
                                         </tr>
                                         <tr>
-                                            <td name="segunda">11:00 às 12:00</td>
-                                            <td name="terça">11:00 às 12:00</td>
-                                            <td name="quarta">11:00 às 12:00</td>
-                                            <td name="quinta">11:00 às 12:00</td>
-                                            <td name="sexta">11:00 às 12:00</td>
+                                            <td name="segunda">11:00-12:00</td>
+                                            <td name="terça">11:00-12:00</td>
+                                            <td name="quarta">11:00-12:00</td>
+                                            <td name="quinta">11:00-12:00</td>
+                                            <td name="sexta">11:00-12:00</td>
                                         </tr>
                                         <tr>
-                                            <td name="segunda">14:00 às 15:00</td>
-                                            <td name="terça">14:00 às 15:00</td>
-                                            <td name="quarta">14:00 às 15:00</td>
-                                            <td name="quinta">14:00 às 15:00</td>
-                                            <td name="sexta">14:00 às 15:00</td>
+                                            <td name="segunda">14:00-15:00</td>
+                                            <td name="terça">14:00-15:00</td>
+                                            <td name="quarta">14:00-15:00</td>
+                                            <td name="quinta">14:00-15:00</td>
+                                            <td name="sexta">14:00-15:00</td>
                                         </tr>
                                         <tr>
-                                            <td name="segunda">15:00 às 16:00</td>
-                                            <td name="terça">15:00 às 16:00</td>
-                                            <td name="quarta">15:00 às 16:00</td>
-                                            <td name="quinta">15:00 às 16:00</td>
-                                            <td name="sexta">15:00 às 16:00</td>
+                                            <td name="segunda">15:00-16:00</td>
+                                            <td name="terça">15:00-16:00</td>
+                                            <td name="quarta">15:00-16:00</td>
+                                            <td name="quinta">15:00-16:00</td>
+                                            <td name="sexta">15:00-16:00</td>
                                         </tr>
                                         <tr>
-                                            <td name="segunda">16:00 às 17:00</td>
-                                            <td name="terça">16:00 às 17:00</td>
-                                            <td name="quarta">16:00 às 17:00</td>
-                                            <td name="quinta">16:00 às 17:00</td>
-                                            <td name="sexta">16:00 às 17:00</td>
+                                            <td name="segunda">16:00-17:00</td>
+                                            <td name="terça">16:00-17:00</td>
+                                            <td name="quarta">16:00-17:00</td>
+                                            <td name="quinta">16:00-17:00</td>
+                                            <td name="sexta">16:00-17:00</td>
                                         </tr>
                                         <tr>
-                                            <td name="segunda">17:00 às 18:00</td>
-                                            <td name="terça">17:00 às 18:00</td>
-                                            <td name="quarta">17:00 às 18:00</td>
-                                            <td name="quinta">17:00 às 18:00</td>
-                                            <td name="sexta">17:00 às 18:00</td>
+                                            <td name="segunda">17:00-18:00</td>
+                                            <td name="terça">17:00-18:00</td>
+                                            <td name="quarta">17:00-18:00</td>
+                                            <td name="quinta">17:00-18:00</td>
+                                            <td name="sexta">17:00-18:00</td>
                                         </tr>
                                         <tr>
-                                            <td name="segunda">18:00 às 19:00</td>
-                                            <td name="terça">18:00 às 19:00</td>
-                                            <td name="quarta">18:00 às 19:00</td>
-                                            <td name="quinta">18:00 às 19:00</td>
-                                            <td name="sexta">18:00 às 19:00</td>
+                                            <td name="segunda">18:00-19:00</td>
+                                            <td name="terça">18:00-19:00</td>
+                                            <td name="quarta">18:00-19:00</td>
+                                            <td name="quinta">18:00-19:00</td>
+                                            <td name="sexta">18:00-19:00</td>
                                         </tr>
                                         <tr>
-                                            <td name="segunda">19:00 às 20:00</td>
-                                            <td name="terça">19:00 às 20:00</td>
-                                            <td name="quarta">19:00 às 20:00</td>
-                                            <td name="quinta">19:00 às 20:00</td>
-                                            <td name="sexta">19:00 às 20:00</td>
+                                            <td name="segunda">19:00-20:00</td>
+                                            <td name="terça">19:00-20:00</td>
+                                            <td name="quarta">19:00-20:00</td>
+                                            <td name="quinta">19:00-20:00</td>
+                                            <td name="sexta">19:00-20:00</td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                            <input type="submit" name="btnEnviar" value="Enviar" id="cadEnvDisp" />
-                            <b>Disponibilidade</b>
-                            <div id="DispTest">
-                                <?php 
-                                    print_r($dia);
-                                ?>
-                            </div>
+                            </div>                            
+                                <input id="cadEnvDisp" type="submit" name="btnEnviar" value="Enviar" />
+                            </form>
                         </div>
                     </div>
                 </div>
