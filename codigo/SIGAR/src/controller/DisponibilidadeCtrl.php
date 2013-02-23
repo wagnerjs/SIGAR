@@ -31,6 +31,8 @@ class DisponibilidadeCtrl {
             if ($idHorario == 0) {
                 echo "Erro ao salvar na tabela horario";
             }
+            
+            return array($idDia, $idHorario);
         }
     }
 
