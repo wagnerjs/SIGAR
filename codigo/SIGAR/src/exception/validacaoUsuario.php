@@ -14,7 +14,8 @@ class validacaoUsuario {
         if ($obj_validacaoDAO->valida_nomeusuario($_nome_usuario) > 0) {
             $this->_res_nome_usuario = "<b><font color=red> * </font>Usuário já cadastrado";
             $erro = 1;
-        } elseif (strlen($_nome_usuario) < 5) {
+        } else
+            if (strlen($_nome_usuario) < 5) {
             $this->_res_nome_usuario = "<b><font color=red> * </font>O Nome do usuário deve possuir no mínimo 5 caracteres.";
             $erro = 1;
         }else{

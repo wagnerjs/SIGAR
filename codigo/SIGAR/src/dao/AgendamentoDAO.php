@@ -49,13 +49,16 @@ class AgendamentoDAO {
     public function agendarAula($idAluno, $idProfessor, Agendamento $agendamento) {
         $this->criarConexao();
         $idAgendamento = 0;
-        $sql = "INSERT INTO `sigar`.`agendamento` (`idAgendamento`, `idAluno`, `idProfessor`, `data`, `horario`, `status`, `materia`, `conteudo`) VALUES (NULL, '" . $idAluno . "', '" . $idProfessor . "', '" . $agendamento->getData() . "', '" . $agendamento->getHorario() . "', '" . $agendamento->getStatus() . "', '" . $agendamento->getMateria() . "', '" . $agendamento->getConteudo() . "');";
-
-        if (!mysql_query($sql)) {
-            $idAgendamento = 0; //"Erro ao inserir agendamento"
+        $sql = "INSERT INTO `sigar`.`agendamento` (`idAgendamento`, `idAluno`, `idProfessor`, `data`, `horario`, `status`, `materia`, `conteudo`)
+                                                    VALUES ('".  $idAgendamento."', '" . $idAluno . "', '" . $idProfessor . "', '" . $agendamento->getData() . "', '" . $agendamento->getHorario() . "',
+                                                     '" . $agendamento->getStatus() . "', '" . $agendamento->getMateria() . "', '" . $agendamento->getConteudo() . "');";
+        echo $idAgendamento;
+        if (mysql_query($sql)) {
+            $idAgendamento = mysql_insert_id(); 
         } else {
-            $idAgendamento = mysql_insert_id();
+            $idAgendamento = null;
         }
+        
         $this->fecharConexao();
         return $idAgendamento;
     }
@@ -79,7 +82,7 @@ class AgendamentoDAO {
         if (!mysql_query($sql)) {
             //Erro ao alterar dados
             echo "Erro: " . mysql_error();
-            return 0;
+            $idAgendamento = NULL;
         } else {
             $idAgendamento = mysql_insert_id();
         }
