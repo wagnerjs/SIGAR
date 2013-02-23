@@ -1,17 +1,38 @@
 <?php
     $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
-    require $url.'/view/ValidaSession.php';
+    require_once $url.'/view/ValidaSession.php';
+    require_once $url.'/controller/DisponibilidadeCtrl.php';
+    
     require_once $url.'/controller/ProfessorCtrl.php';
     
+    $idProfessor = $_GET["professorID"];
+    $objCtrlDisp = new DisponibilidadeCtrl();
+    
     if (isset($_POST['btnEnviar'])) {
+        
         @$_dia = $_POST['dia'];
         @$_horario = $_POST['horario'];
+        $res = null;
+        $tam = count($_horario);
         
-        print_r($_horario);
+        for($i=0;$i<$tam;$i++){
+            $objCtrlDisp->adicionarDisponibilidade($idProfessor, utf8_decode($_dia[$i]), utf8_decode($_horario[$i]));
+        }
+         
         
-        print_r($_dia);
+        if($tam)
+            $res = "<font color=green><b>Disponibilidade Cadastrado com sucesso!</b></font><br/>";
+        else
+            $res = "<font color=red><b>Disponibilidade não! Cadastrado com sucesso!</b></font><br/>";
         
-        echo "FUNFOU!!!";
+        if ($res == "<font color=green><b>Disponibilidade Cadastrado com sucesso!</b></font><br/>")
+            echo "<script type='text/javascript'>alert('Disponibilidade Cadastrado com sucesso!');</script>";
+        else
+            echo "<script type='text/javascript'>alert('Erro na realização do cadastro!');</script>";
+        
+        //print_r($_horario);
+        
+        //print_r($_dia);
     }
     
 ?>
@@ -59,10 +80,11 @@
                 <div class="inner">
                     <br/>
                     <a href="CadastroProfessor.php"><span class="normal"> Cadastrar Professor</span></a>
-                    <a href="#"><span class="selected"> Pesquisar Professor</span></a>
+                    <a href="PesquisaProfessor.php"><span class="selected"> Pesquisar Professor</span></a>
                     <div class="content">
                         <div class="spaces">
-                            <form id="DispTest" name="form1" action="DisponibilidadeProfessor.php" method="post">
+                            <form id="DispTest" name="form1" action="DisponibilidadeProfessor.php?professorID=<?php echo $idProfessor; ?>" method="post">
+                            <?php echo @$res; ?>
                             <b>Disponibilidade do professor <span id="profName"></span></b><br/>
                             Clique nos horários disponíveis deste professor.
                             Para desmarcar basta clicar novamente.
