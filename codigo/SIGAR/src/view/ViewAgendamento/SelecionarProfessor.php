@@ -102,15 +102,23 @@
                             $agendamentoCtrl->listarProfessoresDisponiveis($diaDaSemana, $horario, $materia);
                             if(@mysql_num_rows($agendamentoCtrl->getResposta())>0){
                                 for($i=0; $i<mysql_num_rows($agendamentoCtrl->getResposta());$i++){
+                                    $j=0;
                                     if($agendamentoCtrl->verificaAulaMarcada($idProfessor, $data) == 0){
                             ?>
                             <input name="professor" type="radio" value="<?php echo utf8_encode(mysql_result($agendamentoCtrl->getResposta(),$i,'idProfessor'));?>" /><?php echo utf8_encode(mysql_result($agendamentoCtrl->getResposta(),$i,'nome'));?><br/>
                            <?php
+                                    }else{
+                                        $j++;
                                     }
+                                }
+                                if(mysql_num_rows($agendamentoCtrl->getResposta())== $j){ ?>
+                                    <b>Nenhum Professor encontrado </b><br/> 
+                                <?php
+                                
                                 }
                             }else{
                                 ?>
-                            <input name="professor" type="radio" value="Tião" />Nenhum Registro encontrado<br/>    
+                            <b>Nenhum Professor encontrado </b><br/>    
                             <?php
                             }
                            ?>
