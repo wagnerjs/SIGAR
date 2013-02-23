@@ -32,7 +32,7 @@ class DisponibilidadeDAO {
         $res = mysql_query($sql);
 
         if (mysql_num_rows($res) == 0) {
-            $res = 0; // "Nada encontrado!"
+            $res = NULL; // "Nada encontrado!"
         } else {
             $res = mysql_fetch_array($res);
         }
@@ -51,7 +51,7 @@ class DisponibilidadeDAO {
         $res = mysql_query($sql);
 
         if (mysql_num_rows($res) == 0) {
-            $res = 0; // "Nada encontrado!"
+            $res = NULL; // "Nada encontrado!"
         } else {
             $res = mysql_fetch_array($res);
         }
@@ -70,7 +70,7 @@ class DisponibilidadeDAO {
         $res = mysql_query($sql);
 
         if (mysql_num_rows($res) == 0) {
-            $res = 0; // "Nenhuma aula marcada!"
+            $res = NULL; // "Nenhuma aula marcada!"
         } else {
             $res = mysql_fetch_array($res);
         }
@@ -273,7 +273,7 @@ class DisponibilidadeDAO {
         $res = mysql_query($sql);
         $idDia = 0;
         if (mysql_num_rows($res) == 0) {
-            $idDia = 0; //Falha a selecionar o idDisponibilidade do professor
+            $idDia = NULL; //Falha a selecionar o idDisponibilidade do professor
         } else {
             while ($aux = mysql_fetch_array($res)) {
                 $idDia = $aux['idDia'];
