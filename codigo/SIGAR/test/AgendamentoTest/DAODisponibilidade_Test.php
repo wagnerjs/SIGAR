@@ -21,18 +21,7 @@ class DAOAtualizaDisponibilidade_Test extends PHPUnit_Framework_TestCase {
     protected $idDia;
     protected $idDiaErro = 3000;
     protected $descricaoHorario = "10-12";
-    protected $materia = "Matematica";
-    protected $materiaErro = "erro";
-    protected $dispObj;
-    protected $data;
 
-    public function setUp() {
-        $this->data = 2013-02-02;
-                
-        $dispObj = new DisponibilidadeDAO();
-        $dispObj->verificaAulaMarcada($this->idProfessor, $this->data);
-    }
-    
     /**
      * @test
      *
@@ -52,8 +41,6 @@ class DAOAtualizaDisponibilidade_Test extends PHPUnit_Framework_TestCase {
         $this->assertNotNUll($disponibilidade_DAO->salvarHorario($this->idDia, $this->descricaoHorario));
         $this->assertNUll($disponibilidade_DAO->salvarHorario($this->idDiaErro, $this->descricaoHorario));
 
-        
-
         //Teste do método verificaDisponibilidade da classe DAO
         $this->assertNotNull($disponibilidade_DAO->verificaDisponibilidade($this->idProfessor, $this->diaSemana, $this->descricaoHorario));
         $this->assertNull($disponibilidade_DAO->verificaDisponibilidade($this->idProfessorErro, $this->diaSemana, $this->descricaoHorario));
@@ -70,26 +57,6 @@ class DAOAtualizaDisponibilidade_Test extends PHPUnit_Framework_TestCase {
         $this->assertNotNull($disponibilidade_DAO->selecionarArrayIdDia($this->disp));
         $this->assertNull($disponibilidade_DAO->selecionarArrayIdDia($this->dispErro));
 
-        
-        
-        //Teste do método selecionaProfessor da classe DAO
-        $this->assertNotNull($disponibilidade_DAO->selecionaProfessor($this->materia));
-        $this->assertNull($disponibilidade_DAO->selecionaProfessor($this->materiaErro));
-        
-        //Teste do método selecionaMaterias da classe DAO
-        $this->assertNotNull($disponibilidade_DAO->selecionaMaterias($this->idProfessor));
-        $this->assertNull($disponibilidade_DAO->selecionaMaterias($this->idProfessorErro));
-        
-        //Teste do método verificaAulaMarcada da classe DAO
-        $this->assertNotNull($disponibilidade_DAO->verificaAulaMarcada($this->idProfessor, "2013-02-01"));
-        $this->assertNull($disponibilidade_DAO->verificaAulaMarcada($this->idProfessorErro, "2013-02-01"));
-        
-        //Teste do método selecionarDia da classe DAO
-        $this->assertNotNull($disponibilidade_DAO->selecionarIdDia($this->disp, $this->diaSemana));
-        $this->assertNull($disponibilidade_DAO->selecionarIdDia($this->dispErro, $this->diaSemana));
-        
-        
-            
         //Teste do método deletarHorario da classe DAO
         $this->assertEquals('1', $disponibilidade_DAO->deletarHorario($this->idDia));
         $this->assertEquals('0', $disponibilidade_DAO->deletarHorario("erro"));
