@@ -25,6 +25,22 @@ $(document).ready(function(){
         }
     });
     
+    /*$('#cadEnvDisp').click(function(){
+       var dia = new Array();
+       var horarios = new Array();
+       var i = -1;
+       $('.selection').each(function(){
+           i = i + 1;
+           horarios[i] = $(this).attr('name');
+           dia[i] = $(this).html();           
+       });
+       
+       for (var e = 0; e <= i; e++) {
+           $('#DispTest').append("<p>"+dia[e]+" "+horarios[e]+"</p>");
+       } 
+       
+    });*/
+    
     $('#login input').focus(function(){ 
     if (this.value==this.defaultValue) {
             this.value='';
