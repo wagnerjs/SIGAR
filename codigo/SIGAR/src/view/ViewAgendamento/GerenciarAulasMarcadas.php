@@ -69,7 +69,8 @@
 
                                         <th>Professor</th>
                                         <th>Aluno</th>
-                                        <th style="background: #ff963a;">Status</th>
+                                        <th style="background: #ff963a; " colspan="2">           Status</th>
+                                        
                                     </tr>
                                 </thead>
                                     <tbody>
@@ -104,7 +105,9 @@
                                             //echo utf8_encode(mysql_result($agendamentoCtrl->getRes(),$i,'idAluno'));
                                             ?>
                                         </td>
-                                        <td><?php echo utf8_encode(mysql_result($agendamentoCtrl->getRes(),$i,'status'));?></td>
+                                        <td style='cursor: pointer'><?php echo utf8_encode(mysql_result($agendamentoCtrl->getRes(),$i,'status'));?>
+                                        </td>
+                                        <td><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAgendamento/AlterarStatusAgendamento.php?idAgendamento=<?php echo mysql_result($agendamentoCtrl->getRes(),$i,'idAgendamento');?>"><img src='../img/edit.png' onClick="" alt="Editar"></a></td>
                                         
                                     </tr>
                                     <?php

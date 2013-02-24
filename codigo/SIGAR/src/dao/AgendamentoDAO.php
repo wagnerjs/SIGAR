@@ -30,10 +30,10 @@ class AgendamentoDAO {
      * Alterar Status do agendamento
      */
 
-    public function alterarStatus($idProfessor, $idAluno, $data, $status) {
+    public function alterarStatus($idAgendamento, $status) {
         $this->criarConexao();
 
-        $sql = "UPDATE  `sigar`.`agendamento` SET  `status` =  '" . $status . "' WHERE  `agendamento`.`idProfessor` = " . $idProfessor . "  AND  `agendamento`.`idProfessor`= " . $idAluno . " AND `agendamento`.`data` = '" . $data . "' ;";
+        $sql = "UPDATE  `sigar`.`agendamento` SET  `status` =  '" . $status . "' WHERE  `agendamento`.`idAgendamento` = " . $idAgendamento . " ;";
 
         if (mysql_query($sql)) {
             return 1; //Status alterado com sucesso
@@ -55,7 +55,9 @@ class AgendamentoDAO {
         echo $idAgendamento;
         if (mysql_query($sql)) {
             $idAgendamento = mysql_insert_id();
-        } else {
+             echo "<script type='text/javascript'>alert('Agendamento realizado com sucesso!');</script>";
+         } else {
+            echo "<script type='text/javascript'>alert('Falha no Agendamento.');</script>";
             $idAgendamento = null;
         }
 
@@ -197,7 +199,30 @@ class AgendamentoDAO {
 
         return $res;
     }
+    
+    
+    /*
+     * Listar um agendamento específico
+     */
 
+    public function listarAgendamentoEspec($idAgendamento) {
+        //Cria a conexão com o banco de dados
+        $obj_conecta = new bd();
+        $obj_conecta->conecta();
+        $obj_conecta->seleciona_bd();
+
+        $sql = "SELECT *
+                    FROM `agendamento` WHERE `agendamento`.`idAgendamento` = $idAgendamento ";
+
+        $res = mysql_query($sql);
+
+        if (mysql_num_rows($res) == 0){
+            $res = "Nada encontrado!";
+        }
+        $obj_conecta->fechaConexao();
+
+        return $res;
+    }
 }
 
 ?>

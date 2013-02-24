@@ -27,9 +27,9 @@ class AgendamentoCtrl {
         $agendamento_obj->agendarAula($idAluno, $idProfessor, $agendamento);
     }
 
-    public function alterarStatus($idProfessor, $idAluno, $data, $status) {
+    public function alterarStatus($idAgendamento, $status) {
         $agendamento_obj = new AgendamentoDAO();
-        $agendamento_obj->alterarStatus($idProfessor, $idAluno, $data, $status);
+        $agendamento_obj->alterarStatus($idAgendamento, $status);
     }
       public function listarProfesffsoresDisponiveis($diaDaSemana, $horario, $materia, $data) {
         $disponibilidade_obj = new DisponibilidadeDAO();
@@ -91,6 +91,11 @@ class AgendamentoCtrl {
     public function listarAgendamento(){
         $agendamento_obj = new AgendamentoDAO();
         $this->res = $agendamento_obj->listarAgendamento();
+    }
+    
+    public function listarAgendamentoEspec($idAgendamento){
+        $agendamento_obj = new AgendamentoDAO();
+        $this->res = $agendamento_obj->listarAgendamentoEspec($idAgendamento);
     }
     
     public function getRes() {

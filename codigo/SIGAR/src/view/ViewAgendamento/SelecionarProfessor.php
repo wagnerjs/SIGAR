@@ -60,7 +60,7 @@
         $status = "Aula agendada";
         //echo $idAluno;
         $agendamentoCtrl->salvarAgendamento($idAluno, $idProfessor, $data, $horario,$status, $materia, utf8_decode($conteudo));
-        //header("location: http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAgendamento/AgendarAula.php");
+        header("location: http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAgendamento/AgendarAula.php");
     }
     ?>
 <!DOCTYPE html>
