@@ -23,7 +23,7 @@ class AgendamentoDAO {
     }
 
     public function fecharConexao() {
-        $this->obj_conecta->fechaConexao();
+        //$this->obj_conecta->fechaConexao();
     }
 
     /*
@@ -171,7 +171,30 @@ class AgendamentoDAO {
         if (mysql_num_rows($res) == 0) {
             $res = 0; // "Nenhum Professor não disponivel nos dias!"
             //echo "SQL: " . $sqll;
-        } 
+        }
+        return $res;
+    }
+
+    /*
+     * Listar todos os agendamentos
+     */
+
+    public function listarAgendamento() {
+        //Cria a conexão com o banco de dados
+        $obj_conecta = new bd();
+        $obj_conecta->conecta();
+        $obj_conecta->seleciona_bd();
+
+        $sql = "SELECT *
+                    FROM `agendamento` ";
+
+        $res = mysql_query($sql);
+
+        if (mysql_num_rows($res) == 0){
+            $res = "Nada encontrado!";
+        }
+        $obj_conecta->fechaConexao();
+
         return $res;
     }
 

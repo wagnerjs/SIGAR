@@ -164,10 +164,10 @@ class AlunoCrtl {
             $this->_res = $alunoDAO->listarAlunosAgendamento();
         }
         
-        public function listarPessoaAluno($alunoID)
+        public function listarPessoaAluno($idPessoaAluno)
         {
             $alunoDAO = new AlunoDAO();
-            return $alunoDAO->listarPessoaAlunos($alunoID);
+            return $alunoDAO->listarPessoaAlunos($idPessoaAluno);
         }
         
         public function listarResponsavel($alunoID)
@@ -195,6 +195,12 @@ class AlunoCrtl {
             $alunoDAO = new AlunoDAO();
             return $alunoDAO->listarAluno($alunoID);          
         }
+        
+        public function selecionarNome($alunoID) {            
+            $alunoDAO = new AlunoDAO();
+            return $alunoDAO->selecionarNome($alunoID);          
+        }
+        
         
 }     
 ?>

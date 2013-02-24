@@ -17,6 +17,7 @@ require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/DisponibilidadeDAO.php'
 class AgendamentoCtrl {
 
     protected $resProfessoresDisponiveis;
+    protected $res;
 
     public function salvarAgendamento($idAluno, $idProfessor, $data, $horario, $status, $materia, $conteudo) {
         $agendamento_obj = new AgendamentoDAO();
@@ -86,15 +87,16 @@ class AgendamentoCtrl {
     public function getResposta() {
         return $this->resProfessoresDisponiveis;
     }
+    
+    public function listarAgendamento(){
+        $agendamento_obj = new AgendamentoDAO();
+        $this->res = $agendamento_obj->listarAgendamento();
+    }
+    
+    public function getRes() {
+        return $this->res;
+    }
 
-    /*
-     * Seleciona a materia
-     * Seleciona o dia
-     * Seleciona o horário
-     * Agenda um aula
-     * **Listar professores que estão disponiveis pela materia dia e horário
-     * 
-     */
 }
 
 ?>

@@ -2,6 +2,8 @@
     $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
     require $url.'/view/ValidaSession.php';
     require_once $url.'/controller/ProfessorCtrl.php';
+    require_once $url.'/controller/AlunoCtrl.php';
+    require_once $url.'/controller/AgendamentoCtrl.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,6 +73,51 @@
                                     </tr>
                                 </thead>
                                     <tbody>
+                                        <?php
+                                        $professorCtrl = new ProfessorCtrl();
+                                        $alunoCtrl = new AlunoCrtl();
+                                        
+                                    $agendamentoCtrl = new AgendamentoCtrl();
+                                        $agendamentoCtrl->listarAgendamento();
+
+                                    if(@mysql_num_rows($agendamentoCtrl->getRes())>0){
+                                        for($i=0; $i<mysql_num_rows($agendamentoCtrl->getRes());$i++){
+                                    ?>
+                                    <tr>
+                                        <td><?php echo utf8_encode(mysql_result($agendamentoCtrl->getRes(),$i,'materia'));?></a></td>
+                                        <td><?php $dataRecebida = utf8_encode(mysql_result($agendamentoCtrl->getRes(),$i,'data'));
+                                                  $data = implode("/",array_reverse(explode("-",$dataRecebida)));
+                                                  echo $data;
+                                                    ?></td>
+                                        <td><?php echo utf8_encode(mysql_result($agendamentoCtrl->getRes(),$i,'horario'));?></td>
+                                        <td>
+                                            <?php 
+                                                $result = $professorCtrl->listarProfessor(utf8_encode(mysql_result($agendamentoCtrl->getRes(),$i,'idProfessor')));
+                                                echo utf8_encode($result['nome']);                                           
+                                            ?>                                       
+                                        </td>
+                                        <td>
+                                            <?php 
+                                            $resultado = $alunoCtrl->selecionarNome(utf8_encode(mysql_result($agendamentoCtrl->getRes(),$i,'idAluno')));
+                                            echo utf8_encode($resultado['nome']);                                           
+                                             
+                                            //echo utf8_encode(mysql_result($agendamentoCtrl->getRes(),$i,'idAluno'));
+                                            ?>
+                                        </td>
+                                        <td><?php echo utf8_encode(mysql_result($agendamentoCtrl->getRes(),$i,'status'));?></td>
+                                        
+                                    </tr>
+                                    <?php
+                                        }
+                                    }
+                                    else{ ?>
+                                        <tr>
+                                             <td colspan="7"><?php echo "<center>Nenhum registro encontrado!</center>" ?></td>   
+                                        </tr>
+                                    <?php
+                                    }
+                                        
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

@@ -18,7 +18,7 @@ class DisponibilidadeDAO {
     }
 
     public function fecharConexao() {
-        $this->obj_conecta->fechaConexao();
+       // $this->obj_conecta->fechaConexao();
     }
 
     /*
