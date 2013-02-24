@@ -67,6 +67,27 @@ class AlunoDAO {
 
         return $idPessoaAluno;
     }
+    public function listarAlunosAgendamento() {
+        //Cria a conexão com o banco de dados
+        $obj_conecta = new bd();
+        $obj_conecta->conecta();
+        $obj_conecta->seleciona_bd();
+
+        $sql = "SELECT  `pessoa`.* ,  `aluno`.* 
+            FROM  `pessoa` ,  `aluno` ,  `usuario` 
+            WHERE  `aluno`.`idUsuario` =  `usuario`.`idUsuario` 
+            AND  `usuario`.`idPessoa` =  `pessoa`.`idPessoa` 
+            LIMIT 0,5 ";
+
+        $res = mysql_query($sql);
+
+        if (mysql_num_rows($res) == 0)
+            $res = "Nada encontrado!";
+
+        $obj_conecta->fechaConexao();
+
+        return $res;
+    }
 
     public function listarAlunos() {
         //Cria a conexão com o banco de dados

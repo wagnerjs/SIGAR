@@ -3,6 +3,7 @@
     require $url.'/view/ValidaSession.php';
     require_once $url.'/controller/AgendamentoCtrl.php';
     require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/RemoveAssentos.php';
+    require_once $url.'/controller/AlunoCtrl.php';
     
     function removeAssentos($var) {
 
@@ -41,23 +42,25 @@
     $agendamentoCtrl = new AgendamentoCtrl();
     
     $data = $_POST['user_date'];   
-    $diaDaSemana = diaSemana($data);
+    $diaDaSemana = removeAssentos(diaSemana($data));
     $materia = $_POST['materia'];   
     $materia = removeAssentos($materia);
-    $idProfessor = 1;
+//    $idProfessor = 1;
     @$_horario = $_POST['horario'];
-    $idAluno = 1;
-    print_r($_horario);
-    echo $materia;
-    echo $diaDaSemana;
+    
+    //print_r($_horario);
+    //echo $materia;
+    //echo $diaDaSemana;
     
     if (isset($_POST['btEnviar'])) {
         $conteudo = $_POST['conteudo'];
         $idProfessor = $_POST['professor'];
         $horario = $_POST['horario'];
+        $idAluno = $_POST['idAluno'];
         $status = "Aula agendada";
+        //echo $idAluno;
         $agendamentoCtrl->salvarAgendamento($idAluno, $idProfessor, $data, $horario,$status, $materia, utf8_decode($conteudo));
-        header("location: http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAgendamento/AgendarAula.php");
+        //header("location: http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAgendamento/AgendarAula.php");
     }
     ?>
 <!DOCTYPE html>
@@ -103,7 +106,53 @@
                     <a href="AgendarAula.php"><span class="selected">      Agendar Aula      </span></a>
                     <!--<a href="#"><span class="selected"> Pesquisar Professor</span></a>-->
                     <div class="content">
+                          Pesquisar aluno:
+                           <form action="#">
+                                <fieldset>
+                                    <input type="text" name="search" value="" id="id_search" placeholder="Search" autofocus />
+                                </fieldset>
+                            </form>
                         <form class="spaces" name="form1" action="SelecionarProfessor.php" method="post">
+                                                    <table border="1" id="table_example">
+                                <thead>
+                                    <tr>
+                                        <th>Marcar</th>
+                                        <th>Nome</th>
+                                        <th>Email</th>
+                                        <th>Data Nascimento</th>
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                    <?php
+                                    $AlunoCtrl = new AlunoCrtl();
+                                    
+                                        $AlunoCtrl->listarAlunoAgendamento();
+
+                                    if(@mysql_num_rows($AlunoCtrl->getResposta())>0){
+                                        for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
+                                    ?>
+                                    <tr>
+                                        <td> <input name="idAluno" type="checkbox" value="<?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'idAluno')) ?>" /> </td>
+                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
+                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'email')); ?></td>
+                                        <td><?php $dataAlunoRecebida=utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'dataNascimento'));
+                                                  $dataAluno = implode("/",array_reverse(explode("-",$dataAlunoRecebida)));
+                                                  echo $dataAluno;
+                                                    ?></td>
+                                   </tr>
+                                    <?php
+                                        }
+                                    }
+                                    else{ ?>
+                                        <tr>
+                                             <td colspan="7"><?php echo "<center>Nenhum registro encontrado!</center>" ?></td>   
+                                        </tr>
+                                    <?php
+                                    }
+                                        
+                                    ?>
+                                </tbody>
+                            </table>    
                         <div class="spaces">
                             <b>Selecionar professor:</b>
                             <div class="row-fluid show-grid">
@@ -113,17 +162,18 @@
                                     <div>
                                         <b>Professores:</b><br>
                             <?php
-                              //$tam = count($_horario);
-                            //for($i=0;$i<$tam;$i++){
+                              $tam = count($_horario);
+                            for($k=0;$k<$tam;$k++){
                                 //echo $tam;
             
         
-                            //echo "Dia da Semana: ".$diaDaSemana." Horário: ".$horario." Matéria: ".$materia;
-                               // echo $_horario[$i];
-                            $agendamentoCtrl->listarProfessoresDisponiveis($diaDaSemana, $_horario[0], $materia);
+                            //echo "Dia da Semana: ".$diaDaSemana." Horário: ".$_horario[$i]." Matéria: ".$materia;
+                            //echo $_horario[$k];
+                            $agendamentoCtrl->listarProfessoresDisponiveis($diaDaSemana, $_horario[$k], $materia);
                             if(@mysql_num_rows($agendamentoCtrl->getResposta())>0){
                                 for($i=0; $i<mysql_num_rows($agendamentoCtrl->getResposta());$i++){
                                     $j=0;
+                                    $idProfessor = utf8_encode(mysql_result($agendamentoCtrl->getResposta(),$i,'idProfessor'));
                                     if($agendamentoCtrl->verificaAulaMarcada($idProfessor, $data) == 0){
                             ?>
                             <input name="professor" type="radio" value="<?php echo utf8_encode(mysql_result($agendamentoCtrl->getResposta(),$i,'idProfessor'));?>" /><?php echo utf8_encode(mysql_result($agendamentoCtrl->getResposta(),$i,'nome'));?><br/>
@@ -144,12 +194,15 @@
                             <b>Nenhum Professor encontrado </b><br/>    
                             <?php
                             }
-                            //}
+                            
                            ?>
                             
-                           <input name="materia" type="hidden" value="<?php echo $materia;?>" /> <br>
+                            <input name="materia" type="hidden" value="<?php echo removeAssentos($materia);?>" /> <br>
                            <input name="user_date" type="hidden" value="<?php echo $data;?>" /> <br>
-                           <input name="horario" type="hidden" value="<?php echo $_horario[0];?>" /> <br>
+                           <input name="horario" type="hidden" value="<?php echo $_horario[$k]; ?>" /> <br>
+                           <?php
+                           }
+                           ?>
                             
                            <br/>
                             </div>

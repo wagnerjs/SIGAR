@@ -158,6 +158,11 @@ class AlunoCrtl {
             $alunoDAO = new AlunoDAO();
             $this->_res = $alunoDAO->listarAlunos();
         }
+        public function listarAlunoAgendamento()
+        {
+            $alunoDAO = new AlunoDAO();
+            $this->_res = $alunoDAO->listarAlunosAgendamento();
+        }
         
         public function listarPessoaAluno($alunoID)
         {

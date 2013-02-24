@@ -70,13 +70,12 @@ class DisponibilidadeDAO {
         $this->criarConexao();
         $sql = "SELECT `agendamento`.`idAgendamento` FROM `agendamento` WHERE `agendamento`.`idProfessor`=" . $idProfessor . " AND `agendamento`.`data`='" . $data . "';";
         $res = mysql_query($sql);
-
-        if (mysql_num_rows($res) == 0) {
+        if (mysql_num_rows($res) == 0 || mysql_num_rows($res)=="") {
             $res = NULL; // "Nenhuma aula marcada!"
         } else {
             $res = mysql_fetch_array($res);
         }
-
+       
         $this->fecharConexao();
         return $res;
     }

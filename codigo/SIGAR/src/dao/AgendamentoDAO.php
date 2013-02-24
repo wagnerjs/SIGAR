@@ -167,10 +167,10 @@ class AgendamentoDAO {
                 AND materia.descricaoMateria =  '" . $materia . "'";
         $res = mysql_query($sqll);
 
-        echo "Linhas afetadas: " . mysql_num_rows($res) . "</br>";
+        //echo "Linhas afetadas: " . mysql_num_rows($res) . "</br>";
         if (mysql_num_rows($res) == 0) {
             $res = 0; // "Nenhum Professor não disponivel nos dias!"
-            echo "SQL: " . $sqll;
+            //echo "SQL: " . $sqll;
         } 
         return $res;
     }
