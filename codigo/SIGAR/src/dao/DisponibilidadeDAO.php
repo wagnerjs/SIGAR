@@ -220,6 +220,25 @@ class DisponibilidadeDAO {
         $this->fecharConexao();
         return $retorno;
     }
+    
+    /*
+     * Deletar dados da tabela dia
+     */
+
+    public function deletarDisponibilidade($idDisponibilidade) {
+        $retorno = 0;
+        $this->criarConexao();
+        $sql = "DELETE FROM `sigar`.`disponibilidade` WHERE `disponibilidade`.`idDisponibilidade` = " . $idDisponibilidade . ";";
+
+        if (mysql_query($sql)) {
+            $retorno = 1; //deletado com sucesso
+        } else {
+            $retorno = 0; //Erro a deletar dia
+        }
+        $this->fecharConexao();
+        return $retorno;
+    }
+    
 
     /*
      * Selecionar idDisponibilidade de acordo com o professor
@@ -258,7 +277,7 @@ class DisponibilidadeDAO {
             $retorno = NULL; //Nenhum IdAluno encontrado
         } else {
             $retorno = $resultadoIdDia;
-        }
+        } 
         $this->fecharConexao();
         return $retorno;
     }

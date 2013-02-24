@@ -37,18 +37,29 @@ class DisponibilidadeCtrl {
             return array($idDia, $idHorario);
         }
     }
-
+/*
+ * Metodo para excluir a disponilidade quando o professor sera excluido do banco
+ */
     public function deletarDisponibilidade($idProfessor) {
+        $disponibilidade_obj = new DisponibilidadeDAO();
+        $idDisponibilidade = $disponibilidade_obj->selecionarIdDisponibilidade($idProfessor);
+        $disponibilidade_obj->deletarDisponibilidade($idDisponibilidade);
+        
+    }
+    /*
+     * Metodo exclui dados relacionados a disponibilidade e mant'em o IDDISPONIBILIDADE
+     */
+    public function deletarDisponibilidadeCascata($idProfessor) {
         $disponibilidade_obj = new DisponibilidadeDAO();
 
         $idDisponibilidade = $disponibilidade_obj->selecionarIdDisponibilidade($idProfessor);
-        if ($idDisponibilidade == 0) {
+        if ($idDisponibilidade == 0 || $idDisponibilidade == NULL) {
             echo "Erro ao selecionar idDisponibilidade";
         }
 
         $arrayIdDia = $disponibilidade_obj->selecionarArrayIdDia($idDisponibilidade);
-
-        if (mysql_num_rows($arrayIdDia) > 0) {
+     
+        if (@mysql_num_rows($arrayIdDia) > 0) {
             for ($i = 0; $i < mysql_num_rows($arrayIdDia); $i++) {
                 $idDia = mysql_result($arrayIdDia, $i, 'idDia');
                 if ($disponibilidade_obj->deletarHorario($idDia) == 0) {

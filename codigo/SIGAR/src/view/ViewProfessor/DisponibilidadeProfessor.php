@@ -10,12 +10,11 @@
     $resultado = $objCtrlDisp->listarHorariosDisponiveis($idProfessor);
     
     if (isset($_POST['btnEnviar'])) {
-        
         @$_dia = $_POST['dia'];
         @$_horario = $_POST['horario'];
         $res = null;
         $tam = count($_horario);
-        
+        $objCtrlDisp->deletarDisponibilidadeCascata($idProfessor);
         for($i=0;$i<$tam;$i++){
             $objCtrlDisp->adicionarDisponibilidade($idProfessor, utf8_decode($_dia[$i]), utf8_decode($_horario[$i]));
         }
