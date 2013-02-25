@@ -105,12 +105,12 @@ class AlunoCrtl {
             $responsavel_obj = new Responsavel($_nomeResp,$_emailResp,$_telResResp, $_telCelResp, $_sexoResp, $_nascimentoResp, $_cpfResp, $_categoria, $_telTrabResp, $enderecoResp );
 
             $user_obj = new User();
-            $user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
+            //$user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
             $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_aluno, $responsavel_obj, $user_objeto);
 
             $alunoDAO = new AlunoDAO();
 
-            if ($alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_objeto) != NULL)
+            if ($alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_obj) != NULL)
             {
                 return 'Cadastro efetuado com sucesso!';
             }
@@ -134,7 +134,7 @@ class AlunoCrtl {
             $responsavel_obj = new Responsavel($_nomeResp,$_emailResp,$_telResResp, $_telCelResp, $_sexoResp, $_nascimentoResp, $_cpfResp, $_categoria, $_telTrabResp, $enderecoResp );
 
             $user_obj = new User();
-            $user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
+            //$user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
             $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_aluno, $responsavel_obj, $user_objeto);
 
             $alunoDAO = new AlunoDAO();
