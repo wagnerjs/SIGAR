@@ -59,7 +59,7 @@ $pdf->selectFont($url.'/utils/ezpdf/fonts/Helvetica-Bold.afm'); // Seleciona a f
 	//'width'=> 600 // tamanho da tabela
 
 	//Configurações do logotipo do relatório
-	$pdf->addJpegFromFile($url.'/view/img/Logo1.jpg',200,$pdf->y-230,230,0);
+	//$pdf->addJpegFromFile($url.'/view/img/Logo1.jpg',200,$pdf->y-230,230,0);
 	$options = array('justification'=>'center');
 	$pdf->ezText("<b>Aulas agendadas</b>\n",18,$options);// Define o texto do seu pdf, e o tamanho da fonte;
 	$pdf->ezTable($dadosTb,$titulos,'',$opcoes); //define os dados que irão na tabela, titulos e outras especificacoes
