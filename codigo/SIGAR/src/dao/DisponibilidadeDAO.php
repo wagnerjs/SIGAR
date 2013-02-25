@@ -260,7 +260,7 @@ class DisponibilidadeDAO {
 
         return $idDisponibilidade;
     }
-
+    
     /*
      * Busca todos os idDia com o idDisponibilidade
      */
@@ -272,7 +272,7 @@ class DisponibilidadeDAO {
 
         $resultadoIdDia = mysql_query($sql);
 
-        if (mysql_num_rows($resultadoIdDia) == 0) {
+        if (mysql_num_rows($resultadoIdDia) == 0 || mysql_num_rows($resultadoIdDia) == "") {
             $retorno = NULL; //Nenhum IdAluno encontrado
         } else {
             $retorno = $resultadoIdDia;

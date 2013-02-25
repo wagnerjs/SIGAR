@@ -24,32 +24,16 @@ class AgendamentoCtrl {
 
         $agendamento = new Agendamento(NULL, $idAluno, $idProfessor, $data, $horario, $status, $materia, $conteudo);
 
-        $agendamento_obj->agendarAula($idAluno, $idProfessor, $agendamento);
+        $retorno = $agendamento_obj->agendarAula($idAluno, $idProfessor, $agendamento);
+        
+        return $retorno;
     }
 
     public function alterarStatus($idAgendamento, $status) {
         $agendamento_obj = new AgendamentoDAO();
         $agendamento_obj->alterarStatus($idAgendamento, $status);
     }
-      public function listarProfesffsoresDisponiveis($diaDaSemana, $horario, $materia, $data) {
-        $disponibilidade_obj = new DisponibilidadeDAO();
-        $agendamento_obj = new AgendamentoDAO();
-        //listar todos os professores disponiveis naquele dia e horario
-        $arrayProfessores = $agendamento_obj->selecionaProfessoresDisponiveis($diaDaSemana, $horario, $materia);
-        if (mysql_num_rows($arrayProfessores) > 0) {
-            $j = 0;
-            for ($i = 0; $i < mysql_num_rows($arrayProfessores); $i++) {
-                $idProfessor = mysql_result($arrayProfessores, $i, 'idProfessor');
-                //Verificar se o professor já tem aula marcada naquele dia
-                if ($disponibilidade_obj->verificaAulaMarcada($idProfessor, $data) == 0) {
-                    //Se o professor não tem aula marcada então ele é retornado
-                    $this->resProfessoresDisponiveis[$j] = mysql_result($arrayProfessores, $i);
-                    $j++;
-                }
-            }
-        }
-    }
-
+     
     public function listarProfessoresDisponiveis($diaDaSemana, $horario, $materia) {
         $agendamento_obj = new AgendamentoDAO();
         //listar todos os professores disponiveis naquele dia e horario

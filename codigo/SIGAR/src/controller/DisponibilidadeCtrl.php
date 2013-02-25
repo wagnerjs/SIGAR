@@ -43,7 +43,8 @@ class DisponibilidadeCtrl {
     public function deletarDisponibilidade($idProfessor) {
         $disponibilidade_obj = new DisponibilidadeDAO();
         $idDisponibilidade = $disponibilidade_obj->selecionarIdDisponibilidade($idProfessor);
-        $disponibilidade_obj->deletarDisponibilidade($idDisponibilidade);
+        $retorno = $disponibilidade_obj->deletarDisponibilidade($idDisponibilidade);
+        return $retorno;
         
     }
     /*
