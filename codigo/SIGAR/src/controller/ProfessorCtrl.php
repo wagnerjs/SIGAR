@@ -78,11 +78,16 @@ class ProfessorCtrl {
                         $bairoProfessor, $cidadeProfessor, $complementoProf,
                         $numeroCasaProfessor, $ufProfessor, $referenciaProfessor);
 
-        $userObj = new User();
-        $userObj->cria_Usuario_Padrao($nomeProfessor, $nascProfessor);
+        $usuario=$emailProfessor;
+        
+        $cpfTiraPonto = str_replace('.', '', $cpfProfessor);
+        $cpfTiraTraço = str_replace('-', '', $cpfTiraPonto);
+        $_cpf = $cpfTiraTraço;
+        
+        $userObj = new User($usuario,  md5($_cpf));
 
         $professor = new Professor($nomeProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $sexoProfessor,
-                        $nascProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj,$materias);
+                        $nascProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj, $materias);
 
         $professorDao = new ProfessorDAO();
         $idPessoaProf = $professorDao->salvarPessoa($professor);
@@ -109,8 +114,13 @@ class ProfessorCtrl {
                         $bairoProfessor, $cidadeProfessor, $complementoProf,
                         $numeroCasaProfessor, $ufProfessor, $referenciaProfessor);
 
-        $userObj = new User();
-        $userObj->cria_Usuario_Padrao($nomeProfessor, $nascProfessor);
+        $usuario=$emailProfessor;
+        
+        $cpfTiraPonto = str_replace('.', '', $cpfProfessor);
+        $cpfTiraTraço = str_replace('-', '', $cpfTiraPonto);
+        $_cpf = $cpfTiraTraço;
+        
+        $userObj = new User($usuario,  md5($_cpf));
 
         $professor = new Professor($nomeProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $sexoProfessor,
                         $nascProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj, $materias);
@@ -144,6 +154,11 @@ class ProfessorCtrl {
     public function selecionarMateriasProfessor($idProfessor){
         $professorDao = new ProfessorDAO();
         $this->_resMaterias = $professorDao->selecionarMateriasProfessor($idProfessor);
+    }
+    
+    public function selecionarIdProfessor($idUsuario){
+        $professorDao = new ProfessorDAO();
+        return $professorDao->selecionarIdProfessor($idUsuario);
     }
 
     public function apagarProfessor($idProfessor) {
