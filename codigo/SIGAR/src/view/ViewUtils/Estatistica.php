@@ -1,7 +1,7 @@
 <?php
 	$url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
 	require $url.'/view/ValidaSession.php';
-    require_once $url.'/controller/AlunoCtrl.php';
+    require_once $url.'/controller/EstatisticaCtrl.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,40 +66,18 @@
                                 </thead>
                                     <tbody>
                                     <?php
-                                    $AlunoCtrl = new AlunoCrtl();
-                                        $AlunoCtrl->listarAluno();
-
-                                    if(@mysql_num_rows($AlunoCtrl->getResposta())>0){
-                                        for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
+                                    $estatisticaCtrl = new EstatisticaCtrl();
+                                    
+                                    $numerosAgendamentos = $estatisticaCtrl->selecionarNumeroAgendamentos();
+                                    $numeroAluno = $estatisticaCtrl->selecionarNumeroAlunos();
+                                    $numeroProfessor = $estatisticaCtrl->selecionarNumeroProfessores();
+                                 
                                     ?>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAluno/ListarDadosAluno.php?alunoID=<?php echo mysql_result($AlunoCtrl->getResposta(),$i,'idAluno');?>">
-                                        <?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
-                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'email')); ?></td>
-                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'escola'));?></td>
-                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'anoEscolar'));?></td>
-                                        <td><?php $dataAlunoRecebida=utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'dataNascimento'));
-                                                  $dataAluno = implode("/",array_reverse(explode("-",$dataAlunoRecebida)));
-                                                  echo $dataAluno;
-                                                    ?></td>
-                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'sexo')); ?></td>
-                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'telefoneResidencial'));?></td>
-                                        <td style='cursor: pointer'><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAluno/AlterarAluno.php?alunoID=<?php echo mysql_result($AlunoCtrl->getResposta(),$i,'idPessoa');?>"><img src='../img/edit.png' onClick="" alt="Editar"></a></td>
-                                        <td style='cursor: pointer'><a href="javascript: confirmarDeletar('<?php echo mysql_result($AlunoCtrl->getResposta(),$i,'idPessoa');?>') "><img src='../img/del.png' onClick="" alt="Deletar"></a></td>
-                                    </tr>
-                                    <?php
-                                        }
-                                    }
-                                    else{ ?>
-                                        <tr>
-                                             <td colspan="7"><?php echo "<center>Nenhum registro encontrado!</center>" ?></td>   
-                                        </tr>
-                                    <?php
-                                    }
-                                        
-                                    ?>
+                                 <tr>
+                                        <td> <?php echo $numerosAgendamentos ?></td>
+                                        <td><?php echo $numeroAluno ?></td>
+                                        <td><?php echo $numeroProfessor ?></td>
+                                 </tr>
                                 </tbody>
                             </table>
                         </div>
