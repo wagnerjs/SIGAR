@@ -18,7 +18,7 @@ class DisponibilidadeDAO {
     }
 
     public function fecharConexao() {
-        $this->obj_conecta->fechaConexao();
+       // $this->obj_conecta->fechaConexao();
     }
 
     /*
@@ -32,7 +32,7 @@ class DisponibilidadeDAO {
         $res = mysql_query($sql);
 
         if (mysql_num_rows($res) == 0) {
-            $res = 0; // "Nada encontrado!"
+            $res = NULL; // "Nada encontrado!"
         } else {
             $res = mysql_fetch_array($res);
         }
@@ -45,17 +45,19 @@ class DisponibilidadeDAO {
      */
 
     public function selecionaMaterias($idProfessor) {
-        $this->criarConexao();
+        $obj_conecta = new bd();
+        $obj_conecta->conecta();
+        $obj_conecta->seleciona_bd();
 
         $sql = "SELECT `professor`.`idProfessor`,`materia`.`descricaoMateria`  FROM `materia`,`professor_materia`, `professor` WHERE `materia`.`idMateria`=`professor_materia`.`idMateria` AND `professor`.`idProfessor`=`professor_materia`.`idProfessor` AND `professor`.`idProfessor` = " . $idProfessor . ";";
         $res = mysql_query($sql);
 
         if (mysql_num_rows($res) == 0) {
-            $res = 0; // "Nada encontrado!"
+            $res = NULL; // "Nada encontrado!"
         } else {
             $res = mysql_fetch_array($res);
         }
-        $this->fecharConexao();
+        //$this->fecharConexao();
 
         return $res;
     }
@@ -68,13 +70,12 @@ class DisponibilidadeDAO {
         $this->criarConexao();
         $sql = "SELECT `agendamento`.`idAgendamento` FROM `agendamento` WHERE `agendamento`.`idProfessor`=" . $idProfessor . " AND `agendamento`.`data`='" . $data . "';";
         $res = mysql_query($sql);
-
-        if (mysql_num_rows($res) == 0) {
-            $res = 0; // "Nenhuma aula marcada!"
+        if (mysql_num_rows($res) == 0 || mysql_num_rows($res)=="") {
+            $res = NULL; // "Nenhuma aula marcada!"
         } else {
             $res = mysql_fetch_array($res);
         }
-
+       
         $this->fecharConexao();
         return $res;
     }
@@ -91,7 +92,7 @@ class DisponibilidadeDAO {
         $res = mysql_query($sql);
 
         if (mysql_num_rows($res) == 0) {
-            $res = 0; // "Nenhum dia disponível!"
+            $res = NULL; // "Nenhum dia disponível!"
         } else {
             $res = mysql_fetch_array($res);
         }
@@ -110,15 +111,16 @@ class DisponibilidadeDAO {
         $sql = "SELECT `disponibilidade`.`idProfessor`,`pessoa`.`nome`,`dia`.`diaDaSemana`, `horario`.`descricao` FROM `disponibilidade`,`dia`,`horario`,`pessoa`,`usuario`,`professor`
 	WHERE `usuario`.`idPessoa` = `pessoa`.`idPessoa` 
 	AND `professor`.`idUsuario` = `usuario`.`idUsuario` 
+        AND `professor`.`idProfessor` = `disponibilidade`.`idProfessor`
 	AND `disponibilidade`.`idDisponibilidade`=`dia`.`idDisponibilidade` 
 	AND `dia`.`idDia`=`horario`.`idDia` 
 	AND `disponibilidade`.`idProfessor` = " . $idProfessor . ";";
         $res = mysql_query($sql);
 
         if (mysql_num_rows($res) == 0) {
-            $res = 0; // "Nenhum dia disponível!"
+            $res = NULL; // "Nenhum dia disponível!"
         } else {
-            $res = mysql_fetch_array($res);
+            //$res = mysql_fetch_array($res);
         }
 
         $this->fecharConexao();
@@ -136,6 +138,7 @@ class DisponibilidadeDAO {
 
         if (!mysql_query($sql)) {
             echo "Erro na inserção da tabela disponibilidade";
+            $idDisponibilidade = NULL;
         } else {
             $idDisponibilidade = mysql_insert_id();
         }
@@ -154,6 +157,7 @@ class DisponibilidadeDAO {
 
         if (!mysql_query($sql)) {
             echo "Erro na inserção da tabela dia";
+            $idDia = NULL;
         } else {
             $idDia = mysql_insert_id();
         }
@@ -171,7 +175,7 @@ class DisponibilidadeDAO {
         $sql = "INSERT INTO `sigar`.`horario` (`idHorario`, `idDia`, `descricao`) VALUES (NULL, '" . $idDia . "', '" . $descricaoHorario . "');";
 
         if (!mysql_query($sql)) {
-            $idHorario = 0; //"Erro na inserção da tabela Horario"
+            $idHorario = NULL; //"Erro na inserção da tabela Horario"
         } else {
             $idHorario = mysql_insert_id();
         }
@@ -185,15 +189,17 @@ class DisponibilidadeDAO {
      */
 
     public function deletarHorario($idDia) {
+        $retorno = 0;
         $this->criarConexao();
         $sql = "DELETE FROM `sigar`.`horario` WHERE `horario`.`idDia` = " . $idDia . ";";
 
         if (mysql_query($sql)) {
-            return 1; //deletado com sucesso
+            $retorno = 1; //deletado com sucesso
         } else {
-            return 0; //Erro a deletar horario
+            $retorno = 0; //Erro a deletar horario
         }
         $this->fecharConexao();
+        return $retorno;
     }
 
     /*
@@ -201,16 +207,37 @@ class DisponibilidadeDAO {
      */
 
     public function deletarDia($idDisponibilidade) {
+        $retorno = 0;
         $this->criarConexao();
         $sql = "DELETE FROM `sigar`.`dia` WHERE `dia`.`idDisponibilidade` = " . $idDisponibilidade . ";";
 
         if (mysql_query($sql)) {
-            return 1; //deletado com sucesso
+            $retorno = 1; //deletado com sucesso
         } else {
-            return 0; //Erro a deletar dia
+            $retorno = 0; //Erro a deletar dia
         }
         $this->fecharConexao();
+        return $retorno;
     }
+    
+    /*
+     * Deletar dados da tabela dia
+     */
+
+    public function deletarDisponibilidade($idDisponibilidade) {
+        $retorno = 0;
+        $this->criarConexao();
+        $sql = "DELETE FROM `sigar`.`disponibilidade` WHERE `disponibilidade`.`idDisponibilidade` = " . $idDisponibilidade . ";";
+
+        if (mysql_query($sql)) {
+            $retorno = 1; //deletado com sucesso
+        } else {
+            $retorno = 0; //Erro a deletar dia
+        }
+        $this->fecharConexao();
+        return $retorno;
+    }
+    
 
     /*
      * Selecionar idDisponibilidade de acordo com o professor
@@ -223,7 +250,7 @@ class DisponibilidadeDAO {
         $res = mysql_query($sql);
         $idDisponibilidade = 0;
         if (mysql_num_rows($res) == 0) {
-            $idDisponibilidade = 0; //Falha a selecionar o idDisponibilidade do professor
+            $idDisponibilidade = NULL; //Falha a selecionar o idDisponibilidade do professor
         } else {
             while ($aux = mysql_fetch_array($res)) {
                 $idDisponibilidade = $aux['idDisponibilidade'];
@@ -233,7 +260,7 @@ class DisponibilidadeDAO {
 
         return $idDisponibilidade;
     }
-
+    
     /*
      * Busca todos os idDia com o idDisponibilidade
      */
@@ -245,29 +272,29 @@ class DisponibilidadeDAO {
 
         $resultadoIdDia = mysql_query($sql);
 
-        if (mysql_num_rows($resultadoIdDia) == 0) {
-            $retorno = "Nada encontrado! "; //Nenhum IdAluno encontrado
+        if (mysql_num_rows($resultadoIdDia) == 0 || mysql_num_rows($resultadoIdDia) == "") {
+            $retorno = NULL; //Nenhum IdAluno encontrado
         } else {
             $retorno = $resultadoIdDia;
-        }
+        } 
         $this->fecharConexao();
         return $retorno;
     }
-    
+
     /*
      * Busca todos os idDia com o idDisponibilidade
      */
 
-    public function selecionarIdDia($idDisponibilidade,$diaDaSemana) {
+    public function selecionarIdDia($idDisponibilidade, $diaDaSemana) {
         $this->criarConexao();
 
         $sql = "SELECT `dia`.`idDia` FROM `dia` WHERE `dia`.`idDisponibilidade` = " . $idDisponibilidade . " 
-            AND `dia`.`diaDaSemana` = '".$diaDaSemana."';";
+            AND `dia`.`diaDaSemana` = '" . $diaDaSemana . "';";
 
         $res = mysql_query($sql);
         $idDia = 0;
         if (mysql_num_rows($res) == 0) {
-            $idDia = 0; //Falha a selecionar o idDisponibilidade do professor
+            $idDia = NULL; //Falha a selecionar o idDisponibilidade do professor
         } else {
             while ($aux = mysql_fetch_array($res)) {
                 $idDia = $aux['idDia'];
@@ -276,7 +303,7 @@ class DisponibilidadeDAO {
         $this->fecharConexao();
 
         return $idDia;
-    }  
+    }
 
 }
 

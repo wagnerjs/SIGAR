@@ -109,8 +109,8 @@ class Model_Professor_Test extends PHPUnit_Framework_TestCase {
      */
     public function testCriarUserNulo()
     {
-        $this->assertNull($this->user_obj->getLogin());
-        $this->assertNull($this->user_obj->getSenha());
+        $this->assertEquals("",$this->user_obj->getLogin());
+        $this->assertEquals("",$this->user_obj->getSenha());
     }
     
     /*

@@ -16,6 +16,7 @@ class validacaoPessoa_Test extends PHPUnit_Framework_TestCase {
     protected $nome;
     protected $email;
     protected $emailFga;
+    protected $emailRepetido;
     protected $telefone;
     protected $telefoneResid;
     protected $validaPessoa_obj;
@@ -30,6 +31,7 @@ class validacaoPessoa_Test extends PHPUnit_Framework_TestCase {
         $this->nome = "Sigar";
         $this->email = "sig@gmail.com";
         $this->emailFga = "sigarfga@gmail.com";
+        $this->emailRepetido = "sigarfga@gmail.com";
         $this->emailErrado = "sigarfgagmail.com";
         $this->telefone = "96538653";
         $this->telefoneResid = "81294824";
@@ -61,6 +63,9 @@ class validacaoPessoa_Test extends PHPUnit_Framework_TestCase {
         $this->assertEquals('0', $this->validaPessoa_obj->valida_email($this->email));
         $this->assertEquals('0', $this->validaPessoa_obj->valida_email($this->emailFga));
         $this->assertEquals('1', $this->validaPessoa_obj->valida_email($this->emailErrado));
+        $this->assertEquals('1', $this->validaPessoa_obj->email_repetido($this->emailRepetido));
+        $this->assertEquals('0', $this->validaPessoa_obj->email_repetido("abc@gmail.com"));
+        
     }
 
     /**

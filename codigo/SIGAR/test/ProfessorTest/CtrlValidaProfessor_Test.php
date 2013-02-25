@@ -57,7 +57,7 @@ class CtrlValidaProfessor_Test extends PHPUnit_Framework_TestCase {
      * @test
      */
     public function testeCtrlValidaProfessor(){
-        $this->assertEquals('<font color=green><b>Professor Cadastrado com sucesso!</b></font>',$this->retorno); 
+        $this->assertEquals('<font color=green><b>Professor Cadastrado com sucesso!</b></font><br>',$this->retorno); 
     }
 
 }

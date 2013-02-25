@@ -14,6 +14,11 @@ class User {
     private $_login;
     private $_senha;
 
+    function __construct($_login="", $_senha="") {
+        $this->_login = $_login;
+        $this->_senha = $_senha;
+    }
+
     public function setLogin($_login) {
         $this->_login = $_login;
     }
@@ -39,8 +44,24 @@ class User {
         $senha_array = explode("-", $nascimentoAluno);
         $senha = "*".$nome_array[0].$senha_array[0];
     */
-        $usuario=$nome_aluno;
-        $senha=$nascimentoAluno;
+        $usuario="";
+        $senha="";
+        
+        $user_obj = new User();
+        $user_obj->setLogin($usuario);
+        $user_obj->setSenha($senha);
+        
+        return $user_obj;
+    }
+    public function criaUsuarioPadraoProfesor($emailProfessor, $cpfProfessor){
+  
+        $usuario=$emailProfessor;
+        
+        $cpfTiraPonto = str_replace('.', '', $cpfProfessor);
+        $cpfTiraTraço = str_replace('-', '', $cpfTiraPonto);
+        $_cpf = $cpfTiraTraço;
+        
+        $senha=$_cpf;
         
         $user_obj = new User();
         $user_obj->setLogin($usuario);

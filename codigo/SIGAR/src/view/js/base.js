@@ -16,13 +16,45 @@ $(document).ready(function(){
     $('#dispCalendar td').click(function(){
         if ($(this).attr('class') == "selection") {
             //alert("cacete!");
-            $(this).css('background-color','#e5f1f4');
             $(this).attr('class','');
         }
         else {
-            $(this).css('background-color','#ffa79a');
             $(this).attr('class','selection');
         }
+    });
+    
+    $('#cadEnvDisp').click(function(){
+       var dia = new Array();
+       var horario = new Array();
+       var i = -1;
+       $('.selection').each(function(){
+           i = i + 1;
+           dia[i] = $(this).attr('name');
+           horario[i] = $(this).html();       
+       });
+       
+       $('#DispTest').append("<br>");
+       for (var e = 0; e <= i; e++) {
+           $('#DispTest').append("<input name='dia[]' type='text' value="+dia[e]+" id='esconder'/> <input name='horario[]' type='text' value="+horario[e]+" id='esconder'/><br>");
+       } 
+       
+       
+    });
+    
+    $('#cadEnvDisp2').click(function(){
+       var horario = new Array();
+       var i = -1;
+       $('.selection').each(function(){
+           i = i + 1;
+           horario[i] = $(this).html();       
+       });
+       
+       $('#DispTest').append("<br>");
+       for (var e = 0; e <= i; e++) {
+           $('#DispTest').append("<input name='horario[]' type='text' value="+horario[e]+" id='esconder' /><br>");
+       } 
+       
+       
     });
     
     $('#login input').focus(function(){ 

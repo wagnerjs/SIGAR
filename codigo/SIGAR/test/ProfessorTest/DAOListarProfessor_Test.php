@@ -18,6 +18,7 @@ class DAOListarProfessor_Test extends PHPUnit_Framework_TestCase{
     
     public function setUp(){
         $this->idProfessor = 1;
+        $this->idUsuario = 1;
     }
 
     /*
@@ -27,6 +28,7 @@ class DAOListarProfessor_Test extends PHPUnit_Framework_TestCase{
         $professorDao = new ProfessorDAO();
         
         $this->assertNotNull($professorDao->listarProfessor($this->idProfessor));
+        $this->assertNotNull($professorDao->selecionarIdProfessor($this->idUsuario));
     }
 
 }

@@ -96,7 +96,7 @@
                                         <td><?php echo utf8_encode(mysql_result($professorCtrl->getResposta(),$i,'telefoneResidencial'));?></td>
                                         <td style='cursor: pointer'><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewProfessor/AlterarProfessor.php?professorID=<?php echo mysql_result($professorCtrl->getResposta(),$i,'idProfessor');?>"><img src='../img/edit.png' onClick="" alt="Editar"></a></td>
                                         <td style='cursor: pointer'><a href="javascript: confirmarDeletar('<?php echo mysql_result($professorCtrl->getResposta(),$i,'idProfessor');?>') "><img src='../img/del.png' onClick="" alt="Deletar"></a></td>
-                                        <td style='cursor: pointer; text-align: center;'><a href="DisponibilidadeProfessor.php"><img src='../img/icon-calendar.png' onClick="" alt="Deletar"></a></td>
+                                        <td style='cursor: pointer; text-align: center;'><a href="http://localhost/SIGAR/codigo/SIGAR/src/view/ViewProfessor/DisponibilidadeProfessor.php?professorID=<?php echo base64_encode(serialize(mysql_result($professorCtrl->getResposta(),$i,'idProfessor')));?>"><img src='../img/icon-calendar.png' onClick="" alt="Deletar"></a></td>
                                     </tr>
                                     <?php
                                         }

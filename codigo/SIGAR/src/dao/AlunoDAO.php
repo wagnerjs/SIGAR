@@ -67,6 +67,27 @@ class AlunoDAO {
 
         return $idPessoaAluno;
     }
+    public function listarAlunosAgendamento() {
+        //Cria a conexão com o banco de dados
+        $obj_conecta = new bd();
+        $obj_conecta->conecta();
+        $obj_conecta->seleciona_bd();
+
+        $sql = "SELECT  `pessoa`.* ,  `aluno`.* 
+            FROM  `pessoa` ,  `aluno` ,  `usuario` 
+            WHERE  `aluno`.`idUsuario` =  `usuario`.`idUsuario` 
+            AND  `usuario`.`idPessoa` =  `pessoa`.`idPessoa` 
+            LIMIT 0,5 ";
+
+        $res = mysql_query($sql);
+
+        if (mysql_num_rows($res) == 0)
+            $res = "Nada encontrado!";
+
+        //$obj_conecta->fechaConexao();
+
+        return $res;
+    }
 
     public function listarAlunos() {
         //Cria a conexão com o banco de dados
@@ -117,7 +138,32 @@ class AlunoDAO {
         else
             $res = mysql_fetch_array($res);
 
-        $obj_conecta->fechaConexao();
+        //$obj_conecta->fechaConexao();
+
+        return $res;
+    }
+    public function selecionarNome($alunoID) {
+        //Cria a conexão com o banco de dados
+        $obj_conecta = new bd();
+        $obj_conecta->conecta();
+        $obj_conecta->seleciona_bd();
+
+        $sql = "SELECT `pessoa`.nome 
+                    FROM `pessoa` , `aluno` , `usuario`
+                    WHERE `aluno`.`idUsuario` = `usuario`.`idUsuario` 
+                    AND `usuario`.`idPessoa` = `pessoa`.`idPessoa` 
+                    AND `aluno`.`idAluno` = $alunoID ";
+
+        $res = mysql_query($sql);
+
+        if (mysql_num_rows($res) == 0){
+            $res = "Nada encontrado!";
+        }
+        else{
+            $res = mysql_fetch_array($res);
+        }
+
+        //$obj_conecta->fechaConexao();
 
         return $res;
     }
@@ -144,7 +190,7 @@ class AlunoDAO {
             $res = mysql_fetch_array($res);
         }
 
-        $obj_conecta->fechaConexao();
+        //$obj_conecta->fechaConexao();
 
         return $res;
     }
@@ -171,7 +217,7 @@ class AlunoDAO {
             $res = mysql_fetch_array($res);
         }
 
-        $obj_conecta->fechaConexao();
+        //$obj_conecta->fechaConexao();
 
         return $res;
     }
@@ -204,7 +250,7 @@ class AlunoDAO {
             $res = mysql_fetch_array($res);
         }
 
-        $obj_conecta->fechaConexao();
+        //$obj_conecta->fechaConexao();
 
         return $res;
     }
@@ -218,6 +264,7 @@ class AlunoDAO {
                 AND `aluno`.`idAluno` =" . $idAluno . ";";
         $resultadoIdAluno = mysql_query($sql);
         $idAluno = 0;
+        echo $resultadoIdAluno;
         while ($aux = mysql_fetch_array($resultadoIdAluno)) {
             $idAluno = $aux['idPessoa'];
         }

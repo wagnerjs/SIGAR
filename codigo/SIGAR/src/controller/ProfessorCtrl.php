@@ -23,21 +23,32 @@ class ProfessorCtrl {
 
         $validaProfessor = new validacaoProfessor();
         $this->_res += $validaProfessor->valida_meio_transporte($meioDeTransporte);
+        //echo "valida transporte".$this->_res."<br>";
         $this->_res += $validaProfessor->valida_Materias($materias);
-
+        //echo "valida materiais".$this->_res."<br>";
         $validaEndereco = new validacaoEndereco();
+       // echo "valida end".$this->_res."<br>";
         $this->_res += $validaEndereco->valida_logradouro($logradouroProfessor);
+        //echo "valida logradouro".$this->_res;
         $this->_res += $validaEndereco->valida_numero_casa($numeroCasaProfessor);
+        //echo "valida numero".$this->_res."<br>";
         $this->_res += $validaEndereco->valida_bairro($bairoProfessor);
+        //echo "valida bairro".$this->_res."<br>";
         $this->_res += $validaEndereco->valida_cidade($cidadeProfessor);
+        //echo "valida cei".$this->_res."<br>";
         $this->_res += $validaEndereco->valida_cep($cepProfessor);
+       //echo "valida cep".$this->_res."<br>";
 
         $validaPessoa = new validacaoPessoa();
         $this->_res += $validaPessoa->valida_nome($nomeProfessor);
+       // echo "valida nome".$this->_res."<br>";
         $this->_res += $validaPessoa->valida_email($emailProfessor);
+        //echo "valida email".$this->_res."<br>";
         $this->_res += $validaPessoa->valida_telefone_resid($telResProfessor);
+        //echo "valida telres".$this->_res."<br>";
 
         $this->_res += $validaPessoa->validacpf($cpfProfessor);
+        //echo "valida end".$this->_res."<br>";
         
 
         if ($opcao == 1) {
@@ -48,7 +59,7 @@ class ProfessorCtrl {
         if ($this->_res == 0) {
             if ($opcao == 1) {
                 $this->instanciarProfessor($nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $cpfProfessor, $meioDeTransporte, $cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor, $cidadeProfessor, $ufProfessor, $referenciaProfessor, $materias);
-                $mensagem = "<font color=green><b>Professor Cadastrado com sucesso!</b></font>";
+                $mensagem = "<font color=green><b>Professor Cadastrado com sucesso!</b></font><br>";
             } else {
 
                 $this->instanciarAlterarProfessor($idProfessor, $nomeProfessor, $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $cpfProfessor, $cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf, $bairoProfessor, $cidadeProfessor, $ufProfessor, $referenciaProfessor, $meioDeTransporte, $materias);
@@ -67,11 +78,16 @@ class ProfessorCtrl {
                         $bairoProfessor, $cidadeProfessor, $complementoProf,
                         $numeroCasaProfessor, $ufProfessor, $referenciaProfessor);
 
-        $userObj = new User();
-        $userObj->cria_Usuario_Padrao($nomeProfessor, $nascProfessor);
+        $usuario=$emailProfessor;
+        
+        $cpfTiraPonto = str_replace('.', '', $cpfProfessor);
+        $cpfTiraTraço = str_replace('-', '', $cpfTiraPonto);
+        $_cpf = $cpfTiraTraço;
+        
+        $userObj = new User($usuario,  md5($_cpf));
 
         $professor = new Professor($nomeProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $sexoProfessor,
-                        $nascProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj,$materias);
+                        $nascProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj, $materias);
 
         $professorDao = new ProfessorDAO();
         $idPessoaProf = $professorDao->salvarPessoa($professor);
@@ -98,8 +114,13 @@ class ProfessorCtrl {
                         $bairoProfessor, $cidadeProfessor, $complementoProf,
                         $numeroCasaProfessor, $ufProfessor, $referenciaProfessor);
 
-        $userObj = new User();
-        $userObj->cria_Usuario_Padrao($nomeProfessor, $nascProfessor);
+        $usuario=$emailProfessor;
+        
+        $cpfTiraPonto = str_replace('.', '', $cpfProfessor);
+        $cpfTiraTraço = str_replace('-', '', $cpfTiraPonto);
+        $_cpf = $cpfTiraTraço;
+        
+        $userObj = new User($usuario,  md5($_cpf));
 
         $professor = new Professor($nomeProfessor, $emailProfessor, $telResProfessor, $celularProfessor, $sexoProfessor,
                         $nascProfessor, $cpfProfessor, $meioDeTransporte, $objEndProfessor, $userObj, $materias);
@@ -133,6 +154,11 @@ class ProfessorCtrl {
     public function selecionarMateriasProfessor($idProfessor){
         $professorDao = new ProfessorDAO();
         $this->_resMaterias = $professorDao->selecionarMateriasProfessor($idProfessor);
+    }
+    
+    public function selecionarIdProfessor($idUsuario){
+        $professorDao = new ProfessorDAO();
+        return $professorDao->selecionarIdProfessor($idUsuario);
     }
 
     public function apagarProfessor($idProfessor) {

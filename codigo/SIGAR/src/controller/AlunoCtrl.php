@@ -105,12 +105,12 @@ class AlunoCrtl {
             $responsavel_obj = new Responsavel($_nomeResp,$_emailResp,$_telResResp, $_telCelResp, $_sexoResp, $_nascimentoResp, $_cpfResp, $_categoria, $_telTrabResp, $enderecoResp );
 
             $user_obj = new User();
-            $user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
-            $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_aluno, $responsavel_obj, $user_objeto);
+            //$user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
+            $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_aluno, $responsavel_obj, $user_obj);
 
             $alunoDAO = new AlunoDAO();
 
-            if ($alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_objeto) != NULL)
+            if ($alunoDAO->salvarAluno($aluno_obj, $responsavel_obj, $user_obj) != NULL)
             {
                 return 'Cadastro efetuado com sucesso!';
             }
@@ -134,8 +134,8 @@ class AlunoCrtl {
             $responsavel_obj = new Responsavel($_nomeResp,$_emailResp,$_telResResp, $_telCelResp, $_sexoResp, $_nascimentoResp, $_cpfResp, $_categoria, $_telTrabResp, $enderecoResp );
 
             $user_obj = new User();
-            $user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
-            $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_aluno, $responsavel_obj, $user_objeto);
+            //$user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
+            $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_aluno, $responsavel_obj, $user_obj);
 
             $alunoDAO = new AlunoDAO();
             
@@ -158,11 +158,16 @@ class AlunoCrtl {
             $alunoDAO = new AlunoDAO();
             $this->_res = $alunoDAO->listarAlunos();
         }
-        
-        public function listarPessoaAluno($alunoID)
+        public function listarAlunoAgendamento()
         {
             $alunoDAO = new AlunoDAO();
-            return $alunoDAO->listarPessoaAlunos($alunoID);
+            $this->_res = $alunoDAO->listarAlunosAgendamento();
+        }
+        
+        public function listarPessoaAluno($idPessoaAluno)
+        {
+            $alunoDAO = new AlunoDAO();
+            return $alunoDAO->listarPessoaAlunos($idPessoaAluno);
         }
         
         public function listarResponsavel($alunoID)
@@ -190,6 +195,12 @@ class AlunoCrtl {
             $alunoDAO = new AlunoDAO();
             return $alunoDAO->listarAluno($alunoID);          
         }
+        
+        public function selecionarNome($alunoID) {            
+            $alunoDAO = new AlunoDAO();
+            return $alunoDAO->selecionarNome($alunoID);          
+        }
+        
         
 }     
 ?>
