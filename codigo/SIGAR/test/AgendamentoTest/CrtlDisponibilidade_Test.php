@@ -36,6 +36,7 @@ class CrtlDisponibilidade_Test extends PHPUnit_Framework_TestCase {
         //$DisponiblidadeCtrl->adicionarDisponibilidade($this->idProfessor, $this->diaDaSemana, $this->descricaoHorario);
 
         $this->assertArrayHasKey(1, $DisponiblidadeCtrl->adicionarDisponibilidade($this->idProfessor, $this->diaDaSemana, $this->descricaoHorario));
+        $this->assertArrayHasKey(1, $DisponiblidadeCtrl->adicionarDisponibilidade($this->idProfessor, NULL, $this->descricaoHorario));
     }
 
     /**
