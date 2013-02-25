@@ -2,6 +2,7 @@
 	$url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
 	require  'ValidaSession.php';
 	require_once $url.'/utils/Conexao.class.php';
+        require_once $url.'/controller/ProfessorCtrl.php';
 
 	if(isset($_POST['enviar'])){
 		$obj_conecta = new bd;
@@ -14,9 +15,16 @@
 
 		$obj_conecta->fechaConexao();
 
-		if($ObjSessao->getResposta()==null)
-			header("location: TelaPrincipal.php");
+		if($ObjSessao->getResposta()==null){
+                    if($ObjSessao->getIdLogin()==1)  
+                        header("location: TelaPrincipal.php");
+                    else{
+                        $idProfessor;
+                        header("location: ViewProfessor/DisponibilidadeProfessor.php?professorID="+$idProfessor+"");
+                        }
+                    }
 	}
+			
 ?>
 <!DOCTYPE html>
 <html lang="en">
