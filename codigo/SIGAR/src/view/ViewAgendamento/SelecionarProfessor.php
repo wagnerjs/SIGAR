@@ -2,7 +2,6 @@
     $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
     require $url.'/view/ValidaSession.php';
     require_once $url.'/controller/AgendamentoCtrl.php';
-    require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/RemoveAssentos.php';
     require_once $url.'/controller/AlunoCtrl.php';
     
     function removeAssentos($var) {

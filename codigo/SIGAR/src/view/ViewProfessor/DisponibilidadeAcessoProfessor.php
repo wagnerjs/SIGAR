@@ -63,6 +63,11 @@
   <script src="../js/base.js"></script>
   <script src="../js/formCadastroProfessor.js"></script>
   <link href="../css/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
+  <script>
+      function atualizar(){
+        window.location.reload();
+      }
+  </script>
 </head>
 <body>
     <div id="boxes">
@@ -74,16 +79,16 @@
 <div id="mask"></div>
 </div>
         <div class="container">
-            <a href="../TelaPrincipal.php"><img src="../img/logo.png" vspace="50"/></a>
+            <img src="../img/logo.png" vspace="50"/>
             <p class="status">Logado como:<b> <?php echo $ObjSessao->getUsuario();?> | <a href= "../Logoff.php" >Sair</b></a></p>
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="CadastroProfessor.php"><span class="normal"> Cadastrar Professor</span></a>
-                    <a href="PesquisaProfessor.php"><span class="selected"> Pesquisar Professor</span></a>
+                    <span class="selected"> Pesquisar Professor</span>
+                    <a href="#" onclick="atualizar()"><span class="normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atualizar Dados&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                     <div class="content">
                         <div class="spaces">
-                            <form id="DispTest" name="form1" action="DisponibilidadeProfessor.php?professorID=<?php echo $idProfessor; ?>" method="post">
+                            <form id="DispTest" name="form1" action="DisponibilidadeAcessoProfessor.php?professorID=<?php echo base64_encode(serialize($idProfessor)); ?>" method="post">
                             <?php echo @$res; ?>
                             <b>Disponibilidade do professor <span id="profName"></span></b><br/>
                             Clique nos horários disponíveis deste professor.
@@ -915,7 +920,7 @@
                                     </tbody>
                                 </table>
                             </div>                            
-                                <input id="cadEnvDisp" type="submit" name="btnEnviar" value="Enviar" />
+                                <input id="cadEnvDisp" type="submit" name="btnEnviar" value="Enviar"/>
                             </form>
                         </div>
                     </div>

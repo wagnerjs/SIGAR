@@ -106,7 +106,7 @@ class AlunoCrtl {
 
             $user_obj = new User();
             //$user_objeto = $user_obj->cria_Usuario_Padrao($_nomeAluno, $_nascimentoAluno);
-            $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_aluno, $responsavel_obj, $user_objeto);
+            $aluno_obj = new Aluno ($_nomeAluno,$_sexoAluno,$_nascimentoAluno,$_emailAluno,$_anoEscolar,$_telResidencial,$_telCelular,$_escola,$endereco_aluno, $responsavel_obj, $user_obj);
 
             $alunoDAO = new AlunoDAO();
 

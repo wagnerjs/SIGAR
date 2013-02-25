@@ -14,7 +14,7 @@ class User {
     private $_login;
     private $_senha;
 
-    function __construct($_login, $_senha) {
+    function __construct($_login="", $_senha="") {
         $this->_login = $_login;
         $this->_senha = $_senha;
     }

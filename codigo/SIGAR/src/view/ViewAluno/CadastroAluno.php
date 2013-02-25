@@ -50,7 +50,7 @@
 				$nomeResp, $parentesco, $cpfResp,$emailResp, $telResp, $sexoResp, $dataResp,$telCelularResp,$telTrabResp,
 				$mesmoEnd,$enderecoAluno,$numeroAluno,$complementoAluno,$bairroAluno,$cidadeAluno,$ufAluno,$cepAluno,$referenciaAluno,
 				$enderecoResp, $numeroResp, $complementoResp, $bairroResp,$cidadeResp,$ufResp,$cepResp,$referenciaResp,1);
-                echo $res;
+                //echo $res;
                 
                 if($res == "<font color=green><b>Aluno Cadastrado com sucesso!</b></font>")
                     echo "<script type='text/javascript'>alert('Cadastro realizado com sucesso!');</script>";
@@ -99,6 +99,7 @@
                         <div>                           
                             <form class="spaces" name="form1" action="CadastroAluno.php" method="post" onSubmit="return verificaDados()">
                                     <?php echo @$res; ?>
+                                    <br>
                                     <b>Dados do Aluno</b>
                                     <hr/>
                                     <div class="row-fluid show-grid">

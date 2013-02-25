@@ -5,6 +5,7 @@
         require_once $url.'/controller/ProfessorCtrl.php';
 
 	if(isset($_POST['enviar'])){
+                @$professorCtrl = new ProfessorCtrl();
 		$obj_conecta = new bd;
 			$obj_conecta->conecta();
 			$obj_conecta->seleciona_bd();
@@ -16,11 +17,12 @@
 		$obj_conecta->fechaConexao();
 
 		if($ObjSessao->getResposta()==null){
-                    if($ObjSessao->getIdLogin()==1)  
+                    if($ObjSessao->getIdLogin()==1){
                         header("location: TelaPrincipal.php");
+                    }
                     else{
-                        $idProfessor;
-                        header("location: ViewProfessor/DisponibilidadeProfessor.php?professorID="+$idProfessor+"");
+                            $idProfessor = $professorCtrl->selecionarIdProfessor($ObjSessao->getIdLogin());
+                            header("location: http://localhost/SIGAR/codigo/SIGAR/src/view/ViewProfessor/DisponibilidadeAcessoProfessor.php?professorID=".base64_encode(serialize($idProfessor))."");
                         }
                     }
 	}
