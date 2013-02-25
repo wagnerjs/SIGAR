@@ -42,8 +42,8 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="#"><span class="selected">Cadastrar Alunos</span></a>
-                    <a href="PesquisaAluno.php"><span class="normal">Pesquisar Alunos</span></a>
+                    <a href="CadastroAluno.php"><span class="normal">    Cadastrar Aluno  </span></a>
+                    <a href="PesquisaAluno.php"><span class="selected">    Pesquisar Aluno  </span></a>
                     <div class="content">
                         <div>                           
                             <form name="form1" action="CadastroAluno.php" method="post">

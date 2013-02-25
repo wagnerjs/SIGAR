@@ -98,16 +98,17 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="#"><span class="normal">Cadastrar Alunos</span></a>
-                    <a href="PesquisaAluno.php"><span class="selected">Pesquisar Alunos</span></a>
+                    <a href="CadastroAluno.php"><span class="normal">    Cadastrar Aluno  </span></a>
+                    <a href="PesquisaAluno.php"><span class="selected">    Pesquisar Aluno  </span></a>
                     <div class="content">
-                        <div>                           
+                        <div>                        
                             <form name="form1" action="AlterarAluno.php?alunoID=<?php echo $idPessoaAluno; ?>" method="post">
-                                    <?php echo @$resposta; ?><br/><br/>
+                                    <?php echo @$resposta; ?>
+                                    <br/>
                                     <b>Dados do Aluno</b>
                                     <hr/>
                                     <div class="row-fluid show-grid">
-                                        <div class="span6">
+                                    <div class="span6">
                                     Nome:<br/> <span><input type="text" name="txtNome" size="10" maxlength="50" id="inputNome" class="necessary" value="<?php echo utf8_encode($res['nome']); ?>"></span><br>
                                     Sexo: <?php if($res['sexo']=='m'){ ?>
                                            <input type="radio" name="sexo" value="m" class="necessary" checked> Masculino
@@ -125,7 +126,6 @@
                                     Telefone Celular:<br/> <span><input type="text"  name="telCelular" size="10" maxlength="14" onkeypress="mascara(this, mtel );" class="tel" value="<?php echo $res['telefoneCelular'] ?>"  ></span><br>
                                     Ano Escolar:
                                     <select name="anoEscolar" >
-                                    
                                     <?php if($res['anoEscolar']=='1ef'){ ?>
                                         <option value="1ef" selected>1º ano do Ensino Fundamental</option>
                                     <?php }else if($res['anoEscolar']=='2ef'){ ?>
