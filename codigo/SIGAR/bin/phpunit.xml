@@ -8,12 +8,19 @@
              <directory suffix=".php">../src/DAO</directory>
               <directory suffix=".php">../src/controller</directory>
                <directory suffix=".php">../src/exception</directory>
-                <directory suffix=".php">../src/utils</directory>
         </whitelist>
         
         <exclude>
         <directory suffix=".php">../bin</directory>
         <file>bootstrap.php</file>
+      </exclude>
+       <exclude>
+        <directory suffix=".php">../utils.php</directory>
+        <file>Class.Pdf.php</file>
+      </exclude>
+       <exclude>
+        <directory suffix=".php">../bin</directory>
+        <file>Class.Ezpdf.php</file>
       </exclude>
     </filter>
 </phpunit>
