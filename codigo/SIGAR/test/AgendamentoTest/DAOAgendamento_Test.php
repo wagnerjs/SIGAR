@@ -1,5 +1,6 @@
 <?php
 require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/AgendamentoDAO.php";
+require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/ProfessorDAO.php";
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -12,6 +13,7 @@ require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/AgendamentoDAO.php";
  */
 class DAOAgendamento_Test extends PHPUnit_Framework_TestCase{
     protected $agendObj;
+    protected $objProfDAO;
     protected $agendamento;
     protected $idAgendamento;
     protected $idAluno;
@@ -25,6 +27,7 @@ class DAOAgendamento_Test extends PHPUnit_Framework_TestCase{
     
     
     public function setUP(){
+    $this->objProfDAO = new ProfessorDAO();
     
     $this->idAgendamento = NULL;
     $this->idAluno = 1;
@@ -63,6 +66,16 @@ class DAOAgendamento_Test extends PHPUnit_Framework_TestCase{
         //Teste do método excluirAgendamento da classe AgendamentoDAO
         $this->assertEquals(1, $this->agendamento->excluirAgendamento(1));
         $this->assertEquals(0, $this->agendamento->excluirAgendamento("erro"));
+    }
+    
+    //Teste para função criarCheckMaterias da classe ProfessorDAO
+     /*
+     * @test
+     * 
+     * 
+     */
+    public function testCheckMaterias(){
+        $this->assertNotNull($this->objProfDAO->criarCheckMaterias());
     }
 }
 
