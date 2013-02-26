@@ -71,7 +71,7 @@ class CrtlDisponibilidade_Test extends PHPUnit_Framework_TestCase {
     public function testListarHorariosDisponiveis() {
         $DisponiblidadeCtrl = new DisponibilidadeCtrl();
         $this->assertNull($DisponiblidadeCtrl->listarHorariosDisponiveis($this->idProfessor));
-        $this->assertNull($DisponiblidadeCtrl->getResposta());
+        $this->assertNotNull($DisponiblidadeCtrl->getResposta());
     }
 
 }

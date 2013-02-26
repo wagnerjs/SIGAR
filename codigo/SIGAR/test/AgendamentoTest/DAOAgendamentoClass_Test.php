@@ -31,7 +31,7 @@ class DAOAgendamentoClass_Test extends PHPUnit_Framework_TestCase{
     $this->idAlunoErro = "erro";
     $this->idProfessor = 1;
     $this->idProfessorErro = "erro";
-    $this->data = 2013-02-01;
+    $this->data = "2013-02-01";
     $this->horario = "10-12";
     $this->status = "Marcado";
     $this->materia = "Matematica";
