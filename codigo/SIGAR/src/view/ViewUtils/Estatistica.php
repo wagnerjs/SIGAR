@@ -46,8 +46,7 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="../ViewAluno/CadastroAluno.php"><span class="normal">    Cadastrar Aluno  </span></a>
-                    <a href="#"><span class="selected">    Pesquisar Aluno  </span></a>
+                    <a href="../ViewUtils/Estatistica.php"><span class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    Estatística  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                     <div class="content">
                         <div class="spaces">
                             <table border="1" id="table_example">

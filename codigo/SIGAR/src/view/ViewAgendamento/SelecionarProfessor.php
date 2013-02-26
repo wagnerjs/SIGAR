@@ -41,6 +41,7 @@
     $agendamentoCtrl = new AgendamentoCtrl();
     
     $data = $_POST['user_date'];   
+  
     $diaDaSemana = removeAssentos(diaSemana($data));
     $materia = $_POST['materia'];   
     $materia = removeAssentos($materia);
@@ -111,11 +112,14 @@
                     <a href="AgendarAula.php"><span class="selected">      Agendar Aula      </span></a>
                     <!--<a href="#"><span class="selected"> Pesquisar Professor</span></a>-->
                     <div class="content">
+                        <form class="spaces" name="form1" action="SelecionarProfessor.php" method="post">
                         <div class="spaces">
+                            
                             <b>Selecionar professor:</b>
                             <div class="row-fluid show-grid">
                             <div class="span6">
                             <div class="materias">
+                            
                                     <br/>
                                     <div>
                                         <b>Professores:</b><br>
@@ -174,11 +178,12 @@
                             </div>
                             
                         </div>
-                        <form class="spaces" name="form1" action="SelecionarProfessor.php" method="post">
+                        
                             Pesquisar aluno:
                             <fieldset>
                                 <input type="text" name="search" value="" id="id_search" placeholder="Search" autofocus />
                             </fieldset>
+                            
                             <table border="1" id="table_example">
                                 <thead>
                                     <tr>

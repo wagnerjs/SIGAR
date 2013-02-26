@@ -50,7 +50,7 @@
                     <br/>
                     <!--<a href="CadastroProfessor.php"><span class="normal"> Cadastrar Professor</span></a>-->
                     <a href="#"><span class="selected">    Gerenciar Aulas </span></a>
-                    <a href="GerarPdfAulas.php"><span class="normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gerar PDF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+                    <a href="GerarPdfAulas.php"><span class="normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gerar PDF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                     <div class="content">
                         <div class="spaces">
                             Pesquisar aula marcada:
