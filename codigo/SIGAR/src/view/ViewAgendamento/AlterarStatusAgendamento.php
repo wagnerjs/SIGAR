@@ -75,7 +75,7 @@ $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
                             
                             <b>Selecione o novo Status:</b>
                             <br/>
-                            <input name="novoStatus" type="radio" value="Agendado" /> Agendado <br>
+                            <input name="novoStatus" type="radio" value="Agendado" /> Marcado <br>
                             <input name="novoStatus" type="radio" value="Confirmado" /> Confirmado <br>
                             <input name="novoStatus" type="radio" value="Cancelado" /> Cancelado <br>
                             </div>

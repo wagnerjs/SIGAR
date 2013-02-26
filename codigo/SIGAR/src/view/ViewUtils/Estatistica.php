@@ -61,7 +61,7 @@
                                     $numerosAgendamentos = $estatisticaCtrl->selecionarNumeroAgendamentos();
                                     $numerosAgendamentosCancelados = $estatisticaCtrl->selecionarNumeroAgendStatus("Cancelado");
                                     $numerosAgendamentosConfirmados = $estatisticaCtrl->selecionarNumeroAgendStatus("Confirmado");
-                                    $numerosAgendamentosAgendados = $estatisticaCtrl->selecionarNumeroAgendStatus("Agendado");
+                                    $numerosAgendamentosAgendados = $estatisticaCtrl->selecionarNumeroAgendStatus("Marcado");
                                     
                                     $numeroAluno = $estatisticaCtrl->selecionarNumeroAlunos();
                                     $numeroProfessor = $estatisticaCtrl->selecionarNumeroProfessores();
