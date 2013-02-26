@@ -38,7 +38,7 @@ class DAOAgendamento_Test extends PHPUnit_Framework_TestCase{
     $this->horario = "10-12";
     $this->status = "Confirmado";
     $this->materia = "Matematica";
-    $this->conteudo = "";
+    $this->conteudo = "Logaritimo";
     
     $this->agendObj = new Agendamento($this->idAgendamento, $this->idAluno, $this->idProfessor, $this->data, $this->horario, $this->status, $this->materia, $this->conteudo);
     }
