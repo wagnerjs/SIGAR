@@ -30,12 +30,12 @@ $pdf->selectFont($url.'/utils/ezpdf/fonts/Helvetica-Bold.afm'); // Seleciona a f
                 $dataRecebida = $linha['data'];
                 $data = implode("/",array_reverse(explode("-",$dataRecebida)));
                 $dadosTb [] = array(
-			'nomeAluno' => $resultado['nome'],
-                        'nomeProfessor' => $result['nome'],
+			'nomeAluno' => utf8_decode($resultado['nome']),
+                        'nomeProfessor' => utf8_decode($result['nome']),
 			'data' => $data,
                         'horario' => $linha['horario'],
-			'status' => $linha['status'],
-			'conteudo' => $linha['conteudo'],
+			'status' => utf8_decode($linha['status']),
+			'conteudo' => utf8_decode($linha['conteudo']),
 		);
 	}
 

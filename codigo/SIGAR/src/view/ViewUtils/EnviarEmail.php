@@ -1,6 +1,10 @@
 <?php
     $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
     require $url.'/view/ValidaSession.php';
+    require $url.'/controller/EmailCtrl.php';
+    if (isset($_POST['btnEnviar'])) {
+        echo "<script type='text/javascript'>alert('E-mail enviado com sucesso!');</script>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +59,7 @@
                                                 <div id="menu"></div>
                                                 <div id="sample">
                                                     <div id="myArea1" style="width: 300px; height: 280px; border: 1px solid #000;">
-                                                            Digite aqui o e-mail!
+                                                            Digite o conteúdo do e-mail que você deseja enviar!
                                                     </div>
 
                                                     <script src="nicEdit.js" type="text/javascript"></script>
@@ -100,8 +104,18 @@
                                             <input type="hidden" id="tt_selecionadas" name="tt_selecionadas" />
                                             <td align="center">
                                                 <select id="email_disponivel" multiple="multiple" size="11" style="width: 220px; height: 300px;">
-                                                    <?php ?>
-                                                    <option value="lista de emails"> lista de emails </option>
+                                                    <?php 
+                                                    $emailCtrl = new EmailCtrl();
+                                                    $emailCtrl->criarListaEmails();
+                                                    
+                                                    if(@mysql_num_rows($emailCtrl->getResposta())>0){
+                                                        for($i=0; $i<mysql_num_rows($emailCtrl->getResposta());$i++){
+                                                        ?>
+                                                        <option name="emailDisponivel[]" value="<?php echo utf8_encode(mysql_result($emailCtrl->getResposta(),$i,'idPessoa'));?>"> <?php echo utf8_encode(mysql_result($emailCtrl->getResposta(),$i,'email'));?> </option>
+                                                        <?php   
+                                                        }
+                                                    }
+                                                    ?>
                                                 </select>
                                             </td>
                                             <td align="center">
@@ -113,15 +127,16 @@
                                             <td align="center">
                                                 <select id="email_selecionado" multiple="multiple" size="11" style="width: 220px; height: 300px;">
                                                     <?php  ?>
-                                                    <option value=""> emais selecionados </option>
+                                                    <option name="emailSelecionado[]" value=""></option>
                                                 </select>
                                             </td>
                                         </tr>
-                                </table>
+                                    </table>
+                                <input type="submit" name="btnEnviar" value="Enviar" id="cadEnv" />
                             </form>
                         </div>
                     </div>
-                </div>
+                </div>    
             </div>    
         </div>
 </body>

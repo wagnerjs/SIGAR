@@ -58,7 +58,13 @@
         $idAluno = $_POST['idAluno'];
         $status = "Aula agendada";
         //echo $idAluno;
-        $agendamentoCtrl->salvarAgendamento($idAluno, $idProfessor, $data, $horario,$status, $materia, utf8_decode($conteudo));
+        $sucess = $agendamentoCtrl->salvarAgendamento($idAluno, $idProfessor, $data, $horario,$status, $materia, utf8_decode($conteudo));
+        
+        if($sucess){
+            echo "Agendamento realizado com sucesso!";
+            echo "<script type='text/javascript'>alert('Agendamento realizado com sucesso!');</script>";
+        }
+        
         header("location: http://localhost/SIGAR/codigo/SIGAR/src/view/ViewAgendamento/AgendarAula.php");
     }
     ?>
