@@ -40,8 +40,8 @@
         </div>
         <div class="span6">
             <div class="boxMenu">
-                <a href="#"><div><img src="img/icon-graph.png" />  Estatísticas</div></a>
-                <a href="#"><div><img src="img/icon-rh.png" />  Enviar Email</div></a>
+                <a href="ViewUtils/Estatistica.php"><div><img src="img/icon-graph.png" />  Estatísticas</div></a>
+                <a href="ViewUtils/EnviarEmail.php"><div><img src="img/icon-rh.png" />  Enviar Email</div></a>
             </div>
         </div>
     </div>
