@@ -29,7 +29,7 @@ class CrtlAgendamento_Test extends PHPUnit_Framework_TestCase {
         $this->idAluno = 2;
         $this->data = "2030-06-04";
         $this->horario = "21:00-23:00";
-        $this->status = "TESTE";
+        $this->status = "Confirmado";
         $this->diaDaSemana = "segunda";
         $this->materia = "Filosofia";
         $this->conteudo = "Filosofos";
