@@ -31,7 +31,7 @@ $pdf->selectFont($url.'/utils/ezpdf/fonts/Helvetica-Bold.afm'); // Seleciona a f
                 $data = implode("/",array_reverse(explode("-",$dataRecebida)));
                 $dadosTb [] = array(
 			'nomeAluno' => $resultado['nome'],
-                        'idProfessor' => $result['nome'],
+                        'nomeProfessor' => $result['nome'],
 			'data' => $data,
                         'horario' => $linha['horario'],
 			'status' => $linha['status'],
@@ -42,7 +42,7 @@ $pdf->selectFont($url.'/utils/ezpdf/fonts/Helvetica-Bold.afm'); // Seleciona a f
 	//Montando os títulos
 	$titulos = array(
                 'nomeAluno' => '<b>Aluno</b>',
-                'idProfessor' => '<b>ID Professor</b>',
+                'nomeProfessor' => '<b>Professor</b>',
                 'data' => '<b>Data</b>',
                 'horario' => utf8_decode('<b>Horário</b>'),
                 'conteudo' => utf8_decode('<b>Conteúdo</b>'),
@@ -59,7 +59,6 @@ $pdf->selectFont($url.'/utils/ezpdf/fonts/Helvetica-Bold.afm'); // Seleciona a f
 	//'width'=> 600 // tamanho da tabela
 
 	//Configurações do logotipo do relatório
-	//$pdf->addJpegFromFile($url.'/view/img/Logo1.jpg',200,$pdf->y-230,230,0);
 	$options = array('justification'=>'center');
 	$pdf->ezText("<b>Aulas agendadas</b>\n",18,$options);// Define o texto do seu pdf, e o tamanho da fonte;
 	$pdf->ezTable($dadosTb,$titulos,'',$opcoes); //define os dados que irão na tabela, titulos e outras especificacoes

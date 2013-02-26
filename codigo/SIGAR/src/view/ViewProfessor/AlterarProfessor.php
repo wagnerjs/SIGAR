@@ -95,8 +95,8 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="#"><span class="selected">Cadastrar Professor</span></a>
-                    <a href="PesquisaProfessor.php"><span class="normal">Pesquisar Professores</span></a>
+                    <a href="#"><span class="selected"> Cadastrar Professor</span></a>
+                    <a href="PesquisaProfessor.php"><span class="normal"> Pesquisar Professor</span></a>
                     <div class="content">
                          <div>                           
                              <form name="form1" action="AlterarProfessor.php?professorID=<?php echo $idProfessor; ?>" method="post">
