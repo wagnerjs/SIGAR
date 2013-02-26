@@ -10,6 +10,11 @@ input {
     height: 30px;
 }
 
+input.botao
+{
+    border: solid 1px #000000;
+}
+
 select {
     width: 80px;
 }
