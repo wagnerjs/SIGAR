@@ -16,6 +16,7 @@ require_once 'C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/DAO/ProfessorDAO.php';
 class CtrlAlterarProfessor_Test extends PHPUnit_Framework_TestCase {
         
       protected $retorno;
+      protected $professorCtrl;
     
     public function setUp()
     {
@@ -39,8 +40,8 @@ class CtrlAlterarProfessor_Test extends PHPUnit_Framework_TestCase {
         $referenciaProfessor = 'Igreja';
         $materias[0] = 'Fisica';
                 
-        $professorCtrl = new ProfessorCtrl();
-        $this->retorno = $professorCtrl->instanciarAlterarProfessor($idProfessor, utf8_decode($nomeProfessor),
+        $this->professorCtrl = new ProfessorCtrl();
+        $this->retorno = $this->professorCtrl->instanciarAlterarProfessor($idProfessor, utf8_decode($nomeProfessor),
                          $sexoProfessor, $nascProfessor, $emailProfessor, $telResProfessor, $celularProfessor,
                          $cpfProfessor, $cepProfessor, $logradouroProfessor, $numeroCasaProfessor, $complementoProf,
                          $bairoProfessor, $cidadeProfessor, $ufProfessor, $referenciaProfessor, $meioDeTransporte,
@@ -59,6 +60,17 @@ class CtrlAlterarProfessor_Test extends PHPUnit_Framework_TestCase {
         
         $this->assertEquals("Professor alterado com Sucesso", $this->retorno);
     }
+    
+     /*
+     * @test
+     * 
+     * 
+     */
+    
+    public function testeSelecionaIdProf(){
+        $this->assertEquals(1, $this->professorCtrl->selecionarIdProfessor(2));
+    }
+   
 }
 
 ?>
