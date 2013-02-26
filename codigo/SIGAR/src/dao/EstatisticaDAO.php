@@ -42,6 +42,26 @@ class EstatisticaDAO {
         }
         return $resultado;
     }
+    
+    /*
+     * Seleciona o total de Agendamento realizados
+     */
+
+    public function selecionarNumeroAgendStatus($status) {
+        $this->criarConexao();
+
+        $sql = "SELECT count(idAgendamento) NumeroAgendamentos FROM agendamento WHERE status = '$status' ;";
+        $resultadoPesquisa = mysql_query($sql);
+        $resultado = 0;
+
+        while ($aux = mysql_fetch_array($resultadoPesquisa)) {
+            $resultado = $aux['NumeroAgendamentos'];
+        }
+        if (mysql_num_rows($resultadoPesquisa) == 0) {
+            $resultado = 0;
+        }
+        return $resultado;
+    }
 
     /*
      * Seleciona o total de Alunos cadastrados

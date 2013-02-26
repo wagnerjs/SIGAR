@@ -413,6 +413,24 @@ hr {
     border: 2px solid #acccff;
 }
 
+#dispCalendar2 {
+    color: #4d67a6;
+}
+
+#dispCalendar2 th {
+    text-align: center;
+    padding: 15px;
+    /*background-color: #acccff;
+    /*border: 2px solid #d2edf6;*/
+    border: 2px solid #acccff;
+}
+
+#dispCalendar2 td {
+    text-align: center;
+    padding: 15px;
+    border: 2px solid #acccff;
+}
+
 #esconder{
     display: none;
 }

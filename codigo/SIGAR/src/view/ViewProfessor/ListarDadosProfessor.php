@@ -46,7 +46,7 @@
                     <a href="PesquisaProfessor.php"><span class="normal"> Pesquisar Professor</span></a>
                     <div class="content">
                          <div>                           
-                             <form name="form1" action="PesquisaProfessor.php" method="post">
+                             <form class="spaces" name="form1" action="PesquisaProfessor.php" method="post">
                                 <b>Dados do Professor</b>
                                 <hr/>
                                 <div class="row-fluid show-grid">

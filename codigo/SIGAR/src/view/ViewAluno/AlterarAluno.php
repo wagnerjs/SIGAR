@@ -102,7 +102,7 @@
                     <a href="PesquisaAluno.php"><span class="selected">    Pesquisar Aluno  </span></a>
                     <div class="content">
                         <div>                        
-                            <form name="form1" action="AlterarAluno.php?alunoID=<?php echo $idPessoaAluno; ?>" method="post">
+                            <form class="spaces" name="form1" action="AlterarAluno.php?alunoID=<?php echo $idPessoaAluno; ?>" method="post">
                                     <?php echo @$resposta; ?>
                                     <br/>
                                     <b>Dados do Aluno</b>

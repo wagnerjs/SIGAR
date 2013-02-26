@@ -23,6 +23,11 @@ $(document).ready(function(){
         }
     });
     
+    $('#dispCalendar2 td').click(function(){
+         $('#dispCalendar2 td').attr('class', '');
+         $(this).attr('class','selection');
+    });
+    
     $('#cadEnvDisp').click(function(){
        var dia = new Array();
        var horario = new Array();

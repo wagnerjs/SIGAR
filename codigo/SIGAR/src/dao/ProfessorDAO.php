@@ -198,7 +198,6 @@ class ProfessorDAO {
         
         $sql = "INSERT INTO `usuario` (`idUsuario`, `login`, `senha`, `idPessoa`) VALUES
                   (NULL, '" . $user->getLogin() . "', '" . $user->getSenha() . "', '.$idPessoaProfessor.');";
-        echo $sql;
         if (!mysql_query($sql)) {
             echo "Erro na inserção de UsuarioProfessor";
         } else {

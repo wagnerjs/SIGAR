@@ -105,53 +105,6 @@
                     <a href="AgendarAula.php"><span class="selected">      Agendar Aula      </span></a>
                     <!--<a href="#"><span class="selected"> Pesquisar Professor</span></a>-->
                     <div class="content">
-                          Pesquisar aluno:
-                           <form action="#">
-                                <fieldset>
-                                    <input type="text" name="search" value="" id="id_search" placeholder="Search" autofocus />
-                                </fieldset>
-                            </form>
-                        <form class="spaces" name="form1" action="SelecionarProfessor.php" method="post">
-                                                    <table border="1" id="table_example">
-                                <thead>
-                                    <tr>
-                                        <th>Marcar</th>
-                                        <th>Nome</th>
-                                        <th>Email</th>
-                                        <th>Data Nascimento</th>
-                                    </tr>
-                                </thead>
-                                    <tbody>
-                                    <?php
-                                    $AlunoCtrl = new AlunoCrtl();
-                                    
-                                        $AlunoCtrl->listarAlunoAgendamento();
-
-                                    if(@mysql_num_rows($AlunoCtrl->getResposta())>0){
-                                        for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
-                                    ?>
-                                    <tr>
-                                        <td> <input name="idAluno" type="checkbox" value="<?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'idAluno')) ?>" /> </td>
-                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
-                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'email')); ?></td>
-                                        <td><?php $dataAlunoRecebida=utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'dataNascimento'));
-                                                  $dataAluno = implode("/",array_reverse(explode("-",$dataAlunoRecebida)));
-                                                  echo $dataAluno;
-                                                    ?></td>
-                                   </tr>
-                                    <?php
-                                        }
-                                    }
-                                    else{ ?>
-                                        <tr>
-                                             <td colspan="7"><?php echo "<center>Nenhum registro encontrado!</center>" ?></td>   
-                                        </tr>
-                                    <?php
-                                    }
-                                        
-                                    ?>
-                                </tbody>
-                            </table>    
                         <div class="spaces">
                             <b>Selecionar professor:</b>
                             <div class="row-fluid show-grid">
@@ -213,8 +166,55 @@
                             <br/><br/>
                             </div>
                             </div>
-                            <input type="submit" name="btEnviar" value="Enviar" id="cadEnvDisp" />
+                            
                         </div>
+                        <form class="spaces" name="form1" action="SelecionarProfessor.php" method="post">
+                            Pesquisar aluno:
+                            <fieldset>
+                                <input type="text" name="search" value="" id="id_search" placeholder="Search" autofocus />
+                            </fieldset>
+                            <table border="1" id="table_example">
+                                <thead>
+                                    <tr>
+                                        <th>Marcar</th>
+                                        <th>Nome</th>
+                                        <th>Email</th>
+                                        <th>Data Nascimento</th>
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                    <?php
+                                    $AlunoCtrl = new AlunoCrtl();
+                                    
+                                        $AlunoCtrl->listarAlunoAgendamento();
+
+                                    if(@mysql_num_rows($AlunoCtrl->getResposta())>0){
+                                        for($i=0; $i<mysql_num_rows($AlunoCtrl->getResposta());$i++){
+                                    ?>
+                                    <tr>
+                                        <td> <input name="idAluno" type="checkbox" value="<?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'idAluno')) ?>" /> </td>
+                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'nome'));?></a></td>
+                                        <td><?php echo utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'email')); ?></td>
+                                        <td><?php $dataAlunoRecebida=utf8_encode(mysql_result($AlunoCtrl->getResposta(),$i,'dataNascimento'));
+                                                  $dataAluno = implode("/",array_reverse(explode("-",$dataAlunoRecebida)));
+                                                  echo $dataAluno;
+                                                    ?></td>
+                                   </tr>
+                                    <?php
+                                        }
+                                    }
+                                    else{ ?>
+                                        <tr>
+                                             <td colspan="7"><?php echo "<center>Nenhum registro encontrado!</center>" ?></td>   
+                                        </tr>
+                                    <?php
+                                    }
+                                        
+                                    ?>
+                                </tbody>
+                            </table>    
+                        
+                            <input type="submit" name="btEnviar" value="Enviar" id="cadEnvDisp" />
                             </form>
                     </div>
                 </div>

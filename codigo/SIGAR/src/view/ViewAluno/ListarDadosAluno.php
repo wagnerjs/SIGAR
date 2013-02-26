@@ -46,7 +46,7 @@
                     <a href="PesquisaAluno.php"><span class="selected">    Pesquisar Aluno  </span></a>
                     <div class="content">
                         <div>                           
-                            <form name="form1" action="CadastroAluno.php" method="post">
+                            <form class="spaces" name="form1" action="CadastroAluno.php" method="post">
                                     <b>Dados do Aluno</b>
                                     <hr/>
                                     <div class="row-fluid show-grid">

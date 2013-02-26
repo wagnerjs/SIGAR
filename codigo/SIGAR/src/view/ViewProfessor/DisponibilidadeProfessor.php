@@ -83,7 +83,7 @@
                     <a href="PesquisaProfessor.php"><span class="selected"> Pesquisar Professor</span></a>
                     <div class="content">
                         <div class="spaces">
-                            <form id="DispTest" name="form1" action="DisponibilidadeProfessor.php?professorID=<?php echo $idProfessor; ?>" method="post">
+                            <form id="DispTest" name="form1" action="DisponibilidadeProfessor.php?professorID=<?php echo base64_encode(serialize($idProfessor)); ?>" method="post">
                             <?php echo @$res; ?>
                             <b>Disponibilidade do professor <span id="profName"></span></b><br/>
                             Clique nos horários disponíveis deste professor.

@@ -46,38 +46,54 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="CadastroAluno.php"><span class="normal">    Cadastrar Aluno  </span></a>
+                    <a href="../ViewAluno/CadastroAluno.php"><span class="normal">    Cadastrar Aluno  </span></a>
                     <a href="#"><span class="selected">    Pesquisar Aluno  </span></a>
                     <div class="content">
                         <div class="spaces">
-                            Relatório: 
-                            <form action="#">
-                                <fieldset>
-                                    <input type="text" name="search" value="" id="id_search" placeholder="Search" autofocus />
-                                </fieldset>
-                            </form>
                             <table border="1" id="table_example">
                                 <thead>
-                                    <tr>
-                                        <th>Numero de Agendamentos</th>
-                                        <th>Numero de Alunos</th>
-                                        <th>Numero de Profesores</th>
-                                    </tr>
+                                    <th>Descricao</th>
+                                    <th>Dados</th>
                                 </thead>
                                     <tbody>
                                     <?php
                                     $estatisticaCtrl = new EstatisticaCtrl();
                                     
                                     $numerosAgendamentos = $estatisticaCtrl->selecionarNumeroAgendamentos();
+                                    $numerosAgendamentosCancelados = $estatisticaCtrl->selecionarNumeroAgendStatus("Cancelado");
+                                    $numerosAgendamentosConfirmados = $estatisticaCtrl->selecionarNumeroAgendStatus("Confirmado");
+                                    $numerosAgendamentosAgendados = $estatisticaCtrl->selecionarNumeroAgendStatus("Agendado");
+                                    
                                     $numeroAluno = $estatisticaCtrl->selecionarNumeroAlunos();
                                     $numeroProfessor = $estatisticaCtrl->selecionarNumeroProfessores();
                                  
                                     ?>
-                                 <tr>
-                                        <td> <?php echo $numerosAgendamentos ?></td>
+                                   <tr>
+                                        <td>Total de Alunos</td>
                                         <td><?php echo $numeroAluno ?></td>
+                                   </tr>
+                                   <tr>
+                                        <td>Total de Professores</td>
                                         <td><?php echo $numeroProfessor ?></td>
-                                 </tr>
+                                   </tr>
+                                   <tr>
+                                        <td>Total de Agendamentos</td>
+                                        <td> <?php echo $numerosAgendamentos ?></td>
+                                   </tr>
+                                   <tr>
+                                        <td>&nbsp&nbsp&nbsp&nbsp Agendamentos Pendentes</td>
+                                        <td> <?php echo $numerosAgendamentosAgendados ?></td>
+                                   </tr>
+                                   <tr>
+                                        <td>&nbsp&nbsp&nbsp&nbsp Agendamentos Confirmados</td>
+                                        <td> <?php echo $numerosAgendamentosConfirmados ?></td>
+                                   </tr>
+                                    <tr>
+                                        <td>&nbsp&nbsp&nbsp&nbsp Agendamentos Cancelados</td>
+                                        <td> <?php echo $numerosAgendamentosCancelados ?></td>
+                                   </tr>
+                                  
+                                   
                                 </tbody>
                             </table>
                         </div>
