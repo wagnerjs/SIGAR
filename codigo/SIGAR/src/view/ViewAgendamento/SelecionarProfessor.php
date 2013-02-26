@@ -57,7 +57,7 @@
         $idProfessor = $_POST['professor'];
         $horario = $_POST['horario'];
         $idAluno = $_POST['idAluno'];
-        $status = "Aula agendada";
+        $status = "Marcado";
         //echo $idAluno;
         $sucess = $agendamentoCtrl->salvarAgendamento($idAluno, $idProfessor, $data, $horario,$status, $materia, utf8_decode($conteudo));
         

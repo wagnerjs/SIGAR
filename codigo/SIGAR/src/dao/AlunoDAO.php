@@ -77,7 +77,7 @@ class AlunoDAO {
             FROM  `pessoa` ,  `aluno` ,  `usuario` 
             WHERE  `aluno`.`idUsuario` =  `usuario`.`idUsuario` 
             AND  `usuario`.`idPessoa` =  `pessoa`.`idPessoa` 
-            LIMIT 0,5 ";
+             ";
 
         $res = mysql_query($sql);
 
