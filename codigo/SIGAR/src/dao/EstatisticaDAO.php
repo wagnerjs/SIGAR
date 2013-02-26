@@ -1,5 +1,7 @@
 <?php
 
+require_once "C:/xampp/htdocs/SIGAR/codigo/SIGAR/src/utils/Conexao.class.php";
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -12,8 +14,15 @@
  */
 class EstatisticaDAO {
 
-    //put your code here
+    
+   protected $obj_conecta;
 
+    public function criarConexao() {
+        $this->obj_conecta = new bd();
+        $this->obj_conecta->conecta();
+        $this->obj_conecta->seleciona_bd();
+    }
+    
     /*
      * Seleciona o total de Agendamento realizados
      */
