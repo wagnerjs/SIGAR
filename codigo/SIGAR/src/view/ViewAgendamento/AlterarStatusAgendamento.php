@@ -56,7 +56,7 @@ $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="GerenciarAulasMarcadas.php"><span class="selected">                Gerenciar Aulas        </span></a>
+                    <a href="GerenciarAulasMarcadas.php"><span class="selected">    Gerenciar Aulas       </span></a>
                     <!--<a href="#"><span class="selected"> Pesquisar Professor</span></a>-->
                     <div class="content">
                         <form id="DispTest" class="spaces" name="form1" action="AlterarStatusAgendamento.php?idAgendamento=<?php echo $idAgendamento; ?>" method="post">
