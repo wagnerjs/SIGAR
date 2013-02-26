@@ -99,9 +99,8 @@
                     <a href="PesquisaProfessor.php"><span class="normal"> Pesquisar Professor</span></a>
                     <div class="content">
                          <div>                           
-                             <form name="form1" action="AlterarProfessor.php?professorID=<?php echo $idProfessor; ?>" method="post">
-                                <?php echo @$resposta; ?><br/><br/>
-                                <br/><br/>
+                             <form class="spaces" name="form1" action="AlterarProfessor.php?professorID=<?php echo $idProfessor; ?>" method="post">
+                                <?php echo @$resposta; ?>
                                 <b>Dados do Professor</b>
                                 <hr/>
                                 <div class="row-fluid show-grid">

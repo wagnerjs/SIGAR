@@ -87,7 +87,7 @@
                             <br/><br/>
                             <b>Selecione os horários desejados:</b>
                             <div class="calendario2">
-                                <table id="dispCalendar">
+                                <table id="dispCalendar2">
                                     <tbody>
                                         <tr>
                                             <td>08:00-09:00</td>

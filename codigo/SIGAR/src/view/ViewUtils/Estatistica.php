@@ -46,14 +46,11 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="CadastroAluno.php"><span class="normal">    Cadastrar Aluno  </span></a>
+                    <a href="../ViewAluno/CadastroAluno.php"><span class="normal">    Cadastrar Aluno  </span></a>
                     <a href="#"><span class="selected">    Pesquisar Aluno  </span></a>
                     <div class="content">
                         <div class="spaces">
                             <table border="1" id="table_example">
-                                <thead>
-                                    <th colspan="2">Relatório</th>
-                                </thead>
                                 <thead>
                                     <th>Descricao</th>
                                     <th>Dados</th>
