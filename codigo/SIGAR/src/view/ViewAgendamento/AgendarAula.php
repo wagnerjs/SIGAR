@@ -4,10 +4,22 @@
     require_once $url.'/controller/ProfessorCtrl.php';
     $dia = array();
     $horarios = array();
+    
+    @$resposta = $_GET['resposta'];
+    $sucess=0;
+    if($resposta == NULL){
+        $sucess = 1;
+    }elseif($resposta >0){
+        $sucess =2;    
+    }elseif($resposta == ""){
+        $sucess = 3;
+    }
+        
     if (isset($_POST['btnEnviar'])) {
         $_POST['materia'];
         $_POST['user_date'];        
     }
+    
     
 ?>
 <!DOCTYPE html>
@@ -54,6 +66,16 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
+                    <?php
+                    if($sucess == 3){
+                        echo "";
+                    }elseif($sucess == 2){
+                        echo "<script type='text/javascript'>alert('Aula agendada com sucesso!');</script>";
+                    }elseif($sucess == 1){
+                        echo "<script type='text/javascript'>alert('Erro agendamento!');</script>";
+                        
+                    }
+                    ?>
                     <a href="AgendarAula.php"><span class="selected">      Agendar Aula      </span></a>
                     <!--<a href="#"><span class="selected"> Pesquisar Professor</span></a>-->
                     <div class="content">
