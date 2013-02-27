@@ -12,7 +12,7 @@
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Pesquisar Aluno</title>
+  <title>Estatísticas</title>
   <meta name="description" content="" />
 
   <meta name="viewport" content="width=device-width; initial-scale=1.0" />
@@ -46,7 +46,7 @@
             <div id="sysBox">
                 <div class="inner">
                     <br/>
-                    <a href="../ViewUtils/Estatistica.php"><span class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    Estatística  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+                    <a href="../ViewUtils/Estatistica.php"><span class="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Estatísticas  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                     <div class="content">
                         <div class="spaces">
                             <table border="1" id="table_example">

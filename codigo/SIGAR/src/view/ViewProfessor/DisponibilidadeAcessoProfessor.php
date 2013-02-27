@@ -21,14 +21,14 @@
          
         
         if($tam)
-            $res = "<font color=green><b>Disponibilidade Cadastrado com sucesso!</b></font><br/>";
+            $res = "<font color=green><b>Disponibilidade alterada com sucesso!</b></font><br/>";
         else
-            $res = "<font color=red><b>Disponibilidade não! Cadastrado com sucesso!</b></font><br/>";
+            $res = "<font color=red><b>Disponibilidade não foi alterada com sucesso!</b></font><br/>";
         
-        if ($res == "<font color=green><b>Disponibilidade Cadastrado com sucesso!</b></font><br/>")
-            echo "<script type='text/javascript'>alert('Disponibilidade Cadastrado com sucesso!');</script>";
+        if ($res == "<font color=green><b>Disponibilidade alterada com sucesso!</b></font><br/>")
+            echo "<script type='text/javascript'>alert('Disponibilidade alterada com sucesso!');</script>";
         else
-            echo "<script type='text/javascript'>alert('Erro na realização do cadastro!');</script>";
+            echo "<script type='text/javascript'>alert('Erro na realização da alteração!');</script>";
         
         //print_r($_horario);
         
@@ -45,7 +45,7 @@
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Pesquisar Professor</title>
+  <title>Disponibilidade do Professor</title>
   <meta name="description" content="" />
 
   <meta name="viewport" content="width=device-width; initial-scale=1.0" />
