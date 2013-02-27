@@ -7,9 +7,35 @@ $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
     $idAgendamento = $_GET['idAgendamento'];
     
       if (isset($_POST['btnEnviar'])) {
+        $agendamentoCtrl->listarAgendamentoEspec($idAgendamento);
+        $agedamentoAtual = utf8_encode(mysql_result($agendamentoCtrl->getRes(),0,'status'));
         $novoStatus = $_POST['novoStatus'];
-        $agendamentoCtrl->alterarStatus($idAgendamento, $novoStatus);
-        echo "<script type='text/javascript'>alert('Status alterado com sucesso!');</script>";
+        
+        if($agedamentoAtual==$novoStatus)
+            echo "<script type='text/javascript'>alert('O status atual já é o desejado!');</script>";
+        
+        if($agedamentoAtual=="Marcado" && $novoStatus=="Cancelado"){
+             $agendamentoCtrl->alterarStatus($idAgendamento, $novoStatus);
+             echo "<script type='text/javascript'>alert('Status alterado com sucesso!');</script>";
+        }   
+        if($agedamentoAtual=="Marcado" && $novoStatus=="Confirmado"){
+            $agendamentoCtrl->alterarStatus($idAgendamento, $novoStatus);
+            echo "<script type='text/javascript'>alert('Status alterado com sucesso!');</script>";
+        }
+        if($agedamentoAtual=="Confirmado" && $novoStatus=="Cancelado"){
+            $agendamentoCtrl->alterarStatus($idAgendamento, $novoStatus);
+            echo "<script type='text/javascript'>alert('Status alterado com sucesso!');</script>";
+        }
+        if($agedamentoAtual=="Confirmado" && $novoStatus=="Marcado"){
+            echo "<script type='text/javascript'>alert('Você não pode alterar o Status atual para (Marcado)!');</script>";
+        }
+        if($agedamentoAtual=="Cancelado" && $novoStatus=="Marcado"){
+            echo "<script type='text/javascript'>alert('Você não pode alterar o Status atual para (Marcado)!');</script>";
+        }
+        if($agedamentoAtual=="Cancelado" && $novoStatus=="Confirmado"){
+            echo "<script type='text/javascript'>alert('Você não pode alterar o Status atual para (Confirmado)!');</script>";
+        }
+        
         
     }
 ?>
@@ -75,7 +101,7 @@ $url = $_SERVER['DOCUMENT_ROOT'] . "/SIGAR/codigo/SIGAR/src";
                             
                             <b>Selecione o novo Status:</b>
                             <br/>
-                            <input name="novoStatus" type="radio" value="Agendado" /> Marcado <br>
+                            <input name="novoStatus" type="radio" value="Marcado" /> Marcado <br>
                             <input name="novoStatus" type="radio" value="Confirmado" /> Confirmado <br>
                             <input name="novoStatus" type="radio" value="Cancelado" /> Cancelado <br>
                             </div>
